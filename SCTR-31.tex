@@ -13,23 +13,23 @@
 
 \begin{document}
 
-\def\milestoneName{M2 Functional Re-Verification And Sal V4.0 Interface Verification}
-\def\milestoneId{LVV-P66}
+\def\milestoneName{Ccw Functional Re-Verification}
+\def\milestoneId{LVV-P64}
 \def\product{SIT-COM Integration}
 
 \setDocCompact{true}
 
-\title{ LVV-P66 M2 Functional Re-Verification And Sal V4.0 Interface Verification Test Plan and Report}
+\title{ LVV-P64 Ccw Functional Re-Verification Test Plan and Report}
 \setDocRef{\lsstDocType-\lsstDocNum}
 \date{\vcsdate}
 \setDocUpstreamLocation{\url{https://github.com/lsst/lsst-texmf/examples}}
-\author{ Bo Xin }
+\author{ Austin Roberts }
 
 \input history_and_info.tex
 
 
 \setDocAbstract{
-This is the test plan and report for LVV-P66 (M2 Functional Re-Verification And Sal V4.0 Interface Verification),
+This is the test plan and report for LVV-P64 (Ccw Functional Re-Verification),
 an LSST milestone pertaining to the System Engineering Subsystem.
 }
 
@@ -43,37 +43,51 @@ an LSST milestone pertaining to the System Engineering Subsystem.
 \subsection{Objectives}
 \label{sect:objectives}
 
- The objective of this test plan is two-fold:
+ The objective of this test plan is to re-verify the functional
+requirements of the Camera Cable Wrap's hardware and software, after
+shipment from the vendors facility to the Summit, as defined in \citeds{LTS-218}.
+This test campaign will only exercise the functionality that was
+executed previously and meets the following criteria:
 
 \begin{itemize}
 \tightlist
 \item
-  to re-verify M2 software after M2 delivery to the summit and SAL
-  version upgrade to 4.0. Make sure all events, and telemetry are
-  recorded in the summit EFD. (we are not ready to command M2 via SAL
-  yet)
+  Only requires the CCW to be operable
 \item
-  run M2 performance tests. Make sure performance requirements in
-  \citeds{LTS-146} are met.
+  Only requires the vendors EUI software and hardware via local control
+\item
+  Only requires a laser tracker
+\item
+  Does \textbf{NOT} require the Camera Rotator to be loaded with the
+  camera simulated mass or actual camera hardware
 \end{itemize}
+
+The hardware functional requirements were previously verified during the
+test campaign by the vendor at the vendors facility and accepted by LSST
+during the Factory Acceptance Test
+review.\\[2\baselineskip]\textbf{NOTE:~} This re-verification is the
+responsibility of the vendor. This Test Plan and Report is to capture
+this event and it's results utilizing the LSST Verification
+Architecture, but may not have detailed test steps defined in the Test
+Cases of this test campaign.
 
 
 
 \subsection{System Overview}
 \label{sect:systemoverview}
 
- M2 surrogate is attached to the mirror cell. M2 control software has
-been upgraded to work with SAL4.0.
+ The primary function of the Camera Cable Wrap is to rotate in a
+synchronous fashion with the Camera Rotator to prevent the utilities
+from getting damaged.
 
 
 \subsection{Document Overview}
 \label{sect:docoverview}
 
 This document was generated from Jira, obtaining the relevant information from the 
-\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testPlan/LVV-P66}{LVV-P66}
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testPlan/LVV-P64}{LVV-P64}
 ~Jira Test Plan and related Test Cycles (
-  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCycle/LVV-C118}{LVV-C118}
-  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCycle/LVV-C148}{LVV-C148}
+  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCycle/LVV-C112}{LVV-C112}
 ).
 
 Section \ref{sect:intro} provides an overview of the test campaign, the system under test (\product{}), the applicable documentation, and explains how this document is organized.
@@ -84,7 +98,7 @@ Section \ref{sect:personnel} describes the necessary roles and lists the individ
 Section \ref{sect:overview} provides a summary of the test results, including an overview in Table \ref{table:summary}, an overall assessment statement and suggestions for possible improvements.
 Section \ref{sect:detailedtestresults} provides detailed results for each step in each test case.
 
-The current status of test plan LVV-P66 in Jira is \textbf{ Draft }.
+The current status of test plan LVV-P64 in Jira is \textbf{ Approved }.
 
 \subsection{References}
 \label{sect:references}
@@ -99,35 +113,41 @@ The current status of test plan LVV-P66 in Jira is \textbf{ Draft }.
 
 \subsection{Verification Environment}
 \label{sect:hwconf}
-  M2 will be verified in a climate controlled environment on the summit
-3rd floor
+   The Camera Cable Wrap will be verified in a climate controlled
+environment on the 3rd floor of the Summit Facility integrated with the
+Camera Rotator on the Camera Cart.
+
 
   \subsection{Entry Criteria}
-  In order to run these tests, the following criteria must be met first:\\
+   In order to test the Camera Cable Wrap functionality, the following
+criteria must be met first:
 
 \begin{itemize}
 \tightlist
 \item
   All utilities and electrical connections are hooked up and allow the
-  M2 to be powered on and controlled
+  Camera Cable Wrap to be powered on and controlled
 \item
   The EFD must be set up to be able to store events and telemetry data
 \end{itemize}
 
+
   \subsection{Exit Criteria}
-  In order for this event to be considered complete, the following
+   In order for this event to be considered complete, the following
 criteria must be met:
 
 \begin{itemize}
 \tightlist
 \item
-  Raw test data, events, and telemetry have been saved for M2 in the
-  Summit EFD.
+  Raw test data, events, and telemetry have been saved for the Camera
+  Cable Wrap.
 \item
   All test data has been analyzed and post processed.
 \item
-  All test steps have been statused in the Jira Test Cases within this
-  Test Plan and actual results populated as required.
+  The vendor has produced and provided LSST with a Test Report detailing
+  all findings.
+\item
+  The vendor's Test Report has been attached to this Test Plan.
 \item
   A summary of the results of the test campaign has been captured in the
   Overall Assessment and Recommended Improvements fields of this Test
@@ -142,8 +162,7 @@ criteria must be met:
   project
 \end{itemize}
 
-  \subsection{PMCS Activity}
-  See Epics in Traceability Tab
+
 
 \newpage
 \section{Personnel}
@@ -153,193 +172,36 @@ The personnel involved in the test campaign is shown in the following table.
 
 \begin{longtable}{p{3cm}p{3cm}p{3cm}p{6cm}}
 \hline
-\multicolumn{2}{r}{Test Plan (LVV-P66) owner:} &
-\multicolumn{2}{l}{\textbf{ Bo Xin } }\\\hline
-\multicolumn{2}{r}{ LVV-C118 owner:} &
+\multicolumn{2}{r}{Test Plan (LVV-P64) owner:} &
+\multicolumn{2}{l}{\textbf{ Austin Roberts } }\\\hline
+\multicolumn{2}{r}{ LVV-C112 owner:} &
 \multicolumn{2}{l}{\textbf{
-    Austin Roberts
+    Undefined
 }
 } \\\hline
 \textbf{Test Case} & \textbf{Assigned to} & \textbf{Executed by} & \textbf{Additional Test Personnel} \\ \hline
-\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1799}{LVV-T1799}
-& {\small Bo Xin } & {\small  } &
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1590}{LVV-T1590}
+& {\small Kevin Siruno } & {\small Kevin Siruno } &
 \begin{minipage}[]{6cm}
 \smallskip
-{\small  }
-\medskip
-\end{minipage}
-\\ \hline
-\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1798}{LVV-T1798}
-& {\small Bo Xin } & {\small  } &
-\begin{minipage}[]{6cm}
-\smallskip
-{\small  }
-\medskip
-\end{minipage}
-\\ \hline
-\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1784}{LVV-T1784}
-& {\small Bo Xin } & {\small  } &
-\begin{minipage}[]{6cm}
-\smallskip
-{\small  }
-\medskip
-\end{minipage}
-\\ \hline
-\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1790}{LVV-T1790}
-& {\small Bo Xin } & {\small  } &
-\begin{minipage}[]{6cm}
-\smallskip
-{\small  }
-\medskip
-\end{minipage}
-\\ \hline
-\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1788}{LVV-T1788}
-& {\small Bo Xin } & {\small  } &
-\begin{minipage}[]{6cm}
-\smallskip
-{\small  }
-\medskip
-\end{minipage}
-\\ \hline
-\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1789}{LVV-T1789}
-& {\small Bo Xin } & {\small  } &
-\begin{minipage}[]{6cm}
-\smallskip
-{\small  }
-\medskip
-\end{minipage}
-\\ \hline
-\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1791}{LVV-T1791}
-& {\small Bo Xin } & {\small  } &
-\begin{minipage}[]{6cm}
-\smallskip
-{\small  }
-\medskip
-\end{minipage}
-\\ \hline
-\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1785}{LVV-T1785}
-& {\small Bo Xin } & {\small  } &
-\begin{minipage}[]{6cm}
-\smallskip
-{\small  }
-\medskip
-\end{minipage}
-\\ \hline
-\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1786}{LVV-T1786}
-& {\small Bo Xin } & {\small  } &
-\begin{minipage}[]{6cm}
-\smallskip
-{\small  }
-\medskip
-\end{minipage}
-\\ \hline
-\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1787}{LVV-T1787}
-& {\small Bo Xin } & {\small  } &
-\begin{minipage}[]{6cm}
-\smallskip
-{\small  }
-\medskip
-\end{minipage}
-\\ \hline
-\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1793}{LVV-T1793}
-& {\small Bo Xin } & {\small  } &
-\begin{minipage}[]{6cm}
-\smallskip
-{\small  }
-\medskip
-\end{minipage}
-\\ \hline
-\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1794}{LVV-T1794}
-& {\small Bo Xin } & {\small  } &
-\begin{minipage}[]{6cm}
-\smallskip
-{\small  }
-\medskip
-\end{minipage}
-\\ \hline
-\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1797}{LVV-T1797}
-& {\small Bo Xin } & {\small  } &
-\begin{minipage}[]{6cm}
-\smallskip
-{\small  }
-\medskip
-\end{minipage}
-\\ \hline
-\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1796}{LVV-T1796}
-& {\small Bo Xin } & {\small  } &
-\begin{minipage}[]{6cm}
-\smallskip
-{\small  }
-\medskip
-\end{minipage}
-\\ \hline
-\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1795}{LVV-T1795}
-& {\small Bo Xin } & {\small  } &
-\begin{minipage}[]{6cm}
-\smallskip
-{\small  }
-\medskip
-\end{minipage}
-\\ \hline
-\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1782}{LVV-T1782}
-& {\small Bo Xin } & {\small  } &
-\begin{minipage}[]{6cm}
-\smallskip
-{\small  }
-\medskip
-\end{minipage}
-\\ \hline
-\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1783}{LVV-T1783}
-& {\small Bo Xin } & {\small  } &
-\begin{minipage}[]{6cm}
-\smallskip
-{\small  }
-\medskip
-\end{minipage}
-\\ \hline
-\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1792}{LVV-T1792}
-& {\small Bo Xin } & {\small  } &
-\begin{minipage}[]{6cm}
-\smallskip
-{\small  }
-\medskip
-\end{minipage}
-\\ \hline
-\multicolumn{2}{r}{ LVV-C148 owner:} &
-\multicolumn{2}{l}{\textbf{
-    Austin Roberts
-}
-} \\\hline
-\textbf{Test Case} & \textbf{Assigned to} & \textbf{Executed by} & \textbf{Additional Test Personnel} \\ \hline
-\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1803}{LVV-T1803}
-& {\small Austin Roberts } & {\small  } &
-\begin{minipage}[]{6cm}
-\smallskip
-{\small  }
-\medskip
-\end{minipage}
-\\ \hline
-\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1615}{LVV-T1615}
-& {\small Austin Roberts } & {\small  } &
-\begin{minipage}[]{6cm}
-\smallskip
-{\small  }
-\medskip
-\end{minipage}
-\\ \hline
-\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1613}{LVV-T1613}
-& {\small Austin Roberts } & {\small  } &
-\begin{minipage}[]{6cm}
-\smallskip
-{\small  }
-\medskip
-\end{minipage}
-\\ \hline
-\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1614}{LVV-T1614}
-& {\small Austin Roberts } & {\small  } &
-\begin{minipage}[]{6cm}
-\smallskip
-{\small  }
+{\small  Tekniker Personnel
+
+\begin{itemize}
+\tightlist
+\item
+  Julen Garcia
+\item
+  Alberto Izpizua
+\end{itemize}
+
+LSST Personnel
+
+\begin{itemize}
+\tightlist
+\item
+  Andrew Heyer
+\end{itemize}
+ }
 \medskip
 \end{minipage}
 \\ \hline
@@ -355,208 +217,16 @@ The personnel involved in the test campaign is shown in the following table.
 
 \begin{longtable}{p{2cm}p{2.5cm}p{9cm}p{2.5cm}}
 \toprule
-\multicolumn{3}{p{13.5cm}}{ Test Plan {\bf LVV-P66: M2 Functional Re-verification and SAL v4.0 Interface Verification }} & Draft \\\hline
+\multicolumn{3}{l}{ Test Plan {\bf LVV-P64:  CCW Functional Re-verification
+ }} & Approved \\\hline
 
-  \multicolumn{3}{p{13.5cm}}{ Test Cycle {\bf LVV-C118: M2 Informal Functional Testing and SAL v4.0 Integration }} & Not Executed \\\hline
-
-  {\bf \footnotesize test case} & {\bf \footnotesize status} & {\bf \footnotesize comment} & {\bf \footnotesize issues} \\\toprule
-
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1799}{LVV-T1799}
-    & Not Executed &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    
-    \medskip
-    \end{minipage}
-    &
-    \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1798}{LVV-T1798}
-    & Not Executed &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    
-    \medskip
-    \end{minipage}
-    &
-    \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1784}{LVV-T1784}
-    & Not Executed &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    
-    \medskip
-    \end{minipage}
-    &
-    \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1790}{LVV-T1790}
-    & Not Executed &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    
-    \medskip
-    \end{minipage}
-    &
-    \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1788}{LVV-T1788}
-    & Not Executed &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    
-    \medskip
-    \end{minipage}
-    &
-    \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1789}{LVV-T1789}
-    & Not Executed &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    
-    \medskip
-    \end{minipage}
-    &
-    \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1791}{LVV-T1791}
-    & Not Executed &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    
-    \medskip
-    \end{minipage}
-    &
-    \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1785}{LVV-T1785}
-    & Not Executed &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    
-    \medskip
-    \end{minipage}
-    &
-    \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1786}{LVV-T1786}
-    & Not Executed &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    
-    \medskip
-    \end{minipage}
-    &
-    \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1787}{LVV-T1787}
-    & Not Executed &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    
-    \medskip
-    \end{minipage}
-    &
-    \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1793}{LVV-T1793}
-    & Not Executed &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    
-    \medskip
-    \end{minipage}
-    &
-    \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1794}{LVV-T1794}
-    & Not Executed &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    
-    \medskip
-    \end{minipage}
-    &
-    \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1797}{LVV-T1797}
-    & Not Executed &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    
-    \medskip
-    \end{minipage}
-    &
-    \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1796}{LVV-T1796}
-    & Not Executed &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    
-    \medskip
-    \end{minipage}
-    &
-    \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1795}{LVV-T1795}
-    & Not Executed &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    
-    \medskip
-    \end{minipage}
-    &
-    \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1782}{LVV-T1782}
-    & Not Executed &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    
-    \medskip
-    \end{minipage}
-    &
-    \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1783}{LVV-T1783}
-    & Not Executed &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    
-    \medskip
-    \end{minipage}
-    &
-    \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1792}{LVV-T1792}
-    & Not Executed &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    
-    \medskip
-    \end{minipage}
-    &
-    \\\hline
-
-  \multicolumn{3}{p{13.5cm}}{ Test Cycle {\bf LVV-C148: M2 Formal Functional Re-Verification and SAL v4.0 Integration }} & Not Executed \\\hline
+  \multicolumn{3}{l}{ Test Cycle {\bf LVV-C112:  CCW Functional Re-verificaiton
+ }} & In Progress \\\hline
 
   {\bf \footnotesize test case} & {\bf \footnotesize status} & {\bf \footnotesize comment} & {\bf \footnotesize issues} \\\toprule
 
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1803}{LVV-T1803}
-    & Not Executed &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    
-    \medskip
-    \end{minipage}
-    &
-    \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1615}{LVV-T1615}
-    & Not Executed &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    
-    \medskip
-    \end{minipage}
-    &
-    \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1613}{LVV-T1613}
-    & Not Executed &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    
-    \medskip
-    \end{minipage}
-    &
-    \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1614}{LVV-T1614}
-    & Not Executed &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1590}{LVV-T1590}
+    & In Progress &
     \begin{minipage}[]{9cm}
     \smallskip
     
@@ -582,17 +252,18 @@ Not yet available.
 \section{Detailed Test Results}
 \label{sect:detailedtestresults}
 
-\subsection{Test Cycle LVV-C118 }
+\subsection{Test Cycle LVV-C112 }
 
-Open test cycle {\it \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testrun/LVV-C118}{M2 Informal Functional Testing and SAL v4.0 Integration}} in Jira.
+Open test cycle {\it \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testrun/LVV-C112}{ CCW Functional Re-verificaiton
+}} in Jira.
 
-M2 Informal Functional Testing and SAL v4.0 Integration\\
-Status: Not Executed
+ CCW Functional Re-verificaiton
+\\
+Status: In Progress
 
-The purpose of this informal test cycle is to run some basic functional
-and software tests to gain an understanding of how the software performs
-and what development is required for the CSC to properly integrate with
-SAL v4.0.
+ This purpose of this test cycle is to run initial tests on the summit to
+re-verify the CCW as previously tested at the vendor's facility.
+
 
 \subsubsection{Software Version/Baseline}
 Not provided.
@@ -600,19 +271,64 @@ Not provided.
 \subsubsection{Configuration}
 Not provided.
 
-\subsubsection{Test Cases in LVV-C118 Test Cycle}
+\subsubsection{Test Cases in LVV-C112 Test Cycle}
 
-\paragraph{Test Case LVV-T1799 - M2 E-stop }\mbox{}\\
+\paragraph{Test Case LVV-T1590 -  CCW Functional Re-verification
+ }\mbox{}\\
 
-Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1799}{\textit{ LVV-T1799 } }
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1590}{\textit{ LVV-T1590 } }
 test case in Jira.
 
+ The purpose of this test case is to re-verify the functional
+requirements of the CCW, after shipment from the vendor's facility to
+the Summit, as defined by \citeds{LTS-218}. This test campaign will only exercise
+the functionality that was previously executed and meets the following
+criteria:
+
+\begin{itemize}
+\tightlist
+\item
+  Only requires the CCW Utility (electric, network \& software) to be
+  hooked up
+\item
+  Only requires a HHD to control the EUI
+\item
+  Does require connection to SAL
+\item
+  Does \textbf{NOT} require to be connected to the actual camera
+  hardware or have any camera simulated mass installed
+\end{itemize}
+
+The functional requirements were previously verified during the test
+campaign by the vendor at their facility and accepted by LSST during the
+Factory Acceptance Test review. This test case will execute the
+procedures that the vendor used to obtain the results of the previous
+tests. The test steps of this test case call to test children test cases
+that contain the procedural documents including the \emph{Bosch Task
+Testing Plan, TMA - Commanding through the EUI - CCW Tests, CCW - Bosch
+Power Supply Task Testing Plan~}and the \emph{CCW Aux Temperature
+Control Task Testing Plan.}\\[2\baselineskip]
 
 
 \textbf{ Preconditions}:\\
+ Prior to the execution of this test case to re-verify the Camera Cable
+wrap functional requirements, the following Summit tasks must be
+completed:
+
+\begin{itemize}
+\tightlist
+\item
+  The Integrator and CCW have been installed on the Camera Cart
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \url{https://jira.lsstcorp.org/browse/SUMMIT-2156}
+  \end{itemize}
+\end{itemize}
 
 
-Execution status: {\bf Not Executed }
+Execution status: {\bf In Progress }
 
 Final comment:\\
 
@@ -625,6 +341,8 @@ Detailed steps results:
 1 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
+Follow BoschTask\_1 (\textbf{Init Subsystem}) in the attached
+\emph{BoschTaskTestingPlan,~}Page 3.
 
 \medskip }
 \end{minipage}
@@ -633,6 +351,8 @@ Detailed steps results:
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+The motorID telemetry section displays the actual telemetry of the
+specified MotorID.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -645,31 +365,11 @@ Detailed steps results:
 
  & Status: \textbf{ Not Executed } \\ \hline
 
-\end{longtable}
-
-\paragraph{Test Case LVV-T1798 - verify M2 SAL4.0 telemetry against EUI display and output binary files }\mbox{}\\
-
-Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1798}{\textit{ LVV-T1798 } }
-test case in Jira.
-
-
-
-\textbf{ Preconditions}:\\
-
-
-Execution status: {\bf Not Executed }
-
-Final comment:\\
-
-
-Detailed steps results:
-
-\begin{longtable}{p{1cm}p{15cm}}
-\hline
-{Step} & Step Details\\ \hline
-1 & Description \\
+2 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
+Follow BoschTask\_2 (\textbf{Power On}) in the attached
+\emph{BoschTaskTestingPlan,~}Page 3.
 
 \medskip }
 \end{minipage}
@@ -678,6 +378,23 @@ Detailed steps results:
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The MotorID telemetry section displays Standstill for the status.
+\item
+  {A Done event is received at the Triggers section, this area
+  displays:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    {DoneTime = the time when the done event was received; check that is
+    close to the current time.}
+  \item
+    {Done\# increments its value by one.}
+  \end{itemize}
+\end{itemize}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -690,31 +407,11 @@ Detailed steps results:
 
  & Status: \textbf{ Not Executed } \\ \hline
 
-\end{longtable}
-
-\paragraph{Test Case LVV-T1784 - M2 actuator No back driving }\mbox{}\\
-
-Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1784}{\textit{ LVV-T1784 } }
-test case in Jira.
-
-
-
-\textbf{ Preconditions}:\\
-
-
-Execution status: {\bf Not Executed }
-
-Final comment:\\
-
-
-Detailed steps results:
-
-\begin{longtable}{p{1cm}p{15cm}}
-\hline
-{Step} & Step Details\\ \hline
-1 & Description \\
+3 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
+Follow BoschTask\_3 (\textbf{Move}) in the attached
+\emph{BoschTaskTestingPlan,~}Page 3-4.
 
 \medskip }
 \end{minipage}
@@ -723,6 +420,31 @@ Detailed steps results:
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The MotorID telemetry section displays Standstill for the status.
+\item
+  {A Done event is received at the Triggers section, this area
+  displays:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    {DoneTime the time when the done event was received; check that is
+    close to the current time.}
+  \item
+    {Done\# increments its value by one.}
+  \end{itemize}
+\item
+  {The final position matches the specified one in step 2:}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    {Position: \ldots{}\ldots{}.}
+  \end{itemize}
+\end{itemize}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -735,32 +457,11 @@ Detailed steps results:
 
  & Status: \textbf{ Not Executed } \\ \hline
 
-\end{longtable}
-
-\paragraph{Test Case LVV-T1790 - M2 actuator bump test }\mbox{}\\
-
-Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1790}{\textit{ LVV-T1790 } }
-test case in Jira.
-
-make sure all actuators are alive\\
-check force accuracy/repeatability/stability
-
-\textbf{ Preconditions}:\\
-
-
-Execution status: {\bf Not Executed }
-
-Final comment:\\
-
-
-Detailed steps results:
-
-\begin{longtable}{p{1cm}p{15cm}}
-\hline
-{Step} & Step Details\\ \hline
-1 & Description \\
+4 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
+Follow BoschTask\_4 (\textbf{MoveVelocity}) in the attached
+\emph{BoschTaskTestingPlan,~}Page 4-5.
 
 \medskip }
 \end{minipage}
@@ -769,6 +470,13 @@ Detailed steps results:
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The MotorID telemetry section displays Standstill for the status.
+\item
+  The Done\# incremented by 2 its value.
+\end{itemize}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -781,31 +489,11 @@ Detailed steps results:
 
  & Status: \textbf{ Not Executed } \\ \hline
 
-\end{longtable}
-
-\paragraph{Test Case LVV-T1788 - M2 bending modes }\mbox{}\\
-
-Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1788}{\textit{ LVV-T1788 } }
-test case in Jira.
-
-
-
-\textbf{ Preconditions}:\\
-
-
-Execution status: {\bf Not Executed }
-
-Final comment:\\
-
-
-Detailed steps results:
-
-\begin{longtable}{p{1cm}p{15cm}}
-\hline
-{Step} & Step Details\\ \hline
-1 & Description \\
+5 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
+Follow BoschTask\_5 (\textbf{Fault}) in the attached
+\emph{BoschTaskTestingPlan,~}Page 5.
 
 \medskip }
 \end{minipage}
@@ -814,6 +502,7 @@ Detailed steps results:
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+The MotorID telemetry section displays Fault for the status.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -826,31 +515,11 @@ Detailed steps results:
 
  & Status: \textbf{ Not Executed } \\ \hline
 
-\end{longtable}
-
-\paragraph{Test Case LVV-T1789 - M2 Active Optics duration test }\mbox{}\\
-
-Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1789}{\textit{ LVV-T1789 } }
-test case in Jira.
-
-
-
-\textbf{ Preconditions}:\\
-
-
-Execution status: {\bf Not Executed }
-
-Final comment:\\
-
-
-Detailed steps results:
-
-\begin{longtable}{p{1cm}p{15cm}}
-\hline
-{Step} & Step Details\\ \hline
-1 & Description \\
+6 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
+Follow BoschTask\_6 (\textbf{Reset}) in the attached
+\emph{BoschTaskTestingPlan,~}Page 5.
 
 \medskip }
 \end{minipage}
@@ -859,6 +528,22 @@ Detailed steps results:
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The MotorID telemtry section displays Off for the status
+\item
+  A Done event is received at the Triggers section, this area displays:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    DoneTime - the time when the done event was received; check that is
+    close to current time
+  \item
+    Done\# will increment its value by one
+  \end{itemize}
+\end{itemize}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -871,31 +556,11 @@ Detailed steps results:
 
  & Status: \textbf{ Not Executed } \\ \hline
 
-\end{longtable}
-
-\paragraph{Test Case LVV-T1791 - M2 position stability and repeatability }\mbox{}\\
-
-Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1791}{\textit{ LVV-T1791 } }
-test case in Jira.
-
-
-
-\textbf{ Preconditions}:\\
-
-
-Execution status: {\bf Not Executed }
-
-Final comment:\\
-
-
-Detailed steps results:
-
-\begin{longtable}{p{1cm}p{15cm}}
-\hline
-{Step} & Step Details\\ \hline
-1 & Description \\
+7 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
+Follow BoschTask\_7 (\textbf{GetAxisStatus}) in the attached
+\emph{BoschTaskTestingPlan,~}Page 5-6.
 
 \medskip }
 \end{minipage}
@@ -904,6 +569,7 @@ Detailed steps results:
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+The AxisStatusOut is on standstill.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -916,31 +582,11 @@ Detailed steps results:
 
  & Status: \textbf{ Not Executed } \\ \hline
 
-\end{longtable}
-
-\paragraph{Test Case LVV-T1785 - M2 actuator stiffness }\mbox{}\\
-
-Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1785}{\textit{ LVV-T1785 } }
-test case in Jira.
-
-
-
-\textbf{ Preconditions}:\\
-
-
-Execution status: {\bf Not Executed }
-
-Final comment:\\
-
-
-Detailed steps results:
-
-\begin{longtable}{p{1cm}p{15cm}}
-\hline
-{Step} & Step Details\\ \hline
-1 & Description \\
+8 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
+Follow BoschTask\_8 (\textbf{GetAxisInfo}) in the attached
+\emph{BoschTaskTestingPlan,~}Page 6.
 
 \medskip }
 \end{minipage}
@@ -949,6 +595,8 @@ Detailed steps results:
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+Position 2 and Velocity 2 displays approximately the same data as the
+indicators at the MotorID Telemetry section
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -961,31 +609,11 @@ Detailed steps results:
 
  & Status: \textbf{ Not Executed } \\ \hline
 
-\end{longtable}
-
-\paragraph{Test Case LVV-T1786 - M2 actuator stroke }\mbox{}\\
-
-Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1786}{\textit{ LVV-T1786 } }
-test case in Jira.
-
-
-
-\textbf{ Preconditions}:\\
-
-
-Execution status: {\bf Not Executed }
-
-Final comment:\\
-
-
-Detailed steps results:
-
-\begin{longtable}{p{1cm}p{15cm}}
-\hline
-{Step} & Step Details\\ \hline
-1 & Description \\
+9 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
+Follow BoschTask\_9 (\textbf{Track}) in the attached
+\emph{BoschTaskTestingPlan,~}Page 6.
 
 \medskip }
 \end{minipage}
@@ -994,6 +622,7 @@ Detailed steps results:
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+The MotorID telemetry section displays Standstill for the status.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -1006,31 +635,11 @@ Detailed steps results:
 
  & Status: \textbf{ Not Executed } \\ \hline
 
-\end{longtable}
-
-\paragraph{Test Case LVV-T1787 - M2 LUT }\mbox{}\\
-
-Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1787}{\textit{ LVV-T1787 } }
-test case in Jira.
-
-
-
-\textbf{ Preconditions}:\\
-
-
-Execution status: {\bf Not Executed }
-
-Final comment:\\
-
-
-Detailed steps results:
-
-\begin{longtable}{p{1cm}p{15cm}}
-\hline
-{Step} & Step Details\\ \hline
-1 & Description \\
+10 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
+Follow BoschTask\_10 (\textbf{MoveToLimit}) in the attached
+\emph{BoschTaskTestingPlan,~}Page 7.
 
 \medskip }
 \end{minipage}
@@ -1039,6 +648,22 @@ Detailed steps results:
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The MotorID telemetry section displays Standstill for the status
+\item
+  A Done event is received at the Triggers section, this area displays
+
+  \begin{itemize}
+  \tightlist
+  \item
+    DoneTime - the time when the done event was received; check that is
+    close to current time
+  \item
+    Done\# will increment its value by one
+  \end{itemize}
+\end{itemize}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -1051,31 +676,11 @@ Detailed steps results:
 
  & Status: \textbf{ Not Executed } \\ \hline
 
-\end{longtable}
-
-\paragraph{Test Case LVV-T1793 - M2 control bandwidth }\mbox{}\\
-
-Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1793}{\textit{ LVV-T1793 } }
-test case in Jira.
-
-
-
-\textbf{ Preconditions}:\\
-
-
-Execution status: {\bf Not Executed }
-
-Final comment:\\
-
-
-Detailed steps results:
-
-\begin{longtable}{p{1cm}p{15cm}}
-\hline
-{Step} & Step Details\\ \hline
-1 & Description \\
+11 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
+Follow BoschTask\_11 (\textbf{StopMove}) in the attached
+\emph{BoschTaskTestingPlan,~}Page 7-8.
 
 \medskip }
 \end{minipage}
@@ -1084,6 +689,22 @@ Detailed steps results:
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The MotorID telemetry section displays Standstill for the status
+\item
+  A Done event is received at the Triggers section, this area displays
+
+  \begin{itemize}
+  \tightlist
+  \item
+    DoneTime - the time when the done event was received; check that is
+    close to current time
+  \item
+    Done\# will increment its value by one
+  \end{itemize}
+\end{itemize}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -1096,31 +717,11 @@ Detailed steps results:
 
  & Status: \textbf{ Not Executed } \\ \hline
 
-\end{longtable}
-
-\paragraph{Test Case LVV-T1794 - M2 temperature }\mbox{}\\
-
-Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1794}{\textit{ LVV-T1794 } }
-test case in Jira.
-
-
-
-\textbf{ Preconditions}:\\
-
-
-Execution status: {\bf Not Executed }
-
-Final comment:\\
-
-
-Detailed steps results:
-
-\begin{longtable}{p{1cm}p{15cm}}
-\hline
-{Step} & Step Details\\ \hline
-1 & Description \\
+12 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
+Follow BoschTask\_12 (\textbf{Power Off}) in the attached
+\emph{BoschTaskTestingPlan,~}Page 8.
 
 \medskip }
 \end{minipage}
@@ -1129,6 +730,22 @@ Detailed steps results:
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The MotorID telemetry section displays Off for the status
+\item
+  A Done event is received at the Triggers section, this area displays
+
+  \begin{itemize}
+  \tightlist
+  \item
+    DoneTime - the time when the done event was received; check that is
+    close to current time
+  \item
+    Done\# will increment its value by one
+  \end{itemize}
+\end{itemize}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -1141,31 +758,11 @@ Detailed steps results:
 
  & Status: \textbf{ Not Executed } \\ \hline
 
-\end{longtable}
-
-\paragraph{Test Case LVV-T1797 - M2 inclinometer }\mbox{}\\
-
-Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1797}{\textit{ LVV-T1797 } }
-test case in Jira.
-
-
-
-\textbf{ Preconditions}:\\
-
-
-Execution status: {\bf Not Executed }
-
-Final comment:\\
-
-
-Detailed steps results:
-
-\begin{longtable}{p{1cm}p{15cm}}
-\hline
-{Step} & Step Details\\ \hline
-1 & Description \\
+13 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
+Follow BoschTask\_13 (\textbf{Exit Subsystem}) in the attached
+\emph{BoschTaskTestingPlan,~}Page 8.
 
 \medskip }
 \end{minipage}
@@ -1174,6 +771,8 @@ Detailed steps results:
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+The motorID telemetry sectionstops displaying the actual telemetry of
+the specified MotorID
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -1186,31 +785,46 @@ Detailed steps results:
 
  & Status: \textbf{ Not Executed } \\ \hline
 
-\end{longtable}
-
-\paragraph{Test Case LVV-T1796 - M2 VMS }\mbox{}\\
-
-Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1796}{\textit{ LVV-T1796 } }
-test case in Jira.
-
-
-
-\textbf{ Preconditions}:\\
-
-
-Execution status: {\bf Not Executed }
-
-Final comment:\\
-
-
-Detailed steps results:
-
-\begin{longtable}{p{1cm}p{15cm}}
-\hline
-{Step} & Step Details\\ \hline
-1 & Description \\
+14 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
+\textbf{CE\_CCW0a~}Change Setting x to value y
+
+\begin{enumerate}
+\tightlist
+\item
+  The operator clicks onto the home button.
+\item
+  The EUI changes to the home interface.
+\item
+  The operator clicks ``Parameters''.
+\item
+  The EUI changes to the parameter interface with the page ``Azimuth
+  Parameters'' loaded.
+\item
+  The operator clicks on the arrow down.
+\item
+  The operator selects the ``Camera Cable Wrap Parameters'' from the
+  menu on the left hand side.
+\item
+  The EUI loads ``Camera Cable Wrap Parameters'' page.
+\item
+  The operator sets the x setting to y.
+\item
+  The operator clicks ``WRITE'' on the panel ``CONTROL'' on the right
+  hand side.
+\item
+  ~The operator clicks onto the home button.
+\item
+  The EUI changes to the home interface.
+\item
+  The operator clicks ``Monitor \& Control''.
+\item
+  The EUI changes to the ``General View''.
+\item
+  ~The operator selects the ``Camera Cable Wrap'' from the menu on the
+  left hand side.
+\end{enumerate}
 
 \medskip }
 \end{minipage}
@@ -1219,6 +833,194 @@ Detailed steps results:
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The EUI is on the Camera Cable Wrap page.
+\item
+  The ``drive status'' of Drive 1 and Drive 2 are ``Off'' and the
+  corresponding ``run/alarm'' LEDs are gray.
+\item
+  The ``Status'' is ``Idle''.
+\end{itemize}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+This is a reference procedure to change the setting \emph{x} to value
+\emph{y}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+15 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+\textbf{CE\_CCW0b~}Move Camera Cable Wrap to x with speed z using drive
+y
+
+\begin{enumerate}
+\tightlist
+\item
+  If y is 1 the operator executes CE\_CCW1c, otherwise the operator
+  executes CE\_CCW1d.
+\item
+  The operator enters x into the ``position deg'' field.~
+\item
+  The operator enters z into the ``speed deg/s'' field (if z is not
+  given, the operator uses 3).
+\item
+  The operator clicks ``MOVE''.
+\item
+  The ``Status'' changes from ``On\textbackslash{}WaitingCMD'' to
+  ``Executing''.~
+\item
+  The camera cable wrap starts rotating until ``position y deg'' shows
+  x° ±0.01° and the ``Status'' changes back to
+  ``On\textbackslash{}WaitingCMD''.
+\end{enumerate}
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The ``position y deg'' has changed and is at x° ±0.01°.
+\item
+  The camera cable wrap has moved and is in standstill.
+\item
+  The ``drive status'' of Drive y is ``Standstill''.
+\end{itemize}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+This is a reference procedure to move the Camera Cable wrap to
+position~\emph{x~}with speed~\emph{z~}using Drive y.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+16 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+\textbf{CE\_CCW1a~}Power On
+
+\begin{enumerate}
+\tightlist
+\item
+  The operator clicks onto the ``ON'' button.~
+\item
+  The ``Status'' changes from ``Idle'' to
+  ``On\textbackslash{}WaitingCMD''.
+\end{enumerate}
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  Either Drive 1 or Drive 2 (depending on the usage time) is in the
+  status ``Standstill'' and the corresponding ``run/alarm'' LED is lit
+  up green.
+\end{itemize}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+17 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+\textbf{CE\_CCW1b~}Power Off
+
+\begin{enumerate}
+\tightlist
+\item
+  The operator clicks onto the ``OFF'' button.~
+\item
+  The ``Status'' changes from ``On\textbackslash{}WaitingCMD'' to
+  ``Idle''.
+\end{enumerate}
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The ``drive status'' of Drive 1 and Drive 2 are ``Off'' and the
+  corresponding ``run/alarm'' LEDs are gray.
+\end{itemize}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+18 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+\textbf{CE\_CCW1c~}Select Drive 1
+
+\begin{enumerate}
+\tightlist
+\item
+  The operator clicks onto the ``1'' button under the ``Drive''.
+\item
+  The ``Status'' changes from ``On\textbackslash{}WaitingCMD'' to
+  ``Executing''.
+\end{enumerate}
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The ``drive status'' of Drive 1 is ``Standstill'' and of Drive 2 is
+  ``Off'' and the corresponding ``run/alarm'' LEDs are green and gray
+  respectively.
+\end{itemize}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -1231,31 +1033,19 @@ Detailed steps results:
 
  & Status: \textbf{ Not Executed } \\ \hline
 
-\end{longtable}
-
-\paragraph{Test Case LVV-T1795 - M2 mirror weight }\mbox{}\\
-
-Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1795}{\textit{ LVV-T1795 } }
-test case in Jira.
-
-
-
-\textbf{ Preconditions}:\\
-
-
-Execution status: {\bf Not Executed }
-
-Final comment:\\
-
-
-Detailed steps results:
-
-\begin{longtable}{p{1cm}p{15cm}}
-\hline
-{Step} & Step Details\\ \hline
-1 & Description \\
+19 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
+\textbf{CE\_CCW1d~}Select Drive 2
+
+\begin{enumerate}
+\tightlist
+\item
+  The operator clicks onto the ``2'' button under the ``Drive''.
+\item
+  The ``Status'' changes from ``On\textbackslash{}WaitingCMD'' to
+  ``Executing''.
+\end{enumerate}
 
 \medskip }
 \end{minipage}
@@ -1264,6 +1054,13 @@ Detailed steps results:
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The ``drive status'' of Drive 1 is ``Off'' and of Drive 2 is
+  ``Standstill'' and the corresponding ``run/alarm'' LEDs are gray and
+  green respectively.
+\end{itemize}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -1276,31 +1073,22 @@ Detailed steps results:
 
  & Status: \textbf{ Not Executed } \\ \hline
 
-\end{longtable}
-
-\paragraph{Test Case LVV-T1782 - M2 Motion limits/stops }\mbox{}\\
-
-Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1782}{\textit{ LVV-T1782 } }
-test case in Jira.
-
-
-
-\textbf{ Preconditions}:\\
-
-
-Execution status: {\bf Not Executed }
-
-Final comment:\\
-
-
-Detailed steps results:
-
-\begin{longtable}{p{1cm}p{15cm}}
-\hline
-{Step} & Step Details\\ \hline
-1 & Description \\
+20 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
+\textbf{CE\_CCW2a~}Jog using Drive 1
+
+\begin{enumerate}
+\tightlist
+\item
+  The operator selects 50\% ``speed \%''.
+\item
+  The operator clicks onto the ``+'' button under the ``Jog'' and
+  releases it after 3 seconds.
+\item
+  The ``Status'' changes from ``On\textbackslash{}WaitingCMD'' to
+  ``Executing''.
+\end{enumerate}
 
 \medskip }
 \end{minipage}
@@ -1309,6 +1097,15 @@ Detailed steps results:
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The ``position 1 deg'' has increased in the positive direction.
+\item
+  The camera cable wrap has moved for 3 seconds and is in standstill.
+\item
+  The ``drive status'' of Drive 1 is in ``Standstill''.
+\end{itemize}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -1321,31 +1118,22 @@ Detailed steps results:
 
  & Status: \textbf{ Not Executed } \\ \hline
 
-\end{longtable}
-
-\paragraph{Test Case LVV-T1783 - M2 actuator Force limits }\mbox{}\\
-
-Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1783}{\textit{ LVV-T1783 } }
-test case in Jira.
-
-
-
-\textbf{ Preconditions}:\\
-
-
-Execution status: {\bf Not Executed }
-
-Final comment:\\
-
-
-Detailed steps results:
-
-\begin{longtable}{p{1cm}p{15cm}}
-\hline
-{Step} & Step Details\\ \hline
-1 & Description \\
+21 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
+\textbf{CE\_CCW2b~}Jog using Drive 2
+
+\begin{enumerate}
+\tightlist
+\item
+  The operator selects 50\% ``speed \%''.~
+\item
+  The operator clicks onto the ``+'' button under the ``Jog'' and
+  releases it after 3 seconds.
+\item
+  ~The ``Status'' changes from ``On\textbackslash{}WaitingCMD'' to
+  ``Executing''.
+\end{enumerate}
 
 \medskip }
 \end{minipage}
@@ -1354,6 +1142,15 @@ Detailed steps results:
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The ``position 2 deg'' has increased in the positive direction.
+\item
+  The camera cable wrap has moved for 3 seconds and is in standstill.
+\item
+  The ``drive status'' of Drive 2 is in ``Standstill''.
+\end{itemize}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -1366,31 +1163,25 @@ Detailed steps results:
 
  & Status: \textbf{ Not Executed } \\ \hline
 
-\end{longtable}
-
-\paragraph{Test Case LVV-T1792 - M2 force balance system }\mbox{}\\
-
-Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1792}{\textit{ LVV-T1792 } }
-test case in Jira.
-
-
-
-\textbf{ Preconditions}:\\
-
-
-Execution status: {\bf Not Executed }
-
-Final comment:\\
-
-
-Detailed steps results:
-
-\begin{longtable}{p{1cm}p{15cm}}
-\hline
-{Step} & Step Details\\ \hline
-1 & Description \\
+22 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
+\textbf{CE\_CCW2c~}Jog using Drive 1 to SW Limit
+
+\begin{enumerate}
+\tightlist
+\item
+  The operator selects 70\% ``speed \%''.
+\item
+  The operator clicks onto the ``-'' button under the ``Jog'' and holds.
+\item
+  The ``Status'' changes from ``On\textbackslash{}WaitingCMD'' to
+  ``Executing''.
+\item
+  The ``Status'' changes from ``Executing'' to ``FAULT'' as the -90°
+  ±0.5° software limit is triggered. An alarm appears at the bottom of
+  the EUI.
+\end{enumerate}
 
 \medskip }
 \end{minipage}
@@ -1399,6 +1190,18 @@ Detailed steps results:
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The ``position 1 deg'' has increased in the negative direction and is
+  at -90° ±0.5°.
+\item
+  The camera cable wrap has moved and is in standstill.
+\item
+  The ``drive status'' of Drive 1 is ``Off''.
+\item
+  The ``Status'' of the module is in Fault.
+\end{itemize}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -1411,50 +1214,40 @@ Detailed steps results:
 
  & Status: \textbf{ Not Executed } \\ \hline
 
-\end{longtable}
-
-\subsection{Test Cycle LVV-C148 }
-
-Open test cycle {\it \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testrun/LVV-C148}{M2 Formal Functional Re-Verification and SAL v4.0 Integration}} in Jira.
-
-M2 Formal Functional Re-Verification and SAL v4.0 Integration\\
-Status: Not Executed
-
-The purpose of this test cycle is to perform the formal functional
-re-verification after shipment of the system from the vendor facility to
-the Summit.
-
-\subsubsection{Software Version/Baseline}
-Not provided.
-
-\subsubsection{Configuration}
-Not provided.
-
-\subsubsection{Test Cases in LVV-C148 Test Cycle}
-
-\paragraph{Test Case LVV-T1803 - M2 Hazard Mitigation Verification }\mbox{}\\
-
-Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1803}{\textit{ LVV-T1803 } }
-test case in Jira.
-
-
-
-\textbf{ Preconditions}:\\
-
-
-Execution status: {\bf Not Executed }
-
-Final comment:\\
-
-
-Detailed steps results:
-
-\begin{longtable}{p{1cm}p{15cm}}
-\hline
-{Step} & Step Details\\ \hline
-1 & Description \\
+23 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
+\textbf{CE\_CCW2d~}Move using Drive 1
+
+\begin{enumerate}
+\tightlist
+\item
+  The operator enters 80 into the ``position deg'' field.
+\item
+  The operator enters 2 into the ``speed deg/s'' field.
+\item
+  The operator clicks ``MOVE''.
+\item
+  ~The ``Status'' changes from ``On\textbackslash{}WaitingCMD'' to
+  ``Executing''.
+\item
+  The camera cable wrap starts rotating until ``position 1 deg'' shows
+  80° ±0.01° and the ``Status'' changes back to
+  ``On\textbackslash{}WaitingCMD''.
+\item
+  The operator enters -80 into the ``position deg'' field.
+\item
+  The operator enters 1 into the ``speed deg/s'' field.
+\item
+  The operator clicks ``MOVE''.
+\item
+  The ``Status'' changes from ``On\textbackslash{}WaitingCMD'' to
+  ``Executing''.
+\item
+  The camera cable wrap starts rotating until ``position 1 deg'' shows
+  -80° ±0.01° and the ``Status'' changes back to
+  ``On\textbackslash{}WaitingCMD''.
+\end{enumerate}
 
 \medskip }
 \end{minipage}
@@ -1463,6 +1256,16 @@ Detailed steps results:
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The ``position 1 deg'' has increased in the negative direction and is
+  at -80° ±0.01°.
+\item
+  The camera cable wrap has moved and is in standstill.
+\item
+  The ``drive status'' of Drive 1 is ``Standstill''.
+\end{itemize}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -1475,31 +1278,16 @@ Detailed steps results:
 
  & Status: \textbf{ Not Executed } \\ \hline
 
-\end{longtable}
-
-\paragraph{Test Case LVV-T1615 - Integration of M2 with SAL v4.0 }\mbox{}\\
-
-Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1615}{\textit{ LVV-T1615 } }
-test case in Jira.
-
-
-
-\textbf{ Preconditions}:\\
-
-
-Execution status: {\bf Not Executed }
-
-Final comment:\\
-
-
-Detailed steps results:
-
-\begin{longtable}{p{1cm}p{15cm}}
-\hline
-{Step} & Step Details\\ \hline
-1 & Description \\
+24 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
+\textbf{CE\_CCW2e~}Move using Drive 2
+
+\begin{enumerate}
+\tightlist
+\item
+  The operator repeats steps 1-10 of CE\_CCW2 with Drive 2.
+\end{enumerate}
 
 \medskip }
 \end{minipage}
@@ -1508,6 +1296,16 @@ Detailed steps results:
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The ``position 2 deg'' has increased in the negative direction and is
+  at -80° ±0.01°.
+\item
+  The camera cable wrap has moved and is in standstill.
+\item
+  The ``drive status'' of Drive 2 is ``Standstill''.
+\end{itemize}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -1520,31 +1318,42 @@ Detailed steps results:
 
  & Status: \textbf{ Not Executed } \\ \hline
 
-\end{longtable}
-
-\paragraph{Test Case LVV-T1613 - M2 Hardware Functional Re-verification }\mbox{}\\
-
-Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1613}{\textit{ LVV-T1613 } }
-test case in Jira.
-
-
-
-\textbf{ Preconditions}:\\
-
-
-Execution status: {\bf Not Executed }
-
-Final comment:\\
-
-
-Detailed steps results:
-
-\begin{longtable}{p{1cm}p{15cm}}
-\hline
-{Step} & Step Details\\ \hline
-1 & Description \\
+25 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
+\textbf{CE\_CCW2f~}Move using Drive 1 without SW Limits
+
+\begin{enumerate}
+\tightlist
+\item
+  The operator changes the setting ``Software Limit Switch Override'' to
+  ``TRUE'' according to CE\_CCW0a.
+\item
+  The operator executes CE\_CCW1c.
+\item
+  The operator moves the camera cable wrap ``position 1 deg'' to 90°
+  with speed 2 according to CE\_CCW0b.
+\item
+  The operator selects 100\% ``speed \%''.~
+\item
+  The operator clicks ``+''.
+\item
+  ~The ``Status'' changes from ``On\textbackslash{}WaitingCMD'' to
+  ``Executing''.
+\item
+  ~The camera cable wrap starts rotating until ``position 1 deg'' is
+  higher than 90° and the ``Status'' changes back to
+  ``On\textbackslash{}WaitingCMD''.
+\item
+  The operator repeats steps 3-11 moving beyond -90° (Jog with ``-``
+  instead of ``+'').
+\item
+  The operator moves the camera cable wrap ``position 1 deg'' to 0°
+  according to CE\_CCW0b.
+\item
+  The operator changes the setting ``Software Limit Switch Override'' to
+  ``FALSE'' according to CE\_CCW0a.
+\end{enumerate}
 
 \medskip }
 \end{minipage}
@@ -1553,6 +1362,15 @@ Detailed steps results:
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The ``position 1 deg'' is at 0° ±0.01°.
+\item
+  The camera cable wrap has moved and is in standstill.
+\item
+  The ``drive status'' of Drive 1 is ``Standstill''.
+\end{itemize}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -1565,31 +1383,16 @@ Detailed steps results:
 
  & Status: \textbf{ Not Executed } \\ \hline
 
-\end{longtable}
-
-\paragraph{Test Case LVV-T1614 - M2 Software Functional Re-verification }\mbox{}\\
-
-Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1614}{\textit{ LVV-T1614 } }
-test case in Jira.
-
-
-
-\textbf{ Preconditions}:\\
-
-
-Execution status: {\bf Not Executed }
-
-Final comment:\\
-
-
-Detailed steps results:
-
-\begin{longtable}{p{1cm}p{15cm}}
-\hline
-{Step} & Step Details\\ \hline
-1 & Description \\
+26 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
+\textbf{CE\_CCW2g~}Move using Drive 2 without SW Limits
+
+\begin{enumerate}
+\tightlist
+\item
+  The operator repeats steps 1-10 of CE\_CCW2 with Drive 2.
+\end{enumerate}
 
 \medskip }
 \end{minipage}
@@ -1598,6 +1401,1859 @@ Detailed steps results:
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The ``position 2 deg'' is at 0° ±0.01°.
+\item
+  The camera cable wrap has moved and is in standstill.
+\item
+  The ``drive status'' of Drive 2 is ``Standstill''.
+\end{itemize}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+27 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+\textbf{CE\_CCW2h~}Move using Drive 2 triggering HW Limits
+
+\begin{enumerate}
+\tightlist
+\item
+  The operator changes the setting ``Software Limit Switch Override'' to
+  ``TRUE'' according to CE\_CCW0a.
+\item
+  The operator executes CE\_CCW1d.
+\item
+  The operator moves the camera cable wrap ``position 1 deg'' to 90°
+  with speed 2 according to CE\_CCW0b.
+\item
+  The operator selects 100\% ``speed \%''.~
+\item
+  The operator clicks ``+''.~
+\item
+  The ``Status'' changes from ``On\textbackslash{}WaitingCMD'' to
+  ``Executing''.
+\item
+  The camera cable wrap starts rotating until ``position 2 deg'' shows
+  92° ±1 ° and the ``Status'' changes to ``FAULT''.
+\item
+  The operator changes the setting ``Limit Switch Override'' to ``TRUE''
+  according to CE\_CCW0a.
+\item
+  The operator clicks onto the ``Reset Alarms'' button.
+\item
+  The ``Status'' changes from ``FAULT'' to ``Idle''.
+\item
+  The operator clicks onto the ``ON'' button.
+\item
+  The ``Status'' changes from ``Idle'' to
+  ``On\textbackslash{}WaitingCMD''.
+\end{enumerate}
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The ``position 2 deg'' has increased in the positive direction and is
+  at -92° ±1°.
+\item
+  The camera cable wrap has moved and is in standstill.
+\item
+  The ``Status'' is in ``On\textbackslash{}WaitingCMD''
+\end{itemize}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+28 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+\textbf{CE\_CCW3a~}Stop a move using Drive 1
+
+\begin{enumerate}
+\tightlist
+\item
+  The operator enters 50 into the ``position deg'' field.
+\item
+  The operator enters 2 into the ``speed deg/s'' field.
+\item
+  The operator clicks ``MOVE''.
+\item
+  The ``Status'' changes from ``On\textbackslash{}WaitingCMD'' to
+  ``Executing''.
+\item
+  The camera cable wrap starts rotating.
+\item
+  After 5 seconds the operator click on the ``STOP'' button on the left
+  hand side of the EUI.
+\item
+  The ``Status'' changes from ``Executing'' to ``Stopping''.
+\item
+  The camera cable wrap stops rotating.
+\item
+  The ``drive status'' of Drive 1 is ``Standstill''.
+\end{enumerate}
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The ``position 1 deg'' has increased in the positive direction and is
+  between 0° and 50°.
+\item
+  The camera cable wrap has moved and is in standstill.
+\item
+  The ``drive status'' of Drive 1 is ``Standstill''.
+\end{itemize}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+29 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+\textbf{CE\_CCW3b~}Stop a move using Drive 2
+
+\begin{enumerate}
+\tightlist
+\item
+  The operator enters -50 into the ``position deg'' field.
+\item
+  The operator enters 2 into the ``speed deg/s'' field.
+\item
+  The operator clicks ``MOVE''.~
+\item
+  The ``Status'' changes from ``On\textbackslash{}WaitingCMD'' to
+  ``Executing''.
+\item
+  The camera cable wrap starts rotating.
+\item
+  After 10 seconds the operator click on the ``STOP'' button on the left
+  hand side of the EUI.
+\item
+  The ``Status'' changes from ``Executing'' to ``Stopping''.
+\item
+  The camera cable wrap stops rotating.
+\item
+  The ``drive status'' of Drive 2 is ``Standstill''.
+\end{enumerate}
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The ``position 2 deg'' has increased in the negative direction and is
+  between 0° and -50°.
+\item
+  The camera cable wrap has moved and is in standstill.
+\item
+  The ``drive status'' of Drive 2 is ``Standstill''.
+\end{itemize}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+30 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+\textbf{CE\_CCW4a~}Camera Tracking - Stop Camera Tracking
+
+\begin{enumerate}
+\tightlist
+\item
+  The operator turns on the camera simulator.
+\item
+  The operator clicks on the ``TRACK CAMERA'' button.
+\item
+  The ``Status'' changes to ``Tracking''.
+\item
+  The camera cable wrap (``position 2 deg'') moves to the ``camera pos.
+  deg'' and follows it.
+\item
+  Wait for 3 minutes.
+\item
+  The camera cable wrap follows the ``camera pos. deg''.
+\item
+  The operator clicks on the ``STOP CAMERA TRACKING'' button.~
+\item
+  The ``Status'' changes from ``Tracking'' to ``Stopping''.~
+\item
+  The camera cable wrap stops rotating.
+\item
+  The ``drive status'' of Drive 2 is ``Standstill''.
+\end{enumerate}
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The camera cable wrap has moved and is in standstill.
+\item
+  The ``drive status'' of Drive 2 is ``Standstill''.
+\item
+  The ``Status'' is ``On\textbackslash{}WaitingCMD''.
+\end{itemize}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+31 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+\textbf{CE\_CCW4b~}Camera Tracking - Stop
+
+\begin{enumerate}
+\tightlist
+\item
+  The operator turns on the camera simulator.
+\item
+  The operator clicks on the ``TRACK CAMERA'' button.
+\item
+  The ``Status'' changes to ``Tracking''.
+\item
+  The camera cable wrap (``position 1 deg'') moves to the ``camera pos.
+  deg'' and follows it.
+\item
+  Wait for 3 minutes.
+\item
+  The camera cable wrap follows the ``camera pos. deg''.
+\item
+  The operator clicks on the ``STOP'' button.
+\item
+  The ``Status'' changes from ``Tracking'' to ``Stopping''.
+\item
+  The camera cable wrap stops rotating.
+\item
+  The ``drive status'' of Drive 1 is ``Standstill''.
+\end{enumerate}
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The camera cable wrap has moved and is in standstill.
+\item
+  The ``drive status'' of Drive 1 is ``Standstill''.
+\item
+  The ``Status'' is ``On\textbackslash{}WaitingCMD''.
+\end{itemize}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+32 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+\textbf{CE\_CCW5a~}Speed Limit Warning using Drive 1
+
+\begin{enumerate}
+\tightlist
+\item
+  The operator changes the setting ``Motor Speed Limit'' to 0.4
+  according to CE\_CCW0a.
+\item
+  The operator executes CE\_CCW1c.
+\item
+  The operator enters 50 into the ``position deg'' field.
+\item
+  The operator enters 3 into the ``speed deg/s'' field.
+\item
+  The operator clicks ``MOVE''.
+\item
+  The ``Status'' changes from ``On\textbackslash{}WaitingCMD'' to
+  ``Executing''.
+\item
+  The camera cable wrap starts rotating until ``position 1 deg'' shows
+  50° ±0.01° and the ``Status'' changes back to ``Idle''.
+\item
+  The EUI will show a warning fired at the bottom of the screen.
+\end{enumerate}
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The ``position 1 deg'' has increased in the positive direction and is
+  at 50° ±0.01°.
+\item
+  The camera cable wrap has moved and is in standstill.
+\item
+  The ``drive status'' of Drive 1 is ``Standstill''.
+\item
+  A warning is shown at the bottom of the page.
+\end{itemize}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+33 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+\textbf{CE\_CCW5b~}Speed Limit Warning using Drive 2
+
+\begin{enumerate}
+\tightlist
+\item
+  The operator repeats steps 1-8 of CE\_CCW5a with Drive 2.
+\end{enumerate}
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The ``position 2 deg'' has increased in the positive direction and is
+  at 50° ±0.01°.
+\item
+  The camera cable wrap has moved and is in standstill.
+\item
+  The ``drive status'' of Drive 2 is ``Standstill''.
+\item
+  A warning is shown at the bottom of the page.
+\end{itemize}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+34 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+\textbf{\textbf{CE\_CCW5c~}}Critical Speed Limit Alarm using Drive 1
+
+\begin{enumerate}
+\tightlist
+\item
+  The operator changes the setting ``Critical Motor Speed Limit'' to 0.4
+  according to CE\_CCW0a.
+\item
+  The operator executes CE\_CCW1c.
+\item
+  The operator enters 50 into the ``position deg'' field.
+\item
+  The operator enters 3 into the ``speed deg/s'' field.
+\item
+  The operator clicks ``MOVE''.
+\item
+  The ``Status'' changes from ``On\textbackslash{}WaitingCMD'' to
+  ``Executing''.
+\item
+  The camera cable wrap starts rotating and after some seconds the
+  ``Status'' changes to ``FAULT''.
+\item
+  The ``drive status'' of Drive 1 changes to ``Off''.
+\item
+  The EUI will show an alarm fired at the bottom of the screen.
+\item
+  The operator clicks on ``RESET ALARM''.
+\item
+  The ``Status'' changes to ``Idle''.
+\end{enumerate}
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The ``position 1 deg'' has increased in the positive direction.
+\item
+  The camera cable wrap has moved and is in standstill.
+\item
+  The ``drive status'' of Drive 1 is ``Off''.
+\item
+  No alarm is shown at the bottom of the page.
+\end{itemize}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+35 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+\textbf{CE\_CCW5d~}Critical Speed Limit Alarm using Drive 2
+
+\begin{enumerate}
+\tightlist
+\item
+  The operator repeats steps 1-11 of CE\_CCW5c with Drive 2.
+\end{enumerate}
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The ``position 2 deg'' has increased in the positive direction.
+\item
+  The camera cable wrap has moved and is in standstill.
+\item
+  The ``drive status'' of Drive 1 is ``Off''.
+\item
+  No alarm is shown at the bottom of the page.
+\end{itemize}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+36 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+\textbf{CE\_CCW5e~}Positive Limit Switch Pressed Alarm
+
+\begin{enumerate}
+\tightlist
+\item
+  The operator presses the physical limit switch at the Camera Cable
+  Wrap on the positive side.
+\item
+  An alarm shows up at the bottom of the page.
+\item
+  The ``Status'' changes to ``FAULT''.
+\item
+  The ``drive status'' of Drive 1 changes to ``Off''.
+\item
+  The operator clicks on ``RESET ALARM''.
+\item
+  The ``Status'' changes to ``Idle''.
+\end{enumerate}
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The camera cable wrap is in standstill.
+\item
+  The ``drive status'' of Drive 1 and Drive 2 is ``Off''.
+\item
+  No alarm is shown at the bottom of the page.
+\end{itemize}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+37 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+\textbf{CE\_CCW5f~}Negative Limit Switch Pressed Alarm
+
+\begin{enumerate}
+\tightlist
+\item
+  The operator presses the physical limit switch at the Camera Cable
+  Wrap on the negative side.
+\item
+  An alarm shows up at the bottom of the page.
+\item
+  The ``Status'' changes to ``FAULT''.
+\item
+  The ``drive status'' of Drive 1 changes to ``Off''.
+\item
+  The operator clicks on ``RESET ALARM''.
+\item
+  The ``Status'' changes to ``Idle''.
+\end{enumerate}
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The camera cable wrap is in standstill.
+\item
+  The ``drive status'' of Drive 1 and Drive 2 is ``Off''.
+\item
+  No alarm is shown at the bottom of the page.
+\end{itemize}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+38 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+\textbf{CE\_CCW5g~}Driver 1 Fault Warning
+
+\begin{enumerate}
+\tightlist
+\item
+  The operator xxx.
+\item
+  The operator clicks on the ``ON'' button.
+\item
+  The ``Status'' changes to ``Activating''.~
+\item
+  A warning is shown at the bottom of the page.
+\item
+  The ``Status'' changes to ``On\textbackslash{}WaitingCMD''.
+\item
+  The ``drive status'' of Drive 2 changes to ``Standstill''.
+\end{enumerate}
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The camera cable wrap is in standstill.
+\item
+  The ``Status'' is ``On\textbackslash{}WaitingCMD''.
+\item
+  The ``drive status'' of Drive 1 is ``Off''.
+\item
+  The ``drive status'' of Drive 2 is ``Standstill''.
+\item
+  A warning is shown at the bottom of the page.
+\end{itemize}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+39 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+\textbf{CE\_CCW5h~}Driver 2 Fault Warning
+
+\begin{enumerate}
+\tightlist
+\item
+  The operator repeats steps 1-6 of CE\_CCW5g with Drive 2.
+\end{enumerate}
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The camera cable wrap is in standstill.
+\item
+  The ``Status'' is ``On\textbackslash{}WaitingCMD''.
+\item
+  The ``drive status'' of Drive 1 is ``Standstill''.
+\item
+  The ``drive status'' of Drive 2 is ``Off''.
+\item
+  A warning is shown at the bottom of the page.
+\end{itemize}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+40 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+\textbf{CE\_CCW5i~}Both Driver Faulty Alarm
+
+\begin{enumerate}
+\tightlist
+\item
+  The operator presses any physical emergency button.
+\item
+  The operator clicks on the ``ON'' button.
+\item
+  The ``Status'' changes to ``FAULT''.
+\item
+  An alarm shows up at the bottom of the page.
+\item
+  The operator un-presses the pressed physical emergency button.
+\item
+  The operator clicks on ``RESET ALARM''.
+\item
+  The ``Status'' changes to ``Idle''.
+\end{enumerate}
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The camera cable wrap is in standstill.
+\item
+  The ``drive status'' of Drive 1 and Drive 2 is ``Off''.
+\item
+  No alarm is shown at the bottom of the page.
+\end{itemize}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+41 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+\textbf{CE\_CCW5j~}Lubrication Level 1 Alarm
+
+\begin{enumerate}
+\tightlist
+\item
+  The operator unscrews the lid of the lubrication container 1 installed
+  at the camera cable wrap.
+\item
+  An alarm shows up at the bottom of the page.
+\item
+  The ``Status'' changes to ``FAULT''.
+\item
+  The ``drive status'' of Drive 1 changes to ``Off''.
+\item
+  The operator clicks on ``RESET ALARM''.
+\item
+  The ``Status'' changes to ``Idle''.
+\end{enumerate}
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The camera cable wrap is in standstill and has not moved.
+\item
+  The ``drive status'' of Drive 1 and Drive 2 is ``Off''.
+\item
+  No alarm is shown at the bottom of the page.
+\end{itemize}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+42 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+\textbf{CE\_CCW5k~}Lubrication Level 2 Alarm
+
+\begin{enumerate}
+\tightlist
+\item
+  The operator unscrews the lid of the lubrication container 2 installed
+  at the camera cable wrap.
+\item
+  An alarm shows up at the bottom of the page.
+\item
+  The ``Status'' changes to ``FAULT''
+\item
+  The ``drive status'' of Drive 1 changes to ``Off''.
+\item
+  The operator clicks on ``RESET ALARM''.
+\item
+  The ``Status'' changes to ``Idle''.
+\end{enumerate}
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The camera cable wrap is in standstill and has not moved.
+\item
+  The ``drive status'' of Drive 1 and Drive 2 is ``Off''.
+\item
+  No alarm is shown at the bottom of the page.
+\end{itemize}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+43 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+\textbf{CE\_CCW5l~}Positive SW Limit using Drive 1
+
+\begin{enumerate}
+\tightlist
+\item
+  The operator moves the camera cable wrap ``position 1 deg'' to 90°
+  with speed 3 according to CE\_CCW0b.
+\item
+  The operator selects 100\% ``speed \%''.
+\item
+  The operator clicks ``+''.
+\item
+  The ``Status'' changes from ``On\textbackslash{}WaitingCMD'' to
+  ``Executing''.
+\item
+  The camera cable wrap starts rotating until ``position 1 deg'' is
+  higher than 90° and the ``Status'' changes to ``FAULT''.
+\item
+  The EUI will show an alarm fired at the bottom of the screen.
+\item
+  The operator clicks on ``RESET ALARM''.
+\item
+  The ``Status'' changes to ``Idle''.
+\item
+  The operator changes the setting ``Software Limit Switch Override'' to
+  ``TRUE'' according to CE\_CCW0a.
+\item
+  ~The operator executes CE\_CCW1c.
+\item
+  The operator moves the camera cable wrap ``position 1 deg'' to 0°
+  according to CE\_CCW0b
+\item
+  The operator changes the setting ``Software Limit Switch Override'' to
+  ``FALSE'' according to CE\_CCW0a.
+\end{enumerate}
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The ``position 1 deg'' is at 0° ±0.01.
+\item
+  The camera cable wrap has moved and is in standstill.
+\item
+  The ``drive status'' of Drive 1 is ``Standstill''.
+\end{itemize}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+44 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+\textbf{CE\_CCW5m~}Negative SW Limit using Drive 2
+
+\begin{enumerate}
+\tightlist
+\item
+  The operator moves the camera cable wrap ``position 1 deg'' to -90°
+  with speed 3 according to CE\_CCW0b.
+\item
+  The operator selects 100\% ``speed \%''.
+\item
+  The operator clicks ``-''.
+\item
+  The ``Status'' changes from ``On\textbackslash{}WaitingCMD'' to
+  ``Executing''.
+\item
+  The camera cable wrap starts rotating until ``position 2 deg'' is
+  lower than -90° and the ``Status'' changes to ``FAULT''.
+\item
+  The EUI will show an alarm fired at the bottom of the screen.
+\item
+  The operator clicks on ``RESET ALARM''.~
+\item
+  The ``Status'' changes to ``Idle''.~
+\item
+  The operator changes the setting ``Software Limit Switch Override'' to
+  ``TRUE'' according to CE\_CCW0a.
+\item
+  The operator executes CE\_CCW1d.~
+\item
+  The operator moves the camera cable wrap ``position 2 deg'' to 0°
+  according to CE\_CCW0b
+\item
+  The operator changes the setting ``Software Limit Switch Override'' to
+  ``FALSE'' according to CE\_CCW0a.
+\end{enumerate}
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The ``position 2 deg'' is at 0° ±0.01.
+\item
+  The camera cable wrap has moved and is in standstill.
+\item
+  The ``drive status'' of Drive 2 is ``Standstill''.
+\end{itemize}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+45 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+\textbf{CE\_CCW5n~}Camera Deviation Limit Warning using Drive 1
+
+\begin{enumerate}
+\tightlist
+\item
+  The operator moves the camera cable wrap ``position 1 deg'' to -1.6°
+  with speed 1 according to CE\_CCW0b.
+\item
+  The EUI will show a warning fired at the bottom of the screen.
+\end{enumerate}
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The ``position 1 deg'' is at -1.6° ±0.01.
+\item
+  The camera cable wrap has moved and is in standstill.
+\item
+  The ``drive status'' of Drive 1 is ``Standstill''.
+\end{itemize}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+46 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+\textbf{CE\_CCW5o~}Critical Camera Deviation Limit Alarm using Drive 2
+
+\begin{enumerate}
+\tightlist
+\item
+  The operator moves the camera cable wrap ``position 2 deg'' to -1.8°
+  with speed 1 according to CE\_CCW0b.
+\item
+  The operator selects 50\% ``speed \%''.
+\item
+  ~The operator clicks ``-''.
+\item
+  The ``Status'' changes from ``On\textbackslash{}WaitingCMD'' to
+  ``Executing''.
+\item
+  The camera cable wrap starts rotating until ``position 2 deg'' is
+  lower than -1.9° and the ``Status'' changes to ``FAULT''.
+\item
+  The EUI will show an alarm fired at the bottom of the screen.
+\item
+  The operator clicks on ``RESET ALARM''.
+\item
+  The ``Status'' changes to ``Idle''.
+\item
+  The operator changes the setting ``Tracking Camera Override'' to
+  ``TRUE'' according to CE\_CCW0a.
+\item
+  The operator executes CE\_CCW1d.
+\item
+  The operator moves the camera cable wrap ``position 2 deg'' to 0°
+  according to CE\_CCW0b
+\item
+  The operator changes the setting ``Software Limit Switch Override'' to
+  ``FALSE'' according to CE\_CCW0a.
+\end{enumerate}
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The ``position 2 deg'' is at -0° ±0.01.
+\item
+  The camera cable wrap has moved and is in standstill.
+\item
+  The ``drive status'' of Drive 2 is ``Standstill''
+\end{itemize}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+47 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+\textbf{CE\_CCW5p~}Camera Cable Wrap Safety Alarm
+
+\begin{enumerate}
+\tightlist
+\item
+  The operator presses the emergency button.
+\item
+  The EUI will show an alarm fired at the bottom of the screen.
+\item
+  The ``drive status'' of Drive 1 and 2 change from ``Off'' to
+  ``Fault''.
+\item
+  The operator releases the emergency button.
+\item
+  The operator clicks on ``RESET ALARM''.
+\item
+  The ``drive status'' of Drive 1 and 2 changes to ``Off''.
+\item
+  The alarm disappears from the bottom of the page.
+\end{enumerate}
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The ``position 1 deg'' is at 0° ±0.01.
+\item
+  The camera cable wrap is in standstill.
+\item
+  The ``drive status'' of Drive 1 is ``Off''.
+\item
+  The ``Status'' shows ``Idle''.
+\end{itemize}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+48 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+\textbf{\textbf{CE\_CCW6~}}No Alarm Detection
+
+\begin{enumerate}
+\tightlist
+\item
+  The operator executes mirror cover trial CE\_MC5e.
+\item
+  An alarm will trigger in the mirror cover module.
+\item
+  The ``Status'' remains at ``On\textbackslash{}WaitingCMD''.
+\end{enumerate}
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The camera cable wrap is in standstill.
+\item
+  The ``drive status'' of either Drive 1 or Drive 2 is ``Standstill''
+  and the corresponding ``run/alarm'' LED is lit up green.
+\item
+  The ``Status'' shows ``On\textbackslash{}WaitingCMD''.
+\end{itemize}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+49 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+\textbf{CE\_CCW7~}Alarm Processing in Idle State
+
+\begin{enumerate}
+\tightlist
+\item
+  The operator physically presses the positive limit switch of the
+  camera cable wrap.
+\item
+  The ``Status'' remains at ``Idle''
+\item
+  At the bottom of the Camera Cable Wrap page, no alarm is shown to be
+  triggered.
+\item
+  The operator clicks on the ``ON'' button.
+\item
+  The ``Status'' changes to ``FAULT''.
+\item
+  An alarm shows up at the bottom of the page.
+\item
+  The operator clicks on ``RESET ALARM''.
+\item
+  The ``Status'' changes to ``Idle''.
+\item
+  The alarm disappears from the bottom of the page.
+\end{enumerate}
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The camera cable wrap is in standstill.
+\item
+  The ``drive status'' of Drive 1 and Drive 2 is ``Off''.
+\item
+  No alarm is shown at the bottom of the page.
+\end{itemize}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+50 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+\textbf{CE\_CCW8~}Alarm Processing in Moving/Executing State
+
+\begin{enumerate}
+\tightlist
+\item
+  The operator enters 70 into the ``position deg'' field.
+\item
+  The operator enters 0.5 into the ``speed deg/s'' field.
+\item
+  The operator clicks ``MOVE''.
+\item
+  The ``Status'' changes from ``On\textbackslash{}WaitingCMD'' to
+  ``Executing''.
+\item
+  The camera cable wrap starts rotating.
+\item
+  The operator presses the physical negative limit switch.
+\item
+  The ``Status'' changes to ``FAULT''.
+\item
+  The camera cable wrap starts stops rotating.
+\item
+  The ``drive status'' of Drive 1 changes to ``Off''.
+\item
+  An alarm shows up at the bottom of the page
+\item
+  The operator clicks on ``RESET ALARM''.
+\item
+  The ``Status'' changes to ``Idle''.
+\item
+  The alarm disappears from the bottom of the page.
+\end{enumerate}
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The camera cable wrap has moved in the positive direction and is in
+  standstill.
+\item
+  The ``drive status'' of Drive 1 and Drive 2 is ``Off''.
+\item
+  The ``Status'' is ``Idle''.
+\item
+  No alarm is shown at the bottom of the page.
+\end{itemize}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+51 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+\textbf{CE\_CCW9a~}Incorrect Operation Sequence - Power
+
+\begin{enumerate}
+\tightlist
+\item
+  The operator clicks on ``POWER ON'' in the ``CONTROL'' panel section.
+\item
+  A ``No Ack'' message is received.
+\end{enumerate}
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The camera cable wrap is in standstill.
+\item
+  The ``drive status'' of Drive 1 is ``Standstill''.
+\item
+  The ``Status'' is ``On\textbackslash{}WaitingCMD''.
+\end{itemize}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+52 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+\textbf{CE\_CCW9b~}Incorrect Operation Sequence - Move
+
+\begin{enumerate}
+\tightlist
+\item
+  The operator enters -35 into the ``position deg'' field.
+\item
+  The operator enters 1.5 into the ``speed deg/s'' field.~
+\item
+  The operator clicks on ``MOVE'' in the ``CONTROL'' panel section.
+\item
+  A ``No Ack'' message is received.
+\end{enumerate}
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The camera cable wrap is in standstill and has not moved.
+\item
+  The ``drive status'' of Drive 1 and Drive 2 is ``Off''.
+\item
+  The ``Status'' is ``Idle''.
+\end{itemize}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+53 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+\textbf{CE\_CCW9c~}Incorrect Operation Sequence - Stop
+
+\begin{enumerate}
+\tightlist
+\item
+  The operator clicks on ``STOP'' in the ``CONTROL'' panel section.
+\item
+  A ``No Ack'' message is received.
+\end{enumerate}
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The camera cable wrap is in standstill and has not moved.
+\item
+  The ``drive status'' of Drive 1 is ``Standstill'' and the
+  corresponding ``run/alarm'' LED is lit up green.
+\item
+  The ``Status'' is ``Idle''.
+\end{itemize}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+54 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+\textbf{CE\_CCW9d~}Incorrect Operation Sequence - Fault
+
+\begin{enumerate}
+\tightlist
+\item
+  Physically press the positive limit switch.
+\item
+  The ``Status'' changes to ``FAULT''.
+\item
+  An alarm is shown at the bottom of the page.
+\item
+  The ``drive status'' of Drive 1 is ``Off''.
+\item
+  The operator enters -55 into the ``position deg'' field.
+\item
+  The operator enters 1 into the ``speed deg/s'' field.
+\item
+  The operator clicks on the ``MOVE'' button.
+\item
+  A ``No Ack'' message is received.
+\item
+  The camera cable wrap does not move.
+\item
+  The operator clicks on the ``POWER ON'' button.
+\item
+  ~A ``No Ack'' message is received.
+\item
+  The ``Status'' remains at ``FAULT''.
+\item
+  The operator clicks on the ``POWER OFF'' button.
+\item
+  A ``No Ack'' message is received.
+\item
+  The ``Status'' remains at ``FAULT''.
+\item
+  The operators attempts to click the ``STOP'' button.
+\item
+  The ``STOP'' button is grayed out.
+\item
+  The operator clicks on the ``TRACK CAMERA'' button.
+\item
+  A ``No Ack'' message is received.
+\item
+  The operator clicks on the ``STOP CAMERA TRACK'' button.
+\item
+  A ``No Ack'' message is received.
+\item
+  The ``Status'' remains at ``FAULT''.
+\item
+  The operator clicks on ``RESET ALARM''.
+\item
+  The ``Status'' changes to ``Idle''.
+\item
+  The alarm disappears from the bottom of the page.
+\end{enumerate}
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The camera cable wrap has not moved and is in standstill.
+\item
+  The ``drive status'' of Drive 1 and Drive 2 is ``Off''.
+\item
+  The ``Status'' is ``Idle''.
+\item
+  No alarm is shown at the bottom of the page.
+\end{itemize}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+55 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Follow BoschDCTask\_1 (\textbf{PreInitActions}) in the attached
+\emph{BoschPowerSupplyTaskTestingPlan,~}Page 3.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+The MLC must be in BB mode.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+56 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Follow BoschDCTask\_2~(\textbf{PreInitActions}) in the attached
+\emph{BoschPowerSupplyTaskTestingPlan,~}Page 3.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+The MLC is in error and the VI returns a timeout error saying that BB
+mode couldn't be reached.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+57 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Follow BoschDCTask\_3~(\textbf{PreInitActions}) in the attached
+\emph{BoschPowerSupplyTaskTestingPlan,~}Page 3-4.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The MLC is in BB mode
+\item
+  The specified Motor ID is in parking.
+\end{itemize}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+58 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Follow BoschDCTask\_4~(\textbf{PreInitActions}) in the attached
+\emph{BoschPowerSupplyTaskTestingPlan,~}Page 4.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The MLC is in BB mode
+\item
+  The specified Motor ID is back in normal mode.
+\end{itemize}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+59 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Follow BoschDCTask\_5 (\textbf{Normal On}) in the attached
+\emph{BoschPowerSupplyTaskTestingPlan,~}Page 4.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The MLC is in BB mode
+\item
+  The power supply is on.
+\end{itemize}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+60 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Follow TempTask\_1 (\textbf{Normal On}) in the attached
+\emph{CCWAuxTemperatureControlTaskTestingPlan,~}Page 3.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The Indicator is on when the cabinet turns on
+\item
+  The actual state indicator changes between:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Wait
+  \item
+    Read Temperature
+  \item
+    Check Temp
+  \item
+    Enable Cabinet
+  \item
+    Wait \ldots{}
+  \end{itemize}
+\end{itemize}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+61 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Follow TempTask\_2 (\textbf{Cold On}) in the attached
+\emph{CCWAuxTemperatureControlTaskTestingPlan,~}Page 3-4.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The Indicator is on when the cabinet turns on
+\item
+  The actual state indicator changes between:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Wait
+  \item
+    Read Temperature
+  \item
+    Check Temp
+  \item
+    Enable Cabinet
+  \item
+    Wait \ldots{}
+  \end{itemize}
+\end{itemize}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+62 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Follow TempTask\_3 (\textbf{Stop Task}) in the attached
+\emph{CCWAuxTemperatureControlTaskTestingPlan,~}Page 4.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+The VI is stopped\\[2\baselineskip]
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+63 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Follow TempTask\_4 (\textbf{Error Load)} in the attached
+\emph{CCWAuxTemperatureControlTaskTestingPlan,~}Page 4-5.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The Indicator is on when the cabinet turns on
+\item
+  The actual state indicator changes between:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    ConnectNSV
+  \item
+    ErrorHandling
+  \item
+    ConnectNSV \ldots{}
+  \end{itemize}
+\end{itemize}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}

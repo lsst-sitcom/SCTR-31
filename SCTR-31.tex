@@ -113,9 +113,8 @@ The current status of test plan LVV-P64 in Jira is \textbf{ Approved }.
 
 \subsection{Verification Environment}
 \label{sect:hwconf}
-   The Camera Cable Wrap will be verified in a climate controlled
-environment on the 3rd floor of the Summit Facility integrated with the
-Camera Rotator on the Camera Cart.
+   The Camera Cable Wrap will be verified on the 3rd floor of the Summit
+Facility integrated with the Camera Rotator on the Camera Cart.
 
 
   \subsection{Entry Criteria}
@@ -221,15 +220,23 @@ LSST Personnel
  }} & Approved \\\hline
 
   \multicolumn{3}{l}{ Test Cycle {\bf LVV-C112:  CCW Functional Re-verificaiton
- }} & In Progress \\\hline
+ }} & Done \\\hline
 
   {\bf \footnotesize test case} & {\bf \footnotesize status} & {\bf \footnotesize comment} & {\bf \footnotesize issues} \\\toprule
 
     \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1590}{LVV-T1590}
-    & In Progress &
+    & Initial Pass &
     \begin{minipage}[]{9cm}
     \smallskip
-    
+     Overall, this test was seen as an INITIAL PASS as there were no reported
+failures for any of the test steps. However, not all test steps could be
+executed because some required the CCW to be connected to the Camera
+Rotator. Furthermore, no formal report was generated to capture the
+actual results for three of the four vendor procedural documents. The
+results of the CCWTestingPlan is attached below. The vendor will provide
+a formal report for the re-execution of these tests when the CCW is
+hooked up to the cabinet(s) and installed on the Top End Assembly.~
+
     \medskip
     \end{minipage}
     &
@@ -259,7 +266,7 @@ Open test cycle {\it \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testrun/
 
  CCW Functional Re-verificaiton
 \\
-Status: In Progress
+Status: Done
 
  This purpose of this test cycle is to run initial tests on the summit to
 re-verify the CCW as previously tested at the vendor's facility.
@@ -279,11 +286,11 @@ Not provided.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1590}{\textit{ LVV-T1590 } }
 test case in Jira.
 
- The purpose of this test case is to re-verify the functional
-requirements of the CCW, after shipment from the vendor's facility to
-the Summit, as defined by \citeds{LTS-218}. This test campaign will only exercise
-the functionality that was previously executed and meets the following
-criteria:
+ The purpose of this test case is to capture the results of the vendor's
+standalone re-verification test of the CCW, after shipment from the
+vendor's facility to the Summit, as defined by \citeds{LTS-218}. This test
+campaign will only exercise the functionality that was previously
+executed and meets the following criteria:
 
 \begin{itemize}
 \tightlist
@@ -299,15 +306,13 @@ criteria:
   hardware or have any camera simulated mass installed
 \end{itemize}
 
-The functional requirements were previously verified during the test
-campaign by the vendor at their facility and accepted by LSST during the
-Factory Acceptance Test review. This test case will execute the
-procedures that the vendor used to obtain the results of the previous
-tests. The test steps of this test case call to test children test cases
-that contain the procedural documents including the \emph{Bosch Task
-Testing Plan, TMA - Commanding through the EUI - CCW Tests, CCW - Bosch
-Power Supply Task Testing Plan~}and the \emph{CCW Aux Temperature
-Control Task Testing Plan.}\\[2\baselineskip]
+This test case is a master test case as it calls to test the children
+test cases that contain the procedures provided by the vendor. These
+procedural documents are the \emph{Bosch Task Testing Plan, TMA -
+Commanding through the EUI - CCW Tests, CCW - Bosch Power Supply Task
+Testing Plan~}and the \emph{CCW Aux Temperature Control Task Testing
+Plan.~}All of the results from these procedures will be recorded in this
+test case.~
 
 
 \textbf{ Preconditions}:\\
@@ -328,9 +333,17 @@ completed:
 \end{itemize}
 
 
-Execution status: {\bf In Progress }
+Execution status: {\bf Initial Pass }
 
-Final comment:\\
+Final comment:\\ Overall, this test was seen as an INITIAL PASS as there were no reported
+failures for any of the test steps. However, not all test steps could be
+executed because some required the CCW to be connected to the Camera
+Rotator. Furthermore, no formal report was generated to capture the
+actual results for three of the four vendor procedural documents. The
+results of the CCWTestingPlan is attached below. The vendor will provide
+a formal report for the re-execution of these tests when the CCW is
+hooked up to the cabinet(s) and installed on the Top End Assembly.~
+
 
 
 Detailed steps results:
@@ -341,6 +354,7 @@ Detailed steps results:
 1 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
+\textbf{{BOSCH TASK TESTING PLAN}}\\
 Follow BoschTask\_1 (\textbf{Init Subsystem}) in the attached
 \emph{BoschTaskTestingPlan,~}Page 3.
 
@@ -359,11 +373,13 @@ specified MotorID.
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+There were no results captured, but the vendor witnessed this step
+pass.~
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 2 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -401,11 +417,12 @@ Follow BoschTask\_2 (\textbf{Power On}) in the attached
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+There were no results captured, but the vendor witnessed this step pass.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 3 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -451,11 +468,12 @@ Follow BoschTask\_3 (\textbf{Move}) in the attached
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+There were no results captured, but the vendor witnessed this step pass.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 4 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -483,11 +501,12 @@ Follow BoschTask\_4 (\textbf{MoveVelocity}) in the attached
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+There were no results captured, but the vendor witnessed this step pass.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 5 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -509,11 +528,12 @@ The MotorID telemetry section displays Fault for the status.
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+There were no results captured, but the vendor witnessed this step pass.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 6 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -550,11 +570,12 @@ Follow BoschTask\_6 (\textbf{Reset}) in the attached
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+There were no results captured, but the vendor witnessed this step pass.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 7 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -576,11 +597,12 @@ The AxisStatusOut is on standstill.
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+There were no results captured, but the vendor witnessed this step pass.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 8 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -603,11 +625,12 @@ indicators at the MotorID Telemetry section
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+There were no results captured, but the vendor witnessed this step pass.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 9 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -629,11 +652,12 @@ The MotorID telemetry section displays Standstill for the status.
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+There were no results captured, but the vendor witnessed this step pass.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 10 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -670,11 +694,12 @@ Follow BoschTask\_10 (\textbf{MoveToLimit}) in the attached
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+There were no results captured, but the vendor witnessed this step pass.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 11 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -711,11 +736,12 @@ Follow BoschTask\_11 (\textbf{StopMove}) in the attached
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+There were no results captured, but the vendor witnessed this step pass.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 12 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -752,11 +778,12 @@ Follow BoschTask\_12 (\textbf{Power Off}) in the attached
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+There were no results captured, but the vendor witnessed this step pass.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 13 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -779,15 +806,17 @@ the specified MotorID
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+There were no results captured, but the vendor witnessed this step pass.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 14 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
+\textbf{{COMMANDING THROUGH THE EUI - CCW TESTS}}\\
 \textbf{CE\_CCW0a~}Change Setting x to value y
 
 \begin{enumerate}
@@ -948,55 +977,17 @@ position~\emph{x~}with speed~\emph{z~}using Drive y.
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+There were no results captured, but the vendor witnessed this step pass.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Pass } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 17 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-\textbf{CE\_CCW1b~}Power Off
-
-\begin{enumerate}
-\tightlist
-\item
-  The operator clicks onto the ``OFF'' button.~
-\item
-  The ``Status'' changes from ``On\textbackslash{}WaitingCMD'' to
-  ``Idle''.
-\end{enumerate}
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The ``drive status'' of Drive 1 and Drive 2 are ``Off'' and the
-  corresponding ``run/alarm'' LEDs are gray.
-\end{itemize}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Pass } \\ \hline
-
-18 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-\textbf{CE\_CCW1c~}Select Drive 1
+\textbf{CE\_CCW1b~}Select Drive 1
 
 \begin{enumerate}
 \tightlist
@@ -1027,16 +1018,17 @@ position~\emph{x~}with speed~\emph{z~}using Drive y.
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+There were no results captured, but the vendor witnessed this step pass.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
-19 & Description \\
+18 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-\textbf{CE\_CCW1d~}Select Drive 2
+\textbf{CE\_CCW1c~}Select Drive 2
 
 \begin{enumerate}
 \tightlist
@@ -1067,11 +1059,52 @@ position~\emph{x~}with speed~\emph{z~}using Drive y.
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+There were no results captured, but the vendor witnessed this step pass.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
+
+19 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+\textbf{CE\_CCW1d~}Power Off
+
+\begin{enumerate}
+\tightlist
+\item
+  The operator clicks onto the ``OFF'' button.~
+\item
+  The ``Status'' changes from ``On\textbackslash{}WaitingCMD'' to
+  ``Idle''.
+\end{enumerate}
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\begin{itemize}
+\tightlist
+\item
+  The ``drive status'' of Drive 1 and Drive 2 are ``Off'' and the
+  corresponding ``run/alarm'' LEDs are gray.
+\end{itemize}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+There were no results captured, but the vendor witnessed this step pass.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 20 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -1112,11 +1145,12 @@ position~\emph{x~}with speed~\emph{z~}using Drive y.
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+There were no results captured, but the vendor witnessed this step pass.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 21 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -1157,11 +1191,12 @@ position~\emph{x~}with speed~\emph{z~}using Drive y.
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+There were no results captured, but the vendor witnessed this step pass.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 22 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -1208,11 +1243,12 @@ position~\emph{x~}with speed~\emph{z~}using Drive y.
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+There were no results captured, but the vendor witnessed this step pass.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 23 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -1272,11 +1308,12 @@ position~\emph{x~}with speed~\emph{z~}using Drive y.
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+There were no results captured, but the vendor witnessed this step pass.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 24 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -1312,11 +1349,12 @@ position~\emph{x~}with speed~\emph{z~}using Drive y.
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+There were no results captured, but the vendor witnessed this step pass.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 25 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -1381,7 +1419,7 @@ position~\emph{x~}with speed~\emph{z~}using Drive y.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 26 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -1420,7 +1458,7 @@ position~\emph{x~}with speed~\emph{z~}using Drive y.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 27 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -1488,7 +1526,7 @@ position~\emph{x~}with speed~\emph{z~}using Drive y.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 28 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -1546,7 +1584,7 @@ position~\emph{x~}with speed~\emph{z~}using Drive y.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 29 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -1604,7 +1642,7 @@ position~\emph{x~}with speed~\emph{z~}using Drive y.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 30 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -1662,7 +1700,7 @@ position~\emph{x~}with speed~\emph{z~}using Drive y.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 31 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -1720,7 +1758,7 @@ position~\emph{x~}with speed~\emph{z~}using Drive y.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 32 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -1779,7 +1817,7 @@ position~\emph{x~}with speed~\emph{z~}using Drive y.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 33 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -1821,7 +1859,7 @@ position~\emph{x~}with speed~\emph{z~}using Drive y.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 34 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -1885,7 +1923,7 @@ position~\emph{x~}with speed~\emph{z~}using Drive y.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 35 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -1926,7 +1964,7 @@ position~\emph{x~}with speed~\emph{z~}using Drive y.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 36 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -1976,7 +2014,7 @@ position~\emph{x~}with speed~\emph{z~}using Drive y.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 37 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -2026,7 +2064,7 @@ position~\emph{x~}with speed~\emph{z~}using Drive y.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 38 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -2079,7 +2117,7 @@ position~\emph{x~}with speed~\emph{z~}using Drive y.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 39 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -2122,7 +2160,7 @@ position~\emph{x~}with speed~\emph{z~}using Drive y.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 40 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -2173,7 +2211,7 @@ position~\emph{x~}with speed~\emph{z~}using Drive y.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 41 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -2223,7 +2261,7 @@ position~\emph{x~}with speed~\emph{z~}using Drive y.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 42 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -2273,7 +2311,7 @@ position~\emph{x~}with speed~\emph{z~}using Drive y.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 43 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -2340,7 +2378,7 @@ position~\emph{x~}with speed~\emph{z~}using Drive y.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 44 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -2407,7 +2445,7 @@ position~\emph{x~}with speed~\emph{z~}using Drive y.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 45 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -2449,7 +2487,7 @@ position~\emph{x~}with speed~\emph{z~}using Drive y.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 46 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -2516,7 +2554,7 @@ position~\emph{x~}with speed~\emph{z~}using Drive y.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 47 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -2570,7 +2608,7 @@ position~\emph{x~}with speed~\emph{z~}using Drive y.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 48 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -2614,7 +2652,7 @@ position~\emph{x~}with speed~\emph{z~}using Drive y.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 49 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -2671,7 +2709,7 @@ position~\emph{x~}with speed~\emph{z~}using Drive y.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 50 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -2738,7 +2776,7 @@ position~\emph{x~}with speed~\emph{z~}using Drive y.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 51 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -2779,7 +2817,7 @@ position~\emph{x~}with speed~\emph{z~}using Drive y.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 52 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -2824,7 +2862,7 @@ position~\emph{x~}with speed~\emph{z~}using Drive y.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 53 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -2866,7 +2904,7 @@ position~\emph{x~}with speed~\emph{z~}using Drive y.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 54 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -2955,11 +2993,12 @@ position~\emph{x~}with speed~\emph{z~}using Drive y.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 55 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
+\textbf{{BOSCH POWER SUPPLY TASK TESTING PLAN}}\\
 Follow BoschDCTask\_1 (\textbf{PreInitActions}) in the attached
 \emph{BoschPowerSupplyTaskTestingPlan,~}Page 3.
 
@@ -2981,7 +3020,7 @@ The MLC must be in BB mode.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 56 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -3008,7 +3047,7 @@ mode couldn't be reached.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 57 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -3040,7 +3079,7 @@ Follow BoschDCTask\_3~(\textbf{PreInitActions}) in the attached
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 58 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -3072,7 +3111,7 @@ Follow BoschDCTask\_4~(\textbf{PreInitActions}) in the attached
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 59 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -3104,11 +3143,12 @@ Follow BoschDCTask\_5 (\textbf{Normal On}) in the attached
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 60 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
+\textbf{{CCW AUX TEMPERATURE CONTROL TASK TESTING}}\\
 Follow TempTask\_1 (\textbf{Normal On}) in the attached
 \emph{CCWAuxTemperatureControlTaskTestingPlan,~}Page 3.
 
@@ -3150,7 +3190,7 @@ Follow TempTask\_1 (\textbf{Normal On}) in the attached
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 61 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -3196,7 +3236,7 @@ Follow TempTask\_2 (\textbf{Cold On}) in the attached
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 62 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -3222,7 +3262,7 @@ The VI is stopped\\[2\baselineskip]
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 63 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -3264,7 +3304,7 @@ Follow TempTask\_4 (\textbf{Error Load)} in the attached
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Initial Pass } \\ \hline
 
 \end{longtable}
 

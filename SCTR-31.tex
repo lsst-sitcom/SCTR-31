@@ -13,23 +13,23 @@
 
 \begin{document}
 
-\def\milestoneName{Ccw Functional Re-Verification}
-\def\milestoneId{LVV-P64}
+\def\milestoneName{M2 Functional Re-Verification And Sal V4.0 Interface Verification}
+\def\milestoneId{LVV-P66}
 \def\product{SIT-COM Integration}
 
 \setDocCompact{true}
 
-\title{ LVV-P64 Ccw Functional Re-Verification Test Plan and Report}
+\title{ LVV-P66 M2 Functional Re-Verification And Sal V4.0 Interface Verification Test Plan and Report}
 \setDocRef{\lsstDocType-\lsstDocNum}
 \date{\vcsdate}
 \setDocUpstreamLocation{\url{https://github.com/lsst/lsst-texmf/examples}}
-\author{ Austin Roberts }
+\author{ Bo Xin }
 
 \input history_and_info.tex
 
 
 \setDocAbstract{
-This is the test plan and report for LVV-P64 (Ccw Functional Re-Verification),
+This is the test plan and report for LVV-P66 (M2 Functional Re-Verification And Sal V4.0 Interface Verification),
 an LSST milestone pertaining to the System Engineering Subsystem.
 }
 
@@ -43,51 +43,37 @@ an LSST milestone pertaining to the System Engineering Subsystem.
 \subsection{Objectives}
 \label{sect:objectives}
 
- The objective of this test plan is to re-verify the functional
-requirements of the Camera Cable Wrap's hardware and software, after
-shipment from the vendors facility to the Summit, as defined in \citeds{LTS-218}.
-This test campaign will only exercise the functionality that was
-executed previously and meets the following criteria:
+ The objective of this test plan is two-fold:
 
 \begin{itemize}
 \tightlist
 \item
-  Only requires the CCW to be operable
+  to re-verify M2 software after M2 delivery to the summit and SAL
+  version upgrade to 4.0. Make sure all events, and telemetry are
+  recorded in the summit EFD. (we are not ready to command M2 via SAL
+  yet)
 \item
-  Only requires the vendors EUI software and hardware via local control
-\item
-  Only requires a laser tracker
-\item
-  Does \textbf{NOT} require the Camera Rotator to be loaded with the
-  camera simulated mass or actual camera hardware
+  run M2 performance tests. Make sure performance requirements in
+  \citeds{LTS-146} are met.
 \end{itemize}
-
-The hardware functional requirements were previously verified during the
-test campaign by the vendor at the vendors facility and accepted by LSST
-during the Factory Acceptance Test
-review.\\[2\baselineskip]\textbf{NOTE:~} This re-verification is the
-responsibility of the vendor. This Test Plan and Report is to capture
-this event and it's results utilizing the LSST Verification
-Architecture, but may not have detailed test steps defined in the Test
-Cases of this test campaign.
 
 
 
 \subsection{System Overview}
 \label{sect:systemoverview}
 
- The primary function of the Camera Cable Wrap is to rotate in a
-synchronous fashion with the Camera Rotator to prevent the utilities
-from getting damaged.
+ M2 surrogate is attached to the mirror cell. M2 control software has
+been upgraded to work with SAL4.0.
 
 
 \subsection{Document Overview}
 \label{sect:docoverview}
 
 This document was generated from Jira, obtaining the relevant information from the 
-\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testPlan/LVV-P64}{LVV-P64}
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testPlan/LVV-P66}{LVV-P66}
 ~Jira Test Plan and related Test Cycles (
-  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCycle/LVV-C112}{LVV-C112}
+  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCycle/LVV-C118}{LVV-C118}
+  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCycle/LVV-C148}{LVV-C148}
 ).
 
 Section \ref{sect:intro} provides an overview of the test campaign, the system under test (\product{}), the applicable documentation, and explains how this document is organized.
@@ -98,7 +84,7 @@ Section \ref{sect:personnel} describes the necessary roles and lists the individ
 Section \ref{sect:overview} provides a summary of the test results, including an overview in Table \ref{table:summary}, an overall assessment statement and suggestions for possible improvements.
 Section \ref{sect:detailedtestresults} provides detailed results for each step in each test case.
 
-The current status of test plan LVV-P64 in Jira is \textbf{ Approved }.
+The current status of test plan LVV-P66 in Jira is \textbf{ Draft }.
 
 \subsection{References}
 \label{sect:references}
@@ -113,18 +99,17 @@ The current status of test plan LVV-P64 in Jira is \textbf{ Approved }.
 
 \subsection{Verification Environment}
 \label{sect:hwconf}
-  The Camera Cable Wrap will be verified on the 3rd floor of the Summit
-Facility integrated with the Camera Rotator on the Camera Cart.
+  M2 will be verified in a climate controlled environment on the summit
+3rd floor
 
   \subsection{Entry Criteria}
-  In order to test the Camera Cable Wrap functionality, the following
-criteria must be met first:
+  In order to run these tests, the following criteria must be met first:\\
 
 \begin{itemize}
 \tightlist
 \item
   All utilities and electrical connections are hooked up and allow the
-  Camera Cable Wrap to be powered on and controlled
+  M2 to be powered on and controlled
 \item
   The EFD must be set up to be able to store events and telemetry data
 \end{itemize}
@@ -136,15 +121,13 @@ criteria must be met:
 \begin{itemize}
 \tightlist
 \item
-  Raw test data, events, and telemetry have been saved for the Camera
-  Cable Wrap.
+  Raw test data, events, and telemetry have been saved for M2 in the
+  Summit EFD.
 \item
   All test data has been analyzed and post processed.
 \item
-  The vendor has produced and provided LSST with a Test Report detailing
-  all findings.
-\item
-  The vendor's Test Report has been attached to this Test Plan.
+  All test steps have been statused in the Jira Test Cases within this
+  Test Plan and actual results populated as required.
 \item
   A summary of the results of the test campaign has been captured in the
   Overall Assessment and Recommended Improvements fields of this Test
@@ -159,6 +142,8 @@ criteria must be met:
   project
 \end{itemize}
 
+  \subsection{PMCS Activity}
+  See Epics in Traceability Tab
 
 \newpage
 \section{Personnel}
@@ -168,35 +153,201 @@ The personnel involved in the test campaign is shown in the following table.
 
 \begin{longtable}{p{3cm}p{3cm}p{3cm}p{6cm}}
 \hline
-\multicolumn{2}{r}{Test Plan (LVV-P64) owner:} &
-\multicolumn{2}{l}{\textbf{ Austin Roberts } }\\\hline
-\multicolumn{2}{r}{ LVV-C112 owner:} &
+\multicolumn{2}{r}{Test Plan (LVV-P66) owner:} &
+\multicolumn{2}{l}{\textbf{ Bo Xin } }\\\hline
+\multicolumn{2}{r}{ LVV-C118 owner:} &
 \multicolumn{2}{l}{\textbf{
-    Undefined
+    Austin Roberts
 }
 } \\\hline
 \textbf{Test Case} & \textbf{Assigned to} & \textbf{Executed by} & \textbf{Additional Test Personnel} \\ \hline
-\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1590}{LVV-T1590}
-& {\small Kevin Siruno } & {\small Kevin Siruno } &
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1799}{LVV-T1799}
+& {\small Bo Xin } & {\small Bo Xin } &
 \begin{minipage}[]{6cm}
 \smallskip
-{\small Tekniker Personnel
-
-\begin{itemize}
-\tightlist
-\item
-  Julen Garcia
-\item
-  Alberto Izpizua
-\end{itemize}
-
-LSST Personnel
-
-\begin{itemize}
-\tightlist
-\item
-  Andrew Heyer
-\end{itemize} }
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1798}{LVV-T1798}
+& {\small Bo Xin } & {\small Bo Xin } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1810}{LVV-T1810}
+& {\small Bo Xin } & {\small Bo Xin } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1784}{LVV-T1784}
+& {\small Bo Xin } & {\small Bo Xin } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1790}{LVV-T1790}
+& {\small Bo Xin } & {\small Bo Xin } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1788}{LVV-T1788}
+& {\small Bo Xin } & {\small Bo Xin } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1787}{LVV-T1787}
+& {\small Bo Xin } & {\small Bo Xin } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1782}{LVV-T1782}
+& {\small Bo Xin } & {\small Bo Xin } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1791}{LVV-T1791}
+& {\small Bo Xin } & {\small Bo Xin } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1792}{LVV-T1792}
+& {\small Bo Xin } & {\small Bo Xin } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1785}{LVV-T1785}
+& {\small Bo Xin } & {\small Bo Xin } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1783}{LVV-T1783}
+& {\small Bo Xin } & {\small  } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1786}{LVV-T1786}
+& {\small Bo Xin } & {\small Bo Xin } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1793}{LVV-T1793}
+& {\small Bo Xin } & {\small  } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1794}{LVV-T1794}
+& {\small Bo Xin } & {\small  } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1797}{LVV-T1797}
+& {\small Bo Xin } & {\small  } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1796}{LVV-T1796}
+& {\small Bo Xin } & {\small  } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1795}{LVV-T1795}
+& {\small Bo Xin } & {\small  } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1789}{LVV-T1789}
+& {\small Bo Xin } & {\small Bo Xin } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\multicolumn{2}{r}{ LVV-C148 owner:} &
+\multicolumn{2}{l}{\textbf{
+    Austin Roberts
+}
+} \\\hline
+\textbf{Test Case} & \textbf{Assigned to} & \textbf{Executed by} & \textbf{Additional Test Personnel} \\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1803}{LVV-T1803}
+& {\small Austin Roberts } & {\small  } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1614}{LVV-T1614}
+& {\small Austin Roberts } & {\small  } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1613}{LVV-T1613}
+& {\small Austin Roberts } & {\small  } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1615}{LVV-T1615}
+& {\small Austin Roberts } & {\small  } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
 \medskip
 \end{minipage}
 \\ \hline
@@ -212,24 +363,238 @@ LSST Personnel
 
 \begin{longtable}{p{2cm}p{2.5cm}p{9cm}p{2.5cm}}
 \toprule
-\multicolumn{3}{p{13.5cm}}{ Test Plan {\bf LVV-P64: CCW Functional Re-verification }} & Approved \\\hline
+\multicolumn{3}{p{13.5cm}}{ Test Plan {\bf LVV-P66: M2 Functional Re-verification and SAL v4.0 Interface Verification }} & Draft \\\hline
 
-  \multicolumn{3}{p{13.5cm}}{ Test Cycle {\bf LVV-C112: CCW Functional Re-verificaiton }} & Done \\\hline
+  \multicolumn{3}{p{13.5cm}}{ Test Cycle {\bf LVV-C118: M2 Preliminary Functional Testing and SAL v4.0 Integration }} & In Progress \\\hline
 
   {\bf \footnotesize test case} & {\bf \footnotesize status} & {\bf \footnotesize comment} & {\bf \footnotesize issues} \\\toprule
 
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1590}{LVV-T1590}
-    & Initial Pass &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1799}{LVV-T1799}
+    & Pass &
     \begin{minipage}[]{9cm}
     \smallskip
-    Overall, this test was seen as an INITIAL PASS as there were no reported
-failures for any of the test steps. However, not all test steps could be
-executed because some required the CCW to be connected to the Camera
-Rotator. Furthermore, no formal report was generated to capture the
-actual results for three of the four vendor procedural documents. The
-results of the CCWTestingPlan is attached below. The vendor will provide
-a formal report for the re-execution of these tests when the CCW is
-hooked up to the cabinet(s) and installed on the Top End Assembly.~
+    
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1798}{LVV-T1798}
+    & In Progress &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    need to understand why forces do not change between open and close loop.
+Why do we still have F\_HC in open loop? Sandrine read the Harris doc
+T14900-1001 page 9, the close loop seem to mean the force loop is closed
+when the inclination angle and temperature changes.\\
+temperature data in EFD: there are 72 fields, but only 16 sensors. Need
+to do LCR to change XML and sal\_interface document.\\
+Cell temperatures (4 of them) seem to be \textasciitilde{}2C higher than
+mirror T (12 of them). Is that what we would expect?\\
+zenith angle inconsistency, see detail below\\
+all M2 telemetry and events use UTC, not TAI. This is a known bug that
+needs to be fixed.\\
+we need a log event for transitioning from open loop to closed loop,
+which we don't have yet. To do. (Te-Wei said Chris had a M2 to-do list,
+this is one of the items. He will find the confluence page.)\\
+need position sensors info in the EFD. Doug has a wish list on M2
+desired features as well. Te-Wei will circulate.
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1810}{LVV-T1810}
+    & In Progress &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1784}{LVV-T1784}
+    & In Progress &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    Bo need to check FEA model and clarify coordinate system used for the
+bending modes.\\
+Te-Wei notes that the coordinate system used by M2 control system
+is~\href{https://github.com/lsst-ts/ts_mtm2/blob/master/doc/project/CellConfiguration.xlsx}{CellConfiguration.xlsx}
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1790}{LVV-T1790}
+    & In Progress &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1788}{LVV-T1788}
+    & In Progress &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1787}{LVV-T1787}
+    & In Progress &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1782}{LVV-T1782}
+    & Pass w/ Deviation &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    +x motion limit =0.87mm, while \citeds{LTS-146} has 7.74mm
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1791}{LVV-T1791}
+    & In Progress &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1792}{LVV-T1792}
+    & Pass w/ Deviation &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1785}{LVV-T1785}
+    & Pass w/ Deviation &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1783}{LVV-T1783}
+    & Not Executed &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1786}{LVV-T1786}
+    & Pass w/ Deviation &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1793}{LVV-T1793}
+    & Not Executed &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1794}{LVV-T1794}
+    & Not Executed &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1797}{LVV-T1797}
+    & Not Executed &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1796}{LVV-T1796}
+    & Not Executed &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1795}{LVV-T1795}
+    & Not Executed &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1789}{LVV-T1789}
+    & Pass w/ Deviation &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+
+  \multicolumn{3}{p{13.5cm}}{ Test Cycle {\bf LVV-C148: M2 Formal Functional Re-Verification and SAL v4.0 Integration }} & Not Executed \\\hline
+
+  {\bf \footnotesize test case} & {\bf \footnotesize status} & {\bf \footnotesize comment} & {\bf \footnotesize issues} \\\toprule
+
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1803}{LVV-T1803}
+    & Not Executed &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1614}{LVV-T1614}
+    & Not Executed &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1613}{LVV-T1613}
+    & Not Executed &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1615}{LVV-T1615}
+    & Not Executed &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    
     \medskip
     \end{minipage}
     &
@@ -241,20 +606,7 @@ hooked up to the cabinet(s) and installed on the Top End Assembly.~
 \subsection{Overall Assessment}
 \label{sect:overallassessment}
 
-Overall, the result of the test campaign was reported as an INITIAL
-PASS.\\[2\baselineskip]The overall test campaign is seen as an initial
-pass because the Camera Cable Wrap Re-verification Test will be done
-again when installed on the Top End Assembly along with the Camera
-Rotator and electric cabinet(s). Tekniker's re-verification testing of
-the Camera Cable Wrap consisted of four procedures:\emph{~Bosch Task
-Testing Plan, CCW Testing Plan, Bosch Power Supply Task Testing
-Plan~}and\emph{~}the\emph{~CCW Aux Temperature Control Task Testing
-Plan}. Of these four procedures, we only have a results document for the
-\emph{CCW Testing Plan}. However, according to Tekniker, there were no
-failed test steps during the execution of any of these test
-procedures\emph{.~}The \emph{CCW Testing Plan~}had some steps that were
-left unexecuted, but these steps will be verified during the next test
-campaign when the Camera Rotator is installed on the Top End Assembly.
+Not yet available.
 
 \subsection{Recommended Improvements}
 \label{sect:recommendations}
@@ -265,83 +617,45 @@ Not yet available.
 \section{Detailed Test Results}
 \label{sect:detailedtestresults}
 
-\subsection{Test Cycle LVV-C112 }
+\subsection{Test Cycle LVV-C118 }
 
-Open test cycle {\it \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testrun/LVV-C112}{CCW Functional Re-verificaiton}} in Jira.
+Open test cycle {\it \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testrun/LVV-C118}{M2 Preliminary Functional Testing and SAL v4.0 Integration}} in Jira.
 
-CCW Functional Re-verificaiton\\
-Status: Done
+M2 Preliminary Functional Testing and SAL v4.0 Integration\\
+Status: In Progress
 
-This purpose of this test cycle is to run initial tests on the summit to
-re-verify the CCW as previously tested at the vendor's facility.
+The purpose of this preliminary test cycle is to run some basic
+functional and software tests to gain an understanding of how the
+software performs and what development is required for the CSC to
+properly integrate with SAL v4.0.
 
 \subsubsection{Software Version/Baseline}
-Not provided.
+\begin{enumerate}
+\tightlist
+\item
+  M2 Control Software with SAL v4.0
+\item
+  EFD with SAL v4.0
+\end{enumerate}
 
 \subsubsection{Configuration}
 Not provided.
 
-\subsubsection{Test Cases in LVV-C112 Test Cycle}
+\subsubsection{Test Cases in LVV-C118 Test Cycle}
 
-\paragraph{Test Case LVV-T1590 - CCW Functional Re-verification }\mbox{}\\
+\paragraph{Test Case LVV-T1799 - M2 E-stop }\mbox{}\\
 
-Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1590}{\textit{ LVV-T1590 } }
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1799}{\textit{ LVV-T1799 } }
 test case in Jira.
 
-The purpose of this test case is to capture the results of the vendor's
-standalone re-verification test of the CCW, after shipment from the
-vendor's facility to the Summit, as defined by \citeds{LTS-218}. This test
-campaign will only exercise the functionality that was previously
-executed and meets the following criteria:
 
-\begin{itemize}
-\tightlist
-\item
-  Only requires the CCW Utility (electric, network \& software) to be
-  hooked up
-\item
-  Only requires a HHD to control the EUI
-\item
-  Does require connection to SAL
-\item
-  Does \textbf{NOT} require to be connected to the actual camera
-  hardware or have any camera simulated mass installed
-\end{itemize}
-
-This test case is a master test case as it calls to test the children
-test cases that contain the procedures provided by the vendor. These
-procedural documents are the \emph{Bosch Task Testing Plan, CCW Testing
-Plan, Bosch Power Supply Task Testing Plan~}and the \emph{CCW Aux
-Temperature Control Task Testing Plan.~}All of the results from these
-procedures will be recorded in this test case.~
 
 \textbf{ Preconditions}:\\
-Prior to the execution of this test case to re-verify the Camera Cable
-wrap functional requirements, the following Summit tasks must be
-completed:
 
-\begin{itemize}
-\tightlist
-\item
-  The Integrator and CCW have been installed on the Camera Cart
 
-  \begin{itemize}
-  \tightlist
-  \item
-    \url{https://jira.lsstcorp.org/browse/SUMMIT-2156}
-  \end{itemize}
-\end{itemize}
+Execution status: {\bf Pass }
 
-Execution status: {\bf Initial Pass }
-
-Final comment:\\Overall, this test was seen as an INITIAL PASS as there were no reported
-failures for any of the test steps. However, not all test steps could be
-executed because some required the CCW to be connected to the Camera
-Rotator. Furthermore, no formal report was generated to capture the
-actual results for three of the four vendor procedural documents. The
-results of the CCWTestingPlan is attached below. The vendor will provide
-a formal report for the re-execution of these tests when the CCW is
-hooked up to the cabinet(s) and installed on the Top End Assembly.~
+Final comment:\\
 
 
 Detailed steps results:
@@ -352,9 +666,7 @@ Detailed steps results:
 1 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-\textbf{{BOSCH TASK TESTING PLAN}}\\
-Follow BoschTask\_1 (\textbf{Init Subsystem}) in the attached
-\emph{BoschTaskTestingPlan,~}Page 3.
+press e-stop
 
 \medskip }
 \end{minipage}
@@ -363,27 +675,26 @@ Follow BoschTask\_1 (\textbf{Init Subsystem}) in the attached
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-The motorID telemetry section displays the actual telemetry of the
-specified MotorID.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-There were no results captured, but the vendor witnessed this step
-pass.~
+12:04pm local. 3/3/2020\\
+enter close loop mode\\
+hit e stop\\
+GUI shows ``alarm active'' in red
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Initial Pass } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 2 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-Follow BoschTask\_2 (\textbf{Power On}) in the attached
-\emph{BoschTaskTestingPlan,~}Page 3.
+recover the system
 
 \medskip }
 \end{minipage}
@@ -392,41 +703,187 @@ Follow BoschTask\_2 (\textbf{Power On}) in the attached
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The MotorID telemetry section displays Standstill for the status.
-\item
-  {A Done event is received at the Triggers section, this area
-  displays:}
-
-  \begin{itemize}
-  \tightlist
-  \item
-    {DoneTime = the time when the done event was received; check that is
-    close to the current time.}
-  \item
-    {Done\# increments its value by one.}
-  \end{itemize}
-\end{itemize}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-There were no results captured, but the vendor witnessed this step pass.
+e-stop switch -\textgreater{} off, then on\\
+in GUI, click ``alarms/warnings'' , then ``reset all items''\\
+in mode control (GUI), go to Remote mode (known bug, according to
+Te-Wei, otherwise it will all crash)\\
+Quit the GUI\\
+12:11pm\\
+copied over the binary files\\
+restart the system, by clicking on a small arrow on the upper left of
+GUI\\
+in the GUI message window, confirm ``SAL interface has started''\\
+check the terminal window, confirm things are ready.\\
+Mode control -\textgreater{} local\\
+local mode -\textgreater{} diagnostic -\textgreater{} enable\\
+12:31pm, some alarms showed up, including ILC read error. power relay
+open fault.\\
+reset all items, enable, still error\\
+Got Franco here. We need to push and RELEASE (by twisting slightly) the
+e-stop. 12:38pm. Franco did this, and we reset all items, enable. All
+seems good now.\\
+To shut down, open loop, stand by, remote, quit~
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Initial Pass } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
+
+\end{longtable}
+
+\paragraph{Test Case LVV-T1798 - verify M2 SAL4.0 telemetry against EUI display and output binary files }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1798}{\textit{ LVV-T1798 } }
+test case in Jira.
+
+
+
+\textbf{ Preconditions}:\\
+
+
+Execution status: {\bf In Progress }
+
+Final comment:\\need to understand why forces do not change between open and close loop.
+Why do we still have F\_HC in open loop? Sandrine read the Harris doc
+T14900-1001 page 9, the close loop seem to mean the force loop is closed
+when the inclination angle and temperature changes.\\
+temperature data in EFD: there are 72 fields, but only 16 sensors. Need
+to do LCR to change XML and sal\_interface document.\\
+Cell temperatures (4 of them) seem to be \textasciitilde{}2C higher than
+mirror T (12 of them). Is that what we would expect?\\
+zenith angle inconsistency, see detail below\\
+all M2 telemetry and events use UTC, not TAI. This is a known bug that
+needs to be fixed.\\
+we need a log event for transitioning from open loop to closed loop,
+which we don't have yet. To do. (Te-Wei said Chris had a M2 to-do list,
+this is one of the items. He will find the confluence page.)\\
+need position sensors info in the EFD. Doug has a wish list on M2
+desired features as well. Te-Wei will circulate.
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+power up the control system, do nothing, observe all the information in
+the EUI, make sure they make sense. Take screen shots\\
+Make sure telemetry and events are showing up in EFD.\\
+Use Chronograph to check telemetry and events, make sure they agree with
+EUI.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+1:50pm local started.\\
+Seems like the ``force error'' displayed in GUI has nothing to do with
+close loop vs open loop. Most likely it is applied forces vs measured
+forces.\\
+According to Te-Wei, these are the available topics in EFD:\\
+mirrorPositionMeasured: in GUI, go to rigid body position, right column,
+they match EFD. GUI unit: mm, urad, EFD unit: um, rad\\
+axialForcesMeasured: this telemetry seems to match F\_CUR in the GUI
+(CUR for current). We switched between open and close loop a few times,
+nothing seem to change on the GUI nor EFD. time is 3:12pm now.\\
+tangentForcesMeasured: checked GUI against EFD, they match\\
+temperaturesMeasured: GUI -\textgreater{} utility view show 16
+temperature measurements. there are 72 fields, but only 16 sensors. Need
+to do LCR to change XML and sal\_interface document. For now, we use
+-999 for non-existent sensors. Otherwise there is NaN the entire topic
+is dropped by Kafka producer. Angelo will fix this, but for now, Bo
+decided to use -999, so that data can go into EFD which facilitates
+subsequent analysis. The 12 mirror sensors on the GUI should correspond
+to fields temp0-11. Randomly checked 2 out of the 12, seem to match.\\
+zenithAngleMeasured: two places in GUI (utility view vs cell status)
+show 89.50 and 89.57. EFD shows 7.4e-3, no sure about unit.\\
+axialActuatorAbsolutePositionSteps: compare this to GUI. when entering
+closed loop, these get updated (with T and Angle), observed the change
+in EFD is same as change in GUI. So somehow they have different
+offsets.\\
+tangentActuatorAbsolutePositionSteps: same as above. different offset,
+but change by the same amount.\\
+axialActuatorPositionAbsoluteEncoderPositionMeasured: correspond to
+GUI-\textgreater{}Positon-\textgreater{}mm. But unit is um in EFD\\
+tangentActuatorPositionAbsoluteEncoderPositionMeasured: same as above\\
+check events now:\\
+summaryState: yes, diagnostic = 1, enable =2, standby=5; what Harris
+calls diagnostic mode is what we call disabled mode. Other than that,
+current events do not have detailed state, like open loop vs closed
+loop. That is all the issues we have on the states. Te-Wei confirms
+that.\\
+m2AssemblyInPosition: inPosition box lights up when a log event is sent.
+The logevent is published at the close loop update rate. IN open loop,
+it seems to still publish these log events. Te-Wei says it is due to the
+bug (error as seen in message window: E6052 monitoring ILC read error)\\
+SELECT inPosition AS ``mean\_inPosition'' FROM
+``efd''.``autogen''.``lsst.sal.MTM2.logevent\_m2AssemblyInPosition''
+WHERE time \textgreater{} :dashboardTime: FILL(null)\\
+errorCode: EFD shows many 6052 and 0s, consistent with GUI message
+window (it is a bug, btw). 0 error code doesn't show in GUI window.\\
+appliedSettingsMatchStart: this shows settings are read and applied.
+This only happens when we quite the GUI, then restart, check 18:20utc.
+According to Te-Wei, this is triggered by transitioning into enabled
+state from diagnostic/disable
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+add 20N to actuator B1, repeat the above
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+5:20pm local\\
+enter closed loop, so that we can load forces. (Te-Wei is sure that in
+the open loop mode we can only load steps)\\
+Bo created add20N.csv, Te-Wei converted into add20N.scp\\
+we loaded with GUI, confirmed force (F\_CUR in GUI) increase from
+\textasciitilde{}185 N to \textasciitilde{}205N. observed this force
+change in EFD, 21:49 utc\\[2\baselineskip]
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
 
 3 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-Follow BoschTask\_3 (\textbf{Move}) in the attached
-\emph{BoschTaskTestingPlan,~}Page 3-4.
+power down the system so that it is done writing to the binary file.
 
 \medskip }
 \end{minipage}
@@ -435,49 +892,35 @@ Follow BoschTask\_3 (\textbf{Move}) in the attached
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The MotorID telemetry section displays Standstill for the status.
-\item
-  {A Done event is received at the Triggers section, this area
-  displays:}
-
-  \begin{itemize}
-  \tightlist
-  \item
-    {DoneTime the time when the done event was received; check that is
-    close to the current time.}
-  \item
-    {Done\# increments its value by one.}
-  \end{itemize}
-\item
-  {The final position matches the specified one in step 2:}
-
-  \begin{itemize}
-  \tightlist
-  \item
-    {Position: \ldots{}\ldots{}.}
-  \end{itemize}
-\end{itemize}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-There were no results captured, but the vendor witnessed this step pass.
+Te-Wei recommended that we not to shut down the control system at the
+end of each test case, because there are always issues when we restart
+it. The memory has to be cleared with a script. And we see errors and
+typically have to retry a few times.\\
+We did not need to make another csv with -20N on B1. We went to open
+loop, then came back to closed loop, so that the forces are recalculated
+based on LUT.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Initial Pass } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 4 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-Follow BoschTask\_4 (\textbf{MoveVelocity}) in the attached
-\emph{BoschTaskTestingPlan,~}Page 4-5.
+data analysis:\\
+compare the output binary file to SAL events \& telemetry from EFD\\
+Check all the events \& telemetry info available, including, e.g. VMS,
+temperature, position sensors, etc.\\
+Note: use Harris readLabViewBinary.m to read in data from binary, then
+save as Matlab mat file. Python notebook can read Matlab lab mat file.\\
+In the same notebook, we query EFD and compare.
 
 \medskip }
 \end{minipage}
@@ -486,31 +929,161 @@ Follow BoschTask\_4 (\textbf{MoveVelocity}) in the attached
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The MotorID telemetry section displays Standstill for the status.
-\item
-  The Done\# incremented by 2 its value.
-\end{itemize}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-There were no results captured, but the vendor witnessed this step pass.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Initial Pass } \\ \hline
+ & Status: \textbf{ Not Executed } \\ \hline
+
+\end{longtable}
+
+\paragraph{Test Case LVV-T1810 - calibrate M2 reference position and position sensor offset }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1810}{\textit{ LVV-T1810 } }
+test case in Jira.
+
+The hardpoints are numbered and go in specific locations. However, we
+had trouble with the hard point extensions and a couple of them had the
+extensions replaced. The extensions probably vary in length by
+\textasciitilde{} 1mm.\\
+The IMS is essentially a relative motion sensor. Setting the readings to
+zero when the mirror is at reference position will help avoid some
+errors/anomalies in the testing scripts for other test cases.
+
+\textbf{ Preconditions}:\\
+
+
+Execution status: {\bf In Progress }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+power up the mirror, confirm that the optimized z-forces for zenith are
+being applied
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+local time 7:21pm. We will go to EFD later to get the forces, which
+should be optimized forces at zenith, and compare to calculations based
+on Harris csv files
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ In Progress } \\ \hline
+
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+check the balance forces.\\
+z force and Mz should be roughly zero.\\
+move the mirror along x and y to make x/y net forces and Mx/My close to
+zero.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+GUI shows balance forces (F\_HC), but we don't have the
+Fx/Fy/Fz/Mx/My/Mz as seen by the hard points. We don't have
+Fx/Fy/Fz/Mx/My/Mz as output by all actuators.\\
+These can be easily calculated using F\_HC and the actuator coordinates.
+This can be done by reading out F\_HC from binary files and calculations
+done with a simple notebook. We will have to do this later and come back
+to this.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ In Progress } \\ \hline
+
+3 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+write down the hard point displacements into the configuration file.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+4 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+restart the system, raise the mirror,\\
+make sure FB forces and moments are all close to zero now.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
 
 5 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-Follow BoschTask\_5 (\textbf{Fault}) in the attached
-\emph{BoschTaskTestingPlan,~}Page 5.
+write down position sensor offsets into the configuration file.
 
 \medskip }
 \end{minipage}
@@ -519,25 +1092,23 @@ Follow BoschTask\_5 (\textbf{Fault}) in the attached
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-The MotorID telemetry section displays Fault for the status.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-There were no results captured, but the vendor witnessed this step pass.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Initial Pass } \\ \hline
+ & Status: \textbf{ Not Executed } \\ \hline
 
 6 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-Follow BoschTask\_6 (\textbf{Reset}) in the attached
-\emph{BoschTaskTestingPlan,~}Page 5.
+restart the system,\\
+make sure the position sensor readings are all close to zero now.
 
 \medskip }
 \end{minipage}
@@ -546,40 +1117,1273 @@ Follow BoschTask\_6 (\textbf{Reset}) in the attached
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The MotorID telemtry section displays Off for the status
-\item
-  A Done event is received at the Triggers section, this area displays:
-
-  \begin{itemize}
-  \tightlist
-  \item
-    DoneTime - the time when the done event was received; check that is
-    close to current time
-  \item
-    Done\# will increment its value by one
-  \end{itemize}
-\end{itemize}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-There were no results captured, but the vendor witnessed this step pass.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Initial Pass } \\ \hline
+ & Status: \textbf{ Not Executed } \\ \hline
+
+\end{longtable}
+
+\paragraph{Test Case LVV-T1784 - M2 actuator No back driving }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1784}{\textit{ LVV-T1784 } }
+test case in Jira.
+
+
+
+\textbf{ Preconditions}:\\
+
+
+Execution status: {\bf In Progress }
+
+Final comment:\\Bo need to check FEA model and clarify coordinate system used for the
+bending modes.\\
+Te-Wei notes that the coordinate system used by M2 control system
+is~\href{https://github.com/lsst-ts/ts_mtm2/blob/master/doc/project/CellConfiguration.xlsx}{CellConfiguration.xlsx}
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+enter closed-loop mode
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+put on 500nm of bending mode 1, make sure the forces have been applied.
+Note the readings of the position sensors
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+added 500nm bm1 at 22:45pm utc on 3/3/20.\\
+Confirmed force changes with Chronograf.\\
+We checked force changed for B15, B30, B8, B23 in particular, however,
+looking at the bending mode surface shapes, Bo expects B15 and B30 to be
+increasing, but they are decreasing. Need to check FEA model and clarify
+coordinate system used for the bending modes.\\
+Te-Wei points out that the M2 control system has z axis going from M1M3
+to the sky. While Bo's FEA coordinate system has z going from M2 to
+M1M3. So it makes sense now.\\[2\baselineskip]2:58pm local, we are back
+to do de-energization. reapplied bm1, 500nm.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+3 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+de-energize the actuators, wait for 32s
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+B6:\\
+18:12 utc, unplug\\
+6083 encoder out of range\\
+6075 warning excessive cell temperature differential\\
+18:15 utc plug back\\
+tried to clear error. when we tried to go to closed loop, instead of
+6083, we get 6051 actuator ILC read error. Tried a few times, sometimes
+need to push e-stop, twist to release, turn off/on switch. Repeat these
+a few times, slowly, we always got it to work , i.e., able to enter
+closed loop.\\
+C4:\\
+18:16 utc unplug, 18:19 utc, plug back\\
+D4:\\
+18:22 utc, unplug, 18:26 utc back\\
+A1:\\
+18:30 utc, unplug, 18:32 plug back\\
+6084 tangent actuator out of range\\
+6075 warning excessive cell temperature differential\\
+A2:\\
+\hspace*{0.333em}18:35 utc unplug, 18:37 utc plug back
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+4 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+data analysis:\\
+analyze the telemetry and make sure\\
+the mirror position did not change after de-energizing the actuators\\
+the actuator forces did not change after de-energizing the actuators
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+5 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+tilt M2 to 30 degrees off zenith, and repeat the above test.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+6 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+data analysis:\\
+check mirror position and actuator forces (including tangent links)
+before and after the de-energization.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+\end{longtable}
+
+\paragraph{Test Case LVV-T1790 - M2 actuator bump test }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1790}{\textit{ LVV-T1790 } }
+test case in Jira.
+
+make sure all actuators are alive\\
+check force accuracy/repeatability/stability
+
+\textbf{ Preconditions}:\\
+
+
+Execution status: {\bf In Progress }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+loop over every actuator, apply 20N, clear, -20N, clear, then go to the
+next actuator\\
+Note: if the change of forces is happening too fast and telemetry
+doesn't keep up, consider apply each force twice in a row?
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+We started at 23:35 utc on 3/3/20.\\
+We applied each force for 1s. So 3s for each actuator. We did this for
+all the actuators. That took 78*3s, which is about 4min.\\
+We did this with closed loop. Open loop does not accept
+forces.\\[2\baselineskip]3/6/20.\\
+earlier we only applied one-row csv file for force and confirmed that
+the forces hold.\\
+Based on experiments from yesterday, Bo realized that the force values
+in the csv are not accumulative, they are absolute values. So,\\
+the force csv files shouldn't be padded with zero, we need to repeat
+same values for the time period we want to hold the forces. Tested and
+confirmed with testF2rows.csv\\
+Redoing the test on 3/6/20. using bumpHold1.csv\\
+13:41 utc first try.\\
+13:46 utc 2nd try.\\[2\baselineskip]
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+repeat the above 3 times
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+first repeat: 00:10 utc 3/4/20.\\
+2nd repeat: 00:15 utc 3/4/20. Bo was shaking the meta ring at the bottom
+of the M2 after this run.\\
+3rd repeat: 00:21 utc 3/4/20.\\[2\baselineskip]3/6/20.\\
+earlier we only applied one-row csv file for force and confirmed that
+the forces hold.\\
+Based on experiments from yesterday, Bo realized that the force values
+in the csv are not accumulative, they are absolute values. So,\\
+the force csv files shouldn't be padded with zero, we need to repeat
+same values for the time period we want to hold the forces. Tested and
+confirmed with testF2rows.csv\\
+Redoing the test on 3/6/20. using bumpHold1.csv\\
+13:41 utc first time.\\
+13:46 utc 2nd time.\\
+13:51 utc 3rd time.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+3 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+data analysis:\\
+check force repeatability, and force error.\\
+Note that force error here doesn't include absolute (load cell)
+calibration error. We can only check the difference between applied
+force and load-cell measured force.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+Using checkForceLatency.ipynb, we confirmed that 1s is enough time for
+the forces to settle. So there is no need to redo the test with longer
+time intervals.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ In Progress } \\ \hline
+
+\end{longtable}
+
+\paragraph{Test Case LVV-T1788 - M2 bending modes }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1788}{\textit{ LVV-T1788 } }
+test case in Jira.
+
+
+
+\textbf{ Preconditions}:\\
+
+
+Execution status: {\bf In Progress }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In Matlab script, take bending modes 1-20, apply the following scale
+factors:\\
+mode 1-10: 1/2\\
+11-15: 1/3\\
+16-20: 1/4\\
+Note: we want to scale them to roughly produce surface RMS of 500nm.but
+also do not want large forces.\\
+\% The AOS force budget is 44N (10\% of total)
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Loop over all the 20 bending modes, apply them in turn, use
+genScriptFile.m to convert them into a scp file.\\
+Note: if the change of forces is happening too fast and telemetry
+doesn't keep up, consider apply each force twice in a row?
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+11:49am 3/4/20 local time. enter closed loop, so that forces can be
+applied. start the test.\\
+11:57am local, repeat, each test takes 5 minute. Franco walking up by
+the M2, cleaning up hiss tools after installing accelerometers.\\
+Franco is done. starting next test - 12:03pm local, 3rd time this is.\\
+12:09pm local, 4th time.\\[2\baselineskip]3/6/20.\\
+earlier we only applied one-row csv file for force and confirmed that
+the forces hold.\\
+Based on experiments from yesterday, Bo realized that the force values
+in the csv are not accumulative, they are absolute values. So,\\
+the force csv files shouldn't be padded with zero, we need to repeat
+same values for the time period we want to hold the forces. Tested and
+confirmed with testF2rows.csv\\
+Redoing the test on 3/6/20.\\[2\baselineskip]13:21utc, starting first
+try. using bmHold\_6000x78.csv\\
+13:29utc repeating, 2nd time.\\
+13:35utc, repeating, 3rd time.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+3 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+data analysis:\\
+look at telemetry to make sure all bending modes were applied without
+problem.\\
+compare commanded forces to measured forces.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+\end{longtable}
+
+\paragraph{Test Case LVV-T1787 - M2 LUT }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1787}{\textit{ LVV-T1787 } }
+test case in Jira.
+
+
+
+\textbf{ Preconditions}:\\
+
+
+Execution status: {\bf In Progress }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+rotate the M2 cart over its full range. Record telemetry during the
+process.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+11:32am local 3/5/20, we started this test. and finished around 12:50pm,
+right before lunch.\\
+See attached for Te-Wei's record on angles we stopped at, and the time
+for each start and stop.\\
+Sandrine also wrote down the corresponding inclinometer readings from
+the GUI for each stop. These are not in the EFD.\\
+See
+https://confluence.lsstcorp.org/display/LTS/M2+Testing+on+Summit+at+March+2nd+-+6th\%2C+2020\\
+see photo for the difference between two angles displayed on the GUI and
+telemetry in EFD. Cart shows 0-180 deg.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+data analysis:\\
+examine telemetry file, to make sure\\
+the LUT forces at updated at 20Hz\\
+compare the LUT forces to our expectations based on the LUT csv files.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+\end{longtable}
+
+\paragraph{Test Case LVV-T1782 - M2 Motion limits/stops }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1782}{\textit{ LVV-T1782 } }
+test case in Jira.
+
+
+
+\textbf{ Preconditions}:\\
+
+
+Execution status: {\bf Pass w/ Deviation }
+
+Final comment:\\+x motion limit =0.87mm, while \citeds{LTS-146} has 7.74mm
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+start from M2 position (0,0,0, 0,0,0)\\
+move to x=7mm,\\
+then x=7.1mm, keep moving with increment of 0.1mm, observe at what point
+system goes into fault.\\
+Note: LTS-146 3.2.4/3.2.5, +/-7.74mm radially and 7.89mm along z.
+Tolerance is 0.5mm\\
+Note: ideally we want to first reconfigure the control system to lower
+these limits (to 3mm in each direction) before we set it back to
+default. But Te-Wei noted that these are hardcoded somewhere and hard to
+find.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+see
+https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlayer/testExecution/LVV-E1008\\
+We've determined that the +x motion limit is at \textasciitilde{}0.87mm
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass w/ Deviation } \\ \hline
+
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+repeat the process for -x direction.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+8:43pm local. Te-Wei said, ``Sandrine, what is your plan to make it
+fail?'' Then Sandrine commanded it to go to x = -1mm. It stopped at
+x=-0.82558mm.\\
+Bo developed notebook to write out csv file moveBack300.csv. This
+worked!
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+3 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+repeat the process for +/-y and +/-z directions.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+now we go to y=+1mm. 9:08pm. Now A1 and A4 encoder stay the unchanged.\\
+it reached y=1mm.New absolute position y=1.5mm. It stopped at
+y=+1.06756mm. 9:20pm, we ready to recover +y.\\
+9:23pm, go to y=-1.5mm. It stopped at y=-0.71914mm\\
+9:36pm, go to z=4mm. It stopped at z=+3.16949mm.\\
+9:49pm, go to z=-4mm. It stopped at z=-3.75299mm.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+\end{longtable}
+
+\paragraph{Test Case LVV-T1791 - M2 position stability and repeatability }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1791}{\textit{ LVV-T1791 } }
+test case in Jira.
+
+
+
+\textbf{ Preconditions}:\\
+
+
+Execution status: {\bf In Progress }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+start from (x,y,z,rx,ry,rz) = (0,0,0,0,0,0)\\
+use EUI to move M2\\
+to x = +1mm, hold 37s,\\
+to x=+3mm, hold 37s,\\
+to x=+5mm, hold 37s,\\
+back to origin, hold 37s,\\
+to x = -1mm, hold 37s,\\
+to x=-3mm, hold 37s,\\
+to x=-5mm, hold 37s,\\
+back to origin, hold 37s.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+12:22pm, switched to open loop, then closed loop.\\
+We are worried about not knowing the hard stops. Te-Wei did not see
+anything about limit switches in the software. We want to be cautious
+here. We will do 1mm, 2mm, 3mm instead.\\
+Another reason is that it moves pretty slow, on the order of minutes per
+mm.\\
+x = +1mm, hold 37s, 12:25pm local, starting test. x started at
+-0.00009mm, it stopped at +0.87916mm. There is an alarm, 6056, limit
+switch triggered (closed loop), and a warning 6057 limit switch
+triggered (open loop).\\
+some of the tangent encoders are at +/-142k, others at +/-72k.\\
+LTS-146 has x travel as 7.74mm, now we got stuck at 0.87mm. There might
+be the following possibilities: (1) LTS-146 got a factor of 10 wrong,
+(2) GuI has unit wrong, mm is really center.\\
+14:07 local, moveBack5.csv\\
+14:10 local, moveBack20.csv\\
+14:11 local, moveBack100.csv\\
+14:13 local, moveBack300.csv\\
+Now some tangent forces seem to be big, up to 1000 N. But we were able
+to enter closed loop. The ``go to position'' button is enabled again.\\
+14:16 local, command it to go back to zero (x=y=z=0).\\
+Now we've learned where the limit switches are (along x, at least), we
+are going to change the positions for testing repeatability.\\
+to x=0.1mm, hold 37s, 14:50 local,\\
+to x=+0.3mm, hold 37s, 14:52 local\\
+to x=+0.5mm, hold 37s, 14:55 local\\
+to x =+0.3mm, hold 37s, 14:59 local\\
+to x = +0.1mm, hold 37s, 15:01 local\\
+back to origin, hold 37s, 15:02 local\\
+to x = -0.1mm, hold 37s, 15:04 local. Te-Wei is checking inPosition
+events.\\
+to x=-0.3mm, hold 37s, 15:05 local\\
+to x=-0.5mm, hold 37s, 15:06 local\\
+to x = -0.3mm, hold 37s, 15:08 local\\
+to x=-0.1mm, hold 37s, 15:09 local\\
+to x=0mm, hold 37s, 15:11 local\\[2\baselineskip]
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+repeat above for y,z\\[2\baselineskip]
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+to y = 0.3mm, hold 37s, 15:13 local\\
+to y=0.5mm, hold 37s, 15:15 local\\
+to y=0, hold 37s, 15:16 local\\
+to y=-0.3mm, hold 37s, 15:19 local\\
+to y=-0.5mm, hold 37s, 15:21 local\\
+to y=0, hold 37s, 15:22 local\\
+to z=0.5mm, hold 37s, 15:26 local, now the axial actuator steps are
+changing, instead of the tangents\\
+to z=0.3mm, hold 37s, 15:28 local\\
+to z=0mm, hold 37s, 15:29 local\\
+to z=-0.3mm, hold 37s, 15:30 local\\
+to z=-0.5mm, hold 37s, 15:31 local\\
+back to origin, hold 37s, 15:31 local
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+3 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+repeat above for rx, ry, rz
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+not sure about rotation range. try small tilts first.\\
+rx = 0.2urad, notice small change in axial actuator encoder, 18:35 utc\\
+rx = 2urad, notice change in axial actuator encoder, 18:36 utc\\
+rx =10urad, 18:40 utc.\\
+rx=100urad, 18:49 utc.\\
+rx=500urad, 18:59 utc.\\
+rx=300urad, 19:09 utc.\\
+rx=0, 19:10 utc\\
+rx=-300urad, 19:11 utc\\
+rx=-500 urad, 19:13 utc\\
+rx= 0, 19:14 utc\\[2\baselineskip]ry = 500urad, 19:15 utc\\
+ry = 0, 19:16 utc\\
+ry = -500 urad, 19:23 utc\\
+ry = 0, 19:24 utc\\[2\baselineskip]rz = 500urad, 19:26 utc, Alarms are
+triggered at 351urad. Again, tangent limit switches. ``Enable Open loop
+max limits'', ``reset all items''. ``enable'', we are in open loop now.
+Use moveBack('rzp') to create csv files.\\
+moveBackrzp5.csv. ~19:54 utc\\
+moveBackrzp20.csv. 19:54 utc\\
+moveBackrzp100.csv 19:54 utc. Enable. No alarm. Now we regained control
+over the ``go to position button''.\\
+rz =0, 19:58 utc\\
+rz = -300urad, 20:02 utc\\
+back to origin. 20:07 utc
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+4 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+repeat everything 2 more times
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+Given that we don't have the SAL commands yet, doing these repeatability
+test is too time-consuming.\\
+We will skip these repetitions for now.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+5 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+analysis output binary to check:\\
+position stability during each 15s periods (5:00 - 20:00, 22:00 -
+37:00)\\
+position repeatability between ~the 3 cycles
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+\end{longtable}
+
+\paragraph{Test Case LVV-T1792 - M2 force balance system }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1792}{\textit{ LVV-T1792 } }
+test case in Jira.
+
+
+
+\textbf{ Preconditions}:\\
+
+
+Execution status: {\bf Pass w/ Deviation }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+go into open-loop mode
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+6:05pm 3/4/20. entered open loop mode
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+in EUI, add +20N to B3, then -20N to B3\\
+repeat for C8\\
+repeat for D17\\
+repeat for A2, A4, A6
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+cannot add forces in open loop.~
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass w/ Deviation } \\ \hline
+
+3 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+go into closed-loop mode
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+entered closed loop 6:08 pm
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+4 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+in EUI, add +20N to B3, then -20N to B3\\
+repeat for C8\\
+repeat for D17\\
+repeat for A2, A4, A6
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+use fb.m to create csv files. sent to Te-Wei.\\
+fbA1m.csv 6:37pm local time. verified on Chronograf, A1 force drops from
+40 N to 30N\\
+fbA1p.csv 6:39pm local, but didn't clear the -20N. so, open loop, close
+loop, do it again at 6:42pm\\
+fbA3m.csv 6:43pm. clear by open and close loop.\\
+fbA3p.csv 6:44. clear by \ldots{}.\\
+fbA5m.csv 6:45 clear \ldots{}\\
+fbA5p.csv 6:46. clear \ldots{}\\
+fbB3m.csv 6:47 clear \ldots{}\\
+fbB3p.csv 6:48 clear \ldots{}.\\
+fbC8m.csv 6:49 clear \ldots{}\\
+fbC8p.csv 6:50 clear \ldots{}\\
+fbD17m.csv 6:51 clear \ldots{}\\
+fbD17p.csv 6:53 clear \ldots{}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+5 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+data analysis: (hard points are A1,A3,A5,B6,B16,B26)\\
+demonstrate that for open-loop, the hard points take the extra forces\\
+for closed-loop, all actuators work together to take out the extra
+forces
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+\end{longtable}
+
+\paragraph{Test Case LVV-T1785 - M2 actuator stiffness }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1785}{\textit{ LVV-T1785 } }
+test case in Jira.
+
+
+
+\textbf{ Preconditions}:\\
+
+
+Execution status: {\bf Pass w/ Deviation }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+go into open-loop mode
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlayer/testExecution/LVV-E1003}{LVV-E1003}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+in EUI, add +20N to B3, then -20N to B3\\
+repeat for C8\\
+repeat for D17\\
+repeat for A2, A4, A6
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlayer/testExecution/LVV-E1003}{LVV-E1003}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass w/ Deviation } \\ \hline
+
+3 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+go into closed-loop mode
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlayer/testExecution/LVV-E1003}{LVV-E1003}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+4 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+in EUI, add +20N to B3, then -20N to B3\\
+repeat for C8\\
+repeat for D17\\
+repeat for A2, A4, A6
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlayer/testExecution/LVV-E1003}{LVV-E1003}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+5 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+data analysis: (hard points are A1,A3,A5,B6,B16,B26)\\
+demonstrate that for open-loop, the hard points take the extra forces\\
+for closed-loop, all actuators work together to take out the extra
+forces
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlayer/testExecution/LVV-E1003}{LVV-E1003}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+6 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+data analysis:\\
+with data from the above open-loop test, divide the delta(F) on the hard
+points by delta(L), to get the stiffness, check that if it is larger
+than 2.6N/um.\\
+take the same ratio for other axial actuators, and note the values.\\
+Do the same calculations for tangent links. (3.3.3.8,
+\textgreater{}30N/um)
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
 
 7 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-Follow BoschTask\_7 (\textbf{GetAxisStatus}) in the attached
-\emph{BoschTaskTestingPlan,~}Page 5-6.
+If time allows, redefine the 3 axial actuators used as hard points. Redo
+the above test.
 
 \medskip }
 \end{minipage}
@@ -588,648 +2392,49 @@ Follow BoschTask\_7 (\textbf{GetAxisStatus}) in the attached
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-The AxisStatusOut is on standstill.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-There were no results captured, but the vendor witnessed this step pass.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Initial Pass } \\ \hline
-
-8 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-Follow BoschTask\_8 (\textbf{GetAxisInfo}) in the attached
-\emph{BoschTaskTestingPlan,~}Page 6.
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-Position 2 and Velocity 2 displays approximately the same data as the
-indicators at the MotorID Telemetry section
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-There were no results captured, but the vendor witnessed this step pass.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Initial Pass } \\ \hline
-
-9 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-Follow BoschTask\_9 (\textbf{Track}) in the attached
-\emph{BoschTaskTestingPlan,~}Page 6.
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-The MotorID telemetry section displays Standstill for the status.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-There were no results captured, but the vendor witnessed this step pass.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Initial Pass } \\ \hline
-
-10 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-Follow BoschTask\_10 (\textbf{MoveToLimit}) in the attached
-\emph{BoschTaskTestingPlan,~}Page 7.
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The MotorID telemetry section displays Standstill for the status
-\item
-  A Done event is received at the Triggers section, this area displays
-
-  \begin{itemize}
-  \tightlist
-  \item
-    DoneTime - the time when the done event was received; check that is
-    close to current time
-  \item
-    Done\# will increment its value by one
-  \end{itemize}
-\end{itemize}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-There were no results captured, but the vendor witnessed this step pass.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Initial Pass } \\ \hline
-
-11 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-Follow BoschTask\_11 (\textbf{StopMove}) in the attached
-\emph{BoschTaskTestingPlan,~}Page 7-8.
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The MotorID telemetry section displays Standstill for the status
-\item
-  A Done event is received at the Triggers section, this area displays
-
-  \begin{itemize}
-  \tightlist
-  \item
-    DoneTime - the time when the done event was received; check that is
-    close to current time
-  \item
-    Done\# will increment its value by one
-  \end{itemize}
-\end{itemize}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-There were no results captured, but the vendor witnessed this step pass.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Initial Pass } \\ \hline
-
-12 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-Follow BoschTask\_12 (\textbf{Power Off}) in the attached
-\emph{BoschTaskTestingPlan,~}Page 8.
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The MotorID telemetry section displays Off for the status
-\item
-  A Done event is received at the Triggers section, this area displays
-
-  \begin{itemize}
-  \tightlist
-  \item
-    DoneTime - the time when the done event was received; check that is
-    close to current time
-  \item
-    Done\# will increment its value by one
-  \end{itemize}
-\end{itemize}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-There were no results captured, but the vendor witnessed this step pass.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Initial Pass } \\ \hline
-
-13 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-Follow BoschTask\_13 (\textbf{Exit Subsystem}) in the attached
-\emph{BoschTaskTestingPlan,~}Page 8.
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-The motorID telemetry sectionstops displaying the actual telemetry of
-the specified MotorID
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-There were no results captured, but the vendor witnessed this step pass.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Initial Pass } \\ \hline
-
-14 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-\textbf{{BOSCH POWER SUPPLY TASK TESTING PLAN}}\\
-Follow BoschDCTask\_1 (\textbf{PreInitActions}) in the attached
-\emph{BoschPowerSupplyTaskTestingPlan,~}Page 3.
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-The MLC must be in BB mode.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-There were no results captured, but the vendor witnessed this step pass.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Initial Pass } \\ \hline
-
-15 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-Follow BoschDCTask\_2~(\textbf{PreInitActions}) in the attached
-\emph{BoschPowerSupplyTaskTestingPlan,~}Page 3.
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-The MLC is in error and the VI returns a timeout error saying that BB
-mode couldn't be reached.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-There were no results captured, but the vendor witnessed this step pass.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Initial Pass } \\ \hline
-
-16 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-Follow BoschDCTask\_3~(\textbf{PreInitActions}) in the attached
-\emph{BoschPowerSupplyTaskTestingPlan,~}Page 3-4.
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The MLC is in BB mode
-\item
-  The specified Motor ID is in parking.
-\end{itemize}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-There were no results captured, but the vendor witnessed this step pass.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Initial Pass } \\ \hline
-
-17 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-Follow BoschDCTask\_4~(\textbf{PreInitActions}) in the attached
-\emph{BoschPowerSupplyTaskTestingPlan,~}Page 4.
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The MLC is in BB mode
-\item
-  The specified Motor ID is back in normal mode.
-\end{itemize}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-There were no results captured, but the vendor witnessed this step pass.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Initial Pass } \\ \hline
-
-18 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-Follow BoschDCTask\_5 (\textbf{Normal On}) in the attached
-\emph{BoschPowerSupplyTaskTestingPlan,~}Page 4.
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The MLC is in BB mode
-\item
-  The power supply is on.
-\end{itemize}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-There were no results captured, but the vendor witnessed this step pass.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Initial Pass } \\ \hline
-
-19 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-\textbf{{CCW AUX TEMPERATURE CONTROL TASK TESTING}}\\
-Follow TempTask\_1 (\textbf{Normal On}) in the attached
-\emph{CCWAuxTemperatureControlTaskTestingPlan,~}Page 3.
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The Indicator is on when the cabinet turns on
-\item
-  The actual state indicator changes between:
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Wait
-  \item
-    Read Temperature
-  \item
-    Check Temp
-  \item
-    Enable Cabinet
-  \item
-    Wait \ldots{}
-  \end{itemize}
-\end{itemize}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-There were no results captured, but the vendor witnessed this step pass.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Initial Pass } \\ \hline
-
-20 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-Follow TempTask\_2 (\textbf{Cold On}) in the attached
-\emph{CCWAuxTemperatureControlTaskTestingPlan,~}Page 3-4.
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The Indicator is on when the cabinet turns on
-\item
-  The actual state indicator changes between:
-
-  \begin{itemize}
-  \tightlist
-  \item
-    Wait
-  \item
-    Read Temperature
-  \item
-    Check Temp
-  \item
-    Enable Cabinet
-  \item
-    Wait \ldots{}
-  \end{itemize}
-\end{itemize}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-There were no results captured, but the vendor witnessed this step pass.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Initial Pass } \\ \hline
-
-21 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-Follow TempTask\_3 (\textbf{Stop Task}) in the attached
-\emph{CCWAuxTemperatureControlTaskTestingPlan,~}Page 4.
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-The VI is stopped\\[2\baselineskip]
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-There were no results captured, but the vendor witnessed this step pass.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Initial Pass } \\ \hline
-
-22 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-Follow TempTask\_4 (\textbf{Error Load)} in the attached
-\emph{CCWAuxTemperatureControlTaskTestingPlan,~}Page 4-5.
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The Indicator is on when the cabinet turns on
-\item
-  The actual state indicator changes between:
-
-  \begin{itemize}
-  \tightlist
-  \item
-    ConnectNSV
-  \item
-    ErrorHandling
-  \item
-    ConnectNSV \ldots{}
-  \end{itemize}
-\end{itemize}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-There were no results captured, but the vendor witnessed this step pass.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Initial Pass } \\ \hline
-
-23 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-\textbf{{COMMANDING THROUGH THE EUI - CCW TESTS}}\\
-\textbf{CE\_CCW0a~}Change Setting x to value y
-
-\begin{enumerate}
-\tightlist
-\item
-  The operator clicks onto the home button.
-\item
-  The EUI changes to the home interface.
-\item
-  The operator clicks ``Parameters''.
-\item
-  The EUI changes to the parameter interface with the page ``Azimuth
-  Parameters'' loaded.
-\item
-  The operator clicks on the arrow down.
-\item
-  The operator selects the ``Camera Cable Wrap Parameters'' from the
-  menu on the left hand side.
-\item
-  The EUI loads ``Camera Cable Wrap Parameters'' page.
-\item
-  The operator sets the x setting to y.
-\item
-  The operator clicks ``WRITE'' on the panel ``CONTROL'' on the right
-  hand side.
-\item
-  ~The operator clicks onto the home button.
-\item
-  The EUI changes to the home interface.
-\item
-  The operator clicks ``Monitor \& Control''.
-\item
-  The EUI changes to the ``General View''.
-\item
-  ~The operator selects the ``Camera Cable Wrap'' from the menu on the
-  left hand side.
-\end{enumerate}
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The EUI is on the Camera Cable Wrap page.
-\item
-  The ``drive status'' of Drive 1 and Drive 2 are ``Off'' and the
-  corresponding ``run/alarm'' LEDs are gray.
-\item
-  The ``Status'' is ``Idle''.
-\end{itemize}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-This is a reference procedure to change the setting \emph{x} to value
-\emph{y}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
  & Status: \textbf{ Not Executed } \\ \hline
 
-24 & Description \\
+\end{longtable}
+
+\paragraph{Test Case LVV-T1783 - M2 actuator Force limits }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1783}{\textit{ LVV-T1783 } }
+test case in Jira.
+
+
+
+\textbf{ Preconditions}:\\
+
+
+Execution status: {\bf Not Executed }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-\textbf{CE\_CCW0b~}Move Camera Cable Wrap to x with speed z using drive
-y
-
-\begin{enumerate}
-\tightlist
-\item
-  If y is 1 the operator executes CE\_CCW1c, otherwise the operator
-  executes CE\_CCW1d.
-\item
-  The operator enters x into the ``position deg'' field.~
-\item
-  The operator enters z into the ``speed deg/s'' field (if z is not
-  given, the operator uses 3).
-\item
-  The operator clicks ``MOVE''.
-\item
-  The ``Status'' changes from ``On\textbackslash{}WaitingCMD'' to
-  ``Executing''.~
-\item
-  The camera cable wrap starts rotating until ``position y deg'' shows
-  x° ±0.01° and the ``Status'' changes back to
-  ``On\textbackslash{}WaitingCMD''.
-\end{enumerate}
+with M2 facing up, reconfigure the force force limits (make a copy of
+default configuration, do not overwrite):\\
+for axial actuators use 300N (1600*9.8/72 = 218N is need to support
+mirror weight)\\
+for tangent links use 1000N (4526N from each is needed at horizon point,
+for zenith they are all be zero)
 
 \medskip }
 \end{minipage}
@@ -1238,42 +2443,36 @@ y
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The ``position y deg'' has changed and is at x° ±0.01°.
-\item
-  The camera cable wrap has moved and is in standstill.
-\item
-  The ``drive status'' of Drive y is ``Standstill''.
-\end{itemize}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-This is a reference procedure to move the Camera Cable wrap to
-position~\emph{x~}with speed~\emph{z~}using Drive y.
+2:46pm local time, starting.\\
+close loop because open loop doesn't allow us to apply forces, only
+steps/mm.\\
+2:48pm, add 300N to B1, LUT had \textasciitilde{}185N. So we triggered
+E6055, excessive force detected. F\_COM=191.76. F\_CUR = 448N. F\_HC =
+-171N.\\
+we cleared the error by ``enable OL limit'', then ``reset all errors''.
+Tried to go into closed loop, but error again. So we check EFD,
+axialActuator step went down from 0 to \textasciitilde{}-6000K. We
+brought it back using the GUI. then ``enable''.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
  & Status: \textbf{ Not Executed } \\ \hline
 
-25 & Description \\
+2 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-\textbf{CE\_CCW1a~}Power On
-
-\begin{enumerate}
-\tightlist
-\item
-  The operator clicks onto the ``ON'' button.~
-\item
-  The ``Status'' changes from ``Idle'' to
-  ``On\textbackslash{}WaitingCMD''.
-\end{enumerate}
+in closed-loop mode:\\
+loop over all 78 actuators (axial and tangent),\\
+increase forces to 0.9*limit for each of them, make sure it is OK.\\
+increase forces to 1.15*limit for each of them, see if they are
+rejected.
 
 \medskip }
 \end{minipage}
@@ -1282,769 +2481,25 @@ position~\emph{x~}with speed~\emph{z~}using Drive y.
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  Either Drive 1 or Drive 2 (depending on the usage time) is in the
-  status ``Standstill'' and the corresponding ``run/alarm'' LED is lit
-  up green.
-\end{itemize}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-Per \emph{CCWTestingPlan - Results,~}this step passed.~
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Initial Pass } \\ \hline
-
-26 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-\textbf{CE\_CCW1b~}Select Drive 1
-
-\begin{enumerate}
-\tightlist
-\item
-  The operator clicks onto the ``1'' button under the ``Drive''.
-\item
-  The ``Status'' changes from ``On\textbackslash{}WaitingCMD'' to
-  ``Executing''.
-\end{enumerate}
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The ``drive status'' of Drive 1 is ``Standstill'' and of Drive 2 is
-  ``Off'' and the corresponding ``run/alarm'' LEDs are green and gray
-  respectively.
-\end{itemize}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-Per \emph{CCWTestingPlan - Results,~}this step passed.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Initial Pass } \\ \hline
-
-27 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-\textbf{CE\_CCW1c~}Select Drive 2
-
-\begin{enumerate}
-\tightlist
-\item
-  The operator clicks onto the ``2'' button under the ``Drive''.
-\item
-  The ``Status'' changes from ``On\textbackslash{}WaitingCMD'' to
-  ``Executing''.
-\end{enumerate}
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The ``drive status'' of Drive 1 is ``Off'' and of Drive 2 is
-  ``Standstill'' and the corresponding ``run/alarm'' LEDs are gray and
-  green respectively.
-\end{itemize}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-Per \emph{CCWTestingPlan - Results,~}this step passed.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Initial Pass } \\ \hline
-
-28 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-\textbf{CE\_CCW1d~}Power Off
-
-\begin{enumerate}
-\tightlist
-\item
-  The operator clicks onto the ``OFF'' button.~
-\item
-  The ``Status'' changes from ``On\textbackslash{}WaitingCMD'' to
-  ``Idle''.
-\end{enumerate}
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The ``drive status'' of Drive 1 and Drive 2 are ``Off'' and the
-  corresponding ``run/alarm'' LEDs are gray.
-\end{itemize}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-Per \emph{CCWTestingPlan - Results,~}this step passed.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Initial Pass } \\ \hline
-
-29 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-\textbf{CE\_CCW2a~}Jog using Drive 1
-
-\begin{enumerate}
-\tightlist
-\item
-  The operator selects 50\% ``speed \%''.
-\item
-  The operator clicks onto the ``+'' button under the ``Jog'' and
-  releases it after 3 seconds.
-\item
-  The ``Status'' changes from ``On\textbackslash{}WaitingCMD'' to
-  ``Executing''.
-\end{enumerate}
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The ``position 1 deg'' has increased in the positive direction.
-\item
-  The camera cable wrap has moved for 3 seconds and is in standstill.
-\item
-  The ``drive status'' of Drive 1 is in ``Standstill''.
-\end{itemize}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-Per \emph{CCWTestingPlan - Results,~}this step passed.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Initial Pass } \\ \hline
-
-30 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-\textbf{CE\_CCW2b~}Jog using Drive 2
-
-\begin{enumerate}
-\tightlist
-\item
-  The operator selects 50\% ``speed \%''.~
-\item
-  The operator clicks onto the ``+'' button under the ``Jog'' and
-  releases it after 3 seconds.
-\item
-  ~The ``Status'' changes from ``On\textbackslash{}WaitingCMD'' to
-  ``Executing''.
-\end{enumerate}
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The ``position 2 deg'' has increased in the positive direction.
-\item
-  The camera cable wrap has moved for 3 seconds and is in standstill.
-\item
-  The ``drive status'' of Drive 2 is in ``Standstill''.
-\end{itemize}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-Per \emph{CCWTestingPlan - Results,~}this step passed.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Initial Pass } \\ \hline
-
-31 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-\textbf{CE\_CCW2c~}Jog using Drive 1 to SW Limit
-
-\begin{enumerate}
-\tightlist
-\item
-  The operator selects 70\% ``speed \%''.
-\item
-  The operator clicks onto the ``-'' button under the ``Jog'' and holds.
-\item
-  The ``Status'' changes from ``On\textbackslash{}WaitingCMD'' to
-  ``Executing''.
-\item
-  The ``Status'' changes from ``Executing'' to ``FAULT'' as the -90°
-  ±0.5° software limit is triggered. An alarm appears at the bottom of
-  the EUI.
-\end{enumerate}
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The ``position 1 deg'' has increased in the negative direction and is
-  at -90° ±0.5°.
-\item
-  The camera cable wrap has moved and is in standstill.
-\item
-  The ``drive status'' of Drive 1 is ``Off''.
-\item
-  The ``Status'' of the module is in Fault.
-\end{itemize}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-Per \emph{CCWTestingPlan - Results,~}this step passed.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Initial Pass } \\ \hline
-
-32 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-\textbf{CE\_CCW2d~}Move using Drive 1
-
-\begin{enumerate}
-\tightlist
-\item
-  The operator enters 80 into the ``position deg'' field.
-\item
-  The operator enters 2 into the ``speed deg/s'' field.
-\item
-  The operator clicks ``MOVE''.
-\item
-  ~The ``Status'' changes from ``On\textbackslash{}WaitingCMD'' to
-  ``Executing''.
-\item
-  The camera cable wrap starts rotating until ``position 1 deg'' shows
-  80° ±0.01° and the ``Status'' changes back to
-  ``On\textbackslash{}WaitingCMD''.
-\item
-  The operator enters -80 into the ``position deg'' field.
-\item
-  The operator enters 1 into the ``speed deg/s'' field.
-\item
-  The operator clicks ``MOVE''.
-\item
-  The ``Status'' changes from ``On\textbackslash{}WaitingCMD'' to
-  ``Executing''.
-\item
-  The camera cable wrap starts rotating until ``position 1 deg'' shows
-  -80° ±0.01° and the ``Status'' changes back to
-  ``On\textbackslash{}WaitingCMD''.
-\end{enumerate}
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The ``position 1 deg'' has increased in the negative direction and is
-  at -80° ±0.01°.
-\item
-  The camera cable wrap has moved and is in standstill.
-\item
-  The ``drive status'' of Drive 1 is ``Standstill''.
-\end{itemize}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-Per \emph{CCWTestingPlan - Results,~}this step passed.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Initial Pass } \\ \hline
-
-33 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-\textbf{CE\_CCW2e~}Move using Drive 2
-
-\begin{enumerate}
-\tightlist
-\item
-  The operator repeats steps 1-10 of CE\_CCW2 with Drive 2.
-\end{enumerate}
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The ``position 2 deg'' has increased in the negative direction and is
-  at -80° ±0.01°.
-\item
-  The camera cable wrap has moved and is in standstill.
-\item
-  The ``drive status'' of Drive 2 is ``Standstill''.
-\end{itemize}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-Per \emph{CCWTestingPlan - Results,~}this step passed.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Initial Pass } \\ \hline
-
-34 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-\textbf{CE\_CCW2f~}Move using Drive 1 without SW Limits
-
-\begin{enumerate}
-\tightlist
-\item
-  The operator changes the setting ``Software Limit Switch Override'' to
-  ``TRUE'' according to CE\_CCW0a.
-\item
-  The operator executes CE\_CCW1c.
-\item
-  The operator moves the camera cable wrap ``position 1 deg'' to 90°
-  with speed 2 according to CE\_CCW0b.
-\item
-  The operator selects 100\% ``speed \%''.~
-\item
-  The operator clicks ``+''.
-\item
-  ~The ``Status'' changes from ``On\textbackslash{}WaitingCMD'' to
-  ``Executing''.
-\item
-  ~The camera cable wrap starts rotating until ``position 1 deg'' is
-  higher than 90° and the ``Status'' changes back to
-  ``On\textbackslash{}WaitingCMD''.
-\item
-  The operator repeats steps 3-11 moving beyond -90° (Jog with ``-``
-  instead of ``+'').
-\item
-  The operator moves the camera cable wrap ``position 1 deg'' to 0°
-  according to CE\_CCW0b.
-\item
-  The operator changes the setting ``Software Limit Switch Override'' to
-  ``FALSE'' according to CE\_CCW0a.
-\end{enumerate}
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The ``position 1 deg'' is at 0° ±0.01°.
-\item
-  The camera cable wrap has moved and is in standstill.
-\item
-  The ``drive status'' of Drive 1 is ``Standstill''.
-\end{itemize}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-Per \emph{CCWTestingPlan - Results,~}this step passed.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Initial Pass } \\ \hline
-
-35 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-\textbf{CE\_CCW2g~}Move using Drive 2 without SW Limits
-
-\begin{enumerate}
-\tightlist
-\item
-  The operator repeats steps 1-10 of CE\_CCW2 with Drive 2.
-\end{enumerate}
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The ``position 2 deg'' is at 0° ±0.01°.
-\item
-  The camera cable wrap has moved and is in standstill.
-\item
-  The ``drive status'' of Drive 2 is ``Standstill''.
-\end{itemize}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-Per \emph{CCWTestingPlan - Results,~}this step passed.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Initial Pass } \\ \hline
-
-36 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-\textbf{CE\_CCW2h~}Move using Drive 2 triggering HW Limits
-
-\begin{enumerate}
-\tightlist
-\item
-  The operator changes the setting ``Software Limit Switch Override'' to
-  ``TRUE'' according to CE\_CCW0a.
-\item
-  The operator executes CE\_CCW1d.
-\item
-  The operator moves the camera cable wrap ``position 1 deg'' to 90°
-  with speed 2 according to CE\_CCW0b.
-\item
-  The operator selects 100\% ``speed \%''.~
-\item
-  The operator clicks ``+''.~
-\item
-  The ``Status'' changes from ``On\textbackslash{}WaitingCMD'' to
-  ``Executing''.
-\item
-  The camera cable wrap starts rotating until ``position 2 deg'' shows
-  92° ±1 ° and the ``Status'' changes to ``FAULT''.
-\item
-  The operator changes the setting ``Limit Switch Override'' to ``TRUE''
-  according to CE\_CCW0a.
-\item
-  The operator clicks onto the ``Reset Alarms'' button.
-\item
-  The ``Status'' changes from ``FAULT'' to ``Idle''.
-\item
-  The operator clicks onto the ``ON'' button.
-\item
-  The ``Status'' changes from ``Idle'' to
-  ``On\textbackslash{}WaitingCMD''.
-\end{enumerate}
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The ``position 2 deg'' has increased in the positive direction and is
-  at -92° ±1°.
-\item
-  The camera cable wrap has moved and is in standstill.
-\item
-  The ``Status'' is in ``On\textbackslash{}WaitingCMD''
-\end{itemize}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-Per \emph{CCWTestingPlan - Results,~}this step passed.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Initial Pass } \\ \hline
-
-37 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-\textbf{CE\_CCW3a~}Stop a move using Drive 1
-
-\begin{enumerate}
-\tightlist
-\item
-  The operator enters 50 into the ``position deg'' field.
-\item
-  The operator enters 2 into the ``speed deg/s'' field.
-\item
-  The operator clicks ``MOVE''.
-\item
-  The ``Status'' changes from ``On\textbackslash{}WaitingCMD'' to
-  ``Executing''.
-\item
-  The camera cable wrap starts rotating.
-\item
-  After 5 seconds the operator click on the ``STOP'' button on the left
-  hand side of the EUI.
-\item
-  The ``Status'' changes from ``Executing'' to ``Stopping''.
-\item
-  The camera cable wrap stops rotating.
-\item
-  The ``drive status'' of Drive 1 is ``Standstill''.
-\end{enumerate}
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The ``position 1 deg'' has increased in the positive direction and is
-  between 0° and 50°.
-\item
-  The camera cable wrap has moved and is in standstill.
-\item
-  The ``drive status'' of Drive 1 is ``Standstill''.
-\end{itemize}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-Per \emph{CCWTestingPlan - Results,~}this step passed.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Initial Pass } \\ \hline
-
-38 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-\textbf{CE\_CCW3b~}Stop a move using Drive 2
-
-\begin{enumerate}
-\tightlist
-\item
-  The operator enters -50 into the ``position deg'' field.
-\item
-  The operator enters 2 into the ``speed deg/s'' field.
-\item
-  The operator clicks ``MOVE''.~
-\item
-  The ``Status'' changes from ``On\textbackslash{}WaitingCMD'' to
-  ``Executing''.
-\item
-  The camera cable wrap starts rotating.
-\item
-  After 10 seconds the operator click on the ``STOP'' button on the left
-  hand side of the EUI.
-\item
-  The ``Status'' changes from ``Executing'' to ``Stopping''.
-\item
-  The camera cable wrap stops rotating.
-\item
-  The ``drive status'' of Drive 2 is ``Standstill''.
-\end{enumerate}
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The ``position 2 deg'' has increased in the negative direction and is
-  between 0° and -50°.
-\item
-  The camera cable wrap has moved and is in standstill.
-\item
-  The ``drive status'' of Drive 2 is ``Standstill''.
-\end{itemize}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-Per \emph{CCWTestingPlan - Results,~}this step passed.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Initial Pass } \\ \hline
-
-39 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-\textbf{CE\_CCW4a~}Camera Tracking
-
-\begin{enumerate}
-\tightlist
-\item
-  Change settings ``Camera Deviation Override'' to ``TRUE'' CE\_CCW0a
-\item
-  The operator clicks load and selects ``MT\_TrackTest.txt'' file
-\item
-  The operator clicks on the ``EXECUTE'' button.
-\item
-  The ``Status'' changes to ``Tracking''.
-\item
-  The camera cable wrap (``position 2 deg'') moves to predefined
-  positions in the file.
-\item
-  Wait until test is finished.
-\item
-  The camera cable wrap stops rotating.
-\item
-  The ``drive status'' of Drive 2 is ``Standstill''.
-\item
-  The ``Status'' changes to ``On\textbackslash{}Enable''.
-\end{enumerate}
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The camera cable wrap has moved and is in standstill.
-\item
-  The ``drive status'' of Drive 2 is ``Standstill''.
-\item
-  The ``Status'' is ``On\textbackslash{}Enable''.
-\end{itemize}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-The CCW is in standalone. Not connected to camera rotator.\\
-Note: Tracking changes not yet completed.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
  & Status: \textbf{ Not Executed } \\ \hline
 
-40 & Description \\
+3 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-\textbf{CE\_CCW4b~}Camera Tracking - Stop Camera Tracking
-
-\begin{enumerate}
-\tightlist
-\item
-  Execute steps 1 to 5 of test CE\_CCW4a
-\item
-  Wait for 1 minute.
-\item
-  The operator clicks on the ``STOP CAMERA TRACKING'' button.
-\item
-  The ``Status'' changes from ``Tracking'' to ``Stopping''.
-\item
-  The camera cable wrap stops rotating.
-\item
-  The ``drive status'' of Drive 2 is ``Standstill''.
-\end{enumerate}
+data analysis:\\
+check the response of force balance system for forces = 0.9*limit\\
+check telemetry to make sure all forces over the limits are
+rejected\\[2\baselineskip]
 
 \medskip }
 \end{minipage}
@@ -2053,49 +2508,49 @@ Note: Tracking changes not yet completed.
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The camera cable wrap has moved and is in standstill.
-\item
-  The ``drive status'' of Drive 2 is ``Standstill''.
-\item
-  The ``Status'' is ``On\textbackslash{}Enable''.
-\end{itemize}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-The CCW is in standalone. Not connected to camera rotator.\\
-Note: Tracking changes not yet completed.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
  & Status: \textbf{ Not Executed } \\ \hline
 
-41 & Description \\
+\end{longtable}
+
+\paragraph{Test Case LVV-T1786 - M2 actuator stroke }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1786}{\textit{ LVV-T1786 } }
+test case in Jira.
+
+
+
+\textbf{ Preconditions}:\\
+
+
+Execution status: {\bf Pass w/ Deviation }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-\textbf{CE\_CCW4c~}Camera Tracking - Stop
-
-\begin{enumerate}
-\tightlist
-\item
-  Execute steps 1 to 5 of test CE\_CCW4a
-\item
-  Wait for 1 minute.
-\item
-  The operator clicks on the ``STOP CAMERA TRACKING'' button.
-\item
-  The ``Status'' changes from ``Tracking'' to ``Stopping''.
-\item
-  The camera cable wrap stops rotating.
-\item
-  The ``drive status'' of Drive 2 is ``Standstill''.
-\end{enumerate}
+with M2 facing up, reconfigure the force force limits (make a copy of
+default configuration, do not overwrite):\\
+for axial actuators use 300N (1600*9.8/72 = 218N is need to support
+mirror weight)\\
+for tangent links use 1000N (4526N from each is needed at horizon point,
+for zenith they are all be zero)
 
 \medskip }
 \end{minipage}
@@ -2104,51 +2559,81 @@ Note: Tracking changes not yet completed.
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The camera cable wrap has moved and is in standstill.
-\item
-  The ``drive status'' of Drive 1 is ``Standstill''.
-\item
-  The ``Status'' is ``On\textbackslash{}Enable''.
-\end{itemize}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-The CCW is in standalone. Not connected to camera rotator.\\
-Note: Tracking changes not yet completed.
+According to Te-Wei, this can not be done yet. We don't know if the
+software limits are implemented or not.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass w/ Deviation } \\ \hline
+
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+in closed-loop mode:\\
+loop over all 78 actuators (axial and tangent),\\
+increase forces to 0.9*limit for each of them, make sure it is OK.\\
+increase forces to 1.15*limit for each of them, see if they are
+rejected.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+With the GUI, we can only move the actuators in mm in open loop.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass w/ Deviation } \\ \hline
+
+3 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+data analysis:\\
+check the response of force balance system for forces = 0.9*limit\\
+check telemetry to make sure all forces over the limits are
+rejected\\[2\baselineskip]
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+see above. this cannot be done in open loop
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
  & Status: \textbf{ Not Executed } \\ \hline
 
-42 & Description \\
+4 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-\textbf{CE\_CCW4d~}Camera Tracking - No data fault
-
-\begin{enumerate}
-\tightlist
-\item
-  Set ``ATS Simulate not send track'' button to ``TRUE''
-\item
-  Execute steps 1 to 4 of test CE\_CCW4a
-\item
-  The ``Status'' changes from ``Tracking'' to ``Fault''.
-\item
-  The ``drive status'' of Drive 2 changes to ``Off''.
-\item
-  The EUI will show an alarm fired at the bottom of the screen.
-\item
-  The operator clicks on ``RESET ALARM''.
-\item
-  The ``Status'' changes to ``Idle''.
-\end{enumerate}
+in open loop, command actuators by mm, approach the strokes
 
 \medskip }
 \end{minipage}
@@ -2157,53 +2642,51 @@ Note: Tracking changes not yet completed.
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The camera cable wrap has not moved and is in idle.
-\item
-  The ``drive status'' of Drive 2 is ``Off''.
-\item
-  The ``Status'' is ``Idle''.
-\end{itemize}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-The CCW is in standalone. Not connected to camera rotator.\\
-Note: Tracking changes not yet completed.
+3:51pm local, enter open loop, 3/5/20\\
+B15:\\
++1mm, 3:52pm. 6055: excessive force detected. force on B15 goes to
+-500N. clear the errors.\\
+-1mm, 3:56pm. 6055: excessive force detected. force on B15 goes to
++622N. clear the errors. Note that what we put in the GUI is the
+relative value.\\
++0.1mm x 3 times went too far\\
+-0.05mm\\
+4:00pm local, we are repeating the above process.\\
+4:03pm, -0.7mm\\
++0.35pm B15 = -75N, norminal is about 185N.\\
+-0.05mm x 2\\[2\baselineskip]4:12pm restart\\
+0.2+0.02+0.02+0.01 = 0.25mm, we triggered alarm at 0.26mm\\
+4:17pm go negative direction\\
+-0.27 triggered, -0.25 triggered,\\
+-0.1-0.02 = -0.12mm, -0.13mm triggered it.\\[2\baselineskip]A4:\\
+4:22pm,+0.05mm+0.4mm = 0.45mm, A4 = 1710N\\
+6088 tangent load cell fault\\
+6075 warning, excessive cell temperature differential. This took us many
+tries to reset the error, enter enabled state. Once enter enabled state,
+we have to act quickly to bring A4 back (in mm) with the
+GUI.\\[2\baselineskip]
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
  & Status: \textbf{ Not Executed } \\ \hline
 
-43 & Description \\
+5 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-\textbf{CE\_CCW4e~}Camera Tracking - Excessive time between commands
-fault
-
-\begin{enumerate}
-\tightlist
-\item
-  Execute steps 1 to 5 of test CE\_CCW4a but with file
-  ``MT\_TrackTest\_Faulty.txt''
-\item
-  Wait about 5 seconds
-\item
-  The ``Status'' changes from ``Tracking'' to ``Fault''.
-\item
-  The ``drive status'' of Drive 2 changes to ``Off''.
-\item
-  The EUI will show an alarm fired at the bottom of the screen.
-\item
-  The operator clicks on ``RESET ALARM''.
-\item
-  The ``Status'' changes to ``Idle''.
-\end{enumerate}
+data analysis:\\
+check actuator length over the full force range, and compare to the
+actuator stroke requirement (LTS-146, 3.3.2.9,
+3.424mm\textless{}stroke\textless{}4mm)\\
+Do the same for tangent links (3.3.3.9,
+0.89mm\textless{}stroke\textless{}1.0mm)\\
+Note that actuator length is required by LTS-146 3.4.10
 
 \medskip }
 \end{minipage}
@@ -2212,70 +2695,43 @@ fault
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The camera cable wrap has moved and is in idle.
-\item
-  The ``drive status'' of Drive 2 is ``Off''.
-\item
-  The ``Status'' is ``Idle''.
-\end{itemize}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-The CCW is in standalone. Not connected to camera rotator.\\
-Note: Tracking changes not yet completed.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
  & Status: \textbf{ Not Executed } \\ \hline
 
-44 & Description \\
+\end{longtable}
+
+\paragraph{Test Case LVV-T1793 - M2 control bandwidth }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1793}{\textit{ LVV-T1793 } }
+test case in Jira.
+
+
+
+\textbf{ Preconditions}:\\
+
+
+Execution status: {\bf Not Executed }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-\textbf{CE\_CCW4e~}Camera Tracking - Excessive time between commands
-fault
-
-\begin{enumerate}
-\tightlist
-\item
-  The operator changes the setting ``Force Drive Selection'' to ``TRUE''
-  ~and ``Forced Drive'' to ``1'' according to CE\_CCW0a.
-\item
-  Execute steps 1 to 5 of test CE\_CCW4a
-\item
-  Wait about 5 seconds
-\item
-  Execute the python interface command produceAlarm for drive 1 or
-  remove encoder input in the drive 1
-\item
-  The ``drive status'' of Drive 1 changes to ``Fault''.
-\item
-  A warning shows up at the bottom of the page.
-\item
-  The ``Status'' changes to ``'' and then to ``Tracking'' again
-\item
-  The ``drive status'' of Drive 2 changes to ``stantill'' or ``discrete
-  move''
-\item
-  Execute the python interface command produceAlarm for drive 2 or
-  remove encoder input in the drive 2
-\item
-  The ``drive status'' of Drive 2 changes to ``Fault''.
-\item
-  The ``Status'' changes to ``FAULT''.
-\item
-  The EUI will show an alarm fired at the bottom of the screen
-\item
-  The operator clicks on ``RESET ALARM''.
-\item
-  The ``Status'' changes to ``Idle''.
-\end{enumerate}
 
 \medskip }
 \end{minipage}
@@ -2284,56 +2740,43 @@ fault
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The camera cable wrap has moved and is in idle.
-\item
-  The ``drive status'' of Drive 2 is ``Off''.
-\item
-  The ``Status'' is ``Idle''.
-\end{itemize}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-The CCW is in standalone. Not connected to camera rotator.\\
-Note: Tracking changes not yet completed.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
  & Status: \textbf{ Not Executed } \\ \hline
 
-45 & Description \\
+\end{longtable}
+
+\paragraph{Test Case LVV-T1794 - M2 temperature }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1794}{\textit{ LVV-T1794 } }
+test case in Jira.
+
+
+
+\textbf{ Preconditions}:\\
+
+
+Execution status: {\bf Not Executed }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-\textbf{CE\_CCW5a~}Speed Limit Warning using Drive 1
-
-\begin{enumerate}
-\tightlist
-\item
-  The operator changes the setting ``Motor Speed Limit'' to 0.4
-  according to CE\_CCW0a.
-\item
-  The operator executes CE\_CCW1c.
-\item
-  The operator enters 50 into the ``position deg'' field.
-\item
-  The operator enters 3 into the ``speed deg/s'' field.
-\item
-  The operator clicks ``MOVE''.
-\item
-  The ``Status'' changes from ``On\textbackslash{}WaitingCMD'' to
-  ``Executing''.
-\item
-  The camera cable wrap starts rotating until ``position 1 deg'' shows
-  50° ±0.01° and the ``Status'' changes back to ``Idle''.
-\item
-  The EUI will show a warning fired at the bottom of the screen.
-\end{enumerate}
 
 \medskip }
 \end{minipage}
@@ -2342,246 +2785,43 @@ Note: Tracking changes not yet completed.
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The ``position 1 deg'' has increased in the positive direction and is
-  at 50° ±0.01°.
-\item
-  The camera cable wrap has moved and is in standstill.
-\item
-  The ``drive status'' of Drive 1 is ``Standstill''.
-\item
-  A warning is shown at the bottom of the page.
-\end{itemize}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-Per \emph{CCWTestingPlan - Results,~}this step passed.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Initial Pass } \\ \hline
-
-46 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-\textbf{CE\_CCW5b~}Speed Limit Warning using Drive 2
-
-\begin{enumerate}
-\tightlist
-\item
-  The operator repeats steps 1-8 of CE\_CCW5a with Drive 2.
-\end{enumerate}
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The ``position 2 deg'' has increased in the positive direction and is
-  at 50° ±0.01°.
-\item
-  The camera cable wrap has moved and is in standstill.
-\item
-  The ``drive status'' of Drive 2 is ``Standstill''.
-\item
-  A warning is shown at the bottom of the page.
-\end{itemize}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-Per \emph{CCWTestingPlan - Results,~}this step passed.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Initial Pass } \\ \hline
-
-47 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-\textbf{\textbf{CE\_CCW5c~}}Critical Speed Limit Alarm using Drive 1
-
-\begin{enumerate}
-\tightlist
-\item
-  The operator changes the setting ``Critical Motor Speed Limit'' to 0.4
-  according to CE\_CCW0a.
-\item
-  The operator executes CE\_CCW1c.
-\item
-  The operator enters 50 into the ``position deg'' field.
-\item
-  The operator enters 3 into the ``speed deg/s'' field.
-\item
-  The operator clicks ``MOVE''.
-\item
-  The ``Status'' changes from ``On\textbackslash{}WaitingCMD'' to
-  ``Executing''.
-\item
-  The camera cable wrap starts rotating and after some seconds the
-  ``Status'' changes to ``FAULT''.
-\item
-  The ``drive status'' of Drive 1 changes to ``Off''.
-\item
-  The EUI will show an alarm fired at the bottom of the screen.
-\item
-  The operator clicks on ``RESET ALARM''.
-\item
-  The ``Status'' changes to ``Idle''.
-\end{enumerate}
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The ``position 1 deg'' has increased in the positive direction.
-\item
-  The camera cable wrap has moved and is in standstill.
-\item
-  The ``drive status'' of Drive 1 is ``Off''.
-\end{itemize}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-Per \emph{CCWTestingPlan - Results,~}this step passed.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Initial Pass } \\ \hline
-
-48 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-\textbf{\textbf{CE\_CCW5d~}}Critical Speed Limit Alarm using Drive 2
-
-\begin{enumerate}
-\tightlist
-\item
-  The operator repeats steps 1-11 of CE\_CCW5c with Drive 2.
-\end{enumerate}
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The ``position 2 deg'' has increased in the positive direction.
-\item
-  The camera cable wrap has moved and is in standstill.
-\item
-  The ``drive status'' of Drive 1 is ``Off''.
-\end{itemize}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-Per \emph{CCWTestingPlan - Results,~}this step passed.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Initial Pass } \\ \hline
-
-49 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-\textbf{CE\_CCW5g~}Driver 1 Fault Warning
-
-\begin{enumerate}
-\tightlist
-\item
-  The operator changes the setting ``Force Drive Selection'' to ``TRUE''
-  ~and ``Forced Drive'' to ``1'' according to CE\_CCW0a
-\item
-  Execute the python interface command produceAlarm for drive 1 or
-  remove encoder input in the drive 1
-\item
-  The operator clicks on the ``ON'' button.
-\item
-  The ``Status'' changes to ``Activating''.
-\item
-  A warning is shown at the bottom of the page.
-\item
-  The ``Status'' changes to ``On\textbackslash{}Enable''.
-\item
-  The ``drive status'' of Drive 2 changes to ``Standstill''.
-\end{enumerate}
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The camera cable wrap is in standstill.
-\item
-  The ``Status'' is ``On\textbackslash{}WaitingCMD''.
-\item
-  The ``drive status'' of Drive 1 is ``Off''.
-\item
-  The ``drive status'' of Drive 2 is ``Standstill''.
-\item
-  A warning is shown at the bottom of the page.
-\end{itemize}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-This test can be done only with simulated hardware or by authorized
-personnel.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
  & Status: \textbf{ Not Executed } \\ \hline
 
-50 & Description \\
+\end{longtable}
+
+\paragraph{Test Case LVV-T1797 - M2 inclinometer }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1797}{\textit{ LVV-T1797 } }
+test case in Jira.
+
+
+
+\textbf{ Preconditions}:\\
+
+
+Execution status: {\bf Not Executed }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-\textbf{CE\_CCW5h~}Driver 2 Fault Warning
-
-\begin{enumerate}
-\tightlist
-\item
-  The operator repeats steps 1-6 of CE\_CCW5g with Drive 2.
-\end{enumerate}
 
 \medskip }
 \end{minipage}
@@ -2590,56 +2830,46 @@ personnel.
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The camera cable wrap is in standstill.
-\item
-  The ``Status'' is ``On\textbackslash{}WaitingCMD''.
-\item
-  The ``drive status'' of Drive 1 is ``Standstill''.
-\item
-  The ``drive status'' of Drive 2 is ``Off''.
-\item
-  A warning is shown at the bottom of the page.
-\end{itemize}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-This test can be done only with simulated hardware or by authorized
-personnel.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
  & Status: \textbf{ Not Executed } \\ \hline
 
-51 & Description \\
+\end{longtable}
+
+\paragraph{Test Case LVV-T1796 - M2 VMS }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1796}{\textit{ LVV-T1796 } }
+test case in Jira.
+
+
+
+\textbf{ Preconditions}:\\
+
+
+Execution status: {\bf Not Executed }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-\textbf{CE\_CCW5i~}Both Driver Faulty Alarm
-
-\begin{enumerate}
-\tightlist
-\item
-  Execute the python interface command produceAlarm for drive 1 and 2 or
-  remove encoder input in the drive 1 and 2
-\item
-  The operator clicks on the ``ON'' button.
-\item
-  The ``Status'' changes to ``FAULT''.
-\item
-  An alarm shows up at the bottom of the page.
-\item
-  The operator un-presses the pressed physical emergency button.
-\item
-  The operator clicks on ``RESET ALARM''.
-\item
-  The ``Status'' changes to ``Idle''.
-\end{enumerate}
+get a thermometer ready for the test duration, so that the ambient
+temperature data can also be used for temperature test.\\
+Read the thermometer at 1/2 hour interval (get timer ready).
 
 \medskip }
 \end{minipage}
@@ -2648,44 +2878,27 @@ personnel.
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The camera cable wrap is in standstill.
-\item
-  The ``drive status'' of Drive 1 and Drive 2 is ``Off''.
-\item
-  No alarm is shown at the bottom of the page.
-\end{itemize}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-This test can be done only with simulated hardware or by authorized
-personnel.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
  & Status: \textbf{ Not Executed } \\ \hline
 
-52 & Description \\
+2 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-\textbf{CE\_CCW5j~}Lubrication Level 1 Alarm
-
-\begin{enumerate}
-\tightlist
-\item
-  Force the input IO variable ``diELCB101\_CCW\_LUB1level'' for
-  lubrication level to TRUE.
-\item
-  A warning shows up at the bottom of the page.
-\item
-  Unforce the Digital Input.
-\end{enumerate}
+In Matlab script, take bending modes 1,3,5,7,9, scale them to produce
+surface RMS of 500nm, use genScriptFile.m to convert them into a scp
+file. wait 37s before changing to another bending mode. Test run for 5
+minutes.\\
+Note: if we have to issue 20 force commands to hold the forces for 1
+second, one visit (37s) means 740x78 array
 
 \medskip }
 \end{minipage}
@@ -2694,241 +2907,6 @@ personnel.
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The camera cable wrap is in standstill and has not moved.
-\item
-  The ``Status'' is ``On\textbackslash{}Enable''.
-\item
-  No warning is shown at the bottom of the page.
-\end{itemize}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-Per \emph{CCWTestingPlan - Results,~}this step passed.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Initial Pass } \\ \hline
-
-53 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-\textbf{CE\_CCW5k~}Lubrication Level 2 Alarm
-
-\begin{enumerate}
-\tightlist
-\item
-  Force the input IO variable ``diELCB101\_CCW\_LUB2level'' for
-  lubrication level to TRUE.
-\item
-  A warning shows up at the bottom of the page.
-\item
-  Unforce all variables.
-\end{enumerate}
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The camera cable wrap is in standstill and has not moved.
-\item
-  The ``Status'' is ``On\textbackslash{}Enable''.
-\item
-  No warning is shown at the bottom of the page.
-\end{itemize}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-Per \emph{CCWTestingPlan - Results,~}this step passed.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Initial Pass } \\ \hline
-
-54 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-\textbf{CE\_CCW5l~}Positive SW Limit using Drive 1
-
-\begin{enumerate}
-\tightlist
-\item
-  The operator moves the camera cable wrap ``position 1 deg'' to 90°
-  with speed 3 according to CE\_CCW0b.
-\item
-  The operator selects 100\% ``speed \%''.
-\item
-  The operator clicks ``+''.
-\item
-  The ``Status'' changes from ``On\textbackslash{}WaitingCMD'' to
-  ``Executing''.
-\item
-  The camera cable wrap starts rotating until ``position 1 deg'' is
-  higher than 90° and the ``Status'' changes to ``FAULT''.
-\item
-  The EUI will show an alarm fired at the bottom of the screen.
-\item
-  The operator clicks on ``RESET ALARM''.
-\item
-  The ``Status'' changes to ``Idle''.
-\item
-  The operator changes the setting ``Software Limit Switch Override'' to
-  ``TRUE'' according to CE\_CCW0a.
-\item
-  ~The operator executes CE\_CCW1c.
-\item
-  The operator moves the camera cable wrap ``position 1 deg'' to 0°
-  according to CE\_CCW0b
-\item
-  The operator changes the setting ``Software Limit Switch Override'' to
-  ``FALSE'' according to CE\_CCW0a.
-\end{enumerate}
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The ``position 1 deg'' is at 0° ±0.01.
-\item
-  The camera cable wrap has moved and is in standstill.
-\item
-  The ``drive status'' of Drive 1 is ``Standstill''.
-\end{itemize}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-Per \emph{CCWTestingPlan - Results,~}this step passed.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Initial Pass } \\ \hline
-
-55 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-\textbf{CE\_CCW5n~}Negative SW Limit using Drive 2
-
-\begin{enumerate}
-\tightlist
-\item
-  The operator moves the camera cable wrap ``position 1 deg'' to -90°
-  with speed 3 according to CE\_CCW0b.
-\item
-  The operator selects 100\% ``speed \%''.
-\item
-  The operator clicks ``-''.
-\item
-  The ``Status'' changes from ``On\textbackslash{}WaitingCMD'' to
-  ``Executing''.
-\item
-  The camera cable wrap starts rotating until ``position 2 deg'' is
-  lower than -90° and the ``Status'' changes to ``FAULT''.
-\item
-  The EUI will show an alarm fired at the bottom of the screen.
-\item
-  The operator clicks on ``RESET ALARM''.~
-\item
-  The ``Status'' changes to ``Idle''.~
-\item
-  The operator changes the setting ``Software Limit Switch Override'' to
-  ``TRUE'' according to CE\_CCW0a.
-\item
-  The operator executes CE\_CCW1d.~
-\item
-  The operator moves the camera cable wrap ``position 2 deg'' to 0°
-  according to CE\_CCW0b
-\item
-  The operator changes the setting ``Software Limit Switch Override'' to
-  ``FALSE'' according to CE\_CCW0a.
-\end{enumerate}
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The ``position 2 deg'' is at 0° ±0.01.
-\item
-  The camera cable wrap has moved and is in standstill.
-\item
-  The ``drive status'' of Drive 2 is ``Standstill''.
-\end{itemize}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-Per \emph{CCWTestingPlan - Results,~}this step passed.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Initial Pass } \\ \hline
-
-56 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-\textbf{\textbf{CE\_CCW6~}}No Alarm Detection
-
-\begin{enumerate}
-\tightlist
-\item
-  The operator executes mirror cover trial CE\_MC5e.
-\item
-  An alarm will trigger in the mirror cover module.
-\item
-  The ``Status'' remains at ``On\textbackslash{}WaitingCMD''.
-\end{enumerate}
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The camera cable wrap is in standstill.
-\item
-  The ``drive status'' of either Drive 1 or Drive 2 is ``Standstill''
-  and the corresponding ``run/alarm'' LED is lit up green.
-\item
-  The ``Status'' shows ``On\textbackslash{}WaitingCMD''.
-\end{itemize}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -2939,32 +2917,47 @@ Per \emph{CCWTestingPlan - Results,~}this step passed.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Initial Pass } \\ \hline
+ & Status: \textbf{ Not Executed } \\ \hline
 
-57 & Description \\
+3 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-\textbf{CE\_CCW7~}Alarm Processing in Idle State
+check the size of output bin file, estimate how long we could run before
+we run into problems with files being too large.
 
-\begin{enumerate}
-\tightlist
-\item
-  The operator press emergency trip button.
-\item
-  The ``Status'' remains at ``Idle''
-\item
-  At the bottom of the Camera Cable Wrap page, no alarm is shown to be
-  triggered.
-\item
-  The operator clicks on the ``ON'' button.
-\item
-  A ``No Ack'' message is received with the information of active
-  interlock ``Camera Cable Wrap Safety''
-\item
-  An alarm shows up at the bottom of the page.
-\item
-  Click on ``Continue'' button
-\end{enumerate}
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+ & Test Data \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+based on Tests/TestData/CellTelemetry\_2020-01-31\_164343\_000.bin,
+which run 400s with a size of 63M, we will produce almost
+\textasciitilde{}10M data per minute. So each hour will be 600M.\\
+8 hours will give us a 5G file. Still tolerable.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+4 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+do a 2nd test run for 10 minutes\\
+(at 30 degree off zenith)
 
 \medskip }
 \end{minipage}
@@ -2973,65 +2966,23 @@ Per \emph{CCWTestingPlan - Results,~}this step passed.
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The ``Status'' of camera cable wrap is ``Idle''.
-\item
-  The ``drive status'' of Drive 1 and Drive 2 is ``Off''.
-\item
-  No local alarm is shown at the bottom of the page.
-\end{itemize}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-Per \emph{CCWTestingPlan - Results,~}this step passed.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Initial Pass } \\ \hline
+ & Status: \textbf{ Not Executed } \\ \hline
 
-58 & Description \\
+5 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-\textbf{CE\_CCW8~}Alarm Processing in Moving/Executing State
-
-\begin{enumerate}
-\tightlist
-\item
-  The operator enters 70 into the ``position deg'' field.
-\item
-  The operator enters 0.5 into the ``speed deg/s'' field.
-\item
-  The operator clicks ``MOVE''.
-\item
-  The ``Status'' changes from ``On\textbackslash{}Enable'' to
-  ``Executing''.
-\item
-  The camera cable wrap starts rotating.
-\item
-  The operator presses emergency trip button.
-\item
-  The ``Status'' changes to ``FAULT''.
-\item
-  The EUI will show an alarm fired at the bottom of the screen.
-\item
-  The camera cable wrap starts stops rotating.
-\item
-  The ``drive status'' of Drive 1 changes to ``Fault''.
-\item
-  An alarm shows up at the bottom of the page
-\item
-  Release the emergency trip button and reset the safety
-\item
-  The operator clicks on ``RESET ALARM''.
-\item
-  The ``Status'' changes to ``Idle''.
-\end{enumerate}
+do a 3rd test run for 30 minutes (depending on file size constraints)\\
+(at 45 degree off zenith)
 
 \medskip }
 \end{minipage}
@@ -3040,47 +2991,25 @@ Per \emph{CCWTestingPlan - Results,~}this step passed.
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The camera cable wrap has moved in the positive direction and is in
-  standstill.
-\item
-  The ``drive status'' of Drive 1 and Drive 2 is ``Off''.
-\item
-  The ``Status'' is ``Idle''.
-\item
-  No alarm is shown at the bottom of the page.
-\end{itemize}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-Per \emph{CCWTestingPlan - Results,~}this step passed.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Initial Pass } \\ \hline
+ & Status: \textbf{ Not Executed } \\ \hline
 
-59 & Description \\
+6 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-\textbf{CE\_CCW9a~}Incorrect Operation Sequence - Move
-
-\begin{enumerate}
-\tightlist
-\item
-  The operator enters -35 into the ``position deg'' field.
-\item
-  The operator enters 1.5 into the ``speed deg/s'' field.~
-\item
-  The operator clicks on ``MOVE'' in the ``CONTROL'' panel section.
-\item
-  A ``No Ack'' message is received.
-\end{enumerate}
+data analysis:\\
+force stability within each 15s period (5:00-20:00, 22:00-37:00)\\
+force repeatability between different runs with the same bending modes\\
+do this for axial actuators and tangent links
 
 \medskip }
 \end{minipage}
@@ -3089,80 +3018,29 @@ Per \emph{CCWTestingPlan - Results,~}this step passed.
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The camera cable wrap is in standstill and has not moved.
-\item
-  The ``drive status'' of Drive 1 and Drive 2 is ``Off''.
-\item
-  The ``Status'' is ``Idle''.
-\end{itemize}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-Per \emph{CCWTestingPlan - Results,~}this step passed.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Initial Pass } \\ \hline
+ & Status: \textbf{ Not Executed } \\ \hline
 
-60 & Description \\
+7 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-\textbf{CE\_CCW9b~}Incorrect Operation Sequence - Fault
-
-\begin{enumerate}
-\tightlist
-\item
-  Press Emergency trip button.
-\item
-  The ``Status'' changes to ``FAULT''.
-\item
-  An alarm is shown at the bottom of the page.
-\item
-  The ``drive status'' of Drive 1 is ``Fault''.
-\item
-  The operator enters -55 into the ``position deg'' field.
-\item
-  The operator enters 1 into the ``speed deg/s'' field.
-\item
-  The operator clicks on the ``MOVE'' button.
-\item
-  A ``No Ack'' message is received.
-\item
-  The camera cable wrap does not move.
-\item
-  The operator clicks on the ``POWER ON'' button.
-\item
-  ~A ``No Ack'' message is received.
-\item
-  The ``Status'' remains at ``FAULT''.
-\item
-  The operator clicks on the ``POWER OFF'' button.
-\item
-  A ``No Ack'' message is received.
-\item
-  The ``Status'' remains at ``FAULT''.
-\item
-  The operator clicks the ``STOP'' button.
-\item
-  A ``No Ack'' message is received.
-\item
-  The operator loads a track file and clicks on the ``EXECUTE'' button
-\item
-  A ``No Ack'' message is received.
-\item
-  The ``Status'' remains at ``FAULT''.
-\item
-  The operator clicks on ``RESET ALARM''.
-\item
-  The ``Status'' changes to ``Idle''.
-\end{enumerate}
+data analysis:\\
+analyze VMS data during the visits (37s), calculate power spectrum, and
+verify that there is no significant vibration modes under 15Hz,
+\textgreater{}24Hz would be desirable.\\
+analyze accelerometer noise level and compare to LTS-146 3.4.6. But note
+that the noise level specified there is for pure electronic noise, i.e.,
+what a rubber band experiment can detect. What we measure in the lab
+with the M2 assembly will be higher than that.~
 
 \medskip }
 \end{minipage}
@@ -3171,29 +3049,478 @@ Per \emph{CCWTestingPlan - Results,~}this step passed.
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-\begin{itemize}
-\tightlist
-\item
-  The camera cable wrap has not moved and is in standstill.
-\item
-  The ``drive status'' of Drive 1 and Drive 2 is ``Off''.
-\item
-  The ``Status'' is ``Idle''.
-\item
-  No alarm is shown at the bottom of the page.
-\end{itemize}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-Per \emph{CCWTestingPlan - Results,~}this step passed.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Initial Pass } \\ \hline
+ & Status: \textbf{ Not Executed } \\ \hline
+
+\end{longtable}
+
+\paragraph{Test Case LVV-T1795 - M2 mirror weight }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1795}{\textit{ LVV-T1795 } }
+test case in Jira.
+
+
+
+\textbf{ Preconditions}:\\
+
+
+Execution status: {\bf Not Executed }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+\end{longtable}
+
+\paragraph{Test Case LVV-T1789 - M2 Active Optics duration test }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1789}{\textit{ LVV-T1789 } }
+test case in Jira.
+
+
+
+\textbf{ Preconditions}:\\
+
+
+Execution status: {\bf Pass w/ Deviation }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+get a thermometer ready for the test duration, so that the ambient
+temperature data can also be used for temperature test.\\
+Read the thermometer at 1/2 hour interval (get timer ready).
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+Felipe got us a weather station. But it doesn't seem to be accurate
+enough. Bo took a photo of it.\\
+We are doing this test on 3/6/20 Friday. at 14:02 utc, it shows T=20
+deg, humidity = 26\%, pressure = 1041.13 mb.\\
+Bo is the only running the test, and needs to work on dome seeing
+monitor a bit before the bus leaves today. So, we are not going to take
+these independent environmental measurements in 1/2 intervals.\\
+The accuracy of the temperature can be checked using the data Te-Wei
+took the other day.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass w/ Deviation } \\ \hline
+
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+In Matlab script, take bending modes 1,3,5,7,9, scale them to produce
+surface RMS of 500nm, use genScriptFile.m to convert them into a scp
+file. wait 37s before changing to another bending mode. Test run for 5
+minutes.\\
+Note: if we have to issue 20 force commands to hold the forces for 1
+second, one visit (37s) means 740x78 array
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+14:07 utc 3/6/20. starting tests with duration\_6min.csv\\
+14:17 utc, start duration\_31min.csv, aborted at 14:21 utc, we are going
+to do 60 minutes directly.\\
+(tested that if I supply a force csv in open loop, the GUI will give an
+error - a dialogue box. Be careful, you need to choose ``continue'' or
+â\euro{}œstop``. I chose ''stop``, a Labview programming window popped
+up, I closed it. After that I was able to load any script files. I had
+to quite the GUI. Tried again, choose ''continue" would be OK.)\\
+14:30 utc, start 62 minute test.\\
+15:32 utc, restart the next 62 minutes immediately after the 1st one.\\
+16:35 utc, restart the next 62 minutes \textasciitilde{}1 minute after
+the 2nd one.\\
+17:38 utc, restartthe next 62 minutes \textasciitilde{}1 minute after
+the 3rd one.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+3 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+check the size of output bin file, estimate how long we could run before
+we run into problems with files being too large.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+ & Test Data \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+based on Tests/TestData/CellTelemetry\_2020-01-31\_164343\_000.bin,
+which run 400s with a size of 63M, we will produce almost
+\textasciitilde{}10M data per minute. So each hour will be 600M.\\
+8 hours will give us a 5G file. Still tolerable.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+4 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+do a 2nd test run for 10 minutes\\
+(at 30 degree off zenith)
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+5 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+do a 3rd test run for 30 minutes (depending on file size constraints)\\
+(at 45 degree off zenith)
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+6 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+data analysis:\\
+force stability within each 15s period (5:00-20:00, 22:00-37:00)\\
+force repeatability between different runs with the same bending modes\\
+do this for axial actuators and tangent links
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+\end{longtable}
+
+\subsection{Test Cycle LVV-C148 }
+
+Open test cycle {\it \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testrun/LVV-C148}{M2 Formal Functional Re-Verification and SAL v4.0 Integration}} in Jira.
+
+M2 Formal Functional Re-Verification and SAL v4.0 Integration\\
+Status: Not Executed
+
+The purpose of this test cycle is to perform the formal functional
+re-verification after shipment of the system from the vendor facility to
+the Summit.
+
+\subsubsection{Software Version/Baseline}
+\begin{enumerate}
+\tightlist
+\item
+  M2 Control Software with SAL v4.0
+\item
+  EFD with SAL v4.0
+\end{enumerate}
+
+\subsubsection{Configuration}
+Not provided.
+
+\subsubsection{Test Cases in LVV-C148 Test Cycle}
+
+\paragraph{Test Case LVV-T1803 - M2 Hazard Mitigation Verification }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1803}{\textit{ LVV-T1803 } }
+test case in Jira.
+
+
+
+\textbf{ Preconditions}:\\
+
+
+Execution status: {\bf Not Executed }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+\end{longtable}
+
+\paragraph{Test Case LVV-T1614 - M2 Software Functional Re-verification }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1614}{\textit{ LVV-T1614 } }
+test case in Jira.
+
+
+
+\textbf{ Preconditions}:\\
+
+
+Execution status: {\bf Not Executed }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+\end{longtable}
+
+\paragraph{Test Case LVV-T1613 - M2 Hardware Functional Re-verification }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1613}{\textit{ LVV-T1613 } }
+test case in Jira.
+
+
+
+\textbf{ Preconditions}:\\
+
+
+Execution status: {\bf Not Executed }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+\end{longtable}
+
+\paragraph{Test Case LVV-T1615 - Integration of M2 with SAL v4.0 }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1615}{\textit{ LVV-T1615 } }
+test case in Jira.
+
+
+
+\textbf{ Preconditions}:\\
+
+
+Execution status: {\bf Not Executed }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
 
 \end{longtable}
 

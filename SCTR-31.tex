@@ -379,25 +379,28 @@ The personnel involved in the test campaign is shown in the following table.
     &
     \\\hline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1798}{LVV-T1798}
-    & In Progress &
+    & Pass &
     \begin{minipage}[]{9cm}
     \smallskip
     need to understand why forces do not change between open and close loop.
 Why do we still have F\_HC in open loop? Sandrine read the Harris doc
-T14900-1001 page 9, the close loop seem to mean the force loop is closed
-when the inclination angle and temperature changes.\\
+T14900-1001. Bottom of page 8 - top of page 9, the close loop seem to
+mean the force loop is closed when the inclination angle and temperature
+changes.\\
 temperature data in EFD: there are 72 fields, but only 16 sensors. Need
-to do LCR to change XML and sal\_interface document.\\
+to change XML and sal\_interface document. Done on 3/26/20.\\
 Cell temperatures (4 of them) seem to be \textasciitilde{}2C higher than
-mirror T (12 of them). Is that what we would expect?\\
-zenith angle inconsistency, see detail below\\
+mirror T (12 of them). Is that what we would expect? see a12*ipynb.\\
+zenith angle inconsistency, see detail below. Resolved. See a02*ipynb.\\
 all M2 telemetry and events use UTC, not TAI. This is a known bug that
 needs to be fixed.\\
 we need a log event for transitioning from open loop to closed loop,
 which we don't have yet. To do. (Te-Wei said Chris had a M2 to-do list,
-this is one of the items. He will find the confluence page.)\\
+this is one of the items. He will find the confluence page.)
+Incorporated in updated XML 3/26/20.\\
 need position sensors info in the EFD. Doug has a wish list on M2
-desired features as well. Te-Wei will circulate.
+desired features as well. Te-Wei will circulate. Incorporated in updated
+XML 3/26/20.
     \medskip
     \end{minipage}
     &
@@ -747,24 +750,27 @@ test case in Jira.
 \textbf{ Preconditions}:\\
 
 
-Execution status: {\bf In Progress }
+Execution status: {\bf Pass }
 
 Final comment:\\need to understand why forces do not change between open and close loop.
 Why do we still have F\_HC in open loop? Sandrine read the Harris doc
-T14900-1001 page 9, the close loop seem to mean the force loop is closed
-when the inclination angle and temperature changes.\\
+T14900-1001. Bottom of page 8 - top of page 9, the close loop seem to
+mean the force loop is closed when the inclination angle and temperature
+changes.\\
 temperature data in EFD: there are 72 fields, but only 16 sensors. Need
-to do LCR to change XML and sal\_interface document.\\
+to change XML and sal\_interface document. Done on 3/26/20.\\
 Cell temperatures (4 of them) seem to be \textasciitilde{}2C higher than
-mirror T (12 of them). Is that what we would expect?\\
-zenith angle inconsistency, see detail below\\
+mirror T (12 of them). Is that what we would expect? see a12*ipynb.\\
+zenith angle inconsistency, see detail below. Resolved. See a02*ipynb.\\
 all M2 telemetry and events use UTC, not TAI. This is a known bug that
 needs to be fixed.\\
 we need a log event for transitioning from open loop to closed loop,
 which we don't have yet. To do. (Te-Wei said Chris had a M2 to-do list,
-this is one of the items. He will find the confluence page.)\\
+this is one of the items. He will find the confluence page.)
+Incorporated in updated XML 3/26/20.\\
 need position sensors info in the EFD. Doug has a wish list on M2
-desired features as well. Te-Wei will circulate.
+desired features as well. Te-Wei will circulate. Incorporated in updated
+XML 3/26/20.
 
 
 Detailed steps results:
@@ -814,7 +820,7 @@ decided to use -999, so that data can go into EFD which facilitates
 subsequent analysis. The 12 mirror sensors on the GUI should correspond
 to fields temp0-11. Randomly checked 2 out of the 12, seem to match.\\
 zenithAngleMeasured: two places in GUI (utility view vs cell status)
-show 89.50 and 89.57. EFD shows 7.4e-3, no sure about unit.\\
+show 89.50 and 89.57. EFD shows 7.4e-3, unit is radian.\\
 axialActuatorAbsolutePositionSteps: compare this to GUI. when entering
 closed loop, these get updated (with T and Angle), observed the change
 in EFD is same as change in GUI. So somehow they have different
@@ -935,11 +941,18 @@ In the same notebook, we query EFD and compare.
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+All telemetry are checked:\\
+\href{https://github.com/bxin/M2_summit_2003/blob/master/a02_check_telemetry.ipynb}{a02\_check\_telemetry.ipynb}\\
+all log events are checked:\\
+\href{https://github.com/bxin/M2_summit_2003/blob/master/a07_log_events.ipynb}{a07\_log\_events.ipynb}\\
+Note:current architecture requires VMS to be part of a separate CSC,
+together with VMS for M1M3 and TMA. So there is no VMS telemetry in M2
+XML.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 \end{longtable}
 
@@ -948,13 +961,8 @@ In the same notebook, we query EFD and compare.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1810}{\textit{ LVV-T1810 } }
 test case in Jira.
 
-The hardpoints are numbered and go in specific locations. However, we
-had trouble with the hard point extensions and a couple of them had the
-extensions replaced. The extensions probably vary in length by
-\textasciitilde{} 1mm.\\
-The IMS is essentially a relative motion sensor. Setting the readings to
-zero when the mirror is at reference position will help avoid some
-errors/anomalies in the testing scripts for other test cases.
+The position should be provided by the 6 passive support. The position
+from the displacement sensors should be provided for verification.
 
 \textbf{ Preconditions}:\\
 
@@ -990,12 +998,14 @@ being applied
  & \begin{minipage}[t]{15cm}{\footnotesize
 local time 7:21pm. We will go to EFD later to get the forces, which
 should be optimized forces at zenith, and compare to calculations based
-on Harris csv files
+on Harris csv files\\
+Done 3/26/20.
+~\href{https://github.com/bxin/M2_summit_2003/blob/master/a03_LUT_0.ipynb}{a03\_LUT\_0.ipynb}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ In Progress } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 2 & Description \\
  & \begin{minipage}[t]{15cm}

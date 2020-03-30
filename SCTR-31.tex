@@ -177,6 +177,22 @@ The personnel involved in the test campaign is shown in the following table.
 \medskip
 \end{minipage}
 \\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1827}{LVV-T1827}
+& {\small Bo Xin } & {\small Bo Xin } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1826}{LVV-T1826}
+& {\small Bo Xin } & {\small Bo Xin } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
 \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1810}{LVV-T1810}
 & {\small Bo Xin } & {\small Bo Xin } &
 \begin{minipage}[]{6cm}
@@ -274,7 +290,7 @@ The personnel involved in the test campaign is shown in the following table.
 \end{minipage}
 \\ \hline
 \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1794}{LVV-T1794}
-& {\small Bo Xin } & {\small  } &
+& {\small Bo Xin } & {\small Bo Xin } &
 \begin{minipage}[]{6cm}
 \smallskip
 {\small  }
@@ -405,8 +421,26 @@ XML 3/26/20.
     \end{minipage}
     &
     \\\hline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1827}{LVV-T1827}
+    & Pass &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1826}{LVV-T1826}
+    & Pass &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1810}{LVV-T1810}
-    & In Progress &
+    & Fail &
     \begin{minipage}[]{9cm}
     \smallskip
     
@@ -415,11 +449,11 @@ XML 3/26/20.
     &
     \\\hline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1784}{LVV-T1784}
-    & In Progress &
+    & Pass &
     \begin{minipage}[]{9cm}
     \smallskip
     Bo need to check FEA model and clarify coordinate system used for the
-bending modes.\\
+bending modes. Done. See step 2 below for details.\\
 Te-Wei notes that the coordinate system used by M2 control system
 is~\href{https://github.com/lsst-ts/ts_mtm2/blob/master/doc/project/CellConfiguration.xlsx}{CellConfiguration.xlsx}
     \medskip
@@ -427,7 +461,7 @@ is~\href{https://github.com/lsst-ts/ts_mtm2/blob/master/doc/project/CellConfigur
     &
     \\\hline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1790}{LVV-T1790}
-    & In Progress &
+    & Pass &
     \begin{minipage}[]{9cm}
     \smallskip
     
@@ -436,7 +470,7 @@ is~\href{https://github.com/lsst-ts/ts_mtm2/blob/master/doc/project/CellConfigur
     &
     \\\hline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1788}{LVV-T1788}
-    & In Progress &
+    & Pass &
     \begin{minipage}[]{9cm}
     \smallskip
     
@@ -517,7 +551,7 @@ is~\href{https://github.com/lsst-ts/ts_mtm2/blob/master/doc/project/CellConfigur
     &
     \\\hline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1794}{LVV-T1794}
-    & Not Executed &
+    & Initial Pass &
     \begin{minipage}[]{9cm}
     \smallskip
     
@@ -956,6 +990,395 @@ XML.
 
 \end{longtable}
 
+\paragraph{Test Case LVV-T1827 - M2 inner loop control - open loop mode }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1827}{\textit{ LVV-T1827 } }
+test case in Jira.
+
+verify that the inner control loop applies motor steps as commanded by
+the outer loop controller.
+
+\textbf{ Preconditions}:\\
+
+
+Execution status: {\bf Pass }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+with M2 surrogate facing down, power up the M2 control system, enter
+open-loop mode
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+command B1 actuator to move 10 microns
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+3 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+write down the following from the EUI:\\
+B1 position, steps, e\_count, F\_cmd, F\_cur, F\_HC, F\_error
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\href{https://github.com/bxin/M2_summit_2003/blob/master/M2basicTest.xlsx}{M2basicTest.xlsx}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+4 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+repeat the steps 3-4 by 20,30,40,50 microns
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\href{https://github.com/bxin/M2_summit_2003/blob/master/M2basicTest.xlsx}{M2basicTest.xlsx}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+5 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+repeat steps 3-4 by commanding B1 actuator to move
+500,1000,1500,2000,2500 steps
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\href{https://github.com/bxin/M2_summit_2003/blob/master/M2basicTest.xlsx}{M2basicTest.xlsx}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+6 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+repeat steps 3-6 for A1 tangent link
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\href{https://github.com/bxin/M2_summit_2003/blob/master/M2basicTest.xlsx}{M2basicTest.xlsx}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+7 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+data analysis:\\
+Look at data from 3 sources:\\
+1. EUI (as written down above)\\
+2. EUI output binary file\\
+3. EFD telemetry\\
+And verify that the inner control loop applies motor steps as commanded.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\href{https://github.com/bxin/M2_summit_2003/blob/master/a01_OL_B1_stroke.ipynb}{a01\_OL\_B1\_stroke.ipynb}\\
+\href{https://github.com/bxin/M2_summit_2003/blob/master/a05_OL_B1_steps.ipynb}{a05\_OL\_B1\_steps.ipynb}\\
+\href{https://github.com/bxin/M2_summit_2003/blob/master/a08_OL_A1_stroke.ipynb}{a08\_OL\_A1\_stroke.ipynb}\\
+\href{https://github.com/bxin/M2_summit_2003/blob/master/a10_OL_A1_steps.ipynb}{a10\_OL\_A1\_steps.ipynb}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+\end{longtable}
+
+\paragraph{Test Case LVV-T1826 - M2 outer and inner control loops - closed loop mode }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1826}{\textit{ LVV-T1826 } }
+test case in Jira.
+
+verify that the outer control loop determines the command forces for all
+the axial actuators of the M2 mirror support system and convert them
+into motor steps in order to command the inner loop controllers.
+
+\textbf{ Preconditions}:\\
+
+
+Execution status: {\bf Pass }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+with M2 surrogate facing down, power up the M2 control system, enter
+closed-loop mode
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+on top of the LUT forces, add +20N to actuator B1
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+3 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+write down the following from the EUI:\\
+B1 position, steps, e\_count, F\_cmd, F\_cur, F\_HC, F\_error
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\href{https://github.com/bxin/M2_summit_2003/blob/master/M2basicTest.xlsx}{M2basicTest.xlsx}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+4 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+repeat the steps 3-4 by 40,60,80,100 Newtons
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\href{https://github.com/bxin/M2_summit_2003/blob/master/M2basicTest.xlsx}{M2basicTest.xlsx}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+5 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+repeat steps 2-4 for A1 tangent link
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\href{https://github.com/bxin/M2_summit_2003/blob/master/M2basicTest.xlsx}{M2basicTest.xlsx}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+6 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+data analysis:\\
+Look at data from 3 sources:\\
+1. EUI (as written down above)\\
+2. EUI output binary file\\
+3. EFD telemetry\\
+And verify that the outer control loop determines the command forces for
+all the axial actuators of the M2 mirror support system and convert them
+into motor steps in order to command the inner loop controllers.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\href{https://github.com/bxin/M2_summit_2003/blob/master/a06_CL_B1_F.ipynb}{a06\_CL\_B1\_F.ipynb}\\
+\href{https://github.com/bxin/M2_summit_2003/blob/master/a11_CL_A1_F.ipynb}{a11\_CL\_A1\_F.ipynb}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+\end{longtable}
+
 \paragraph{Test Case LVV-T1810 - calibrate M2 reference position and position sensor offset }\mbox{}\\
 
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1810}{\textit{ LVV-T1810 } }
@@ -967,7 +1390,7 @@ from the displacement sensors should be provided for verification.
 \textbf{ Preconditions}:\\
 
 
-Execution status: {\bf In Progress }
+Execution status: {\bf Fail }
 
 Final comment:\\
 
@@ -996,9 +1419,9 @@ being applied
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-local time 7:21pm. We will go to EFD later to get the forces, which
-should be optimized forces at zenith, and compare to calculations based
-on Harris csv files\\
+3/3/20. local time 7:21pm. We will go to EFD later to get the forces,
+which should be optimized forces at zenith, and compare to calculations
+based on Harris csv files\\
 Done 3/26/20.
 ~\href{https://github.com/bxin/M2_summit_2003/blob/master/a03_LUT_0.ipynb}{a03\_LUT\_0.ipynb}
 
@@ -1028,18 +1451,23 @@ zero.
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-GUI shows balance forces (F\_HC), but we don't have the
-Fx/Fy/Fz/Mx/My/Mz as seen by the hard points. We don't have
-Fx/Fy/Fz/Mx/My/Mz as output by all actuators.\\
-These can be easily calculated using F\_HC and the actuator coordinates.
-This can be done by reading out F\_HC from binary files and calculations
-done with a simple notebook. We will have to do this later and come back
-to this.
+GUI shows balance forces (F\_HC), which doesn't seem to be reliable. See
+\href{https://github.com/bxin/M2_summit_2003/blob/master/a01_OL_B1_stroke.ipynb}{a01\_OL\_B1\_stroke.ipynb}~for
+example.\\
+And we don't have the Fx/Fy/Fz/Mx/My/Mz as seen by the hard points. We
+don't have Fx/Fy/Fz/Mx/My/Mz as output by all actuators.\\
+These can be calculated using F\_HC and the actuator coordinates, if
+F\_HC are what we think they are.\\
+We will have to add total Fx/Fy/Fz/Mx/My/Mz to telemetry and come back
+to this.\\
+Without F\_HC, what is the criteria in balancing the mirror? We want
+HPFC to do least work possible, so we try to get F\_B6 = F\_B16 =
+F\_B26.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ In Progress } \\ \hline
+ & Status: \textbf{ Fail } \\ \hline
 
 3 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -1151,10 +1579,10 @@ test case in Jira.
 \textbf{ Preconditions}:\\
 
 
-Execution status: {\bf In Progress }
+Execution status: {\bf Pass }
 
 Final comment:\\Bo need to check FEA model and clarify coordinate system used for the
-bending modes.\\
+bending modes. Done. See step 2 below for details.\\
 Te-Wei notes that the coordinate system used by M2 control system
 is~\href{https://github.com/lsst-ts/ts_mtm2/blob/master/doc/project/CellConfiguration.xlsx}{CellConfiguration.xlsx}
 
@@ -1213,10 +1641,14 @@ We checked force changed for B15, B30, B8, B23 in particular, however,
 looking at the bending mode surface shapes, Bo expects B15 and B30 to be
 increasing, but they are decreasing. Need to check FEA model and clarify
 coordinate system used for the bending modes.\\
-Te-Wei points out that the M2 control system has z axis going from M1M3
-to the sky. While Bo's FEA coordinate system has z going from M2 to
-M1M3. So it makes sense now.\\[2\baselineskip]2:58pm local, we are back
-to do de-energization. reapplied bm1, 500nm.
+3/26/20. Checked. We should expect B15 and B30 to decrease. Bo's bending
+modes are in M2 FEA coordinate system. In that system, Harris slides
+always put B1 and B30 at the top, but that is -X direction. They have +Y
+point left and +X point down. So if we map my bending modes to that
+actuator map (where B1 is at the top). -Y becomes +X, and -X becomes +Y.
+B15 and B30 correspond to the blue area on bm1. They should get
+smaller.\\[2\baselineskip]3/5/20.\\
+2:58pm local, we are back to do de-energization. reapplied bm1, 500nm.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -1288,61 +1720,12 @@ the actuator forces did not change after de-energizing the actuators
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+\href{https://github.com/bxin/M2_summit_2003/blob/master/a14_back_drive.ipynb}{a14\_back\_drive.ipynb}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
-
-5 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-tilt M2 to 30 degrees off zenith, and repeat the above test.
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Not Executed } \\ \hline
-
-6 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-data analysis:\\
-check mirror position and actuator forces (including tangent links)
-before and after the de-energization.
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 \end{longtable}
 
@@ -1352,12 +1735,13 @@ Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1790}{\te
 test case in Jira.
 
 make sure all actuators are alive\\
-check force accuracy/repeatability/stability
+For force accuracy/repeatability/stability - see bending mode test and
+AOS duration test.
 
 \textbf{ Preconditions}:\\
 
 
-Execution status: {\bf In Progress }
+Execution status: {\bf Pass }
 
 Final comment:\\
 
@@ -1470,14 +1854,20 @@ force and load-cell measured force.
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-Using checkForceLatency.ipynb, we confirmed that 1s is enough time for
-the forces to settle. So there is no need to redo the test with longer
-time intervals.
+According to
+\href{https://github.com/bxin/M2_summit_2003/blob/master/checkForceLatency.ipynb}{checkForceLatency.ipynb},
+1s wasn't quite enough time for the forces to settle. It would be better
+if we had the test with longer time interval, for example, 5s.\\
+However, this test is more about aliveness of the actuators. Final
+aliveness
+analysis:\href{https://github.com/bxin/M2_summit_2003/blob/master/a15_bump_test.ipynb}{a15\_bump\_test.ipynb}\\
+For force accuracy/repeatability/stability - see bending mode test and
+AOS duration test.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ In Progress } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 \end{longtable}
 
@@ -1491,7 +1881,7 @@ test case in Jira.
 \textbf{ Preconditions}:\\
 
 
-Execution status: {\bf In Progress }
+Execution status: {\bf Pass }
 
 Final comment:\\
 
@@ -1597,11 +1987,12 @@ compare commanded forces to measured forces.
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+https://github.com/bxin/M2\_summit\_2003/blob/master/a16\_bending\_modes.ipynb
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 \end{longtable}
 
@@ -2774,7 +3165,7 @@ test case in Jira.
 \textbf{ Preconditions}:\\
 
 
-Execution status: {\bf Not Executed }
+Execution status: {\bf Initial Pass }
 
 Final comment:\\
 
@@ -2787,6 +3178,39 @@ Detailed steps results:
 1 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
+data analysis:\\
+read out 12 glass temp sensors, to determine x/y/r gradients\\
+read out 4 air temp sensors. Compare 2 intake (lower temp) and 2 outlet
+(higher temp). Supposedly no ambient measurement yet. Ambient in
+requirement is meant for operation conditions anyway.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+https://github.com/bxin/M2\_summit\_2003/blob/master/a12\_temperature.ipynb\\
+initial pass. Because the requirement refers to ambient temp in
+operational conditions.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Initial Pass } \\ \hline
+
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Heat from tangent links: need thermal camera image\\
+(verify model number? Are there labels?)
 
 \medskip }
 \end{minipage}

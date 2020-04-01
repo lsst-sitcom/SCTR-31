@@ -479,7 +479,7 @@ is~\href{https://github.com/lsst-ts/ts_mtm2/blob/master/doc/project/CellConfigur
     &
     \\\hline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1787}{LVV-T1787}
-    & In Progress &
+    & Pass &
     \begin{minipage}[]{9cm}
     \smallskip
     
@@ -2006,7 +2006,7 @@ test case in Jira.
 \textbf{ Preconditions}:\\
 
 
-Execution status: {\bf In Progress }
+Execution status: {\bf Pass }
 
 Final comment:\\
 
@@ -2049,7 +2049,7 @@ telemetry in EFD. Cart shows 0-180 deg.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 2 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -2072,11 +2072,12 @@ compare the LUT forces to our expectations based on the LUT csv files.
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+\href{https://github.com/bxin/M2_summit_2003/blob/master/a17_LUT_cart_rotation.ipynb}{a17\_LUT\_cart\_rotation.ipynb}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 \end{longtable}
 
@@ -2244,7 +2245,7 @@ back to origin, hold 37s.
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-12:22pm, switched to open loop, then closed loop.\\
+12:22pm local time, 3/4/20, switched to open loop, then closed loop.\\
 We are worried about not knowing the hard stops. Te-Wei did not see
 anything about limit switches in the software. We want to be cautious
 here. We will do 1mm, 2mm, 3mm instead.\\
@@ -2257,7 +2258,7 @@ triggered (open loop).\\
 some of the tangent encoders are at +/-142k, others at +/-72k.\\
 LTS-146 has x travel as 7.74mm, now we got stuck at 0.87mm. There might
 be the following possibilities: (1) LTS-146 got a factor of 10 wrong,
-(2) GuI has unit wrong, mm is really center.\\
+(2) GuI has unit wrong, mm is really centimeter.\\
 14:07 local, moveBack5.csv\\
 14:10 local, moveBack20.csv\\
 14:11 local, moveBack100.csv\\

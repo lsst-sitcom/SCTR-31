@@ -491,13 +491,19 @@ is~\href{https://github.com/lsst-ts/ts_mtm2/blob/master/doc/project/CellConfigur
     & Pass w/ Deviation &
     \begin{minipage}[]{9cm}
     \smallskip
-    +x motion limit =0.87mm, while \citeds{LTS-146} has 7.74mm
+    +x motion limit =0.87mm, while \citeds{LTS-146} has
+7.74mm\\[2\baselineskip]\#\#\# Here is a summary of the limits we know
+so far\\
+* x = +0.87mm and -0.83mm\\
+* y = 1.07mm and -0.72mm\\
+* z = + 3.17mm and -3.75mm\\
+* Rz = +351 urad
     \medskip
     \end{minipage}
     &
     \\\hline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1791}{LVV-T1791}
-    & In Progress &
+    & Pass &
     \begin{minipage}[]{9cm}
     \smallskip
     
@@ -506,7 +512,7 @@ is~\href{https://github.com/lsst-ts/ts_mtm2/blob/master/doc/project/CellConfigur
     &
     \\\hline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1792}{LVV-T1792}
-    & Pass w/ Deviation &
+    & Not Executed &
     \begin{minipage}[]{9cm}
     \smallskip
     
@@ -2093,7 +2099,13 @@ test case in Jira.
 
 Execution status: {\bf Pass w/ Deviation }
 
-Final comment:\\+x motion limit =0.87mm, while \citeds{LTS-146} has 7.74mm
+Final comment:\\+x motion limit =0.87mm, while \citeds{LTS-146} has
+7.74mm\\[2\baselineskip]\#\#\# Here is a summary of the limits we know
+so far\\
+* x = +0.87mm and -0.83mm\\
+* y = 1.07mm and -0.72mm\\
+* z = + 3.17mm and -3.75mm\\
+* Rz = +351 urad
 
 
 Detailed steps results:
@@ -2164,7 +2176,7 @@ worked!
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass w/ Deviation } \\ \hline
 
 3 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -2189,12 +2201,13 @@ it reached y=1mm.New absolute position y=1.5mm. It stopped at
 y=+1.06756mm. 9:20pm, we ready to recover +y.\\
 9:23pm, go to y=-1.5mm. It stopped at y=-0.71914mm\\
 9:36pm, go to z=4mm. It stopped at z=+3.16949mm.\\
-9:49pm, go to z=-4mm. It stopped at z=-3.75299mm.
+9:49pm, go to z=-4mm. It stopped at
+z=-3.75299mm.\\[2\baselineskip]\href{https://github.com/bxin/M2_summit_2003/blob/master/a18_motion_limit.ipynb}{a18\_motion\_limit.ipynb}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass w/ Deviation } \\ \hline
 
 \end{longtable}
 
@@ -2208,7 +2221,7 @@ test case in Jira.
 \textbf{ Preconditions}:\\
 
 
-Execution status: {\bf In Progress }
+Execution status: {\bf Pass }
 
 Final comment:\\
 
@@ -2420,11 +2433,12 @@ position repeatability between ~the 3 cycles
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+\href{https://github.com/bxin/M2_summit_2003/blob/master/a19_position_repeatability.ipynb}{a19\_position\_repeatability.ipynb}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 \end{longtable}
 
@@ -2438,7 +2452,7 @@ test case in Jira.
 \textbf{ Preconditions}:\\
 
 
-Execution status: {\bf Pass w/ Deviation }
+Execution status: {\bf Not Executed }
 
 Final comment:\\
 
@@ -2451,7 +2465,8 @@ Detailed steps results:
 1 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-go into open-loop mode
+with M2 surrogate facing down, power up the M2 control system, enter
+open-loop mode
 
 \medskip }
 \end{minipage}
@@ -2466,20 +2481,16 @@ go into open-loop mode
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-6:05pm 3/4/20. entered open loop mode
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Pass } \\ \hline
+ & Status: \textbf{ Not Executed } \\ \hline
 
 2 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-in EUI, add +20N to B3, then -20N to B3\\
-repeat for C8\\
-repeat for D17\\
-repeat for A2, A4, A6
+command B1 actuator to move 10 microns
 
 \medskip }
 \end{minipage}
@@ -2494,17 +2505,17 @@ repeat for A2, A4, A6
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-cannot add forces in open loop.~
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Pass w/ Deviation } \\ \hline
+ & Status: \textbf{ Not Executed } \\ \hline
 
 3 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-go into closed-loop mode
+write down the following from the EUI:\\
+B1 position, steps, e\_count, F\_cmd, F\_cur, F\_HC, F\_error
 
 \medskip }
 \end{minipage}
@@ -2519,20 +2530,16 @@ go into closed-loop mode
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-entered closed loop 6:08 pm
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Pass } \\ \hline
+ & Status: \textbf{ Not Executed } \\ \hline
 
 4 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-in EUI, add +20N to B3, then -20N to B3\\
-repeat for C8\\
-repeat for D17\\
-repeat for A2, A4, A6
+repeat the steps 3-4 by 20,30,40,50 microns
 
 \medskip }
 \end{minipage}
@@ -2547,34 +2554,249 @@ repeat for A2, A4, A6
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-use fb.m to create csv files. sent to Te-Wei.\\
-fbA1m.csv 6:37pm local time. verified on Chronograf, A1 force drops from
-40 N to 30N\\
-fbA1p.csv 6:39pm local, but didn't clear the -20N. so, open loop, close
-loop, do it again at 6:42pm\\
-fbA3m.csv 6:43pm. clear by open and close loop.\\
-fbA3p.csv 6:44. clear by \ldots{}.\\
-fbA5m.csv 6:45 clear \ldots{}\\
-fbA5p.csv 6:46. clear \ldots{}\\
-fbB3m.csv 6:47 clear \ldots{}\\
-fbB3p.csv 6:48 clear \ldots{}.\\
-fbC8m.csv 6:49 clear \ldots{}\\
-fbC8p.csv 6:50 clear \ldots{}\\
-fbD17m.csv 6:51 clear \ldots{}\\
-fbD17p.csv 6:53 clear \ldots{}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Pass } \\ \hline
+ & Status: \textbf{ Not Executed } \\ \hline
 
 5 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-data analysis: (hard points are A1,A3,A5,B6,B16,B26)\\
-demonstrate that for open-loop, the hard points take the extra forces\\
-for closed-loop, all actuators work together to take out the extra
-forces
+repeat steps 3-4 by commanding B1 actuator to move
+500,1000,1500,2000,2500 steps
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+6 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+repeat steps 3-6 for A1 tangent link
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+7 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+data analysis:\\
+Look at data from 3 sources:\\
+1. EUI (as written down above)\\
+2. EUI output binary file\\
+3. EFD telemetry\\
+And verify that the inner control loop applies motor steps as commanded.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+8 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+with M2 surrogate facing down, power up the M2 control system, enter
+closed-loop mode
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+9 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+on top of the LUT forces, add +20N to actuator B1
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+10 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+write down the following from the EUI:\\
+B1 position, steps, e\_count, F\_cmd, F\_cur, F\_HC, F\_error
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+11 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+repeat the steps 3-4 by 40,60,80,100 Newtons
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+12 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+repeat steps 2-4 for A1 tangent link
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+13 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+data analysis:\\
+Look at data from 3 sources:\\
+1. EUI (as written down above)\\
+2. EUI output binary file\\
+3. EFD telemetry\\
+And verify that the outer control loop determines the command forces for
+all the axial actuators of the M2 mirror support system and convert them
+into motor steps in order to command the inner loop controllers.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+14 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+data analysis:\\
+analyze how the FB system responds to external forces under open loop
+and closed loop
 
 \medskip }
 \end{minipage}

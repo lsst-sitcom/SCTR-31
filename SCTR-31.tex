@@ -455,7 +455,14 @@ XML 3/26/20.
     Bo need to check FEA model and clarify coordinate system used for the
 bending modes. Done. See step 2 below for details.\\
 Te-Wei notes that the coordinate system used by M2 control system
-is~\href{https://github.com/lsst-ts/ts_mtm2/blob/master/doc/project/CellConfiguration.xlsx}{CellConfiguration.xlsx}
+is~\href{https://github.com/lsst-ts/ts_mtm2/blob/master/doc/project/CellConfiguration.xlsx}{CellConfiguration.xlsx}\\
+Note that the intention was to put on some bending modes, then test
+whether the forces hold after we de-energize certain actuators. However,
+that ignores the fact that after each actuator de-energization we have
+to restart the control system, then the forces are reset to the LUT
+forces. This didn't have any real effect on the test itself, because
+bending mode \#1 required 0.15N on actuator B6, which is in the noise.
+(see a14*ipynb for detail).
     \medskip
     \end{minipage}
     &
@@ -491,9 +498,12 @@ is~\href{https://github.com/lsst-ts/ts_mtm2/blob/master/doc/project/CellConfigur
     & Pass w/ Deviation &
     \begin{minipage}[]{9cm}
     \smallskip
-    +x motion limit =0.87mm, while \citeds{LTS-146} has
-7.74mm\\[2\baselineskip]\#\#\# Here is a summary of the limits we know
-so far\\
+    \citeds{LTS-146} 3.2.4/3.2.5, +/-7.74mm radially and 7.89mm along z. Tolerance is
+0.5mm\\
+These are the safety stops.\\[2\baselineskip]We would run into actuator
+motion limit switches long before we hit these safety stops.\\
+\#\#\# Here is a summary of the mirror positions that would trigger the
+limit switches that we know of from this test.\\
 * x = +0.87mm and -0.83mm\\
 * y = 1.07mm and -0.72mm\\
 * z = + 3.17mm and -3.75mm\\
@@ -512,7 +522,7 @@ so far\\
     &
     \\\hline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1792}{LVV-T1792}
-    & Not Executed &
+    & Pass &
     \begin{minipage}[]{9cm}
     \smallskip
     
@@ -521,7 +531,7 @@ so far\\
     &
     \\\hline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1785}{LVV-T1785}
-    & Pass w/ Deviation &
+    & In Progress &
     \begin{minipage}[]{9cm}
     \smallskip
     
@@ -1571,7 +1581,14 @@ Execution status: {\bf Pass }
 Final comment:\\Bo need to check FEA model and clarify coordinate system used for the
 bending modes. Done. See step 2 below for details.\\
 Te-Wei notes that the coordinate system used by M2 control system
-is~\href{https://github.com/lsst-ts/ts_mtm2/blob/master/doc/project/CellConfiguration.xlsx}{CellConfiguration.xlsx}
+is~\href{https://github.com/lsst-ts/ts_mtm2/blob/master/doc/project/CellConfiguration.xlsx}{CellConfiguration.xlsx}\\
+Note that the intention was to put on some bending modes, then test
+whether the forces hold after we de-energize certain actuators. However,
+that ignores the fact that after each actuator de-energization we have
+to restart the control system, then the forces are reset to the LUT
+forces. This didn't have any real effect on the test itself, because
+bending mode \#1 required 0.15N on actuator B6, which is in the noise.
+(see a14*ipynb for detail).
 
 
 Detailed steps results:
@@ -1606,8 +1623,10 @@ enter closed-loop mode
 2 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-put on 500nm of bending mode 1, make sure the forces have been applied.
-Note the readings of the position sensors
+for each actuator in {[}B6, C4, D4, A1, A2{]}:\\
+de-energize each actuators, wait for 32s (so that we have enough time to
+get good measurements of the forces and mirror position), then plug them
+back in; restart the control system and reset the errors as needed.
 
 \medskip }
 \end{minipage}
@@ -1622,6 +1641,11 @@ Note the readings of the position sensors
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+The original test script had a step before this one (which Was later
+deleted) see the comments at the top for the reason.\\
+put on 500nm of bending mode 1, make sure the forces have been applied.
+Note the readings of the position sensors\\[2\baselineskip]The test
+record said:\\
 added 500nm bm1 at 22:45pm utc on 3/3/20.\\
 Confirmed force changes with Chronograf.\\
 We checked force changed for B15, B30, B8, B23 in particular, however,
@@ -1635,31 +1659,8 @@ point left and +X point down. So if we map my bending modes to that
 actuator map (where B1 is at the top). -Y becomes +X, and -X becomes +Y.
 B15 and B30 correspond to the blue area on bm1. They should get
 smaller.\\[2\baselineskip]3/5/20.\\
-2:58pm local, we are back to do de-energization. reapplied bm1, 500nm.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Pass } \\ \hline
-
-3 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-de-energize the actuators, wait for 32s
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
+2:58pm local, we are back to do de-energization. reapplied bm1,
+500nm.\\[2\baselineskip]Now for the de-energization of B6 ----~\\
 B6:\\
 18:12 utc, unplug\\
 6083 encoder out of range\\
@@ -1686,7 +1687,7 @@ A2:\\
 
  & Status: \textbf{ Pass } \\ \hline
 
-4 & Description \\
+3 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
 data analysis:\\
@@ -1741,10 +1742,36 @@ Detailed steps results:
 1 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-loop over every actuator, apply 20N, clear, -20N, clear, then go to the
-next actuator\\
-Note: if the change of forces is happening too fast and telemetry
-doesn't keep up, consider apply each force twice in a row?
+power up the M2 control system; enter closed loop mode
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+for each actuator,\\
+apply 20N, hold one second\\
+clear forces,\\
+apply -20N, hold one second,\\
+clear forces,\\
+then go to the next actuator
 
 \medskip }
 \end{minipage}
@@ -1780,7 +1807,7 @@ Redoing the test on 3/6/20. using bumpHold1.csv\\
 
  & Status: \textbf{ Pass } \\ \hline
 
-2 & Description \\
+3 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
 repeat the above 3 times
@@ -1819,14 +1846,14 @@ Redoing the test on 3/6/20. using bumpHold1.csv\\
 
  & Status: \textbf{ Pass } \\ \hline
 
-3 & Description \\
+4 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
 data analysis:\\
-check force repeatability, and force error.\\
-Note that force error here doesn't include absolute (load cell)
-calibration error. We can only check the difference between applied
-force and load-cell measured force.
+verify that each actuator responded to the force commands.\\
+The forces applied are roughly what had been commanded.\\
+Note that this test is about actuator aliveness. The force accuracy is
+checked in the bending mode test and the AOS duration test.
 
 \medskip }
 \end{minipage}
@@ -1914,8 +1941,10 @@ also do not want large forces.\\
 {\footnotesize
 Loop over all the 20 bending modes, apply them in turn, use
 genScriptFile.m to convert them into a scp file.\\
-Note: if the change of forces is happening too fast and telemetry
-doesn't keep up, consider apply each force twice in a row?
+for each bending mode\\
+apply bending mode forces, hold 5s\\
+apply reversed bending mode forces, hold 5s\\
+clear
 
 \medskip }
 \end{minipage}
@@ -1959,7 +1988,10 @@ try. using bmHold\_6000x78.csv\\
 data analysis:\\
 look at telemetry to make sure all bending modes were applied without
 problem.\\
-compare commanded forces to measured forces.
+compare commanded forces to measured forces.\\
+Note that force error here doesn't include absolute (load cell)
+calibration error. We can only check the difference between applied
+force and load-cell measured force.
 
 \medskip }
 \end{minipage}
@@ -2006,8 +2038,33 @@ Detailed steps results:
 1 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-rotate the M2 cart over its full range. Record telemetry during the
-process.
+power up the M2 control system; enter closed loop mode
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+rotate the M2 cart over its full range.\\
+Stop at various zenith angles. see attached csv file.\\
+Record telemetry during the process.
 
 \medskip }
 \end{minipage}
@@ -2038,12 +2095,12 @@ telemetry in EFD. Cart shows 0-180 deg.
 
  & Status: \textbf{ Pass } \\ \hline
 
-2 & Description \\
+3 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
 data analysis:\\
 examine telemetry file, to make sure\\
-the LUT forces at updated at 20Hz\\
+the LUT forces are updated at 20Hz\\
 compare the LUT forces to our expectations based on the LUT csv files.
 
 \medskip }
@@ -2068,7 +2125,7 @@ compare the LUT forces to our expectations based on the LUT csv files.
 
 \end{longtable}
 
-\paragraph{Test Case LVV-T1782 - M2 Motion limits/stops }\mbox{}\\
+\paragraph{Test Case LVV-T1782 - M2 Motion limits/ safety stops }\mbox{}\\
 
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1782}{\textit{ LVV-T1782 } }
 test case in Jira.
@@ -2080,9 +2137,12 @@ test case in Jira.
 
 Execution status: {\bf Pass w/ Deviation }
 
-Final comment:\\+x motion limit =0.87mm, while \citeds{LTS-146} has
-7.74mm\\[2\baselineskip]\#\#\# Here is a summary of the limits we know
-so far\\
+Final comment:\\\citeds{LTS-146} 3.2.4/3.2.5, +/-7.74mm radially and 7.89mm along z. Tolerance is
+0.5mm\\
+These are the safety stops.\\[2\baselineskip]We would run into actuator
+motion limit switches long before we hit these safety stops.\\
+\#\#\# Here is a summary of the mirror positions that would trigger the
+limit switches that we know of from this test.\\
 * x = +0.87mm and -0.83mm\\
 * y = 1.07mm and -0.72mm\\
 * z = + 3.17mm and -3.75mm\\
@@ -2097,16 +2157,37 @@ Detailed steps results:
 1 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-start from M2 position (0,0,0, 0,0,0)\\
-move to x=7mm,\\
-then x=7.1mm, keep moving with increment of 0.1mm, observe at what point
-system goes into fault.\\
+Inspection: make sure the safety stops for the mirror are in place.\\
+Measure the distance between the mirror and the safety stops, and
+compare to the specs.\\
 Note: LTS-146 3.2.4/3.2.5, +/-7.74mm radially and 7.89mm along z.
-Tolerance is 0.5mm\\
-Note: ideally we want to first reconfigure the control system to lower
-these limits (to 3mm in each direction) before we set it back to
-default. But Te-Wei noted that these are hardcoded somewhere and hard to
-find.
+Tolerance is 0.5mm
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+start from M2 position (0,0,0, 0,0,0)\\
+move the mirror along x+ direction, with increment of 0.1mm, observe at
+what point system goes into fault.
 
 \medskip }
 \end{minipage}
@@ -2130,7 +2211,7 @@ We've determined that the +x motion limit is at \textasciitilde{}0.87mm
 
  & Status: \textbf{ Pass w/ Deviation } \\ \hline
 
-2 & Description \\
+3 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
 repeat the process for -x direction.
@@ -2159,7 +2240,7 @@ worked!
 
  & Status: \textbf{ Pass w/ Deviation } \\ \hline
 
-3 & Description \\
+4 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
 repeat the process for +/-y and +/-z directions.
@@ -2215,15 +2296,39 @@ Detailed steps results:
 1 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
+power up M2 control system; enter closed-loop
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
 start from (x,y,z,rx,ry,rz) = (0,0,0,0,0,0)\\
 use EUI to move M2\\
-to x = +1mm, hold 37s,\\
-to x=+3mm, hold 37s,\\
-to x=+5mm, hold 37s,\\
+to x = +0.1mm, hold 37s,\\
+to x=+0.3mm, hold 37s,\\
+to x=+0.5mm, hold 37s,\\
 back to origin, hold 37s,\\
-to x = -1mm, hold 37s,\\
-to x=-3mm, hold 37s,\\
-to x=-5mm, hold 37s,\\
+to x = -0.1mm, hold 37s,\\
+to x=-0.3mm, hold 37s,\\
+to x=-0.5mm, hold 37s,\\
 back to origin, hold 37s.
 
 \medskip }
@@ -2281,7 +2386,7 @@ to x=0mm, hold 37s, 15:11 local\\[2\baselineskip]
 
  & Status: \textbf{ Pass } \\ \hline
 
-2 & Description \\
+3 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
 repeat above for y,z\\[2\baselineskip]
@@ -2318,7 +2423,7 @@ back to origin, hold 37s, 15:31 local
 
  & Status: \textbf{ Pass } \\ \hline
 
-3 & Description \\
+4 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
 repeat above for rx, ry, rz
@@ -2366,7 +2471,7 @@ back to origin. 20:07 utc
 
  & Status: \textbf{ Pass } \\ \hline
 
-4 & Description \\
+5 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
 repeat everything 2 more times
@@ -2393,7 +2498,7 @@ We will skip these repetitions for now.
 
  & Status: \textbf{ Pass } \\ \hline
 
-5 & Description \\
+6 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
 analysis output binary to check:\\
@@ -2433,7 +2538,7 @@ test case in Jira.
 \textbf{ Preconditions}:\\
 
 
-Execution status: {\bf Not Executed }
+Execution status: {\bf Pass }
 
 Final comment:\\
 
@@ -2466,7 +2571,7 @@ open-loop mode
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 2 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -2486,11 +2591,12 @@ command B1 actuator to move 10 microns
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlayer/testExecution/LVV-E1051}{LVV-E1051}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 3 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -2511,11 +2617,12 @@ B1 position, steps, e\_count, F\_cmd, F\_cur, F\_HC, F\_error
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlayer/testExecution/LVV-E1051}{LVV-E1051}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 4 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -2535,11 +2642,12 @@ repeat the steps 3-4 by 20,30,40,50 microns
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlayer/testExecution/LVV-E1051}{LVV-E1051}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 5 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -2560,11 +2668,12 @@ repeat steps 3-4 by commanding B1 actuator to move
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlayer/testExecution/LVV-E1051}{LVV-E1051}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 6 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -2584,11 +2693,12 @@ repeat steps 3-6 for A1 tangent link
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlayer/testExecution/LVV-E1051}{LVV-E1051}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 7 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -2613,11 +2723,12 @@ And verify that the inner control loop applies motor steps as commanded.
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlayer/testExecution/LVV-E1051}{LVV-E1051}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 8 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -2639,10 +2750,11 @@ closed-loop mode
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
 
+
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 9 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -2662,11 +2774,12 @@ on top of the LUT forces, add +20N to actuator B1
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlayer/testExecution/LVV-E1052}{LVV-E1052}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 10 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -2687,16 +2800,17 @@ B1 position, steps, e\_count, F\_cmd, F\_cur, F\_HC, F\_error
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlayer/testExecution/LVV-E1052}{LVV-E1052}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 11 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-repeat the steps 3-4 by 40,60,80,100 Newtons
+repeat the steps 2-3 by 40,60,80,100 Newtons
 
 \medskip }
 \end{minipage}
@@ -2711,11 +2825,12 @@ repeat the steps 3-4 by 40,60,80,100 Newtons
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlayer/testExecution/LVV-E1052}{LVV-E1052}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 12 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -2735,11 +2850,12 @@ repeat steps 2-4 for A1 tangent link
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlayer/testExecution/LVV-E1052}{LVV-E1052}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 13 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -2766,11 +2882,12 @@ into motor steps in order to command the inner loop controllers.
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlayer/testExecution/LVV-E1052}{LVV-E1052}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 14 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -2792,11 +2909,18 @@ and closed loop
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+\href{https://github.com/bxin/M2_summit_2003/blob/master/a01_OL_B1_stroke.ipynb}{a01\_OL\_B1\_stroke.ipynb}\\
+\href{https://github.com/bxin/M2_summit_2003/blob/master/a04_FB.ipynb}{a04\_FB.ipynb}\\
+\href{https://github.com/bxin/M2_summit_2003/blob/master/a05_OL_B1_steps.ipynb}{a05\_OL\_B1\_steps.ipynb}\\
+\href{https://github.com/bxin/M2_summit_2003/blob/master/a06_CL_B1_F.ipynb}{a06\_CL\_B1\_F.ipynb}\\
+\href{https://github.com/bxin/M2_summit_2003/blob/master/a08_OL_A1_stroke.ipynb}{a08\_OL\_A1\_stroke.ipynb}\\
+\href{https://github.com/bxin/M2_summit_2003/blob/master/a10_OL_A1_steps.ipynb}{a10\_OL\_A1\_steps.ipynb}\\
+\href{https://github.com/bxin/M2_summit_2003/blob/master/a11_CL_A1_F.ipynb}{a11\_CL\_A1\_F.ipynb}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 \end{longtable}
 
@@ -2805,12 +2929,13 @@ and closed loop
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1785}{\textit{ LVV-T1785 } }
 test case in Jira.
 
-
+verify axial actuator stiffness \textgreater{} 2.6N/um, tangent
+stiffness\textgreater{}30N/um
 
 \textbf{ Preconditions}:\\
 
 
-Execution status: {\bf Pass w/ Deviation }
+Execution status: {\bf In Progress }
 
 Final comment:\\
 
@@ -2823,140 +2948,12 @@ Detailed steps results:
 1 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-go into open-loop mode
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlayer/testExecution/LVV-E1003}{LVV-E1003}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Pass } \\ \hline
-
-2 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-in EUI, add +20N to B3, then -20N to B3\\
-repeat for C8\\
-repeat for D17\\
-repeat for A2, A4, A6
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlayer/testExecution/LVV-E1003}{LVV-E1003}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Pass w/ Deviation } \\ \hline
-
-3 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-go into closed-loop mode
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlayer/testExecution/LVV-E1003}{LVV-E1003}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Pass } \\ \hline
-
-4 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-in EUI, add +20N to B3, then -20N to B3\\
-repeat for C8\\
-repeat for D17\\
-repeat for A2, A4, A6
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlayer/testExecution/LVV-E1003}{LVV-E1003}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Pass } \\ \hline
-
-5 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-data analysis: (hard points are A1,A3,A5,B6,B16,B26)\\
-demonstrate that for open-loop, the hard points take the extra forces\\
-for closed-loop, all actuators work together to take out the extra
-forces
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlayer/testExecution/LVV-E1003}{LVV-E1003}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Not Executed } \\ \hline
-
-6 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
+Take the data from\\
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1827}{M2
+inner loop control - open loop mode}\\
+and\\
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1826}{M2
+outer and inner control loops - closed loop mode}\\
 data analysis:\\
 with data from the above open-loop test, divide the delta(F) on the hard
 points by delta(L), to get the stiffness, check that if it is larger
@@ -2972,23 +2969,37 @@ Do the same calculations for tangent links. (3.3.3.8,
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+The more proper test is step 2.\\
+Here when we test the actuators together with the mirror or surrogated,
+we are connecting the actuator, which is one spring, to another
+spring.\\
+The spring constant (stiffness) will be reduced compared to an
+standalone actuator.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+B1 position test: 2.7N/um\\
+B1 steps test: 2.8N/um\\
+B1 closed loop force control: 2.2N/um\\
+A1 position test: 11.7N/um\\
+A1 steps test: 9.4N/um\\
+A1 closed loop force control: 20N/um\\
+(note that the ratios between steps, encoder counts, and length are
+always constants for axial actuators and tangent links)
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
-7 & Description \\
+2 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-If time allows, redefine the 3 axial actuators used as hard points. Redo
-the above test.
+Get a spare actuator, put it on a test bench, put a load on it, measure
+the change in length
 
 \medskip }
 \end{minipage}
@@ -3127,7 +3138,7 @@ rejected\\[2\baselineskip]
 
 \end{longtable}
 
-\paragraph{Test Case LVV-T1786 - M2 actuator stroke }\mbox{}\\
+\paragraph{Test Case LVV-T1786 - M2 actuator stroke/limit switch }\mbox{}\\
 
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1786}{\textit{ LVV-T1786 } }
 test case in Jira.

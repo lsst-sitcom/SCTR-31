@@ -266,7 +266,7 @@ The personnel involved in the test campaign is shown in the following table.
 \end{minipage}
 \\ \hline
 \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1783}{LVV-T1783}
-& {\small Bo Xin } & {\small  } &
+& {\small Bo Xin } & {\small Bo Xin } &
 \begin{minipage}[]{6cm}
 \smallskip
 {\small  }
@@ -540,7 +540,7 @@ limit switches that we know of from this test.\\
     &
     \\\hline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1783}{LVV-T1783}
-    & Not Executed &
+    & In Progress &
     \begin{minipage}[]{9cm}
     \smallskip
     
@@ -2551,8 +2551,12 @@ Detailed steps results:
 1 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-with M2 surrogate facing down, power up the M2 control system, enter
-open-loop mode
+make sure\\
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1827}{LVV-T1827
+(1.0)~}M2 inner loop control - open loop mode\\
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1826}{LVV-T1826
+(1.0)~}M2 outer and inner control loops - closed loop mode\\
+have been completed and data available for further analysis
 
 \medskip }
 \end{minipage}
@@ -2574,322 +2578,6 @@ open-loop mode
  & Status: \textbf{ Pass } \\ \hline
 
 2 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-command B1 actuator to move 10 microns
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlayer/testExecution/LVV-E1051}{LVV-E1051}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Pass } \\ \hline
-
-3 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-write down the following from the EUI:\\
-B1 position, steps, e\_count, F\_cmd, F\_cur, F\_HC, F\_error
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlayer/testExecution/LVV-E1051}{LVV-E1051}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Pass } \\ \hline
-
-4 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-repeat the steps 3-4 by 20,30,40,50 microns
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlayer/testExecution/LVV-E1051}{LVV-E1051}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Pass } \\ \hline
-
-5 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-repeat steps 3-4 by commanding B1 actuator to move
-500,1000,1500,2000,2500 steps
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlayer/testExecution/LVV-E1051}{LVV-E1051}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Pass } \\ \hline
-
-6 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-repeat steps 3-6 for A1 tangent link
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlayer/testExecution/LVV-E1051}{LVV-E1051}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Pass } \\ \hline
-
-7 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-data analysis:\\
-Look at data from 3 sources:\\
-1. EUI (as written down above)\\
-2. EUI output binary file\\
-3. EFD telemetry\\
-And verify that the inner control loop applies motor steps as commanded.
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlayer/testExecution/LVV-E1051}{LVV-E1051}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Pass } \\ \hline
-
-8 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-with M2 surrogate facing down, power up the M2 control system, enter
-closed-loop mode
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Pass } \\ \hline
-
-9 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-on top of the LUT forces, add +20N to actuator B1
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlayer/testExecution/LVV-E1052}{LVV-E1052}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Pass } \\ \hline
-
-10 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-write down the following from the EUI:\\
-B1 position, steps, e\_count, F\_cmd, F\_cur, F\_HC, F\_error
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlayer/testExecution/LVV-E1052}{LVV-E1052}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Pass } \\ \hline
-
-11 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-repeat the steps 2-3 by 40,60,80,100 Newtons
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlayer/testExecution/LVV-E1052}{LVV-E1052}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Pass } \\ \hline
-
-12 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-repeat steps 2-4 for A1 tangent link
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlayer/testExecution/LVV-E1052}{LVV-E1052}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Pass } \\ \hline
-
-13 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-data analysis:\\
-Look at data from 3 sources:\\
-1. EUI (as written down above)\\
-2. EUI output binary file\\
-3. EFD telemetry\\
-And verify that the outer control loop determines the command forces for
-all the axial actuators of the M2 mirror support system and convert them
-into motor steps in order to command the inner loop controllers.
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlayer/testExecution/LVV-E1052}{LVV-E1052}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Pass } \\ \hline
-
-14 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
 data analysis:\\
@@ -3022,7 +2710,7 @@ the change in length
 
 \end{longtable}
 
-\paragraph{Test Case LVV-T1783 - M2 actuator Force limits }\mbox{}\\
+\paragraph{Test Case LVV-T1783 - M2 actuator force limits }\mbox{}\\
 
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1783}{\textit{ LVV-T1783 } }
 test case in Jira.
@@ -3032,7 +2720,7 @@ test case in Jira.
 \textbf{ Preconditions}:\\
 
 
-Execution status: {\bf Not Executed }
+Execution status: {\bf In Progress }
 
 Final comment:\\
 
@@ -3045,12 +2733,34 @@ Detailed steps results:
 1 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-with M2 facing up, reconfigure the force force limits (make a copy of
-default configuration, do not overwrite):\\
-for axial actuators use 300N (1600*9.8/72 = 218N is need to support
-mirror weight)\\
-for tangent links use 1000N (4526N from each is needed at horizon point,
-for zenith they are all be zero)
+power up M2 control system. enter closed loop mode.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+incrementally add force to B1 actuator. observe at what force magnitude
+the alarms are triggered.\\
+This force magnitude should be above 444N but below 666N.\\
+(LTS-146, sections ~3.3.2.2, 3.3.2.6)
 
 \medskip }
 \end{minipage}
@@ -3079,16 +2789,15 @@ brought it back using the GUI. then ``enable''.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
-2 & Description \\
+3 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-in closed-loop mode:\\
-loop over all 78 actuators (axial and tangent),\\
-increase forces to 0.9*limit for each of them, make sure it is OK.\\
-increase forces to 1.15*limit for each of them, see if they are
-rejected.
+incrementally add force to A1 actuator. observe at what force magnitude
+the alarms are triggered.\\
+This force magnitude should be above 6000N but below 9000N.\\
+(LTS-146, sections 3.3.3.2, 3.3.3.6)
 
 \medskip }
 \end{minipage}
@@ -3103,17 +2812,17 @@ rejected.
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+With the GUI, we can only move the actuators in mm in open loop.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
  & Status: \textbf{ Not Executed } \\ \hline
 
-3 & Description \\
+4 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
 data analysis:\\
-check the response of force balance system for forces = 0.9*limit\\
 check telemetry to make sure all forces over the limits are
 rejected\\[2\baselineskip]
 
@@ -3130,11 +2839,12 @@ rejected\\[2\baselineskip]
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+see above. this cannot be done in open loop
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 \end{longtable}
 
@@ -3161,12 +2871,10 @@ Detailed steps results:
 1 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-with M2 facing up, reconfigure the force force limits (make a copy of
-default configuration, do not overwrite):\\
-for axial actuators use 300N (1600*9.8/72 = 218N is need to support
-mirror weight)\\
-for tangent links use 1000N (4526N from each is needed at horizon point,
-for zenith they are all be zero)
+With a spare actuator, command it to move by 4mm\\
+confirm the actuator stroke is between 3.424mm and 4mm (LTS-146,
+3.3.2.9)\\[2\baselineskip]Alternative is simply point this to the Harris
+test document, without verifying it again.
 
 \medskip }
 \end{minipage}
@@ -3181,75 +2889,20 @@ for zenith they are all be zero)
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-According to Te-Wei, this can not be done yet. We don't know if the
-software limits are implemented or not.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Pass w/ Deviation } \\ \hline
-
-2 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-in closed-loop mode:\\
-loop over all 78 actuators (axial and tangent),\\
-increase forces to 0.9*limit for each of them, make sure it is OK.\\
-increase forces to 1.15*limit for each of them, see if they are
-rejected.
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-With the GUI, we can only move the actuators in mm in open loop.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Pass w/ Deviation } \\ \hline
-
-3 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-data analysis:\\
-check the response of force balance system for forces = 0.9*limit\\
-check telemetry to make sure all forces over the limits are
-rejected\\[2\baselineskip]
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-see above. this cannot be done in open loop
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
  & Status: \textbf{ Not Executed } \\ \hline
 
-4 & Description \\
+2 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-in open loop, command actuators by mm, approach the strokes
+in open loop, command actuators by mm, approach the
+strokes\\[2\baselineskip]Note: ideally we want to first reconfigure the
+control system to lower these limits (to 0.1mm in each direction) before
+we set it back to default. But Te-Wei noted that these are hardcoded
+somewhere and hard to find.
 
 \medskip }
 \end{minipage}
@@ -3267,14 +2920,15 @@ in open loop, command actuators by mm, approach the strokes
 3:51pm local, enter open loop, 3/5/20\\
 B15:\\
 +1mm, 3:52pm. 6055: excessive force detected. force on B15 goes to
--500N. clear the errors.\\
+-500N. clear the errors. restart the system. enter closed loop mode.\\
 -1mm, 3:56pm. 6055: excessive force detected. force on B15 goes to
-+622N. clear the errors. Note that what we put in the GUI is the
-relative value.\\
-+0.1mm x 3 times went too far\\
--0.05mm\\
++622N. clear the errors. restart the system. enter closed loop mode.
+Note that what we put in the GUI is the relative value.\\
++0.1mm x 3 times = 0.3mm, that went too far\\
+-0.05mm, bring the system back. clear the errors. restart the system.
+enter closed loop mode.\\
 4:00pm local, we are repeating the above process.\\
-4:03pm, -0.7mm\\
+4:03pm, tried the following: -0.7mm\\
 +0.35mm B15 = -75N, norminal is about 185N.\\
 -0.05mm x 2\\[2\baselineskip]4:12pm restart\\
 0.2+0.02+0.02+0.01 = 0.25mm, we triggered alarm at 0.26mm\\
@@ -3293,7 +2947,7 @@ GUI.\\[2\baselineskip]
 
  & Status: \textbf{ Not Executed } \\ \hline
 
-5 & Description \\
+3 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
 data analysis:\\
@@ -3976,8 +3630,7 @@ Detailed steps results:
 1 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-rotate the M2 cart over its full range. Record telemetry during the
-process.
+power up the M2 control system; enter closed loop mode
 
 \medskip }
 \end{minipage}
@@ -4001,10 +3654,9 @@ process.
 2 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-data analysis:\\
-examine telemetry file, to make sure\\
-the LUT forces at updated at 20Hz\\
-compare the LUT forces to our expectations based on the LUT csv files.
+rotate the M2 cart over its full range.\\
+Stop at various zenith angles. see attached csv file.\\
+Record telemetry during the process.
 
 \medskip }
 \end{minipage}
@@ -4026,6 +3678,33 @@ compare the LUT forces to our expectations based on the LUT csv files.
  & Status: \textbf{ Not Executed } \\ \hline
 
 3 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+data analysis:\\
+examine telemetry file, to make sure\\
+the LUT forces are updated at 20Hz\\
+compare the LUT forces to our expectations based on the LUT csv files.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+4 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
 data analysis:\\

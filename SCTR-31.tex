@@ -282,7 +282,7 @@ The personnel involved in the test campaign is shown in the following table.
 \end{minipage}
 \\ \hline
 \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1793}{LVV-T1793}
-& {\small Bo Xin } & {\small  } &
+& {\small Bo Xin } & {\small Bo Xin } &
 \begin{minipage}[]{6cm}
 \smallskip
 {\small  }
@@ -298,7 +298,7 @@ The personnel involved in the test campaign is shown in the following table.
 \end{minipage}
 \\ \hline
 \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1797}{LVV-T1797}
-& {\small Bo Xin } & {\small  } &
+& {\small Bo Xin } & {\small Bo Xin } &
 \begin{minipage}[]{6cm}
 \smallskip
 {\small  }
@@ -306,7 +306,7 @@ The personnel involved in the test campaign is shown in the following table.
 \end{minipage}
 \\ \hline
 \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1796}{LVV-T1796}
-& {\small Bo Xin } & {\small  } &
+& {\small Bo Xin } & {\small Bo Xin } &
 \begin{minipage}[]{6cm}
 \smallskip
 {\small  }
@@ -314,6 +314,14 @@ The personnel involved in the test campaign is shown in the following table.
 \end{minipage}
 \\ \hline
 \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1795}{LVV-T1795}
+& {\small Bo Xin } & {\small Bo Xin } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1829}{LVV-T1829}
 & {\small Bo Xin } & {\small  } &
 \begin{minipage}[]{6cm}
 \smallskip
@@ -558,7 +566,7 @@ limit switches that we know of from this test.\\
     &
     \\\hline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1793}{LVV-T1793}
-    & Not Executed &
+    & Pass &
     \begin{minipage}[]{9cm}
     \smallskip
     
@@ -576,7 +584,7 @@ limit switches that we know of from this test.\\
     &
     \\\hline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1797}{LVV-T1797}
-    & Not Executed &
+    & Pass w/ Deviation &
     \begin{minipage}[]{9cm}
     \smallskip
     
@@ -585,7 +593,7 @@ limit switches that we know of from this test.\\
     &
     \\\hline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1796}{LVV-T1796}
-    & Not Executed &
+    & Fail &
     \begin{minipage}[]{9cm}
     \smallskip
     
@@ -594,6 +602,15 @@ limit switches that we know of from this test.\\
     &
     \\\hline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1795}{LVV-T1795}
+    & Pass &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1829}{LVV-T1829}
     & Not Executed &
     \begin{minipage}[]{9cm}
     \smallskip
@@ -603,7 +620,7 @@ limit switches that we know of from this test.\\
     &
     \\\hline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1789}{LVV-T1789}
-    & Pass w/ Deviation &
+    & Pass &
     \begin{minipage}[]{9cm}
     \smallskip
     
@@ -2989,7 +3006,7 @@ test case in Jira.
 \textbf{ Preconditions}:\\
 
 
-Execution status: {\bf Not Executed }
+Execution status: {\bf Pass }
 
 Final comment:\\
 
@@ -3002,8 +3019,10 @@ Detailed steps results:
 1 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-rotate the M2 cart over its full range. Record telemetry during the
-process.
+make sure test case\\
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1789}{M2
+Active Optics duration test}\\
+has been executed successfully.~
 
 \medskip }
 \end{minipage}
@@ -3022,172 +3041,14 @@ process.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 2 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
 data analysis:\\
-examine telemetry file, to make sure\\
-the LUT forces at updated at 20Hz\\
-compare the LUT forces to our expectations based on the LUT csv files.
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Not Executed } \\ \hline
-
-3 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-go into open-loop mode
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Not Executed } \\ \hline
-
-4 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-in EUI, add +20N to B3, then -20N to B3\\
-repeat for C8\\
-repeat for D17\\
-repeat for A2, A4, A6
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Not Executed } \\ \hline
-
-5 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-go into closed-loop mode
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Not Executed } \\ \hline
-
-6 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-in EUI, add +20N to B3, then -20N to B3\\
-repeat for C8\\
-repeat for D17\\
-repeat for A2, A4, A6
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Not Executed } \\ \hline
-
-7 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-data analysis: (hard points are A1,A3,A5,B6,B16,B26)\\
-demonstrate that for open-loop, the hard points take the extra forces\\
-for closed-loop, all actuators work together to take out the extra
-forces
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Not Executed } \\ \hline
-
-8 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-data analysis:\\
 examine telemetry data from the above tests, and make sure\\
-telemetry updates are 20Hz\\
-force balance system updates forces at 20Hz\\
-LUT updates forces at 20Hz
+telemetry updates are 20Hz
 
 \medskip }
 \end{minipage}
@@ -3202,11 +3063,12 @@ LUT updates forces at 20Hz
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+\href{https://github.com/bxin/M2_summit_2003/blob/master/a23_bandwidth.ipynb}{a23\_bandwidth.ipynb}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 \end{longtable}
 
@@ -3218,7 +3080,9 @@ test case in Jira.
 
 
 \textbf{ Preconditions}:\\
-
+M2 mirror control system have been on for multiple days of testing\\
+This is so that we have enough thermal data to analyze the thermal state
+of M2.
 
 Execution status: {\bf Initial Pass }
 
@@ -3236,8 +3100,10 @@ Detailed steps results:
 data analysis:\\
 read out 12 glass temp sensors, to determine x/y/r gradients\\
 read out 4 air temp sensors. Compare 2 intake (lower temp) and 2 outlet
-(higher temp). Supposedly no ambient measurement yet. Ambient in
-requirement is meant for operation conditions anyway.
+(higher temp). Do this using data from the end of a testing day, and
+data at the beginning of a few testing days, to see if the difference
+makes sense.\\[2\baselineskip]Note: This is partial verification only -
+Ambient in requirement is meant for operation conditions anyway.
 
 \medskip }
 \end{minipage}
@@ -3298,7 +3164,7 @@ test case in Jira.
 \textbf{ Preconditions}:\\
 
 
-Execution status: {\bf Not Executed }
+Execution status: {\bf Pass w/ Deviation }
 
 Final comment:\\
 
@@ -3311,8 +3177,10 @@ Detailed steps results:
 1 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-rotate the M2 cart over its full range. Record telemetry during the
-process.
+make sure test case\\
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1787}{M2
+LUT}\\
+has been executed successfully
 
 \medskip }
 \end{minipage}
@@ -3331,15 +3199,17 @@ process.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 2 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
 data analysis:\\
-examine telemetry file, to make sure\\
-the LUT forces at updated at 20Hz\\
-compare the LUT forces to our expectations based on the LUT csv files.
+from the above telemetry data, and also any other telemetry data
+collected during the testing, compare the M2 inclinometer reading with
+those from the following sources:\\
+M2 cart control\\
+zenith angle as displayed on the EUI
 
 \medskip }
 \end{minipage}
@@ -3354,37 +3224,13 @@ compare the LUT forces to our expectations based on the LUT csv files.
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+\href{https://github.com/bxin/M2_summit_2003/blob/master/a02_check_telemetry.ipynb}{a02\_check\_telemetry.ipynb}\\
+\href{https://github.com/bxin/M2_summit_2003/blob/master/a17_LUT_cart_rotation.ipynb}{a17\_LUT\_cart\_rotation.ipynb}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
-
-3 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-data analysis:\\
-from the above telemetry data, compare the M2 inclinometer reading with
-what the M2 cart gives
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass w/ Deviation } \\ \hline
 
 \end{longtable}
 
@@ -3396,9 +3242,13 @@ test case in Jira.
 
 
 \textbf{ Preconditions}:\\
+test case\\
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1789}{~LVV-T1789
+(1.0)~}\\
+has been executed successfully, with the VMS system functioning and VMS
+data going into the EFD.
 
-
-Execution status: {\bf Not Executed }
+Execution status: {\bf Fail }
 
 Final comment:\\
 
@@ -3411,9 +3261,11 @@ Detailed steps results:
 1 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-get a thermometer ready for the test duration, so that the ambient
-temperature data can also be used for temperature test.\\
-Read the thermometer at 1/2 hour interval (get timer ready).
+make sure test case\\
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1789}{~LVV-T1789
+(1.0)~}\\
+has been executed successfully, with the VMS system functioning and VMS
+data going into the EFD.
 
 \medskip }
 \end{minipage}
@@ -3432,149 +3284,9 @@ Read the thermometer at 1/2 hour interval (get timer ready).
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Fail } \\ \hline
 
 2 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-In Matlab script, take bending modes 1,3,5,7,9, scale them to produce
-surface RMS of 500nm, use genScriptFile.m to convert them into a scp
-file. wait 37s before changing to another bending mode. Test run for 5
-minutes.\\
-Note: if we have to issue 20 force commands to hold the forces for 1
-second, one visit (37s) means 740x78 array
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Not Executed } \\ \hline
-
-3 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-check the size of output bin file, estimate how long we could run before
-we run into problems with files being too large.
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
- & Test Data \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-based on Tests/TestData/CellTelemetry\_2020-01-31\_164343\_000.bin,
-which run 400s with a size of 63M, we will produce almost
-\textasciitilde{}10M data per minute. So each hour will be 600M.\\
-8 hours will give us a 5G file. Still tolerable.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Not Executed } \\ \hline
-
-4 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-do a 2nd test run for 10 minutes\\
-(at 30 degree off zenith)
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Not Executed } \\ \hline
-
-5 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-do a 3rd test run for 30 minutes (depending on file size constraints)\\
-(at 45 degree off zenith)
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Not Executed } \\ \hline
-
-6 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-data analysis:\\
-force stability within each 15s period (5:00-20:00, 22:00-37:00)\\
-force repeatability between different runs with the same bending modes\\
-do this for axial actuators and tangent links
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Not Executed } \\ \hline
-
-7 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
 data analysis:\\
@@ -3617,6 +3329,87 @@ test case in Jira.
 \textbf{ Preconditions}:\\
 
 
+Execution status: {\bf Pass }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+make sure test case\\
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1787}{M2
+LUT}\\
+has been executed successfully and telemetry data are in the EFD
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+data analysis:\\
+sum up all the forces and compare to the known mirror weight (1600kg)
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\href{https://github.com/bxin/M2_summit_2003/blob/master/a17_LUT_cart_rotation.ipynb}{a17\_LUT\_cart\_rotation.ipynb}
+(with rotation on cart)\\
+\href{https://github.com/bxin/M2_summit_2003/blob/master/a01_OL_B1_stroke.ipynb}{a01\_OL\_B1\_stroke.ipynb}
+(for mirror facing down)\\
+It is shown that the mirror weight is about 15578N, which is
+\textasciitilde{}1590kg.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+\end{longtable}
+
+\paragraph{Test Case LVV-T1829 - M2 position sensors }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1829}{\textit{ LVV-T1829 } }
+test case in Jira.
+
+Verify the M2 positions sensors are working properly
+
+\textbf{ Preconditions}:\\
+at least one of the many M2 re-verification test cases have been carried
+out successfully with telemetry data in the EFD
+
 Execution status: {\bf Not Executed }
 
 Final comment:\\
@@ -3630,7 +3423,11 @@ Detailed steps results:
 1 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-power up the M2 control system; enter closed loop mode
+verify that\\
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1827}{M2
+inner loop control - open loop mode}\\
+or one of the other many M2 re-verification test cases have been carried
+out successfully and telemetry data are available in the EFD
 
 \medskip }
 \end{minipage}
@@ -3654,61 +3451,10 @@ power up the M2 control system; enter closed loop mode
 2 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-rotate the M2 cart over its full range.\\
-Stop at various zenith angles. see attached csv file.\\
-Record telemetry during the process.
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Not Executed } \\ \hline
-
-3 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
 data analysis:\\
-examine telemetry file, to make sure\\
-the LUT forces are updated at 20Hz\\
-compare the LUT forces to our expectations based on the LUT csv files.
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Not Executed } \\ \hline
-
-4 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-data analysis:\\
-sum up all the forces and compare to the known mirror weight (1600kg)
+examine the readings from the position sensors and make sure the numbers
+make sense. Compare the positions determined by these sensors to the
+positions determined by the hardpoints. Check consistency.
 
 \medskip }
 \end{minipage}
@@ -3741,7 +3487,7 @@ test case in Jira.
 \textbf{ Preconditions}:\\
 
 
-Execution status: {\bf Pass w/ Deviation }
+Execution status: {\bf Pass }
 
 Final comment:\\
 
@@ -3752,41 +3498,6 @@ Detailed steps results:
 \hline
 {Step} & Step Details\\ \hline
 1 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-get a thermometer ready for the test duration, so that the ambient
-temperature data can also be used for temperature test.\\
-Read the thermometer at 1/2 hour interval (get timer ready).
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-Felipe got us a weather station. But it doesn't seem to be accurate
-enough. Bo took a photo of it.\\
-We are doing this test on 3/6/20 Friday. at 14:02 utc, it shows T=20
-deg, humidity = 26\%, pressure = 1041.13 mb.\\
-Bo is the only running the test, and needs to work on dome seeing
-monitor a bit before the bus leaves today. So, we are not going to take
-these independent environmental measurements in 1/2 intervals.\\
-The accuracy of the temperature can be checked using the data Te-Wei
-took the other day.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Pass w/ Deviation } \\ \hline
-
-2 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
 In Matlab script, take bending modes 1,3,5,7,9, scale them to produce
@@ -3809,7 +3520,20 @@ second, one visit (37s) means 740x78 array
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-14:07 utc 3/6/20. starting tests with duration\_6min.csv\\
+Ideally we want get a thermometer ready for the test duration, so that
+the ambient temperature data can also be used for temperature test.\\
+Read the thermometer at 1/2 hour interval (get timer ready).\\
+Felipe got us a weather station. But it doesn't seem to be accurate
+enough. Bo took a photo of it.\\
+We are doing this test on 3/6/20 Friday. at 14:02 utc, it shows T=20
+deg, humidity = 26\%, pressure = 1041.13 mb.\\
+Bo is the only one running the test on this day, and needs to work on
+dome seeing monitor a bit before the bus leaves today. So, we are not
+going to take these independent environmental measurements in 1/2
+intervals.\\
+The accuracy of the temperature can be checked using the data Te-Wei
+took the other day.\\[2\baselineskip]14:07 utc 3/6/20. starting tests
+with duration\_6min.csv\\
 14:17 utc, start duration\_31min.csv, aborted at 14:21 utc, we are going
 to do 60 minutes directly.\\
 (tested that if I supply a force csv in open loop, the GUI will give an
@@ -3829,7 +3553,7 @@ the 3rd one.
 
  & Status: \textbf{ Pass } \\ \hline
 
-3 & Description \\
+2 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
 check the size of output bin file, estimate how long we could run before
@@ -3839,7 +3563,14 @@ we run into problems with files being too large.
 \end{minipage}
 \\ \cdashline{2-2}
 
- & Test Data \\
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
 based on Tests/TestData/CellTelemetry\_2020-01-31\_164343\_000.bin,
 which run 400s with a size of 63M, we will produce almost
@@ -3849,6 +3580,22 @@ which run 400s with a size of 63M, we will produce almost
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
+ & Status: \textbf{ Pass } \\ \hline
+
+3 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+create test csv files for increasing time duration: 30min, 60min,
+120min, and 240min.\\
+At some point the csv file will take an unendurably long time to be
+converted into scp file. Here we decide on what is the maximum length we
+can achieve with a single csv file.\\[2\baselineskip]
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
 
@@ -3857,17 +3604,21 @@ which run 400s with a size of 63M, we will produce almost
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+Te-Wei determined that the maximum length for a single csv or scp file
+would be 60 min.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 4 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-do a 2nd test run for 10 minutes\\
-(at 30 degree off zenith)
+Use the scp file from the above step (with the maximum time duration),
+run it continuous for 8 hours (or as long as testing time allows)\\
+May need to re-execute the scp file once the previous execution
+finishes.
 
 \medskip }
 \end{minipage}
@@ -3882,42 +3633,19 @@ do a 2nd test run for 10 minutes\\
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+We run the 60min-long script 4 times on 3/6/20
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 5 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-do a 3rd test run for 30 minutes (depending on file size constraints)\\
-(at 45 degree off zenith)
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Not Executed } \\ \hline
-
-6 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
 data analysis:\\
-force stability within each 15s period (5:00-20:00, 22:00-37:00)\\
+force stability within each 32s period (emulating 2 exposures + readout
+in between)\\
 force repeatability between different runs with the same bending modes\\
 do this for axial actuators and tangent links
 
@@ -3934,11 +3662,12 @@ do this for axial actuators and tangent links
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+\href{https://github.com/bxin/M2_summit_2003/blob/master/a22_aos_duration.ipynb}{a22\_aos\_duration.ipynb}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 \end{longtable}
 

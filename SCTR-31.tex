@@ -718,7 +718,7 @@ Not provided.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1799}{\textit{ LVV-T1799 } }
 test case in Jira.
 
-
+Verify that the M2 E-stop works properly
 
 \textbf{ Preconditions}:\\
 
@@ -818,10 +818,11 @@ To shut down, open loop, stand by, remote, quit~
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1798}{\textit{ LVV-T1798 } }
 test case in Jira.
 
-
+verify M2 SAL4.0 telemetry against EUI display and output binary files
 
 \textbf{ Preconditions}:\\
-
+M2 control software works properly and SAL has been upgraded to version
+4.0
 
 Execution status: {\bf Pass }
 
@@ -1398,6 +1399,11 @@ into motor steps in order to command the inner loop controllers.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1810}{\textit{ LVV-T1810 } }
 test case in Jira.
 
+The objective is to verify that we are able to (1) optimize the mirror
+position relative to the cell and redefine the optimal position as
+mirror reference position and (2) reset the offsets of the (independent)
+position sensors so that they show zeros at the mirror reference
+position.\\
 The position should be provided by the 6 passive support. The position
 from the displacement sensors should be provided for verification.
 
@@ -1588,7 +1594,8 @@ make sure the position sensor readings are all close to zero now.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1784}{\textit{ LVV-T1784 } }
 test case in Jira.
 
-
+To verify that the actuators do not require power to maintain their set
+positions and forces
 
 \textbf{ Preconditions}:\\
 
@@ -1739,7 +1746,8 @@ the actuator forces did not change after de-energizing the actuators
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1790}{\textit{ LVV-T1790 } }
 test case in Jira.
 
-make sure all actuators are alive\\
+This test is to make sure all actuators are alive and responding to
+commands properly.\\
 For force accuracy/repeatability/stability - see bending mode test and
 AOS duration test.
 
@@ -1907,7 +1915,8 @@ AOS duration test.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1788}{\textit{ LVV-T1788 } }
 test case in Jira.
 
-
+To verify that the bending mode forces can be applied, and the forces
+meet the accuracy and repeatability requirements
 
 \textbf{ Preconditions}:\\
 
@@ -2037,7 +2046,10 @@ https://github.com/bxin/M2\_summit\_2003/blob/master/a16\_bending\_modes.ipynb
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1787}{\textit{ LVV-T1787 } }
 test case in Jira.
 
-
+The main objective is to verify that the Look-Up Tables, both
+gravitational and thermal, are being used correctly and forces applied
+correctly.\\
+This test case also verifies the proper operation of the M2 cart.
 
 \textbf{ Preconditions}:\\
 
@@ -2147,7 +2159,8 @@ compare the LUT forces to our expectations based on the LUT csv files.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1782}{\textit{ LVV-T1782 } }
 test case in Jira.
 
-
+To verify that the M2 safety stops are in place and the allowable travel
+distances of the M2 meet requirements.
 
 \textbf{ Preconditions}:\\
 
@@ -2295,7 +2308,8 @@ z=-3.75299mm.\\[2\baselineskip]\href{https://github.com/bxin/M2_summit_2003/blob
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1791}{\textit{ LVV-T1791 } }
 test case in Jira.
 
-
+To verify that the M2 mirror control system can position the mirror with
+good repeatability and stability.
 
 \textbf{ Preconditions}:\\
 
@@ -2550,7 +2564,7 @@ position repeatability between ~the 3 cycles
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1792}{\textit{ LVV-T1792 } }
 test case in Jira.
 
-
+To verify that the M2 force balance system works as designed
 
 \textbf{ Preconditions}:\\
 
@@ -2704,7 +2718,7 @@ always constants for axial actuators and tangent links)
  & \begin{minipage}[t]{15cm}
 {\footnotesize
 Get a spare actuator, put it on a test bench, put a load on it, measure
-the change in length
+the change in length, calculate its stiffness
 
 \medskip }
 \end{minipage}
@@ -2732,7 +2746,10 @@ the change in length
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1783}{\textit{ LVV-T1783 } }
 test case in Jira.
 
-
+Verify that the actuators can output forces that satisfies the force
+range requirements (444N for axial and 6000N for tangents), but still
+within the specified force limits (666N for axial and 9000N for
+tangents).
 
 \textbf{ Preconditions}:\\
 
@@ -2870,7 +2887,8 @@ see above. this cannot be done in open loop
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1786}{\textit{ LVV-T1786 } }
 test case in Jira.
 
-
+To verify that the actuators meet the stroke requirements, and the limit
+switches are in place and work properly.
 
 \textbf{ Preconditions}:\\
 
@@ -3001,7 +3019,9 @@ Note that actuator length is required by LTS-146 3.4.10
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1793}{\textit{ LVV-T1793 } }
 test case in Jira.
 
-
+To verify that the M2 control system operates at a bandwidth of at least
+20Hz, and the telemetry is published to the SAL and written to the EFD
+at 20Hz.
 
 \textbf{ Preconditions}:\\
 
@@ -3077,7 +3097,8 @@ telemetry updates are 20Hz
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1794}{\textit{ LVV-T1794 } }
 test case in Jira.
 
-
+To verify that the M2 temperature sensors work properly, and the M2
+temperatures are with specifications under operational conditions.
 
 \textbf{ Preconditions}:\\
 M2 mirror control system have been on for multiple days of testing\\
@@ -3159,7 +3180,9 @@ Heat from tangent links: need thermal camera image\\
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1797}{\textit{ LVV-T1797 } }
 test case in Jira.
 
-
+To verify that the M2 inclinometer works properly, and in the absence of
+MTMount telemetry, the M2 inclinometer reading is used properly in the
+Look-Up Table.
 
 \textbf{ Preconditions}:\\
 
@@ -3239,7 +3262,9 @@ zenith angle as displayed on the EUI
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1796}{\textit{ LVV-T1796 } }
 test case in Jira.
 
-
+Verify that the M2 Vibration Monitoring System works properly, and the
+vibrations created by the M2 cell is of high enough frequency so that
+its impact on system image quality is within its allocation.
 
 \textbf{ Preconditions}:\\
 test case\\
@@ -3324,7 +3349,8 @@ with the M2 assembly will be higher than that.~
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1795}{\textit{ LVV-T1795 } }
 test case in Jira.
 
-
+To verify that the M2 mirror itself together with the bonded attachment
+pads weigh less than 1600 kg
 
 \textbf{ Preconditions}:\\
 
@@ -3404,7 +3430,9 @@ It is shown that the mirror weight is about 15578N, which is
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1829}{\textit{ LVV-T1829 } }
 test case in Jira.
 
-Verify the M2 positions sensors are working properly
+Verify the M2 positions sensors work properly - all sensors can be read
+out, and the mirror position determined using these sensors match the
+mirror position as determined by the hard points.
 
 \textbf{ Preconditions}:\\
 at least one of the many M2 re-verification test cases have been carried
@@ -3482,7 +3510,8 @@ positions determined by the hardpoints. Check consistency.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1789}{\textit{ LVV-T1789 } }
 test case in Jira.
 
-
+This test is to verify that the mirror control system can operate
+robustly with active optics forces over extended period of time.
 
 \textbf{ Preconditions}:\\
 

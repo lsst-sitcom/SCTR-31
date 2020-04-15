@@ -48,13 +48,29 @@ an LSST milestone pertaining to the System Engineering Subsystem.
 \begin{itemize}
 \tightlist
 \item
-  to re-verify M2 software after M2 delivery to the summit and SAL
+  To re-verify M2 software after M2 delivery to the summit and SAL
   version upgrade to 4.0. Make sure all events, and telemetry are
-  recorded in the summit EFD. (we are not ready to command M2 via SAL
-  yet)
+  recorded in the summit EFD.~
 \item
-  run M2 performance tests. Make sure performance requirements in
+  Run M2 performance tests. Make sure performance requirements in
   \citeds{LTS-146} are met.
+\end{itemize}
+
+{The objective of this test plan is to re-verify the functional
+requirements of the M2 Assembly after shipment from the vendor's
+facility to the summit facility, as defined in \citeds{LTS-146} and \citeds{LTS-162}. This
+test plan consists of two test cycles:~}
+
+\begin{itemize}
+\tightlist
+\item
+  {A preliminary functional test cycle to initially re-verify the M2
+  software after delivery to the summit and to prepare~}{for SAL 4.0
+  integration}
+\item
+  {A formal test cycle that includes the integration of M2 with SAL 4.0,
+  functional re-verification of the hardware and software, and a
+  verification of M2 hazard mitigations.}
 \end{itemize}
 
 
@@ -63,7 +79,10 @@ an LSST milestone pertaining to the System Engineering Subsystem.
 \label{sect:systemoverview}
 
  M2 surrogate is attached to the mirror cell. M2 control software has
-been upgraded to work with SAL4.0.
+been upgraded to work with SAL4.0.\\
+{The M2 assembly refers to the secondary mirror (M2), the M2 mirror
+support system, the mirror cell, the mirror cell sensors, aperture ring
+and mirror support control system.}
 
 
 \subsection{Document Overview}
@@ -99,8 +118,8 @@ The current status of test plan LVV-P66 in Jira is \textbf{ Draft }.
 
 \subsection{Verification Environment}
 \label{sect:hwconf}
-  M2 will be verified in a climate controlled environment on the summit
-3rd floor
+  {The~}{M2~}{Assembly} will be verified {on the mirror cart }on the 3rd
+floor of the Summit Facility.
 
   \subsection{Entry Criteria}
   In order to run these tests, the following criteria must be met first:\\
@@ -112,6 +131,8 @@ The current status of test plan LVV-P66 in Jira is \textbf{ Draft }.
   M2 to be powered on and controlled
 \item
   The EFD must be set up to be able to store events and telemetry data
+\item
+  {Requires the surrogate mirror to be installed in the mirror cell}
 \end{itemize}
 
   \subsection{Exit Criteria}
@@ -697,7 +718,8 @@ Status: In Progress
 The purpose of this preliminary test cycle is to run some basic
 functional and software tests to gain an understanding of how the
 software performs and what development is required for the CSC to
-properly integrate with SAL v4.0.
+properly integrate with SAL v4.0. {The execution of this test cycle does
+not require the M2 to be commanded via SAL. }
 
 \subsubsection{Software Version/Baseline}
 \begin{enumerate}
@@ -709,7 +731,7 @@ properly integrate with SAL v4.0.
 \end{enumerate}
 
 \subsubsection{Configuration}
-Not provided.
+{No varying configuration between test cycles.}
 
 \subsubsection{Test Cases in LVV-C118 Test Cycle}
 

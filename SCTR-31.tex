@@ -740,9 +740,15 @@ not require the M2 to be commanded via SAL. }
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1799}{\textit{ LVV-T1799 } }
 test case in Jira.
 
-The purpose of this test case is to verify that the M2 cell assembly
-will behave as expected and transition into fault state once the E-stop
-has been hit.
+Verify the E-stop works correctly.\\
+{The purpose of this test case is to verify that the M2 support control
+system will behave as expected and transition into fault state once the
+E-stop has been hit.~}\\[2\baselineskip]\emph{{The only requirement we
+have traced is the interlocks requirement that says it must be
+compatible to the GIS. In the description of that requirement, we noted
+that it would be verified by checking if the system goes into the fault
+state. However, the test script doesn't include a step in specifically
+checking the system is in fault state.~}}
 
 \textbf{ Preconditions}:\\
 

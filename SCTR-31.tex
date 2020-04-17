@@ -186,7 +186,9 @@ The personnel involved in the test campaign is shown in the following table.
 & {\small Bo Xin } & {\small Bo Xin } &
 \begin{minipage}[]{6cm}
 \smallskip
-{\small  }
+{\small {Bo Xin\\
+Te-wei Tsai\\
+Sandrine Thomas} }
 \medskip
 \end{minipage}
 \\ \hline
@@ -743,15 +745,27 @@ test case in Jira.
 Verify the E-stop works correctly.\\
 {The purpose of this test case is to verify that the M2 support control
 system will behave as expected and transition into fault state once the
-E-stop has been hit.~}\\[2\baselineskip]\emph{{The only requirement we
-have traced is the interlocks requirement that says it must be
-compatible to the GIS. In the description of that requirement, we noted
-that it would be verified by checking if the system goes into the fault
-state. However, the test script doesn't include a step in specifically
-checking the system is in fault state.~}}
+E-stop has been hit. Furthermore, the new interlock will turn off the
+power relay of the actuators causing the actuators to lose
+power.~}\\[2\baselineskip]\emph{{The only requirement we have traced is
+the interlocks requirement that says it must be compatible to the GIS.
+In the description of that requirement, we noted that it would be
+verified by checking if the system goes into the fault state. However,
+the test script doesn't include a step in specifically checking the
+system is in fault state.~}}
 
 \textbf{ Preconditions}:\\
+{Prior to the execution of this test case to re-verify the M2 E-stop
+functionality, the following Summit tasks must be completed:}
 
+\begin{itemize}
+\tightlist
+\item
+  {Replace relay in M2 Pilz interlock and install E-Stop}
+\item
+  {\url{https://jira.lsstcorp.org/browse/SUMMIT-3927}}{\\
+  }
+\end{itemize}
 
 Execution status: {\bf Pass }
 
@@ -848,11 +862,78 @@ To shut down, open loop, stand by, remote, quit~
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1798}{\textit{ LVV-T1798 } }
 test case in Jira.
 
-verify M2 SAL4.0 telemetry against EUI display and output binary files
+verify M2 SAL4.0 telemetry against EUI display and output binary files\\
+{The objective of this test case is to verify that the telemetry and
+events being published to the EFD is consistent to the information on
+the EUI and output binary files.~}\\
+{The following are the supported telemetry:}
+
+\begin{itemize}
+\tightlist
+\item
+  {mirrorPositionMeasure}
+\item
+  {axialForcesMeasured}
+\item
+  {tangentForcesMeasured}
+\item
+  {temperaturesMeasured}
+\item
+  {zenithAngleMeasured}
+\item
+  {axialActuatorAbsolutePositionSteps}
+\item
+  {tangentActuatorAbsolutePositionSteps}
+\item
+  {axialActuatorPositionAbsoluteEncoderPositionMeasured}
+\item
+  {tangentActuatorPositionAbsoluteEncoderpositionMeasured}
+\end{itemize}
+
+{The following are the supported events:}
+
+\begin{itemize}
+\tightlist
+\item
+  {~summaryState}
+\item
+  {m2AssemblyInPosition}
+\item
+  {errorCode}
+\item
+  {appliedSettingsMatchStart}
+\end{itemize}
+
+{All telemetry and log events will be checked through the use of python
+notebook.~}\\[2\baselineskip]{\emph{Is this limit switch status
+something that was verified?}\\
+}
 
 \textbf{ Preconditions}:\\
 M2 control software works properly and SAL has been upgraded to version
-4.0
+4.0\\
+{Prior to the execution of this test case to re-verify the M2 SAL 4.0
+telemetry and events, the following Summit tasks must be completed:}
+
+\begin{itemize}
+\tightlist
+\item
+  {Verify M2 SAL functionality/update to latest version of SAL}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    {\url{https://jira.lsstcorp.org/browse/SUMMIT-863}}
+  \end{itemize}
+\item
+  {Check on the M2 surrogate AO control}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    {\url{https://jira.lsstcorp.org/browse/SUMMIT-3518}}
+  \end{itemize}
+\end{itemize}
 
 Execution status: {\bf Pass }
 
@@ -1041,7 +1122,9 @@ XML.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1827}{\textit{ LVV-T1827 } }
 test case in Jira.
 
-verify that the inner control loop applies motor steps as commanded.
+verify that the inner control loop applies motor steps as commanded.\\
+{The objective of this test case is to verify that the inner control
+loop applies motor steps as commanded by the EUI.}
 
 \textbf{ Preconditions}:\\
 

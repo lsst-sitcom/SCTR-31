@@ -81,8 +81,8 @@ test plan consists of two test cycles:~}
  M2 surrogate is attached to the mirror cell. M2 control software has
 been upgraded to work with SAL4.0.\\
 {The M2 assembly refers to the secondary mirror (M2), the M2 mirror
-support system, the mirror cell, the mirror cell sensors, aperture ring
-and mirror support control system.}
+support system, the mirror cell, the mirror cell sensors, and mirror
+support control system.}
 
 
 \subsection{Document Overview}
@@ -186,9 +186,11 @@ The personnel involved in the test campaign is shown in the following table.
 & {\small Bo Xin } & {\small Bo Xin } &
 \begin{minipage}[]{6cm}
 \smallskip
-{\small {Bo Xin\\
-Te-wei Tsai\\
-Sandrine Thomas} }
+{\small {M2 product owner}\\
+{M2 software engineer}\\
+{T\&S Scientist~}\\
+{Electrical support}\\
+{GIS Expert} }
 \medskip
 \end{minipage}
 \\ \hline
@@ -228,7 +230,8 @@ Sandrine Thomas} }
 & {\small Bo Xin } & {\small Bo Xin } &
 \begin{minipage}[]{6cm}
 \smallskip
-{\small  }
+{\small Mechanical Support\\
+Electrical Support }
 \medskip
 \end{minipage}
 \\ \hline
@@ -252,7 +255,8 @@ Sandrine Thomas} }
 & {\small Bo Xin } & {\small Bo Xin } &
 \begin{minipage}[]{6cm}
 \smallskip
-{\small  }
+{\small Electrical Support\\
+Mechanical Support }
 \medskip
 \end{minipage}
 \\ \hline
@@ -417,7 +421,7 @@ Sandrine Thomas} }
   {\bf \footnotesize test case} & {\bf \footnotesize status} & {\bf \footnotesize comment} & {\bf \footnotesize issues} \\\toprule
 
     \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1799}{LVV-T1799}
-    & Pass &
+    & Initial Pass &
     \begin{minipage}[]{9cm}
     \smallskip
     
@@ -744,15 +748,16 @@ test case in Jira.
 
 Verify the E-stop works correctly.\\
 {The purpose of this test case is to verify that the M2 support control
-system will behave as expected and transition into fault state once the
-E-stop has been hit. Furthermore, the new interlock will turn off the
-power relay of the actuators causing the actuators to lose
-power.~}\\[2\baselineskip]\emph{{The only requirement we have traced is
-the interlocks requirement that says it must be compatible to the GIS.
-In the description of that requirement, we noted that it would be
-verified by checking if the system goes into the fault state. However,
-the test script doesn't include a step in specifically checking the
-system is in fault state.~}}
+system will behave as expected and cut the power from the actuators when
+the E-stop has been hit.}\\
+\emph{{The objective depends on how we will be writing the test cases;
+In the preliminary phase, this test case was just used to test that
+hitting the E-stop would cut the power from the actuators. (This is how
+we expect the system to behave during operation with the interlock
+system in place of the E-stop) In the formal phase, the purpose of this
+test is to verify that hitting the E-stop will send the system into
+FAULT state. At the moment, there is no fault state and is on Te-wei's
+to do list.}}\\[3\baselineskip]
 
 \textbf{ Preconditions}:\\
 {Prior to the execution of this test case to re-verify the M2 E-stop
@@ -762,12 +767,16 @@ functionality, the following Summit tasks must be completed:}
 \tightlist
 \item
   {Replace relay in M2 Pilz interlock and install E-Stop}
-\item
-  {\url{https://jira.lsstcorp.org/browse/SUMMIT-3927}}{\\
-  }
+
+  \begin{itemize}
+  \tightlist
+  \item
+    {\url{https://jira.lsstcorp.org/browse/SUMMIT-3927}}{\\
+    }
+  \end{itemize}
 \end{itemize}
 
-Execution status: {\bf Pass }
+Execution status: {\bf Initial Pass }
 
 Final comment:\\
 
@@ -808,6 +817,32 @@ GUI shows ``alarm active'' in red
  & Status: \textbf{ Pass } \\ \hline
 
 2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+verify that M2 transition into fault state
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+no fault state has been implemented in the software. To be fixed after
+this round of initial testing.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+3 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
 recover the system:\\
@@ -1332,7 +1367,10 @@ test case in Jira.
 
 verify that the outer control loop determines the command forces for all
 the axial actuators of the M2 mirror support system and convert them
-into motor steps in order to command the inner loop controllers.
+into motor steps in order to command the inner loop controllers.\\
+{The objective of this test case is to re-verify both the inner and
+outer control loop requirements as defined in \citeds{LTS-146} using M2 control
+system in closed loop mode.}
 
 \textbf{ Preconditions}:\\
 
@@ -1512,11 +1550,11 @@ into motor steps in order to command the inner loop controllers.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1810}{\textit{ LVV-T1810 } }
 test case in Jira.
 
-The objective is to verify that we are able to (1) optimize the mirror
-position relative to the cell and redefine the optimal position as
-mirror reference position and (2) reset the offsets of the (independent)
-position sensors so that they show zeros at the mirror reference
-position.\\
+The objective{~of this test case} is to verify that we are able to (1)
+optimize the mirror position relative to the cell and redefine the
+optimal position as mirror reference position and (2) reset the offsets
+of the (independent) position sensors so that they show zeros at the
+mirror reference position.\\
 The position should be provided by the 6 passive support. The position
 from the displacement sensors should be provided for verification.
 
@@ -1708,7 +1746,11 @@ Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1784}{\te
 test case in Jira.
 
 To verify that the actuators do not require power to maintain their set
-positions and forces
+positions and forces\\
+{The objective of this test case is to re-verify the No Back-driving
+requirement specified in \citeds{LTS-146}. This test case will test that the
+actuators do not require power to maintain their set positions and
+forces using the closed-loop controller.~}
 
 \textbf{ Preconditions}:\\
 
@@ -3624,10 +3666,27 @@ Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1789}{\te
 test case in Jira.
 
 This test is to verify that the mirror control system can operate
-robustly with active optics forces over extended period of time.
+robustly with active optics forces over extended period of time.\\
+{The objective of this test case is to verify the functional
+requirements of the M2 control system by testing the~}
 
 \textbf{ Preconditions}:\\
+{Prior to the execution of this test case to re-verify the M2 control
+system, the following Summit tasks must be completed:}
 
+\begin{itemize}
+\tightlist
+\item
+  {Check on the M2 surrogate OA
+  control\href{https://jira.lsstcorp.org/browse/SUMMIT-3518}{\\
+  }}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    {\url{https://jira.lsstcorp.org/browse/SUMMIT-3518}}
+  \end{itemize}
+\end{itemize}
 
 Execution status: {\bf Pass }
 

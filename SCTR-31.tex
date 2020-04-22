@@ -421,7 +421,7 @@ Mechanical Support }
   {\bf \footnotesize test case} & {\bf \footnotesize status} & {\bf \footnotesize comment} & {\bf \footnotesize issues} \\\toprule
 
     \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1799}{LVV-T1799}
-    & Initial Pass &
+    & Fail &
     \begin{minipage}[]{9cm}
     \smallskip
     
@@ -746,18 +746,14 @@ not require the M2 to be commanded via SAL. }
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1799}{\textit{ LVV-T1799 } }
 test case in Jira.
 
-Verify the E-stop works correctly.\\
-{The purpose of this test case is to verify that the M2 support control
-system will behave as expected and cut the power from the actuators when
-the E-stop has been hit.}\\
-\emph{{The objective depends on how we will be writing the test cases;
-In the preliminary phase, this test case was just used to test that
-hitting the E-stop would cut the power from the actuators. (This is how
-we expect the system to behave during operation with the interlock
-system in place of the E-stop) In the formal phase, the purpose of this
-test is to verify that hitting the E-stop will send the system into
-FAULT state. At the moment, there is no fault state and is on Te-wei's
-to do list.}}\\[3\baselineskip]
+Verify the E-stop works correctly.\\[2\baselineskip]{The purpose of this
+test case is to re-verify the M2 interlocks requirement, as defined in
+\citeds{LTS-146}, after shipment from the vendor's facility to the Summit
+facility. This test case will be executed with an E-stop in place of the
+interlock system. The results of this test should show that the M2
+support control system behaves as expected, sends the system into a
+FAULT state when the E-stop is pressed and all power is cut from the M2
+actuators.~}\\[2\baselineskip]
 
 \textbf{ Preconditions}:\\
 {Prior to the execution of this test case to re-verify the M2 E-stop
@@ -776,7 +772,7 @@ functionality, the following Summit tasks must be completed:}
   \end{itemize}
 \end{itemize}
 
-Execution status: {\bf Initial Pass }
+Execution status: {\bf Fail }
 
 Final comment:\\
 
@@ -840,7 +836,7 @@ this round of initial testing.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Fail } \\ \hline
 
 3 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -897,51 +893,20 @@ To shut down, open loop, stand by, remote, quit~
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1798}{\textit{ LVV-T1798 } }
 test case in Jira.
 
-verify M2 SAL4.0 telemetry against EUI display and output binary files\\
-{The objective of this test case is to verify that the telemetry and
-events being published to the EFD is consistent to the information on
-the EUI and output binary files.~}\\
-{The following are the supported telemetry:}
-
-\begin{itemize}
-\tightlist
-\item
-  {mirrorPositionMeasure}
-\item
-  {axialForcesMeasured}
-\item
-  {tangentForcesMeasured}
-\item
-  {temperaturesMeasured}
-\item
-  {zenithAngleMeasured}
-\item
-  {axialActuatorAbsolutePositionSteps}
-\item
-  {tangentActuatorAbsolutePositionSteps}
-\item
-  {axialActuatorPositionAbsoluteEncoderPositionMeasured}
-\item
-  {tangentActuatorPositionAbsoluteEncoderpositionMeasured}
-\end{itemize}
-
-{The following are the supported events:}
-
-\begin{itemize}
-\tightlist
-\item
-  {~summaryState}
-\item
-  {m2AssemblyInPosition}
-\item
-  {errorCode}
-\item
-  {appliedSettingsMatchStart}
-\end{itemize}
-
-{All telemetry and log events will be checked through the use of python
-notebook.~}\\[2\baselineskip]{\emph{Is this limit switch status
-something that was verified?}\\
+verify M2 SAL4.0 telemetry against EUI display and output binary
+files\\[2\baselineskip]{The purpose of this test case is to re-verify
+the interface between the M2 controller and TCS via SAL 4.0, as
+specified in \citeds{LTS-146} and \citeds{LTS-162}, after shipment from the vendor's
+facility to the Summit facility. The telemetry being published to the
+EFD will be checked through the use of a python notebook to be
+consistent with the information being displayed on the EUI and on the
+output binary file. After the telemetry is seen to be consistent, we
+will verify the telemetry topics listed in the test steps have all been
+accurately published.}\\[2\baselineskip]{\emph{Kevin: I think we should
+create one version of this test case, update it with test steps checking
+the individual telemetry topics and just fail these steps for the
+preliminary execution.}}\\[2\baselineskip]{\emph{Is this limit switch
+status something that was verified?}\\
 }
 
 \textbf{ Preconditions}:\\

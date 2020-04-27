@@ -230,8 +230,8 @@ The personnel involved in the test campaign is shown in the following table.
 & {\small Bo Xin } & {\small Bo Xin } &
 \begin{minipage}[]{6cm}
 \smallskip
-{\small Mechanical Support\\
-Electrical Support }
+{\small {Mechanical Support\\
+Electrical Support} }
 \medskip
 \end{minipage}
 \\ \hline
@@ -239,7 +239,8 @@ Electrical Support }
 & {\small Bo Xin } & {\small Bo Xin } &
 \begin{minipage}[]{6cm}
 \smallskip
-{\small  }
+{\small {Mechanical support\\
+Electrical support} }
 \medskip
 \end{minipage}
 \\ \hline
@@ -247,7 +248,9 @@ Electrical Support }
 & {\small Bo Xin } & {\small Bo Xin } &
 \begin{minipage}[]{6cm}
 \smallskip
-{\small  }
+{\small {Mechanical Support\\
+Electrical Support}\\
+{M2 Software Engineer} }
 \medskip
 \end{minipage}
 \\ \hline
@@ -428,6 +431,7 @@ Mechanical Support }
     \medskip
     \end{minipage}
     &
+          \href{https://jira.lsstcorp.org/browse/DM-23790}{DM-23790}
     \\\hline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1798}{LVV-T1798}
     & Pass &
@@ -836,6 +840,12 @@ this round of initial testing.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
+ & Issues found executing this step:  \\
+ & \begin{minipage}[t]{13cm}{\footnotesize
+\href{https://jira.lsstcorp.org/browse/DM-23790}{DM-23790}~~Support the Fault State
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
  & Status: \textbf{ Fail } \\ \hline
 
 3 & Description \\
@@ -1718,9 +1728,10 @@ test case in Jira.
 To verify that the actuators do not require power to maintain their set
 positions and forces\\
 {The objective of this test case is to re-verify the No Back-driving
-requirement specified in \citeds{LTS-146}. This test case will test that the
-actuators do not require power to maintain their set positions and
-forces using the closed-loop controller.~}
+requirement specified in \citeds{LTS-146}, after shipment from the vendor's
+facility to the Summit facility. While in closed loop mode, the
+actuators will be powered off to verify that they do not require power
+to maintain their set positions and forces.}
 
 \textbf{ Preconditions}:\\
 
@@ -1874,7 +1885,14 @@ test case in Jira.
 This test is to make sure all actuators are alive and responding to
 commands properly.\\
 For force accuracy/repeatability/stability - see bending mode test and
-AOS duration test.
+AOS duration test.\\[2\baselineskip]{The objective of this test case is
+to partially re-verify the active-optics forces requirement, as
+specified in \citeds{LTS-146}, after shipment from the vendor's facility to the
+Summit facility. The active-optics forces requirement will be verified
+by the M2 actuator bump test in conjunction with the bending mode test
+and AOS duration test.~}{This test case will specifically verify that
+the M2 actuators are alive and responding to commands properly while in
+closed loop mode and should be executed first.}
 
 \textbf{ Preconditions}:\\
 
@@ -2041,7 +2059,12 @@ Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1788}{\te
 test case in Jira.
 
 To verify that the bending mode forces can be applied, and the forces
-meet the accuracy and repeatability requirements
+meet the accuracy and repeatability requirements\\[2\baselineskip]{The
+objective of this test case is to re-verify the accuracy and
+repeatability requirements as specified in \citeds{LTS-146} after shipment from
+the vendor's facility to the Summit facility. The test steps were
+written to test that the bending mode forces can be applied and the
+forces meet the accuracy~}
 
 \textbf{ Preconditions}:\\
 
@@ -2174,7 +2197,9 @@ test case in Jira.
 The main objective is to verify that the Look-Up Tables, both
 gravitational and thermal, are being used correctly and forces applied
 correctly.\\
-This test case also verifies the proper operation of the M2 cart.
+This test case also verifies the proper operation of the M2
+cart.\\[2\baselineskip]{The objective of this test case it to verify the
+Look-Up Table requirements}
 
 \textbf{ Preconditions}:\\
 

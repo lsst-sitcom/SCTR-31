@@ -3038,7 +3038,11 @@ Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1786}{\te
 test case in Jira.
 
 To verify that the actuators meet the stroke requirements, and the limit
-switches are in place and work properly.
+switches are in place and work properly.\\[3\baselineskip]{The purpose
+of this test case is to test the software limits to only verify that
+they work but to also determine the location of the software limit. We
+will also test to make sure that once the software limit has been
+reached, it will be shown on the GUI.~}
 
 \textbf{ Preconditions}:\\
 
@@ -3582,7 +3586,14 @@ test case in Jira.
 
 Verify the M2 positions sensors work properly - all sensors can be read
 out, and the mirror position determined using these sensors match the
-mirror position as determined by the hard points.
+mirror position as determined by the hard points.\\[2\baselineskip]{The
+objective of this test case is to re-verify the mirror position sensors
+requirement as specified in \citeds{LTS-146}, after shipment from the vendor's
+facility to the Summit facility.~}\\[3\baselineskip]\emph{{This test
+case seems unnecessary. I feel like a step can be added to one of the
+previous M2 re-verification test cases just to say analyze the data and
+make sure we can not only read out the position sensors but also check
+if they make sense.}}
 
 \textbf{ Preconditions}:\\
 at least one of the many M2 re-verification test cases have been carried
@@ -3662,8 +3673,9 @@ test case in Jira.
 
 This test is to verify that the mirror control system can operate
 robustly with active optics forces over extended period of time.\\
-{The objective of this test case is to verify the functional
-requirements of the M2 control system by testing the~}
+{The objective of this test case is to verify the active optics
+requirements specified in \citeds{LTS-146} after the shipment from the vendor's
+facility to the Summit facility.~}
 
 \textbf{ Preconditions}:\\
 {Prior to the execution of this test case to re-verify the M2 control

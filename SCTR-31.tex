@@ -1136,10 +1136,9 @@ verify that the inner control loop applies motor steps as
 commanded.\\[2\baselineskip]{The purpose of this test case is to
 re-verify the inner loop control loop requirement, as specified in
 \citeds{LTS-146}, after shipment from the vendor's facility to the Summit
-facility.\\
-}\\
-{The objective of this test case is to verify that the inner control
-loop applies motor steps as commanded by the EUI.}
+facility. The test steps are meant to verify that inner control loop
+applies motor steps as commanded in open loop mode.~\\
+}
 
 \textbf{ Preconditions}:\\
 
@@ -1349,8 +1348,10 @@ verify that the outer control loop determines the command forces for all
 the axial actuators of the M2 mirror support system and convert them
 into motor steps in order to command the inner loop controllers.\\
 {The objective of this test case is to re-verify both the inner and
-outer control loop requirements as defined in \citeds{LTS-146} using M2 control
-system in closed loop mode.}
+outer control loop requirements as defined in \citeds{LTS-146} after shipment
+from the vendor's facility to the Summit facility. The test steps are
+meant to verify the forces by the individual actuators when given force
+commands from the outer control loop while in closed loop mode.~}
 
 \textbf{ Preconditions}:\\
 
@@ -3039,7 +3040,7 @@ test case in Jira.
 
 To verify that the actuators meet the stroke requirements, and the limit
 switches are in place and work properly.\\[3\baselineskip]{The purpose
-of this test case is to test the software limits to only verify that
+of this test case is to test the software limits to not only verify that
 they work but to also determine the location of the software limit. We
 will also test to make sure that once the software limit has been
 reached, it will be shown on the GUI.~}
@@ -3643,7 +3644,8 @@ out successfully and telemetry data are available in the EFD
 data analysis:\\
 examine the readings from the position sensors and make sure the numbers
 make sense. Compare the positions determined by these sensors to the
-positions determined by the hardpoints. Check consistency.
+positions determined by the hardpoints. Check consistency.\\
+Note: Laser trackers does not have accuracy to validate position sensors
 
 \medskip }
 \end{minipage}

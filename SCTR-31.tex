@@ -198,7 +198,9 @@ The personnel involved in the test campaign is shown in the following table.
 & {\small Bo Xin } & {\small Bo Xin } &
 \begin{minipage}[]{6cm}
 \smallskip
-{\small  }
+{\small M2 Operator\\
+Mechanical Support\\
+Electrical Support }
 \medskip
 \end{minipage}
 \\ \hline
@@ -212,6 +214,14 @@ The personnel involved in the test campaign is shown in the following table.
 \\ \hline
 \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1826}{LVV-T1826}
 & {\small Bo Xin } & {\small Bo Xin } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1829}{LVV-T1829}
+& {\small Bo Xin } & {\small  } &
 \begin{minipage}[]{6cm}
 \smallskip
 {\small  }
@@ -267,7 +277,9 @@ Mechanical Support }
 & {\small Bo Xin } & {\small Bo Xin } &
 \begin{minipage}[]{6cm}
 \smallskip
-{\small  }
+{\small Mechanical Support\\
+Electrical Support\\
+Safety Coordinator }
 \medskip
 \end{minipage}
 \\ \hline
@@ -275,7 +287,8 @@ Mechanical Support }
 & {\small Bo Xin } & {\small Bo Xin } &
 \begin{minipage}[]{6cm}
 \smallskip
-{\small  }
+{\small Mechanical Support\\
+M2 Operator }
 \medskip
 \end{minipage}
 \\ \hline
@@ -345,14 +358,6 @@ Mechanical Support }
 \\ \hline
 \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1795}{LVV-T1795}
 & {\small Bo Xin } & {\small Bo Xin } &
-\begin{minipage}[]{6cm}
-\smallskip
-{\small  }
-\medskip
-\end{minipage}
-\\ \hline
-\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1829}{LVV-T1829}
-& {\small Bo Xin } & {\small  } &
 \begin{minipage}[]{6cm}
 \smallskip
 {\small  }
@@ -471,6 +476,15 @@ XML 3/26/20.
     \\\hline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1826}{LVV-T1826}
     & Pass &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1829}{LVV-T1829}
+    & Not Executed &
     \begin{minipage}[]{9cm}
     \smallskip
     
@@ -641,15 +655,6 @@ limit switches that we know of from this test.\\
     \end{minipage}
     &
     \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1829}{LVV-T1829}
-    & Not Executed &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    
-    \medskip
-    \end{minipage}
-    &
-    \\\hline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1789}{LVV-T1789}
     & Pass &
     \begin{minipage}[]{9cm}
@@ -755,8 +760,8 @@ test case is to re-verify the M2 interlocks requirement, as defined in
 \citeds{LTS-146}, after shipment from the vendor's facility to the Summit
 facility. This test case will be executed with an E-stop in place of the
 interlock system. The results of this test should show that the M2
-support control system behaves as expected, sends the system into a
-FAULT state when the E-stop is pressed and all power is cut from the M2
+support control system behaves as expected, sending the system into a
+FAULT state when the E-stop is pressed and cutting all power from the M2
 actuators.~}\\[2\baselineskip]
 
 \textbf{ Preconditions}:\\
@@ -912,10 +917,7 @@ EFD will be checked through the use of a python notebook to be
 consistent with the information being displayed on the EUI and on the
 output binary file. After the telemetry is seen to be consistent, we
 will verify the telemetry topics listed in the test steps have all been
-accurately published.}\\[2\baselineskip]{\emph{Kevin: I think we should
-create one version of this test case, update it with test steps checking
-the individual telemetry topics and just fail these steps for the
-preliminary execution.}}\\[2\baselineskip]{\emph{Is this limit switch
+accurately published.}\\[3\baselineskip]{\emph{Is this limit switch
 status something that was verified?}\\
 }
 
@@ -1347,11 +1349,16 @@ test case in Jira.
 verify that the outer control loop determines the command forces for all
 the axial actuators of the M2 mirror support system and convert them
 into motor steps in order to command the inner loop controllers.\\
-{The objective of this test case is to re-verify both the inner and
-outer control loop requirements as defined in \citeds{LTS-146} after shipment
-from the vendor's facility to the Summit facility. The test steps are
-meant to verify the forces by the individual actuators when given force
-commands from the outer control loop while in closed loop mode.~}
+The objective of this test case is to re-verify both the inner and outer
+control loop requirements as defined in \citeds{LTS-146} after shipment from the
+vendor's facility to the Summit facility. The test steps are meant to
+verify the {operation} of the ~the outer control loop while in closed
+loop mode. The outer control loop of the M2 control system takes the
+force commands and convert them into displacements, then apply them on
+the individual actuators. This test case also verifies the working
+mechanism of the force balance system. When the commanded forces give
+nonzero total net forces or moments, the force balance system
+compensates those by applying pre-determined force distributions.
 
 \textbf{ Preconditions}:\\
 
@@ -1526,18 +1533,127 @@ into motor steps in order to command the inner loop controllers.
 
 \end{longtable}
 
+\paragraph{Test Case LVV-T1829 - M2 position sensors }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1829}{\textit{ LVV-T1829 } }
+test case in Jira.
+
+Verify the M2 positions sensors work properly - all sensors can be read
+out, and the mirror position determined using these sensors match the
+mirror position as determined by the hard points.\\[2\baselineskip]{The
+objective of this test case is to re-verify the mirror position sensors
+requirement as specified in \citeds{LTS-146}, after shipment from the vendor's
+facility to the Summit facility.~}\\[2\baselineskip]\textbf{{Incorporate
+item\#12 from the wishlist. We need to execute this test case before the
+M2 reference position and position sensor offset test case. This test
+case first verifies that the software for the sensors work
+correctly.}}\\
+\textbf{{Version \#1 - verify position sensors work properly according
+to the hardpoint encoders. Take the data to verify the code we came up
+with to check that the M2 position works properly.}}\\
+\textbf{{Version \#2 - After we have code implemented in the software,
+verify it actually works and displays on the GUI as expected with both
+sets of positions consistent.}}
+
+\textbf{ Preconditions}:\\
+at least one of the many M2 re-verification test cases have been carried
+out successfully with telemetry data in the EFD
+
+Execution status: {\bf Not Executed }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+verify that\\
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1827}{M2
+inner loop control - open loop mode}\\
+or one of the other many M2 re-verification test cases have been carried
+out successfully and telemetry data are available in the EFD
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+data analysis:\\
+examine the readings from the position sensors and make sure the numbers
+make sense. Compare the positions determined by these sensors to the
+positions determined by the hardpoints. Check consistency.\\
+Note: Laser trackers does not have accuracy to validate position sensors
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+\end{longtable}
+
 \paragraph{Test Case LVV-T1810 - calibrate M2 reference position and position sensor offset }\mbox{}\\
 
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1810}{\textit{ LVV-T1810 } }
 test case in Jira.
 
-The objective{~of this test case} is to verify that we are able to (1)
-optimize the mirror position relative to the cell and redefine the
-optimal position as mirror reference position and (2) reset the offsets
-of the (independent) position sensors so that they show zeros at the
-mirror reference position.\\
+The objective is to verify that we are able to (1) optimize the mirror
+position relative to the cell and redefine the optimal position as
+mirror reference position and (2) reset the offsets of the (independent)
+position sensors so that they show zeros at the mirror reference
+position.\\
 The position should be provided by the 6 passive support. The position
-from the displacement sensors should be provided for verification.
+from the displacement sensors should be provided for
+verification.\\[2\baselineskip]{The objective of this test case is to
+partially re-verify the force measurement accuracy and repeatability
+requirements defined in \citeds{LTS-146}, after shipment from the vendor's
+facility to the Summit facility. This test case will test the
+following:}
+
+\begin{enumerate}
+\tightlist
+\item
+  {The ability to optimize the mirror position relative to the cell and
+  redefine the optimal position as mirror reference position}
+\item
+  {Reset the offsets of the (independent) position sensors so that they
+  show zeros at th emirror reference position.~}
+\end{enumerate}
 
 \textbf{ Preconditions}:\\
 
@@ -2202,8 +2318,23 @@ This test case also verifies the proper operation of the M2
 cart.\\[2\baselineskip]{The objective of this test case it to re-verify
 the requirements specified in \citeds{LTS-146} regarding the forces of the M2
 support system. This test case will test that the M2 support system
-operates through the M2 cart's entire range of motion and with the cart
-lifted.}
+correctly operates through the M2 cart's entire range of motion. Once
+the M2 cart has been rotated over its full range, the data will be
+analyzed to confirm the following:}
+
+\begin{enumerate}
+\tightlist
+\item
+  {The LUT forces are updated at 20Hz}
+\item
+  {The telemetry data of the M2 inclinometer is consistent to the data
+  from the M2 cart control and zenith angles displayed on the EUI}
+\item
+  {The sum of the forces are less than 1600kg}
+\end{enumerate}
+
+{Version 1 - No elevation}\\
+{Version 2 - Elevated}
 
 \textbf{ Preconditions}:\\
 
@@ -2314,7 +2445,14 @@ Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1782}{\te
 test case in Jira.
 
 To verify that the M2 safety stops are in place and the allowable travel
-distances of the M2 meet requirements.
+distances of the M2 meet requirements.\\[2\baselineskip]{The objective
+of this test case is to re-verify the safety stops are in place as
+specified in \citeds{LTS-146} after shipment from the vendor's facility to the
+Summit facility. This test will involve inspecting that the safety stops
+are in place first and then moving the system until the motion limits
+are reached. The results of this test should show that the system enters
+the fault state when the motion limits are reached and prevent the M2
+mirror from contacting the safety stops.}
 
 \textbf{ Preconditions}:\\
 
@@ -2463,7 +2601,12 @@ Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1791}{\te
 test case in Jira.
 
 To verify that the M2 mirror control system can position the mirror with
-good repeatability and stability.
+good repeatability and stability.\\[2\baselineskip]{The objective of
+this test case is to re-verify the force measurement, accuracy and
+repeatability requirements specified in \citeds{LTS-146}, after shipment from the
+vendor's facility to the Summit facility. This test will confirm by
+repeating the same set of steps for all six direction that the
+requirements have been met.}
 
 \textbf{ Preconditions}:\\
 
@@ -2718,7 +2861,8 @@ position repeatability between ~the 3 cycles
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1792}{\textit{ LVV-T1792 } }
 test case in Jira.
 
-To verify that the M2 force balance system works as designed
+To verify that the M2 force balance system works as
+designed\\[2\baselineskip]\emph{{Combine with predecessor test case}}
 
 \textbf{ Preconditions}:\\
 
@@ -2803,7 +2947,11 @@ Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1785}{\te
 test case in Jira.
 
 verify axial actuator stiffness \textgreater{} 2.6N/um, tangent
-stiffness\textgreater{}30N/um
+stiffness\textgreater{}30N/um\\[3\baselineskip]{The objective of this
+test case is to verify the actuator stiffness requirements specified in
+\citeds{LTS-146}, after being shipped from the vendor's facility to the Summit
+facility. The test will involve using a stand alone spare actuator in
+order to produce a more accurate spring constant.~~}
 
 \textbf{ Preconditions}:\\
 
@@ -3042,11 +3190,12 @@ Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1786}{\te
 test case in Jira.
 
 To verify that the actuators meet the stroke requirements, and the limit
-switches are in place and work properly.\\[3\baselineskip]{The purpose
-of this test case is to test the software limits to not only verify that
-they work but to also determine the location of the software limit. We
-will also test to make sure that once the software limit has been
-reached, it will be shown on the GUI.~}
+switches are in place and work properly.\\[3\baselineskip]{The objective
+of this test case is to re-verify the stroke requirement defined in
+\citeds{LTS-146}, after shipment from the vendor's facility to the Summit
+facility. In addition to verifying the stroke requirement, this test be
+used to determine the location of the software limit and confirm that
+the limit will be displayed on the GUI.}
 
 \textbf{ Preconditions}:\\
 
@@ -3073,6 +3222,14 @@ test document, without verifying it again.
 \end{minipage}
 \\ \cdashline{2-2}
 
+ & Test Data \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+{Per discussion with Doug, we shouldn't actually test the hard stop
+limit as to not damage it. as long as we have software limit, we will be
+fine.}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
@@ -3340,7 +3497,7 @@ test case in Jira.
 
 To verify that the M2 inclinometer works properly, and in the absence of
 MTMount telemetry, the M2 inclinometer reading is used properly in the
-Look-Up Table.
+Look-Up Table.\\[2\baselineskip]{\emph{Combine with M2 LUT test case} }
 
 \textbf{ Preconditions}:\\
 
@@ -3508,7 +3665,8 @@ Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1795}{\te
 test case in Jira.
 
 To verify that the M2 mirror itself together with the bonded attachment
-pads weigh less than 1600 kg
+pads weigh less than 1600 kg\\[3\baselineskip]{\emph{Combine with M2 LUT
+test case}}
 
 \textbf{ Preconditions}:\\
 
@@ -3580,94 +3738,6 @@ It is shown that the mirror weight is about 15578N, which is
 \end{minipage} \\ \cdashline{2-2}
 
  & Status: \textbf{ Pass } \\ \hline
-
-\end{longtable}
-
-\paragraph{Test Case LVV-T1829 - M2 position sensors }\mbox{}\\
-
-Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1829}{\textit{ LVV-T1829 } }
-test case in Jira.
-
-Verify the M2 positions sensors work properly - all sensors can be read
-out, and the mirror position determined using these sensors match the
-mirror position as determined by the hard points.\\[2\baselineskip]{The
-objective of this test case is to re-verify the mirror position sensors
-requirement as specified in \citeds{LTS-146}, after shipment from the vendor's
-facility to the Summit facility.~}\\[3\baselineskip]\emph{{This test
-case seems unnecessary. I feel like a step can be added to one of the
-previous M2 re-verification test cases just to say analyze the data and
-make sure we can not only read out the position sensors but also check
-if they make sense.}}
-
-\textbf{ Preconditions}:\\
-at least one of the many M2 re-verification test cases have been carried
-out successfully with telemetry data in the EFD
-
-Execution status: {\bf Not Executed }
-
-Final comment:\\
-
-
-Detailed steps results:
-
-\begin{longtable}{p{1cm}p{15cm}}
-\hline
-{Step} & Step Details\\ \hline
-1 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-verify that\\
-\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1827}{M2
-inner loop control - open loop mode}\\
-or one of the other many M2 re-verification test cases have been carried
-out successfully and telemetry data are available in the EFD
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Not Executed } \\ \hline
-
-2 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-data analysis:\\
-examine the readings from the position sensors and make sure the numbers
-make sense. Compare the positions determined by these sensors to the
-positions determined by the hardpoints. Check consistency.\\
-Note: Laser trackers does not have accuracy to validate position sensors
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Not Executed } \\ \hline
 
 \end{longtable}
 

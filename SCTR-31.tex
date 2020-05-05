@@ -629,7 +629,7 @@ limit switches that we know of from this test.\\
     &
     \\\hline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1797}{LVV-T1797}
-    & Pass w/ Deviation &
+    & Fail &
     \begin{minipage}[]{9cm}
     \smallskip
     
@@ -1543,11 +1543,13 @@ out, and the mirror position determined using these sensors match the
 mirror position as determined by the hard points.\\[2\baselineskip]{The
 objective of this test case is to re-verify the mirror position sensors
 requirement as specified in \citeds{LTS-146}, after shipment from the vendor's
-facility to the Summit facility.~}\\[2\baselineskip]\textbf{{Incorporate
-item\#12 from the wishlist. We need to execute this test case before the
-M2 reference position and position sensor offset test case. This test
-case first verifies that the software for the sensors work
-correctly.}}\\
+facility to the Summit facility. This test case will be executed before
+the M2 reference position and position sensor offset test case because
+we will need to first verify that the 12 sensors work according to the
+hardpoint encoders}\\[2\baselineskip]\textbf{{Incorporate item\#12 from
+the wishlist. We need to execute this test case before the M2 reference
+position and position sensor offset test case. This test case first
+verifies that the software for the sensors work correctly.}}\\
 \textbf{{Version \#1 - verify position sensors work properly according
 to the hardpoint encoders. Take the data to verify the code we came up
 with to check that the M2 position works properly.}}\\
@@ -3336,7 +3338,7 @@ test case in Jira.
 
 To verify that the M2 control system operates at a bandwidth of at least
 20Hz, and the telemetry is published to the SAL and written to the EFD
-at 20Hz.
+at 20Hz.\\[2\baselineskip]\emph{{Combine with M2 AOS test case?}}
 
 \textbf{ Preconditions}:\\
 
@@ -3413,7 +3415,14 @@ Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1794}{\te
 test case in Jira.
 
 To verify that the M2 temperature sensors work properly, and the M2
-temperatures are with specifications under operational conditions.
+temperatures are with specifications under operational
+conditions.\\[2\baselineskip]{The objective of this test case is to
+re-verify the Mirror Cell Temperature requirement specified in \citeds{LTS-146},
+after shipment from the vendor facility to the Summit facility. This
+test will need to be executed last because it requires the M2 mirror
+control system to have been on for at least a couple of days of
+testing.}\\[2\baselineskip]{Version \#1 - initial testing that Bo did}\\
+{Version \#2 - updated testing with operational conditions in mind}
 
 \textbf{ Preconditions}:\\
 M2 mirror control system have been on for multiple days of testing\\
@@ -3502,7 +3511,7 @@ Look-Up Table.\\[2\baselineskip]{\emph{Combine with M2 LUT test case} }
 \textbf{ Preconditions}:\\
 
 
-Execution status: {\bf Pass w/ Deviation }
+Execution status: {\bf Fail }
 
 Final comment:\\
 
@@ -3568,7 +3577,7 @@ zenith angle as displayed on the EUI
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Pass w/ Deviation } \\ \hline
+ & Status: \textbf{ Fail } \\ \hline
 
 \end{longtable}
 
@@ -3579,7 +3588,8 @@ test case in Jira.
 
 Verify that the M2 Vibration Monitoring System works properly, and the
 vibrations created by the M2 cell is of high enough frequency so that
-its impact on system image quality is within its allocation.
+its impact on system image quality is within its
+allocation.\\[2\baselineskip]\emph{{Combine with M2 AOS test?}}
 
 \textbf{ Preconditions}:\\
 test case\\
@@ -3747,10 +3757,12 @@ Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1789}{\te
 test case in Jira.
 
 This test is to verify that the mirror control system can operate
-robustly with active optics forces over extended period of time.\\
-{The objective of this test case is to verify the active optics
-requirements specified in \citeds{LTS-146} after the shipment from the vendor's
-facility to the Summit facility.~}
+robustly with active optics forces over extended period of
+time.\\[2\baselineskip]{The objective of this test case is to verify the
+active optics requirements specified in \citeds{LTS-146} after the shipment from
+the vendor's facility to the Summit facility.~}\\
+{\emph{Should the scope of this test cover control bandwidth and VMS
+test cases?}}
 
 \textbf{ Preconditions}:\\
 {Prior to the execution of this test case to re-verify the M2 control

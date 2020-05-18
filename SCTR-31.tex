@@ -625,15 +625,15 @@ limit switches that we know of from this test.\\
     &
     \\\hline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1794}{LVV-T1794}
-    & Initial Pass &
+    & Fail &
     \begin{minipage}[]{9cm}
     \smallskip
     
     \medskip
     \end{minipage}
     &
-          \href{https://jira.lsstcorp.org/browse/LVV-18875}{LVV-18875}
           \href{https://jira.lsstcorp.org/browse/LVV-18863}{LVV-18863}
+          \href{https://jira.lsstcorp.org/browse/LVV-18875}{LVV-18875}
     \\\hline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1797}{LVV-T1797}
     & Fail &
@@ -763,14 +763,13 @@ not require the M2 to be commanded via SAL. }
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1799}{\textit{ LVV-T1799 } }
 test case in Jira.
 
-Verify the E-stop works correctly.\\[2\baselineskip]{The purpose of this
-test case is to re-verify the M2 interlocks requirement, as defined in
-\citeds{LTS-146}, after shipment from the vendor's facility to the Summit
-facility. This test case will be executed with an E-stop in place of the
-interlock system. The results of this test should show that the M2
-support control system behaves as expected, sending the system into a
-FAULT state when the E-stop is pressed and cutting all power from the M2
-actuators.~}\\[2\baselineskip]
+{The purpose of this test case is to re-verify the M2 interlocks
+requirement, as defined in \citeds{LTS-146}, after shipment from the vendor's
+facility to the Summit facility. This test case will be executed with an
+E-stop in place of the interlock system. The results of this test should
+show that the M2 support control system behaves as expected, sending the
+system into a FAULT state when the E-stop is pressed and cutting all
+power from the M2 actuators.~}
 
 \textbf{ Preconditions}:\\
 {Prior to the execution of this test case to re-verify the M2 E-stop
@@ -802,9 +801,7 @@ Detailed steps results:
 1 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-power up M2 control system.\\
-enter closed loop mode.\\
-press e-stop
+Power up the M2 control system and enter closed loop mode.
 
 \medskip }
 \end{minipage}
@@ -813,6 +810,7 @@ press e-stop
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+The M2 control system enters closed loop mode.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -832,7 +830,7 @@ GUI shows ``alarm active'' in red
 2 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-verify that M2 transition into fault state
+Press E-stop
 
 \medskip }
 \end{minipage}
@@ -841,14 +839,15 @@ verify that M2 transition into fault state
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+The M2 transitions into fault state.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-no fault state has been implemented in the software. To be fixed after
-this round of initial testing.
+No Fault State has been implemented in the software. Te-wei will fix
+this after initial round of testing.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -925,8 +924,7 @@ EFD will be checked through the use of a python notebook to be
 consistent with the information being displayed on the EUI and on the
 output binary file. After the telemetry is seen to be consistent, we
 will verify the telemetry topics listed in the test steps have all been
-accurately published.}\\[3\baselineskip]{\emph{Is this limit switch
-status something that was verified?}\\
+accurately published.}\\[2\baselineskip]{\\
 }
 
 \textbf{ Preconditions}:\\
@@ -1138,7 +1136,7 @@ XML.
 4 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-{MirrorPositionMeasured}
+Check the MirrorPositionMeasured topic published to the EFD.
 
 \medskip }
 \end{minipage}
@@ -1147,6 +1145,8 @@ XML.
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+The data is consistent to what is on the EUI display and output binary
+file.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -1162,7 +1162,7 @@ XML.
 5 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-{AxialForcesMeasured}
+Check the AxialForceData topic published to the EFD.
 
 \medskip }
 \end{minipage}
@@ -1171,6 +1171,8 @@ XML.
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+The data is consistent to what is on the EUI display and output binary
+file.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -1186,7 +1188,7 @@ XML.
 6 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-{TangentForcesMeasured}
+Check the TangentForceData topic published to the EFD.
 
 \medskip }
 \end{minipage}
@@ -1195,6 +1197,8 @@ XML.
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+The data is consistent to what is on the EUI display and output binary
+file.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -1210,7 +1214,7 @@ XML.
 7 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-{TemperaturesMeasured}
+Check the BalanceForceData topic published to the EFD.
 
 \medskip }
 \end{minipage}
@@ -1219,6 +1223,8 @@ XML.
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+The data is consistent to what is on the EUI display and output binary
+file.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -1234,7 +1240,7 @@ XML.
 8 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-{ZenithAngleMeasured}
+Check the NetForcesTotal topic published to the EFD.
 
 \medskip }
 \end{minipage}
@@ -1243,7 +1249,8 @@ XML.
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-The units are always degrees
+The data is consistent to what is on the EUI display and output binary
+file.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -1259,7 +1266,7 @@ The units are always degrees
 9 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-{AxialActuatorAbsolutePositionSteps}
+Check the NetMomentsTotal topic published to the EFD.
 
 \medskip }
 \end{minipage}
@@ -1268,6 +1275,8 @@ The units are always degrees
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+The data is consistent to what is on the EUI display and output binary
+file.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -1283,7 +1292,7 @@ The units are always degrees
 10 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-{TangentActuatorAbsolutePositionSteps}
+Check the TemperaturesMeasured topic published to the EFD.
 
 \medskip }
 \end{minipage}
@@ -1292,6 +1301,8 @@ The units are always degrees
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+The data is consistent to what is on the EUI display and output binary
+file.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -1307,7 +1318,7 @@ The units are always degrees
 11 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-{AxialActuatorPositionAbsoluteEncoderPositionMeasured}
+Check the ZenithAngleData topic published to the EFD.
 
 \medskip }
 \end{minipage}
@@ -1316,6 +1327,8 @@ The units are always degrees
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+The data is consistent to what is on the EUI display and output binary
+file and the units are degrees.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -1331,7 +1344,7 @@ The units are always degrees
 12 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-{TangentActuatorPositionAbsoluteEncoderPositionMeasured }
+Check the AxialActuatotrSteps topic published to the EFD.
 
 \medskip }
 \end{minipage}
@@ -1340,6 +1353,8 @@ The units are always degrees
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+The data is consistent to what is on the EUI display and output binary
+file.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -1353,6 +1368,136 @@ The units are always degrees
  & Status: \textbf{ Not Executed } \\ \hline
 
 13 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Check the TangentEncoderPositions topic published to the EFD.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+The data is consistent to what is on the EUI display and output binary
+file.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+14 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Check the ILCData topic published to the EFD.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+The data is consistent to what is on the EUI display and output binary
+file.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+15 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Check the PowerStatus topic published to the EFD.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+The data is consistent to what is on the EUI display and output binary
+file.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+16 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Check the DisplacementSensors topic published to the EFD.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+The data is consistent to what is on the EUI display and output binary
+file.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+17 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Check the MirrorPositionMeasuredIMS topic published to the EFD.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+The data is consistent to what is on the EUI display and output binary
+file.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+18 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
 {Check that the GUI has been updated to match the categorization of the
@@ -1599,9 +1744,6 @@ And verify that the inner control loop applies motor steps as commanded.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1826}{\textit{ LVV-T1826 } }
 test case in Jira.
 
-verify that the outer control loop determines the command forces for all
-the axial actuators of the M2 mirror support system and convert them
-into motor steps in order to command the inner loop controllers.\\
 The objective of this test case is to re-verify both the inner and outer
 control loop requirements as defined in \citeds{LTS-146} after shipment from the
 vendor's facility to the Summit facility. The test steps are meant to
@@ -1799,20 +1941,20 @@ requirement as specified in \citeds{LTS-146}, after shipment from the vendor's
 facility to the Summit facility. This test case will be executed before
 the M2 reference position and position sensor offset test case because
 we will need to first verify that the 12 sensors work according to the
-hardpoint encoders}\\[2\baselineskip]\textbf{{Incorporate item\#12 from
-the wishlist. We need to execute this test case before the M2 reference
-position and position sensor offset test case. This test case first
-verifies that the software for the sensors work correctly.}}\\
-\textbf{{Version \#1 - verify position sensors work properly according
-to the hardpoint encoders. Take the data to verify the code we came up
-with to check that the M2 position works properly.}}\\
+hardpoint encoders.~}\\[2\baselineskip]\textbf{{Version \#1 - verify
+position sensors work properly according to the hardpoint encoders. Take
+the data to verify the code we came up with to check that the M2
+position works properly.~}}\\
 \textbf{{Version \#2 - After we have code implemented in the software,
 verify it actually works and displays on the GUI as expected with both
-sets of positions consistent.}}
+sets of positions consistent. (\emph{Once we feel like version 1 is
+done, I will create the second version and update it with this
+information)}}}
 
 \textbf{ Preconditions}:\\
 at least one of the many M2 re-verification test cases have been carried
-out successfully with telemetry data in the EFD
+out successfully with telemetry data in the EFD -~\emph{Should we
+specify the telemetry test case case?}
 
 Execution status: {\bf Not Executed }
 
@@ -1886,29 +2028,6 @@ Note: Laser trackers does not have accuracy to validate position sensors
 
  & Status: \textbf{ Not Executed } \\ \hline
 
-3 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Not Executed } \\ \hline
-
 \end{longtable}
 
 \paragraph{Test Case LVV-T1810 - calibrate M2 optimal position and position sensor offset }\mbox{}\\
@@ -1926,18 +2045,13 @@ from the displacement sensors should be provided for
 verification.\\[2\baselineskip]{The objective of this test case is to
 partially re-verify the force measurement accuracy and repeatability
 requirements defined in \citeds{LTS-146}, after shipment from the vendor's
-facility to the Summit facility. This test case will test the
-following:}
-
-\begin{enumerate}
-\tightlist
-\item
-  {The ability to optimize the mirror position relative to the cell and
-  redefine the optimal position as mirror reference position}
-\item
-  {Reset the offsets of the (independent) position sensors so that they
-  show zeros at th emirror reference position.~}
-\end{enumerate}
+facility to the Summit facility. This test case will involve optimizing
+the mirror position relative to the cell and redefine the optimal
+position as a mirror reference position. Once the optimal position has
+been determined, the offsets of the independent position sensor will
+need to be reset so that they show zero when at this reference position.
+The position from the displacement sensors will be provided to show
+partial verification of the accuracy and repeatability requirements.}
 
 \textbf{ Preconditions}:\\
 
@@ -2614,23 +2728,13 @@ correctly.\\
 This test case also verifies the proper operation of the M2
 cart.\\[2\baselineskip]{The objective of this test case it to re-verify
 the requirements specified in \citeds{LTS-146} regarding the forces of the M2
-support system. This test case will test that the M2 support system
-correctly operates through the M2 cart's entire range of motion. Once
-the M2 cart has been rotated over its full range, the data will be
-analyzed to confirm the following:}
-
-\begin{enumerate}
-\tightlist
-\item
-  {The LUT forces are updated at 20Hz}
-\item
-  {The telemetry data of the M2 inclinometer is consistent to the data
-  from the M2 cart control and zenith angles displayed on the EUI}
-\item
-  {The sum of the forces are less than 1600kg}
-\end{enumerate}
-
-{Version 1 - No elevation}\\
+support system. This test case will first test that the actuators are
+applying the correct forces according to the Look-Up Table through the
+M2 cart's entire range of motion. This test case should show that the
+LUT forces are being updated at 20Hz and safely support the mirror. In
+addition, the M2 inclinometer data should show consistency to that of
+the M2 cart control and zenith angles displayed on the
+GUI.~}\\[2\baselineskip]{Version 1 - No elevation}\\
 {Version 2 - Elevated}
 
 \textbf{ Preconditions}:\\
@@ -2733,6 +2837,36 @@ compare the LUT forces to our expectations based on the LUT csv files.
 \end{minipage} \\ \cdashline{2-2}
 
  & Status: \textbf{ Pass } \\ \hline
+
+4 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+{(From the inclinometer test case)}\\
+{data analysis:\\
+from the above telemetry data, and also any other telemetry data
+collected during the testing, compare the M2 inclinometer reading with
+those from the following sources:\\
+M2 cart control\\
+zenith angle as displayed on the EUI}
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
 
 \end{longtable}
 
@@ -3165,7 +3299,12 @@ Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1792}{\te
 test case in Jira.
 
 To verify that the M2 force balance system works as
-designed\\[2\baselineskip]\emph{{Combine with predecessor test case}}
+designed\\[2\baselineskip]{The objective of this test case is to verify
+the force balancing requirements of the actuators specified in \citeds{LTS-142},
+after shipment from the vendor's facility to the base facility. This
+test case will be using the inner loop control during open loop mode as
+well as the outer and inner control loops in closed loop
+mode.~}\\[2\baselineskip]
 
 \textbf{ Preconditions}:\\
 
@@ -3354,7 +3493,16 @@ test case in Jira.
 Verify that the actuators can output forces that satisfies the force
 range requirements (444N for axial and 6000N for tangents), but still
 within the specified force limits (666N for axial and 9000N for
-tangents).
+tangents).\\[2\baselineskip]{The objective of this test case is to
+re-verify the force limits of the M2 actuators as specified in \citeds{LTS-146},
+after shipment from the vendor's facility to the Summit facility. This
+will be done by testing the force limits of one axial actuator and one
+tangent actuator. The axial actuator will be shown to be able to output
+at least 444N of force and trigger an alarm before reaching 666N.
+Similarly, the tangent actuator will be shown to be able to output at
+least 6000 N of force and trigger an alarm before reaching 9000N. The
+telemetry will be monitored to ensure that the force requirements are
+met without going past the force limits.}
 
 \textbf{ Preconditions}:\\
 
@@ -3493,12 +3641,17 @@ Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1786}{\te
 test case in Jira.
 
 To verify that the actuators meet the stroke requirements, and the limit
-switches are in place and work properly.\\[3\baselineskip]{The objective
-of this test case is to re-verify the stroke requirement defined in
-\citeds{LTS-146}, after shipment from the vendor's facility to the Summit
-facility. In addition to verifying the stroke requirement, this test be
-used to determine the location of the software limit and confirm that
-the limit will be displayed on the GUI.}
+switches are in place and work properly.\\[2\baselineskip]{The objective
+of this test case is to re-verify the tangent link stroke requirement
+defined in \citeds{LTS-146}, after shipment from the vendor's facility to the
+Summit facility. In addition to verifying the stroke requirement, this
+test will be used to determine the location of the software limit
+without commanding the actuators to the hard
+stops.}\\[2\baselineskip]{\textbf{Note: I noticed that only the tangent
+link stroke has a re-verification element traced to this. When we went
+through the requirements we would be re-verifying, we only specified the
+tangent link stroke requirement saying that we would follow the Harris
+test report. Should we create a VE for this?}}
 
 \textbf{ Preconditions}:\\
 
@@ -3645,7 +3798,9 @@ test case in Jira.
 
 To verify that the M2 control system operates at a bandwidth of at least
 20Hz, and the telemetry is published to the SAL and written to the EFD
-at 20Hz.\\[2\baselineskip]\emph{{Combine with M2 AOS test case?}}
+at 20Hz.\\[3\baselineskip]{(Delete and combine with AOS duration) Since
+the AOS duration is a predecessor and later test case, I think we should
+just combine them.}
 
 \textbf{ Preconditions}:\\
 
@@ -3725,10 +3880,16 @@ To verify that the M2 temperature sensors work properly, and the M2
 temperatures are with specifications under operational
 conditions.\\[2\baselineskip]{The objective of this test case is to
 re-verify the Mirror Cell Temperature requirement specified in \citeds{LTS-146},
-after shipment from the vendor facility to the Summit facility. This
-test will need to be executed last because it requires the M2 mirror
-control system to have been on for at least a couple of days of
-testing.}\\[2\baselineskip]{Version \#1 - initial testing that Bo did}\\
+after shipment from the vendor facility to the Summit facility. To
+verify that the mirror cell temperature meets its requirement during
+operation, this test will be executed once at the beginning of the day
+before any use and once at the end of a day of use. Instead of using all
+sixteen temperature sensors, the average difference between the exhaust
+temperature and intake temperature will be determined by using only four
+sensors (2 exhaust temperature sensors and 2 intake temperature
+sensors). This average will show that the cell temperature requirement
+has been met.}\\[2\baselineskip]{Version \#1 - initial testing that Bo
+did}\\
 {Version \#2 - updated testing with operational conditions in mind}
 
 \textbf{ Preconditions}:\\
@@ -3736,7 +3897,7 @@ M2 mirror control system have been on for multiple days of testing\\
 This is so that we have enough thermal data to analyze the thermal state
 of M2.
 
-Execution status: {\bf Initial Pass }
+Execution status: {\bf Fail }
 
 Final comment:\\
 
@@ -3749,24 +3910,13 @@ Detailed steps results:
 1 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-data analysis:\\
-read out 12 glass temp sensors, to determine x/y/r gradients\\
-read out 4 air temp sensors. Compare 2 intake (lower temp) and 2 outlet
-(higher temp). Do this using data from the end of a testing day, and
-data at the beginning of a few testing days, to see if the difference
-makes sense.\\[2\baselineskip]Note: This is partial verification only -
-Ambient in requirement is meant for operation conditions anyway.
+at the end of a testing day -\\
+read out from temp sensor: exhaust\#1
 
 \medskip }
 \end{minipage}
 \\ \cdashline{2-2}
 
- & Test Data \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\textbf{Split out into individual steps}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
@@ -3776,24 +3926,191 @@ Ambient in requirement is meant for operation conditions anyway.
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-https://github.com/bxin/M2\_summit\_2003/blob/master/a12\_temperature.ipynb\\
-initial pass. Because the requirement refers to ambient temp in
-operational conditions.
+https://github.com/bxin/M2\_summit\_2003/blob/master/a12\_temperature.ipynb
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
  & Issues found executing this step:  \\
  & \begin{minipage}[t]{13cm}{\footnotesize
-\href{https://jira.lsstcorp.org/browse/LVV-18875}{LVV-18875}~~Clarify the physical locations of M2 temperature sensors
-
 \href{https://jira.lsstcorp.org/browse/LVV-18863}{LVV-18863}~~Define M2 hiTemperatureWarning thresholds
+
+\href{https://jira.lsstcorp.org/browse/LVV-18875}{LVV-18875}~~Clarify the physical locations of M2 temperature sensors
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
- & Status: \textbf{ Initial Pass } \\ \hline
+ & Status: \textbf{ Not Executed } \\ \hline
 
 2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+read out from temp sensor: intake\#1
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+3 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+take the difference between exhaust\#1 and intake\#1, get difference1
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+4 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+read out from temp sensor: exhaust\#2
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+5 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+read out from temp sensor: intake\#2
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+6 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+take the difference between exhaust\#2 and intake\#2, get difference2
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+7 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+take the average of difference1 and difference2, compare to the
+requirement.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+8 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+Repeat the above at the beginning of a few testing days.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
+9 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
 Heat from tangent links: need thermal camera image\\
@@ -3915,8 +4232,14 @@ test case in Jira.
 
 Verify that the M2 Vibration Monitoring System works properly, and the
 vibrations created by the M2 cell is of high enough frequency so that
-its impact on system image quality is within its
-allocation.\\[2\baselineskip]\emph{{Combine with M2 AOS test?}}
+its impact on system image quality is within its allocation.\\
+{\\
+The objective of this test case is re-verify the minimum vibration
+frequency requirement specified in \citeds{LTS-146}, after shipment from the
+vendor's facility to the Summit facility.}\\[2\baselineskip]{\textbf{I
+think we should leave this as a separate test case since we need to
+verify when the baffle is installed but should this be part of this test
+cycle still?}}
 
 \textbf{ Preconditions}:\\
 test case\\
@@ -4002,8 +4325,14 @@ Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1795}{\te
 test case in Jira.
 
 To verify that the M2 mirror itself together with the bonded attachment
-pads weigh less than 1600 kg\\[3\baselineskip]{\emph{Combine with M2 LUT
-test case}}
+pads weigh less than 1600 kg\\[3\baselineskip]{The objective of this
+test case is to partially re-verify the mirror definition requirement
+specified in \citeds{LTS-146}, after shipment from the vendor's facility to the
+Summit facility. This test will only involve the use of the surrogate
+mirror. The purpose of this test case is to verify the ability of the M2
+cell assembly to support an object of similar shape and weight. After
+this functionality is confirmed, the requirement will be fully verified
+through a test involving the real mirror.~}
 
 \textbf{ Preconditions}:\\
 
@@ -4076,6 +4405,33 @@ It is shown that the mirror weight is about 15578N, which is
 
  & Status: \textbf{ Pass } \\ \hline
 
+3 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+The above can be done with the surrogate mirror first.\\
+When the real M2 glass mirror is attached to the cell, repeat the data
+analysis. The full LUT test doesn't have to be repeated. Any test data
+with the real glass mirror will suffice.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
+
 \end{longtable}
 
 \paragraph{Test Case LVV-T1789 - M2 Active Optics duration test }\mbox{}\\
@@ -4087,9 +4443,13 @@ This test is to verify that the mirror control system can operate
 robustly with active optics forces over extended period of
 time.\\[2\baselineskip]{The objective of this test case is to verify the
 active optics requirements specified in \citeds{LTS-146} after the shipment from
-the vendor's facility to the Summit facility.~}\\
-{\emph{Should the scope of this test cover control bandwidth and VMS
-test cases?}}
+the vendor's facility to the Summit facility. This includes testing the
+M2 control system operates at a bandwidth of at least 20Hz.~}\\
+{The test will incorporate testing of the additional offset forces
+applied to the mirror support control system during visits of 37s. The
+steps of this test will also determine how long the maximum length of a
+single csv file can be run.~}\\[3\baselineskip]{\emph{Should the scope
+of this test cover control bandwidth and VMS test cases?}}
 
 \textbf{ Preconditions}:\\
 {Prior to the execution of this test case to re-verify the M2 control
@@ -4162,7 +4522,7 @@ to do 60 minutes directly.\\
 error - a dialogue box. Be careful, you need to choose ``continue'' or
 â\euro{}œstop``. I chose ''stop``, a Labview programming window popped
 up, I closed it. After that I was able to load any script files. I had
-to quite the GUI. Tried again, choose ''continue" would be OK.)\\
+to quit the GUI. Tried again, choose ''continue" would be OK.)\\
 14:30 utc, start 62 minute test.\\
 15:32 utc, restart the next 62 minutes immediately after the 1st one.\\
 16:35 utc, restart the next 62 minutes \textasciitilde{}1 minute after
@@ -4290,6 +4650,33 @@ do this for axial actuators and tangent links
 \end{minipage} \\ \cdashline{2-2}
 
  & Status: \textbf{ Pass } \\ \hline
+
+6 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+{(From control bandwidth test)}\\
+{data analysis:\\
+examine telemetry data from the above tests, and make sure\\
+telemetry updates are 20Hz}
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
 
 \end{longtable}
 

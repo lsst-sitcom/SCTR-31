@@ -429,47 +429,34 @@ M2 Operator }
   {\bf \footnotesize test case} & {\bf \footnotesize status} & {\bf \footnotesize comment} & {\bf \footnotesize issues} \\\toprule
 
     \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1799}{LVV-T1799}
-    & Fail &
+    & Blocked &
     \begin{minipage}[]{9cm}
     \smallskip
-    
+    E-stop did cause loss of power. Test failed because the FAULT state was
+not implemented in software.
     \medskip
     \end{minipage}
     &
           \href{https://jira.lsstcorp.org/browse/DM-23790}{DM-23790}
     \\\hline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1798}{LVV-T1798}
-    & Pass &
+    & Blocked &
     \begin{minipage}[]{9cm}
     \smallskip
-    need to understand why forces do not change between open and close loop.
-Why do we still have F\_HC in open loop? Sandrine read the Harris doc
-T14900-1001. Bottom of page 8 - top of page 9, the close loop seem to
-mean the force loop is closed when the inclination angle and temperature
-changes.\\
-temperature data in EFD: there are 72 fields, but only 16 sensors. Need
-to change XML and sal\_interface document. Done on 3/26/20.\\
-Cell temperatures (4 of them) seem to be \textasciitilde{}2C higher than
-mirror T (12 of them). Is that what we would expect? see a12*ipynb.\\
-zenith angle inconsistency, see detail below. Resolved. See a02*ipynb.\\
-all M2 telemetry and events use UTC, not TAI. This is a known bug that
-needs to be fixed.\\
-we need a log event for transitioning from open loop to closed loop,
-which we don't have yet. To do. (Te-Wei said Chris had a M2 to-do list,
-this is one of the items. He will find the confluence page.)
-Incorporated in updated XML 3/26/20.\\
-need position sensors info in the EFD. Doug has a wish list on M2
-desired features as well. Te-Wei will circulate. Incorporated in updated
-XML 3/26/20.
+    Most of the existing telemetry topics passed the test, with one
+exception, see LVV-18880. There are quite a few more telemetry topics
+that will need to be added prior to the formal testing.
     \medskip
     \end{minipage}
     &
+          \href{https://jira.lsstcorp.org/browse/LVV-18880}{LVV-18880}
+          \href{https://jira.lsstcorp.org/browse/LVV-18879}{LVV-18879}
     \\\hline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1827}{LVV-T1827}
     & Pass &
     \begin{minipage}[]{9cm}
     \smallskip
-    
+    Inner control loop appears to be working as expected.
     \medskip
     \end{minipage}
     &
@@ -478,7 +465,7 @@ XML 3/26/20.
     & Pass &
     \begin{minipage}[]{9cm}
     \smallskip
-    
+    Both the inner and outer control loops appear to be working properly.
     \medskip
     \end{minipage}
     &
@@ -487,7 +474,8 @@ XML 3/26/20.
     & Not Executed &
     \begin{minipage}[]{9cm}
     \smallskip
-    
+    Not executed because IMS data was only given in the form of 12
+displacement sensor readings.~
     \medskip
     \end{minipage}
     &
@@ -497,7 +485,8 @@ XML 3/26/20.
     & Fail &
     \begin{minipage}[]{9cm}
     \smallskip
-    
+    Test failed because the M2 software did not support re-configuration of
+the optimal mirror position.
     \medskip
     \end{minipage}
     &
@@ -508,17 +497,9 @@ XML 3/26/20.
     & Pass &
     \begin{minipage}[]{9cm}
     \smallskip
-    Bo need to check FEA model and clarify coordinate system used for the
-bending modes. Done. See step 2 below for details.\\
-Te-Wei notes that the coordinate system used by M2 control system
-is~\href{https://github.com/lsst-ts/ts_mtm2/blob/master/doc/project/CellConfiguration.xlsx}{CellConfiguration.xlsx}\\
-Note that the intention was to put on some bending modes, then test
-whether the forces hold after we de-energize certain actuators. However,
-that ignores the fact that after each actuator de-energization we have
-to restart the control system, then the forces are reset to the LUT
-forces. This didn't have any real effect on the test itself, because
-bending mode \#1 required 0.15N on actuator B6, which is in the noise.
-(see a14*ipynb for detail).
+    After disconnecting power to each actuator {[}B6, C4, D4, A1, A2{]}, we
+confirmed that the forces and displacements were
+maintained.\\[2\baselineskip]
     \medskip
     \end{minipage}
     &
@@ -527,7 +508,7 @@ bending mode \#1 required 0.15N on actuator B6, which is in the noise.
     & Pass &
     \begin{minipage}[]{9cm}
     \smallskip
-    
+    Bump test succeeded without problem.
     \medskip
     \end{minipage}
     &
@@ -536,7 +517,8 @@ bending mode \#1 required 0.15N on actuator B6, which is in the noise.
     & Pass &
     \begin{minipage}[]{9cm}
     \smallskip
-    
+    Applied each of the first 20 bending modes in turn. Force accuracy and
+repeatability meet requirements.
     \medskip
     \end{minipage}
     &
@@ -545,25 +527,18 @@ bending mode \#1 required 0.15N on actuator B6, which is in the noise.
     & Pass &
     \begin{minipage}[]{9cm}
     \smallskip
-    
+    We rotated the M2 cart from 0 to 180 degrees, and verified that the M2
+control software applies LUT forces as expected.
     \medskip
     \end{minipage}
     &
     \\\hline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1782}{LVV-T1782}
-    & Pass w/ Deviation &
+    & Not Executed &
     \begin{minipage}[]{9cm}
     \smallskip
-    \citeds{LTS-146} 3.2.4/3.2.5, +/-7.74mm radially and 7.89mm along z. Tolerance is
-0.5mm\\
-These are the safety stops.\\[2\baselineskip]We would run into actuator
-motion limit switches long before we hit these safety stops.\\
-\#\#\# Here is a summary of the mirror positions that would trigger the
-limit switches that we know of from this test.\\
-* x = +0.87mm and -0.83mm\\
-* y = 1.07mm and -0.72mm\\
-* z = + 3.17mm and -3.75mm\\
-* Rz = +351 urad
+    Positions of safety stops were not measured due to lack of hardware
+support. Motion limits measured were due to actuator (software) limits.
     \medskip
     \end{minipage}
     &
@@ -573,7 +548,8 @@ limit switches that we know of from this test.\\
     & Pass &
     \begin{minipage}[]{9cm}
     \smallskip
-    
+    Re-positioninig the M2 mirror is shown to be repeatable and the mirror
+can stay in position with good stability.
     \medskip
     \end{minipage}
     &
@@ -582,7 +558,7 @@ limit switches that we know of from this test.\\
     & Pass &
     \begin{minipage}[]{9cm}
     \smallskip
-    
+    The M2 force balance system appear to work as designed.
     \medskip
     \end{minipage}
     &
@@ -591,7 +567,9 @@ limit switches that we know of from this test.\\
     & In Progress &
     \begin{minipage}[]{9cm}
     \smallskip
-    
+    We have tested the stiffness of the actuators while they are integrated
+with the M2 cell assembly. Standalone (spare) actuators will be needed
+to actually reverify this stiffness requirement.
     \medskip
     \end{minipage}
     &
@@ -600,7 +578,8 @@ limit switches that we know of from this test.\\
     & In Progress &
     \begin{minipage}[]{9cm}
     \smallskip
-    
+    Verified that B1 actuator force limit is between 444N and 666N. Did not
+have time to test tangent links.
     \medskip
     \end{minipage}
     &
@@ -788,9 +767,10 @@ functionality, the following Summit tasks must be completed:}
   \end{itemize}
 \end{itemize}
 
-Execution status: {\bf Fail }
+Execution status: {\bf Blocked }
 
-Final comment:\\
+Final comment:\\E-stop did cause loss of power. Test failed because the FAULT state was
+not implemented in software.
 
 
 Detailed steps results:
@@ -953,27 +933,11 @@ telemetry and events, the following Summit tasks must be completed:}
   \end{itemize}
 \end{itemize}
 
-Execution status: {\bf Pass }
+Execution status: {\bf Blocked }
 
-Final comment:\\need to understand why forces do not change between open and close loop.
-Why do we still have F\_HC in open loop? Sandrine read the Harris doc
-T14900-1001. Bottom of page 8 - top of page 9, the close loop seem to
-mean the force loop is closed when the inclination angle and temperature
-changes.\\
-temperature data in EFD: there are 72 fields, but only 16 sensors. Need
-to change XML and sal\_interface document. Done on 3/26/20.\\
-Cell temperatures (4 of them) seem to be \textasciitilde{}2C higher than
-mirror T (12 of them). Is that what we would expect? see a12*ipynb.\\
-zenith angle inconsistency, see detail below. Resolved. See a02*ipynb.\\
-all M2 telemetry and events use UTC, not TAI. This is a known bug that
-needs to be fixed.\\
-we need a log event for transitioning from open loop to closed loop,
-which we don't have yet. To do. (Te-Wei said Chris had a M2 to-do list,
-this is one of the items. He will find the confluence page.)
-Incorporated in updated XML 3/26/20.\\
-need position sensors info in the EFD. Doug has a wish list on M2
-desired features as well. Te-Wei will circulate. Incorporated in updated
-XML 3/26/20.
+Final comment:\\Most of the existing telemetry topics passed the test, with one
+exception, see LVV-18880. There are quite a few more telemetry topics
+that will need to be added prior to the formal testing.
 
 
 Detailed steps results:
@@ -1131,6 +1095,12 @@ XML.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
+ & Issues found executing this step:  \\
+ & \begin{minipage}[t]{13cm}{\footnotesize
+\href{https://jira.lsstcorp.org/browse/LVV-18880}{LVV-18880}~~Investigate M2 telemetry potential corrupt parameter values
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
  & Status: \textbf{ Pass } \\ \hline
 
 4 & Description \\
@@ -1183,6 +1153,12 @@ file.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
+ & Issues found executing this step:  \\
+ & \begin{minipage}[t]{13cm}{\footnotesize
+\href{https://jira.lsstcorp.org/browse/LVV-18879}{LVV-18879}~~Fix M2 EUI graphical force distribution
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
  & Status: \textbf{ Not Executed } \\ \hline
 
 6 & Description \\
@@ -1545,7 +1521,7 @@ applies motor steps as commanded in open loop mode.~\\
 
 Execution status: {\bf Pass }
 
-Final comment:\\
+Final comment:\\Inner control loop appears to be working as expected.
 
 
 Detailed steps results:
@@ -1760,7 +1736,7 @@ compensates those by applying pre-determined force distributions.
 
 Execution status: {\bf Pass }
 
-Final comment:\\
+Final comment:\\Both the inner and outer control loops appear to be working properly.
 
 
 Detailed steps results:
@@ -1958,7 +1934,8 @@ specify the telemetry test case case?}
 
 Execution status: {\bf Not Executed }
 
-Final comment:\\
+Final comment:\\Not executed because IMS data was only given in the form of 12
+displacement sensor readings.~
 
 
 Detailed steps results:
@@ -2058,7 +2035,8 @@ partial verification of the accuracy and repeatability requirements.}
 
 Execution status: {\bf Fail }
 
-Final comment:\\
+Final comment:\\Test failed because the M2 software did not support re-configuration of
+the optimal mirror position.
 
 
 Detailed steps results:
@@ -2266,17 +2244,9 @@ to maintain their set positions and forces.}
 
 Execution status: {\bf Pass }
 
-Final comment:\\Bo need to check FEA model and clarify coordinate system used for the
-bending modes. Done. See step 2 below for details.\\
-Te-Wei notes that the coordinate system used by M2 control system
-is~\href{https://github.com/lsst-ts/ts_mtm2/blob/master/doc/project/CellConfiguration.xlsx}{CellConfiguration.xlsx}\\
-Note that the intention was to put on some bending modes, then test
-whether the forces hold after we de-energize certain actuators. However,
-that ignores the fact that after each actuator de-energization we have
-to restart the control system, then the forces are reset to the LUT
-forces. This didn't have any real effect on the test itself, because
-bending mode \#1 required 0.15N on actuator B6, which is in the noise.
-(see a14*ipynb for detail).
+Final comment:\\After disconnecting power to each actuator {[}B6, C4, D4, A1, A2{]}, we
+confirmed that the forces and displacements were
+maintained.\\[2\baselineskip]
 
 
 Detailed steps results:
@@ -2329,12 +2299,9 @@ back in; restart the control system and reset the errors as needed.
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-The original test script had a step before this one (which Was later
-deleted) see the comments at the top for the reason.\\
-put on 500nm of bending mode 1, make sure the forces have been applied.
-Note the readings of the position sensors\\[2\baselineskip]The test
-record said:\\
-added 500nm bm1 at 22:45pm utc on 3/3/20.\\
+We intended to put on 500nm of bending mode 1, then do the
+de-energization test.\\[2\baselineskip]added 500nm bm1 at 22:45pm utc on
+3/3/20.\\
 Confirmed force changes with Chronograf.\\
 We checked force changed for B15, B30, B8, B23 in particular, however,
 looking at the bending mode surface shapes, Bo expects B15 and B30 to be
@@ -2346,9 +2313,17 @@ always put B1 and B30 at the top, but that is -X direction. They have +Y
 point left and +X point down. So if we map my bending modes to that
 actuator map (where B1 is at the top). -Y becomes +X, and -X becomes +Y.
 B15 and B30 correspond to the blue area on bm1. They should get
-smaller.\\[2\baselineskip]3/5/20.\\
+smaller.\\[2\baselineskip]Note that the intention was to put on some
+bending modes, then test whether the forces hold after we de-energize
+certain actuators. However, that ignores the fact that after each
+actuator de-energization we have to restart the control system, then the
+forces are reset to the LUT forces. This didn't have any real effect on
+the test itself, because bending mode \#1 required 0.15N on actuator B6,
+which is in the noise. (see
+\href{https://github.com/lsst-sitcom/M2_summit_2003/blob/master/a14_back_drive.ipynb}{a14\_back\_drive.ipynb}
+for detail).\\[2\baselineskip]3/5/20.\\
 2:58pm local, we are back to do de-energization. reapplied bm1,
-500nm.\\[2\baselineskip]Now for the de-energization of B6 ----~\\
+500nm.\\[2\baselineskip]Now for the de-energization of B6 ----\\
 B6:\\
 18:12 utc, unplug\\
 6083 encoder out of range\\
@@ -2427,7 +2402,7 @@ closed loop mode and should be executed first.}
 
 Execution status: {\bf Pass }
 
-Final comment:\\
+Final comment:\\Bump test succeeded without problem.
 
 
 Detailed steps results:
@@ -2599,7 +2574,8 @@ forces meet the accuracy~}
 
 Execution status: {\bf Pass }
 
-Final comment:\\
+Final comment:\\Applied each of the first 20 bending modes in turn. Force accuracy and
+repeatability meet requirements.
 
 
 Detailed steps results:
@@ -2742,7 +2718,8 @@ GUI.~}\\[2\baselineskip]{Version 1 - No elevation}\\
 
 Execution status: {\bf Pass }
 
-Final comment:\\
+Final comment:\\We rotated the M2 cart from 0 to 180 degrees, and verified that the M2
+control software applies LUT forces as expected.
 
 
 Detailed steps results:
@@ -2888,18 +2865,10 @@ mirror from contacting the safety stops.}
 \textbf{ Preconditions}:\\
 
 
-Execution status: {\bf Pass w/ Deviation }
+Execution status: {\bf Not Executed }
 
-Final comment:\\\citeds{LTS-146} 3.2.4/3.2.5, +/-7.74mm radially and 7.89mm along z. Tolerance is
-0.5mm\\
-These are the safety stops.\\[2\baselineskip]We would run into actuator
-motion limit switches long before we hit these safety stops.\\
-\#\#\# Here is a summary of the mirror positions that would trigger the
-limit switches that we know of from this test.\\
-* x = +0.87mm and -0.83mm\\
-* y = 1.07mm and -0.72mm\\
-* z = + 3.17mm and -3.75mm\\
-* Rz = +351 urad
+Final comment:\\Positions of safety stops were not measured due to lack of hardware
+support. Motion limits measured were due to actuator (software) limits.
 
 
 Detailed steps results:
@@ -3023,7 +2992,16 @@ y=+1.06756mm. 9:20pm, we ready to recover +y.\\
 9:23pm, go to y=-1.5mm. It stopped at y=-0.71914mm\\
 9:36pm, go to z=4mm. It stopped at z=+3.16949mm.\\
 9:49pm, go to z=-4mm. It stopped at
-z=-3.75299mm.\\[2\baselineskip]\href{https://github.com/bxin/M2_summit_2003/blob/master/a18_motion_limit.ipynb}{a18\_motion\_limit.ipynb}
+z=-3.75299mm.\\[2\baselineskip]\href{https://github.com/bxin/M2_summit_2003/blob/master/a18_motion_limit.ipynb}{a18\_motion\_limit.ipynb}\\[2\baselineskip]LTS-146
+3.2.4/3.2.5, +/-7.74mm radially and 7.89mm along z. Tolerance is 0.5mm\\
+These are the safety stops.\\[2\baselineskip]We would run into actuator
+motion limit switches long before we hit these safety
+stops.\\[2\baselineskip]\#\#\# Here is a summary of the mirror positions
+that would trigger the limit switches that we know of from this test.\\
+* x = +0.87mm and -0.83mm\\
+* y = 1.07mm and -0.72mm\\
+* z = + 3.17mm and -3.75mm\\
+* Rz = +351 urad
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -3050,7 +3028,8 @@ requirements have been met.}
 
 Execution status: {\bf Pass }
 
-Final comment:\\
+Final comment:\\Re-positioninig the M2 mirror is shown to be repeatable and the mirror
+can stay in position with good stability.
 
 
 Detailed steps results:
@@ -3080,7 +3059,7 @@ power up M2 control system; enter closed-loop
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 2 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -3311,7 +3290,7 @@ mode.~}\\[2\baselineskip]
 
 Execution status: {\bf Pass }
 
-Final comment:\\
+Final comment:\\The M2 force balance system appear to work as designed.
 
 
 Detailed steps results:
@@ -3400,7 +3379,9 @@ order to produce a more accurate spring constant.~~}
 
 Execution status: {\bf In Progress }
 
-Final comment:\\
+Final comment:\\We have tested the stiffness of the actuators while they are integrated
+with the M2 cell assembly. Standalone (spare) actuators will be needed
+to actually reverify this stiffness requirement.
 
 
 Detailed steps results:
@@ -3509,7 +3490,8 @@ met without going past the force limits.}
 
 Execution status: {\bf In Progress }
 
-Final comment:\\
+Final comment:\\Verified that B1 actuator force limit is between 444N and 666N. Did not
+have time to test tangent links.
 
 
 Detailed steps results:

@@ -220,6 +220,15 @@ Electrical Support }
 \medskip
 \end{minipage}
 \\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1791}{LVV-T1791}
+& {\small Bo Xin } & {\small Bo Xin } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small Mechanical Support\\
+M2 Operator }
+\medskip
+\end{minipage}
+\\ \hline
 \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1829}{LVV-T1829}
 & {\small Bo Xin } & {\small  } &
 \begin{minipage}[]{6cm}
@@ -283,15 +292,6 @@ Safety Coordinator }
 \medskip
 \end{minipage}
 \\ \hline
-\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1791}{LVV-T1791}
-& {\small Bo Xin } & {\small Bo Xin } &
-\begin{minipage}[]{6cm}
-\smallskip
-{\small Mechanical Support\\
-M2 Operator }
-\medskip
-\end{minipage}
-\\ \hline
 \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1792}{LVV-T1792}
 & {\small Bo Xin } & {\small Bo Xin } &
 \begin{minipage}[]{6cm}
@@ -324,23 +324,7 @@ M2 Operator }
 \medskip
 \end{minipage}
 \\ \hline
-\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1793}{LVV-T1793}
-& {\small Bo Xin } & {\small Bo Xin } &
-\begin{minipage}[]{6cm}
-\smallskip
-{\small  }
-\medskip
-\end{minipage}
-\\ \hline
 \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1794}{LVV-T1794}
-& {\small Bo Xin } & {\small Bo Xin } &
-\begin{minipage}[]{6cm}
-\smallskip
-{\small  }
-\medskip
-\end{minipage}
-\\ \hline
-\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1797}{LVV-T1797}
 & {\small Bo Xin } & {\small Bo Xin } &
 \begin{minipage}[]{6cm}
 \smallskip
@@ -451,6 +435,7 @@ that will need to be added prior to the formal testing.
     &
           \href{https://jira.lsstcorp.org/browse/LVV-18880}{LVV-18880}
           \href{https://jira.lsstcorp.org/browse/LVV-18879}{LVV-18879}
+          \href{https://jira.lsstcorp.org/browse/LVV-18880}{LVV-18880}
     \\\hline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1827}{LVV-T1827}
     & Pass &
@@ -466,6 +451,16 @@ that will need to be added prior to the formal testing.
     \begin{minipage}[]{9cm}
     \smallskip
     Both the inner and outer control loops appear to be working properly.
+    \medskip
+    \end{minipage}
+    &
+    \\\hline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1791}{LVV-T1791}
+    & Pass &
+    \begin{minipage}[]{9cm}
+    \smallskip
+    Re-positioninig the M2 mirror is shown to be repeatable and the mirror
+can stay in position with good stability.
     \medskip
     \end{minipage}
     &
@@ -498,8 +493,7 @@ the optimal mirror position.
     \begin{minipage}[]{9cm}
     \smallskip
     After disconnecting power to each actuator {[}B6, C4, D4, A1, A2{]}, we
-confirmed that the forces and displacements were
-maintained.\\[2\baselineskip]
+confirmed that the forces and displacements were maintained.
     \medskip
     \end{minipage}
     &
@@ -528,7 +522,9 @@ repeatability meet requirements.
     \begin{minipage}[]{9cm}
     \smallskip
     We rotated the M2 cart from 0 to 180 degrees, and verified that the M2
-control software applies LUT forces as expected.
+control software applies LUT forces as expected. The M2 inclinometer
+works. The reading is used in the LUT. The EUI display of zenith angle
+is a mess and needs to be cleaned up.
     \medskip
     \end{minipage}
     &
@@ -543,16 +539,6 @@ support. Motion limits measured were due to actuator (software) limits.
     \end{minipage}
     &
           \href{https://jira.lsstcorp.org/browse/LVV-18874}{LVV-18874}
-    \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1791}{LVV-T1791}
-    & Pass &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    Re-positioninig the M2 mirror is shown to be repeatable and the mirror
-can stay in position with good stability.
-    \medskip
-    \end{minipage}
-    &
     \\\hline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1792}{LVV-T1792}
     & Pass &
@@ -585,50 +571,35 @@ have time to test tangent links.
     &
     \\\hline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1786}{LVV-T1786}
-    & Pass w/ Deviation &
+    & Blocked &
     \begin{minipage}[]{9cm}
     \smallskip
-    
+    We agreed not to re-verify the actuator full stroke using spare
+actuators. We will need to locate the software limit switches in the
+software, and verify those work properly.
     \medskip
     \end{minipage}
     &
           \href{https://jira.lsstcorp.org/browse/LVV-18874}{LVV-18874}
     \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1793}{LVV-T1793}
-    & Pass &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    
-    \medskip
-    \end{minipage}
-    &
-    \\\hline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1794}{LVV-T1794}
     & Fail &
     \begin{minipage}[]{9cm}
     \smallskip
-    
+    Looking at the difference between exhaust and intake temperatures, the
+system appear to perform OK in the lab environment.
     \medskip
     \end{minipage}
     &
           \href{https://jira.lsstcorp.org/browse/LVV-18863}{LVV-18863}
           \href{https://jira.lsstcorp.org/browse/LVV-18875}{LVV-18875}
     \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1797}{LVV-T1797}
-    & Fail &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    
-    \medskip
-    \end{minipage}
-    &
-          \href{https://jira.lsstcorp.org/browse/LVV-18870}{LVV-18870}
-    \\\hline
     \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1796}{LVV-T1796}
     & Fail &
     \begin{minipage}[]{9cm}
     \smallskip
-    
+    VMS is a separate software CSC, which was not ready at the time of this
+testing.
     \medskip
     \end{minipage}
     &
@@ -637,7 +608,9 @@ have time to test tangent links.
     & Pass &
     \begin{minipage}[]{9cm}
     \smallskip
-    
+    The M2 surrogate, together with the mounting pads, weigh about 1590 kg,
+which is within the M2 mass budget. Note that this test was not done
+with the real M2 glass mirror.
     \medskip
     \end{minipage}
     &
@@ -646,7 +619,11 @@ have time to test tangent links.
     & Pass &
     \begin{minipage}[]{9cm}
     \smallskip
-    
+    The M2 system was shown to work consistently during 4 hours of AOS
+operations. The force accuracy and repeatability also appear to meet
+requirements. Checked that the M2 control software publishes telemetry
+at 20Hz. Also checked that EFD event loss rate and latency are
+acceptable.
     \medskip
     \end{minipage}
     &
@@ -699,12 +676,16 @@ have time to test tangent links.
 \subsection{Overall Assessment}
 \label{sect:overallassessment}
 
-Not yet available.
+LVV-C118: This has been a good test cycle even though quite a few tests
+failed. We gain a much better understanding of the existing capabilities
+of the M2 system, especially the software as delivered by the vendor. We
+identified a long list of improvements to be made before the next formal
+test cycle starts.
 
 \subsection{Recommended Improvements}
 \label{sect:recommendations}
 
-Not yet available.
+See bug tickets in Jira: https://jira.lsstcorp.org/issues/?filter=20317
 
 \newpage
 \section{Detailed Test Results}
@@ -1127,7 +1108,7 @@ file.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 5 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -1159,7 +1140,7 @@ file.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Blocked } \\ \hline
 
 6 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -1185,7 +1166,7 @@ file.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 7 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -1289,7 +1270,7 @@ file.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 11 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -1341,7 +1322,7 @@ file.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 13 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -1367,6 +1348,12 @@ file.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
+ & Issues found executing this step:  \\
+ & \begin{minipage}[t]{13cm}{\footnotesize
+\href{https://jira.lsstcorp.org/browse/LVV-18880}{LVV-18880}~~Investigate M2 telemetry potential corrupt parameter values
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
  & Status: \textbf{ Not Executed } \\ \hline
 
 14 & Description \\
@@ -1904,6 +1891,268 @@ into motor steps in order to command the inner loop controllers.
 
 \end{longtable}
 
+\paragraph{Test Case LVV-T1791 - M2 position stability and repeatability }\mbox{}\\
+
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1791}{\textit{ LVV-T1791 } }
+test case in Jira.
+
+To verify that the M2 mirror control system can position the mirror with
+good repeatability and stability.\\[2\baselineskip]{The objective of
+this test case is to re-verify the force measurement, accuracy and
+repeatability requirements specified in \citeds{LTS-146}, after shipment from the
+vendor's facility to the Summit facility. This test will confirm by
+repeating the same set of steps for all six direction that the
+requirements have been met.}
+
+\textbf{ Preconditions}:\\
+
+
+Execution status: {\bf Pass }
+
+Final comment:\\Re-positioninig the M2 mirror is shown to be repeatable and the mirror
+can stay in position with good stability.
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+power up M2 control system; enter closed-loop
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+2 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+start from (x,y,z,rx,ry,rz) = (0,0,0,0,0,0)\\
+use EUI to move M2\\
+to x = +0.1mm, hold 37s,\\
+to x=+0.3mm, hold 37s,\\
+to x=+0.5mm, hold 37s,\\
+back to origin, hold 37s,\\
+to x = -0.1mm, hold 37s,\\
+to x=-0.3mm, hold 37s,\\
+to x=-0.5mm, hold 37s,\\
+back to origin, hold 37s.
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+12:22pm local time, 3/4/20, switched to open loop, then closed loop.\\
+We are worried about not knowing the hard stops. Te-Wei did not see
+anything about limit switches in the software. We want to be cautious
+here. We will do 1mm, 2mm, 3mm instead.\\
+Another reason is that it moves pretty slow, on the order of minutes per
+mm.\\
+x = +1mm, hold 37s, 12:25pm local, starting test. x started at
+-0.00009mm, it stopped at +0.87916mm. There is an alarm, 6056, limit
+switch triggered (closed loop), and a warning 6057 limit switch
+triggered (open loop).\\
+some of the tangent encoders are at +/-142k, others at +/-72k.\\
+LTS-146 has x travel as 7.74mm, now we got stuck at 0.87mm. There might
+be the following possibilities: (1) LTS-146 got a factor of 10 wrong,
+(2) GuI has unit wrong, mm is really centimeter.\\
+14:07 local, moveBack5.csv\\
+14:10 local, moveBack20.csv\\
+14:11 local, moveBack100.csv\\
+14:13 local, moveBack300.csv\\
+Now some tangent forces seem to be big, up to 1000 N. But we were able
+to enter closed loop. The ``go to position'' button is enabled again.\\
+14:16 local, command it to go back to zero (x=y=z=0).\\
+Now we've learned where the limit switches are (along x, at least), we
+are going to change the positions for testing repeatability.\\
+to x=0.1mm, hold 37s, 14:50 local,\\
+to x=+0.3mm, hold 37s, 14:52 local\\
+to x=+0.5mm, hold 37s, 14:55 local\\
+to x =+0.3mm, hold 37s, 14:59 local\\
+to x = +0.1mm, hold 37s, 15:01 local\\
+back to origin, hold 37s, 15:02 local\\
+to x = -0.1mm, hold 37s, 15:04 local. Te-Wei is checking inPosition
+events.\\
+to x=-0.3mm, hold 37s, 15:05 local\\
+to x=-0.5mm, hold 37s, 15:06 local\\
+to x = -0.3mm, hold 37s, 15:08 local\\
+to x=-0.1mm, hold 37s, 15:09 local\\
+to x=0mm, hold 37s, 15:11 local\\[2\baselineskip]
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+3 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+repeat above for y,z\\[2\baselineskip]
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+to y = 0.3mm, hold 37s, 15:13 local\\
+to y=0.5mm, hold 37s, 15:15 local\\
+to y=0, hold 37s, 15:16 local\\
+to y=-0.3mm, hold 37s, 15:19 local\\
+to y=-0.5mm, hold 37s, 15:21 local\\
+to y=0, hold 37s, 15:22 local\\
+to z=0.5mm, hold 37s, 15:26 local, now the axial actuator steps are
+changing, instead of the tangents\\
+to z=0.3mm, hold 37s, 15:28 local\\
+to z=0mm, hold 37s, 15:29 local\\
+to z=-0.3mm, hold 37s, 15:30 local\\
+to z=-0.5mm, hold 37s, 15:31 local\\
+back to origin, hold 37s, 15:31 local
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+4 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+repeat above for rx, ry, rz
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+not sure about rotation range. try small tilts first.\\
+rx = 0.2urad, notice small change in axial actuator encoder, 18:35 utc\\
+rx = 2urad, notice change in axial actuator encoder, 18:36 utc\\
+rx =10urad, 18:40 utc.\\
+rx=100urad, 18:49 utc.\\
+rx=500urad, 18:59 utc.\\
+rx=300urad, 19:09 utc.\\
+rx=0, 19:10 utc\\
+rx=-300urad, 19:11 utc\\
+rx=-500 urad, 19:13 utc\\
+rx= 0, 19:14 utc\\[2\baselineskip]ry = 500urad, 19:15 utc\\
+ry = 0, 19:16 utc\\
+ry = -500 urad, 19:23 utc\\
+ry = 0, 19:24 utc\\[2\baselineskip]rz = 500urad, 19:26 utc, Alarms are
+triggered at 351urad. Again, tangent limit switches. ``Enable Open loop
+max limits'', ``reset all items''. ``enable'', we are in open loop now.
+Use moveBack('rzp') to create csv files.\\
+moveBackrzp5.csv. ~19:54 utc\\
+moveBackrzp20.csv. 19:54 utc\\
+moveBackrzp100.csv 19:54 utc. Enable. No alarm. Now we regained control
+over the ``go to position button''.\\
+rz =0, 19:58 utc\\
+rz = -300urad, 20:02 utc\\
+back to origin. 20:07 utc
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+5 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+repeat everything 2 more times
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+Given that we don't have the SAL commands yet, doing these repeatability
+test is too time-consuming.\\
+We will skip these repetitions for now.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+6 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+analysis output binary to check:\\
+position stability during each 15s periods (5:00 - 20:00, 22:00 -
+37:00)\\
+position repeatability between ~the 3 cycles
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+\href{https://github.com/bxin/M2_summit_2003/blob/master/a19_position_repeatability.ipynb}{a19\_position\_repeatability.ipynb}
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Pass } \\ \hline
+
+\end{longtable}
+
 \paragraph{Test Case LVV-T1829 - M2 position sensors }\mbox{}\\
 
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1829}{\textit{ LVV-T1829 } }
@@ -1928,9 +2177,10 @@ done, I will create the second version and update it with this
 information)}}}
 
 \textbf{ Preconditions}:\\
-at least one of the many M2 re-verification test cases have been carried
-out successfully with telemetry data in the EFD -~\emph{Should we
-specify the telemetry test case case?}
+test case
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1791}{M2
+position stability and repeatability} has been carried out successfully
+with telemetry data in the EFD.
 
 Execution status: {\bf Not Executed }
 
@@ -1946,11 +2196,10 @@ Detailed steps results:
 1 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-verify that\\
-\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1827}{M2
-inner loop control - open loop mode}\\
-or one of the other many M2 re-verification test cases have been carried
-out successfully and telemetry data are available in the EFD
+verify that the test case\\
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1791}{M2
+position stability and repeatability} have been carried out successfully
+and telemetry data are available in the EFD
 
 \medskip }
 \end{minipage}
@@ -2245,8 +2494,7 @@ to maintain their set positions and forces.}
 Execution status: {\bf Pass }
 
 Final comment:\\After disconnecting power to each actuator {[}B6, C4, D4, A1, A2{]}, we
-confirmed that the forces and displacements were
-maintained.\\[2\baselineskip]
+confirmed that the forces and displacements were maintained.
 
 
 Detailed steps results:
@@ -2693,7 +2941,7 @@ https://github.com/bxin/M2\_summit\_2003/blob/master/a16\_bending\_modes.ipynb
 
 \end{longtable}
 
-\paragraph{Test Case LVV-T1787 - M2 LUT }\mbox{}\\
+\paragraph{Test Case LVV-T1787 - M2 LUT (cart rotation) }\mbox{}\\
 
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1787}{\textit{ LVV-T1787 } }
 test case in Jira.
@@ -2701,16 +2949,17 @@ test case in Jira.
 The main objective is to verify that the Look-Up Tables, both
 gravitational and thermal, are being used correctly and forces applied
 correctly.\\
-This test case also verifies the proper operation of the M2
-cart.\\[2\baselineskip]{The objective of this test case it to re-verify
-the requirements specified in \citeds{LTS-146} regarding the forces of the M2
-support system. This test case will first test that the actuators are
-applying the correct forces according to the Look-Up Table through the
-M2 cart's entire range of motion. This test case should show that the
-LUT forces are being updated at 20Hz and safely support the mirror. In
-addition, the M2 inclinometer data should show consistency to that of
-the M2 cart control and zenith angles displayed on the
-GUI.~}\\[2\baselineskip]{Version 1 - No elevation}\\
+This test case also verifies the proper operation of the M2 cart, and
+that the M2 inclinometer works properly and the read out is used
+properly in the Look-Up Table.\\[3\baselineskip]{The objective of this
+test case it to re-verify the requirements specified in \citeds{LTS-146}
+regarding the forces of the M2 support system. This test case will first
+test that the actuators are applying the correct forces according to the
+Look-Up Table through the M2 cart's entire range of motion. This test
+case should show that the LUT forces are being updated at 20Hz and
+safely support the mirror. In addition, the M2 inclinometer data should
+show consistency to that of the M2 cart control and zenith angles
+displayed on the GUI.~}\\[2\baselineskip]{Version 1 - No elevation}\\
 {Version 2 - Elevated}
 
 \textbf{ Preconditions}:\\
@@ -2719,7 +2968,9 @@ GUI.~}\\[2\baselineskip]{Version 1 - No elevation}\\
 Execution status: {\bf Pass }
 
 Final comment:\\We rotated the M2 cart from 0 to 180 degrees, and verified that the M2
-control software applies LUT forces as expected.
+control software applies LUT forces as expected. The M2 inclinometer
+works. The reading is used in the LUT. The EUI display of zenith angle
+is a mess and needs to be cleaned up.
 
 
 Detailed steps results:
@@ -2818,8 +3069,7 @@ compare the LUT forces to our expectations based on the LUT csv files.
 4 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-{(From the inclinometer test case)}\\
-{data analysis:\\
+{inclinometer~}{data analysis:\\
 from the above telemetry data, and also any other telemetry data
 collected during the testing, compare the M2 inclinometer reading with
 those from the following sources:\\
@@ -2839,11 +3089,13 @@ zenith angle as displayed on the EUI}
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+\href{https://github.com/bxin/M2_summit_2003/blob/master/a02_check_telemetry.ipynb}{a02\_check\_telemetry.ipynb}\\
+\href{https://github.com/bxin/M2_summit_2003/blob/master/a17_LUT_cart_rotation.ipynb}{a17\_LUT\_cart\_rotation.ipynb}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 \end{longtable}
 
@@ -3007,268 +3259,6 @@ that would trigger the limit switches that we know of from this test.\\
 \end{minipage} \\ \cdashline{2-2}
 
  & Status: \textbf{ Pass w/ Deviation } \\ \hline
-
-\end{longtable}
-
-\paragraph{Test Case LVV-T1791 - M2 position stability and repeatability }\mbox{}\\
-
-Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1791}{\textit{ LVV-T1791 } }
-test case in Jira.
-
-To verify that the M2 mirror control system can position the mirror with
-good repeatability and stability.\\[2\baselineskip]{The objective of
-this test case is to re-verify the force measurement, accuracy and
-repeatability requirements specified in \citeds{LTS-146}, after shipment from the
-vendor's facility to the Summit facility. This test will confirm by
-repeating the same set of steps for all six direction that the
-requirements have been met.}
-
-\textbf{ Preconditions}:\\
-
-
-Execution status: {\bf Pass }
-
-Final comment:\\Re-positioninig the M2 mirror is shown to be repeatable and the mirror
-can stay in position with good stability.
-
-
-Detailed steps results:
-
-\begin{longtable}{p{1cm}p{15cm}}
-\hline
-{Step} & Step Details\\ \hline
-1 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-power up M2 control system; enter closed-loop
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Pass } \\ \hline
-
-2 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-start from (x,y,z,rx,ry,rz) = (0,0,0,0,0,0)\\
-use EUI to move M2\\
-to x = +0.1mm, hold 37s,\\
-to x=+0.3mm, hold 37s,\\
-to x=+0.5mm, hold 37s,\\
-back to origin, hold 37s,\\
-to x = -0.1mm, hold 37s,\\
-to x=-0.3mm, hold 37s,\\
-to x=-0.5mm, hold 37s,\\
-back to origin, hold 37s.
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-12:22pm local time, 3/4/20, switched to open loop, then closed loop.\\
-We are worried about not knowing the hard stops. Te-Wei did not see
-anything about limit switches in the software. We want to be cautious
-here. We will do 1mm, 2mm, 3mm instead.\\
-Another reason is that it moves pretty slow, on the order of minutes per
-mm.\\
-x = +1mm, hold 37s, 12:25pm local, starting test. x started at
--0.00009mm, it stopped at +0.87916mm. There is an alarm, 6056, limit
-switch triggered (closed loop), and a warning 6057 limit switch
-triggered (open loop).\\
-some of the tangent encoders are at +/-142k, others at +/-72k.\\
-LTS-146 has x travel as 7.74mm, now we got stuck at 0.87mm. There might
-be the following possibilities: (1) LTS-146 got a factor of 10 wrong,
-(2) GuI has unit wrong, mm is really centimeter.\\
-14:07 local, moveBack5.csv\\
-14:10 local, moveBack20.csv\\
-14:11 local, moveBack100.csv\\
-14:13 local, moveBack300.csv\\
-Now some tangent forces seem to be big, up to 1000 N. But we were able
-to enter closed loop. The ``go to position'' button is enabled again.\\
-14:16 local, command it to go back to zero (x=y=z=0).\\
-Now we've learned where the limit switches are (along x, at least), we
-are going to change the positions for testing repeatability.\\
-to x=0.1mm, hold 37s, 14:50 local,\\
-to x=+0.3mm, hold 37s, 14:52 local\\
-to x=+0.5mm, hold 37s, 14:55 local\\
-to x =+0.3mm, hold 37s, 14:59 local\\
-to x = +0.1mm, hold 37s, 15:01 local\\
-back to origin, hold 37s, 15:02 local\\
-to x = -0.1mm, hold 37s, 15:04 local. Te-Wei is checking inPosition
-events.\\
-to x=-0.3mm, hold 37s, 15:05 local\\
-to x=-0.5mm, hold 37s, 15:06 local\\
-to x = -0.3mm, hold 37s, 15:08 local\\
-to x=-0.1mm, hold 37s, 15:09 local\\
-to x=0mm, hold 37s, 15:11 local\\[2\baselineskip]
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Pass } \\ \hline
-
-3 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-repeat above for y,z\\[2\baselineskip]
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-to y = 0.3mm, hold 37s, 15:13 local\\
-to y=0.5mm, hold 37s, 15:15 local\\
-to y=0, hold 37s, 15:16 local\\
-to y=-0.3mm, hold 37s, 15:19 local\\
-to y=-0.5mm, hold 37s, 15:21 local\\
-to y=0, hold 37s, 15:22 local\\
-to z=0.5mm, hold 37s, 15:26 local, now the axial actuator steps are
-changing, instead of the tangents\\
-to z=0.3mm, hold 37s, 15:28 local\\
-to z=0mm, hold 37s, 15:29 local\\
-to z=-0.3mm, hold 37s, 15:30 local\\
-to z=-0.5mm, hold 37s, 15:31 local\\
-back to origin, hold 37s, 15:31 local
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Pass } \\ \hline
-
-4 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-repeat above for rx, ry, rz
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-not sure about rotation range. try small tilts first.\\
-rx = 0.2urad, notice small change in axial actuator encoder, 18:35 utc\\
-rx = 2urad, notice change in axial actuator encoder, 18:36 utc\\
-rx =10urad, 18:40 utc.\\
-rx=100urad, 18:49 utc.\\
-rx=500urad, 18:59 utc.\\
-rx=300urad, 19:09 utc.\\
-rx=0, 19:10 utc\\
-rx=-300urad, 19:11 utc\\
-rx=-500 urad, 19:13 utc\\
-rx= 0, 19:14 utc\\[2\baselineskip]ry = 500urad, 19:15 utc\\
-ry = 0, 19:16 utc\\
-ry = -500 urad, 19:23 utc\\
-ry = 0, 19:24 utc\\[2\baselineskip]rz = 500urad, 19:26 utc, Alarms are
-triggered at 351urad. Again, tangent limit switches. ``Enable Open loop
-max limits'', ``reset all items''. ``enable'', we are in open loop now.
-Use moveBack('rzp') to create csv files.\\
-moveBackrzp5.csv. ~19:54 utc\\
-moveBackrzp20.csv. 19:54 utc\\
-moveBackrzp100.csv 19:54 utc. Enable. No alarm. Now we regained control
-over the ``go to position button''.\\
-rz =0, 19:58 utc\\
-rz = -300urad, 20:02 utc\\
-back to origin. 20:07 utc
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Pass } \\ \hline
-
-5 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-repeat everything 2 more times
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-Given that we don't have the SAL commands yet, doing these repeatability
-test is too time-consuming.\\
-We will skip these repetitions for now.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Pass } \\ \hline
-
-6 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-analysis output binary to check:\\
-position stability during each 15s periods (5:00 - 20:00, 22:00 -
-37:00)\\
-position repeatability between ~the 3 cycles
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\href{https://github.com/bxin/M2_summit_2003/blob/master/a19_position_repeatability.ipynb}{a19\_position\_repeatability.ipynb}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Pass } \\ \hline
 
 \end{longtable}
 
@@ -3638,9 +3628,11 @@ test report. Should we create a VE for this?}}
 \textbf{ Preconditions}:\\
 
 
-Execution status: {\bf Pass w/ Deviation }
+Execution status: {\bf Blocked }
 
-Final comment:\\
+Final comment:\\We agreed not to re-verify the actuator full stroke using spare
+actuators. We will need to locate the software limit switches in the
+software, and verify those work properly.
 
 
 Detailed steps results:
@@ -3773,86 +3765,6 @@ Note that actuator length is required by LTS-146 3.4.10
 
 \end{longtable}
 
-\paragraph{Test Case LVV-T1793 - M2 control bandwidth }\mbox{}\\
-
-Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1793}{\textit{ LVV-T1793 } }
-test case in Jira.
-
-To verify that the M2 control system operates at a bandwidth of at least
-20Hz, and the telemetry is published to the SAL and written to the EFD
-at 20Hz.\\[3\baselineskip]{(Delete and combine with AOS duration) Since
-the AOS duration is a predecessor and later test case, I think we should
-just combine them.}
-
-\textbf{ Preconditions}:\\
-
-
-Execution status: {\bf Pass }
-
-Final comment:\\
-
-
-Detailed steps results:
-
-\begin{longtable}{p{1cm}p{15cm}}
-\hline
-{Step} & Step Details\\ \hline
-1 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-make sure test case\\
-\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1789}{M2
-Active Optics duration test}\\
-has been executed successfully.~
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Pass } \\ \hline
-
-2 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-data analysis:\\
-examine telemetry data from the above tests, and make sure\\
-telemetry updates are 20Hz
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\href{https://github.com/bxin/M2_summit_2003/blob/master/a23_bandwidth.ipynb}{a23\_bandwidth.ipynb}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Pass } \\ \hline
-
-\end{longtable}
-
 \paragraph{Test Case LVV-T1794 - M2 temperature }\mbox{}\\
 
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1794}{\textit{ LVV-T1794 } }
@@ -3881,7 +3793,8 @@ of M2.
 
 Execution status: {\bf Fail }
 
-Final comment:\\
+Final comment:\\Looking at the difference between exhaust and intake temperatures, the
+system appear to perform OK in the lab environment.
 
 
 Detailed steps results:
@@ -4071,7 +3984,7 @@ requirement.
 8 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-Repeat the above at the beginning of a few testing days.
+Repeat the above at the beginning of a testing day.
 
 \medskip }
 \end{minipage}
@@ -4119,94 +4032,6 @@ Heat from tangent links: need thermal camera image\\
 
 \end{longtable}
 
-\paragraph{Test Case LVV-T1797 - M2 inclinometer }\mbox{}\\
-
-Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1797}{\textit{ LVV-T1797 } }
-test case in Jira.
-
-To verify that the M2 inclinometer works properly, and in the absence of
-MTMount telemetry, the M2 inclinometer reading is used properly in the
-Look-Up Table.\\[2\baselineskip]{\emph{Combine with M2 LUT test case} }
-
-\textbf{ Preconditions}:\\
-
-
-Execution status: {\bf Fail }
-
-Final comment:\\
-
-
-Detailed steps results:
-
-\begin{longtable}{p{1cm}p{15cm}}
-\hline
-{Step} & Step Details\\ \hline
-1 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-make sure test case\\
-\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1787}{M2
-LUT}\\
-has been executed successfully
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Issues found executing this step:  \\
- & \begin{minipage}[t]{13cm}{\footnotesize
-\href{https://jira.lsstcorp.org/browse/LVV-18870}{LVV-18870}~~Clean up the M2 zenith angle inconsistency
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
- & Status: \textbf{ Pass } \\ \hline
-
-2 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-data analysis:\\
-from the above telemetry data, and also any other telemetry data
-collected during the testing, compare the M2 inclinometer reading with
-those from the following sources:\\
-M2 cart control\\
-zenith angle as displayed on the EUI
-
-\medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
-
- & Expected Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-\href{https://github.com/bxin/M2_summit_2003/blob/master/a02_check_telemetry.ipynb}{a02\_check\_telemetry.ipynb}\\
-\href{https://github.com/bxin/M2_summit_2003/blob/master/a17_LUT_cart_rotation.ipynb}{a17\_LUT\_cart\_rotation.ipynb}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Fail } \\ \hline
-
-\end{longtable}
-
 \paragraph{Test Case LVV-T1796 - M2 VMS }\mbox{}\\
 
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1796}{\textit{ LVV-T1796 } }
@@ -4232,7 +4057,8 @@ data going into the EFD.
 
 Execution status: {\bf Fail }
 
-Final comment:\\
+Final comment:\\VMS is a separate software CSC, which was not ready at the time of this
+testing.
 
 
 Detailed steps results:
@@ -4321,7 +4147,9 @@ through a test involving the real mirror.~}
 
 Execution status: {\bf Pass }
 
-Final comment:\\
+Final comment:\\The M2 surrogate, together with the mounting pads, weigh about 1590 kg,
+which is within the M2 mass budget. Note that this test was not done
+with the real M2 glass mirror.
 
 
 Detailed steps results:
@@ -4453,7 +4281,11 @@ system, the following Summit tasks must be completed:}
 
 Execution status: {\bf Pass }
 
-Final comment:\\
+Final comment:\\The M2 system was shown to work consistently during 4 hours of AOS
+operations. The force accuracy and repeatability also appear to meet
+requirements. Checked that the M2 control software publishes telemetry
+at 20Hz. Also checked that EFD event loss rate and latency are
+acceptable.
 
 
 Detailed steps results:
@@ -4636,8 +4468,7 @@ do this for axial actuators and tangent links
 6 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-{(From control bandwidth test)}\\
-{data analysis:\\
+{control bandwidth~}{data analysis:\\
 examine telemetry data from the above tests, and make sure\\
 telemetry updates are 20Hz}
 
@@ -4654,11 +4485,12 @@ telemetry updates are 20Hz}
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+\href{https://github.com/bxin/M2_summit_2003/blob/master/a23_bandwidth.ipynb}{a23\_bandwidth.ipynb}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Not Executed } \\ \hline
+ & Status: \textbf{ Pass } \\ \hline
 
 \end{longtable}
 

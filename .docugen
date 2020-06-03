@@ -1,0 +1,3 @@
+#!/bin/bash
+docsteady --version
+docsteady --namespace se generate-tpr LVV-P66 SCTR-31.tex

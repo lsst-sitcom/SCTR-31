@@ -3,9 +3,14 @@
 \usepackage{longtable,booktabs}
 \usepackage{enumitem}
 \usepackage{arydshln}
+\usepackage{attachfile}
+\usepackage{array}
+
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
 
 \input meta.tex
 
+\newcommand{\attachmentsUrl}{https://github.com/\gitorg/\lsstDocType-\lsstDocNum/blob/\gitref/attachments}
 \providecommand{\tightlist}{
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
@@ -13,23 +18,22 @@
 
 \begin{document}
 
-\def\milestoneName{M2 Functional Re-Verification And Sal V4.0 Interface Verification}
+\def\milestoneName{M2 Functional Re-verification and SAL v4.0 Interface Verification}
 \def\milestoneId{LVV-P66}
 \def\product{SIT-COM Integration}
 
 \setDocCompact{true}
 
-\title{ LVV-P66 M2 Functional Re-Verification And Sal V4.0 Interface Verification Test Plan and Report}
+\title{LVV-P66: M2 Functional Re-verification and SAL v4.0 Interface Verification Test Plan and Report}
 \setDocRef{\lsstDocType-\lsstDocNum}
 \date{\vcsdate}
-\setDocUpstreamLocation{\url{https://github.com/lsst/lsst-texmf/examples}}
 \author{ Bo Xin }
 
-\input history_and_info.tex
+\input{history_and_info.tex}
 
 
 \setDocAbstract{
-This is the test plan and report for LVV-P66 (M2 Functional Re-Verification And Sal V4.0 Interface Verification),
+This is the test plan and report for LVV-P66 (M2 Functional Re-verification and SAL v4.0 Interface Verification),
 an LSST milestone pertaining to the System Engineering Subsystem.
 }
 
@@ -74,7 +78,6 @@ test plan consists of two test cycles:~}
 \end{itemize}
 
 
-
 \subsection{System Overview}
 \label{sect:systemoverview}
 
@@ -88,29 +91,36 @@ and mirror support control system.}
 \subsection{Document Overview}
 \label{sect:docoverview}
 
-This document was generated from Jira, obtaining the relevant information from the 
-\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testPlan/LVV-P66}{LVV-P66}
+This document was generated from Jira, obtaining the relevant information from the
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlan/LVV-P66}{LVV-P66}
 ~Jira Test Plan and related Test Cycles (
-  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCycle/LVV-C118}{LVV-C118}
-  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCycle/LVV-C148}{LVV-C148}
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCycle/LVV-C118}{LVV-C118}
+\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCycle/LVV-C148}{LVV-C148}
 ).
 
-Section \ref{sect:intro} provides an overview of the test campaign, the system under test (\product{}), the applicable documentation, and explains how this document is organized.
-Section \ref{sect:configuration}  describes the configuration used for this test.
-Section \ref{sect:personnel} describes the necessary roles and lists the individuals assigned to them.
-%Section \ref{sect:plannedtestactivities} provides the list of planned test cycles and test cases, including all relevant information that fully describes the test campaign.
 
-Section \ref{sect:overview} provides a summary of the test results, including an overview in Table \ref{table:summary}, an overall assessment statement and suggestions for possible improvements.
+Section \ref{sect:intro} provides an overview of the test campaign, the system under test (\product{}),
+the applicable documentation, and explains how this document is organized.
+Section \ref{sect:testplan} provides additional information about the test plan, like for example the configuration
+used for this test or related documentation.
+Section \ref{sect:personnel} describes the necessary roles and lists the individuals assigned to them.
+
+Section \ref{sect:overview} provides a summary of the test results, including an overview in Table \ref{table:summary},
+an overall assessment statement and suggestions for possible improvements.
 Section \ref{sect:detailedtestresults} provides detailed results for each step in each test case.
 
-The current status of test plan LVV-P66 in Jira is \textbf{ Draft }.
+The current status of test plan \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlan/LVV-P66}{LVV-P66} in Jira is \textbf{ Draft }.
 
 \subsection{References}
 \label{sect:references}
 \renewcommand{\refname}{}
 \bibliography{lsst,refs,books,refs_ads,local}
-\section{Test Configuration}
-\label{sect:configuration}
+
+
+\newpage
+\section{Test Plan Details}
+\label{sect:testplan}
+
 
 \subsection{Data Collection}
 
@@ -163,8 +173,39 @@ criteria must be met:
   project
 \end{itemize}
 
-  \subsection{PMCS Activity}
-  M2 Upgrades Phase 3 -~\url{https://jira.lsstcorp.org/browse/DM-23147}
+
+\subsection{Related Documentation}
+
+The documentation related to this test campaign should be provided in the following DocuShare Collection
+(as per Verification Artifacts in Jira test plan LVV-P66).
+
+\begin{itemize}
+\item DocuShare Collection Not Specified
+\end{itemize}
+
+\begin{longtable}{rp{10cm}l}
+\multicolumn{3}{c}{Jira Attachments} \\ \hline
+         To LVV-C118 results &
+  bumpHold1.csv & \attachfile{attachments/bumpHold1.csv}\\ \hline
+ To LVV-C118 results &
+  bm\_scaled\_6000x78.csv & \attachfile{attachments/bm_scaled_6000x78.csv}\\ \hline
+To LVV-C118 results &
+  bmHold\_6000x78.csv & \attachfile{attachments/bmHold_6000x78.csv}\\ \hline
+ To LVV-C118 results &
+  M2LUTTest-TeWei.csv & \attachfile{attachments/M2LUTTest-TeWei.csv}\\ \hline
+                  \end{longtable}
+
+All documents provided as attachments in Jira are downloaded to Github and linked here for convenience.
+However, since they are not properly versioned, they should be considered informal and therefore
+not be part of the verification baseline.
+
+
+\subsection{PMCS Activity}
+
+Primavera milestones related to the test campaign.
+
+M2 Upgrades Phase 3 -~\url{https://jira.lsstcorp.org/browse/DM-23147}
+
 
 \newpage
 \section{Personnel}
@@ -172,16 +213,16 @@ criteria must be met:
 
 The personnel involved in the test campaign is shown in the following table.
 
+{\small
 \begin{longtable}{p{3cm}p{3cm}p{3cm}p{6cm}}
 \hline
-\multicolumn{2}{r}{Test Plan (LVV-P66) owner:} &
+\multicolumn{2}{r}{T. Plan \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlan/LVV-P66}{LVV-P66} owner:} &
 \multicolumn{2}{l}{\textbf{ Bo Xin } }\\\hline
-\multicolumn{2}{r}{ LVV-C118 owner:} &
+\multicolumn{2}{r}{T. Cycle \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCycle/LVV-C118}{LVV-C118} owner:} &
 \multicolumn{2}{l}{\textbf{
-    Austin Roberts
-}
+Austin Roberts }
 } \\\hline
-\textbf{Test Case} & \textbf{Assigned to} & \textbf{Executed by} & \textbf{Additional Test Personnel} \\ \hline
+\textbf{Test Cases} & \textbf{Assigned to} & \textbf{Executed by} & \textbf{Additional Test Personnel} \\ \hline
 \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1799}{LVV-T1799}
 & {\small Bo Xin } & {\small Bo Xin } &
 \begin{minipage}[]{6cm}
@@ -402,12 +443,11 @@ Electrical support }
 \medskip
 \end{minipage}
 \\ \hline
-\multicolumn{2}{r}{ LVV-C148 owner:} &
+\multicolumn{2}{r}{T. Cycle \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCycle/LVV-C148}{LVV-C148} owner:} &
 \multicolumn{2}{l}{\textbf{
-    Austin Roberts
-}
+Austin Roberts }
 } \\\hline
-\textbf{Test Case} & \textbf{Assigned to} & \textbf{Executed by} & \textbf{Additional Test Personnel} \\ \hline
+\textbf{Test Cases} & \textbf{Assigned to} & \textbf{Executed by} & \textbf{Additional Test Personnel} \\ \hline
 \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1803}{LVV-T1803}
 & {\small Austin Roberts } & {\small  } &
 \begin{minipage}[]{6cm}
@@ -441,6 +481,7 @@ Electrical support }
 \end{minipage}
 \\ \hline
 \end{longtable}
+}
 
 \newpage
 
@@ -450,274 +491,297 @@ Electrical support }
 \subsection{Summary}
 \label{sect:summarytable}
 
-\begin{longtable}{p{2cm}p{2.5cm}p{9cm}p{2.5cm}}
+{\small
+\begin{longtable}{p{2cm}cp{2.3cm}p{8.6cm}p{2.3cm}}
 \toprule
-\multicolumn{3}{p{13.5cm}}{ Test Plan {\bf LVV-P66: M2 Functional Re-verification and SAL v4.0 Interface Verification }} & Draft \\\hline
-
-  \multicolumn{3}{p{13.5cm}}{ Test Cycle {\bf LVV-C118: M2 Preliminary Functional Testing and SAL v4.0 Integration }} & In Progress \\\hline
-
-  {\bf \footnotesize test case} & {\bf \footnotesize status} & {\bf \footnotesize comment} & {\bf \footnotesize issues} \\\toprule
-
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1799}{LVV-T1799}
-    & Blocked &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    E-stop did cause loss of power. Test failed because the FAULT state was
+\multicolumn{2}{r}{ T. Plan \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testPlan/LVV-P66}{LVV-P66}:} &
+\multicolumn{2}{p{10.9cm}}{\textbf{ M2 Functional Re-verification and SAL v4.0 Interface Verification }} & Draft \\\hline
+\multicolumn{2}{r}{ T. Cycle \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCycle/LVV-C118}{LVV-C118}:} &
+\multicolumn{2}{p{10.9cm}}{\textbf{ M2 Preliminary Functional Testing and SAL v4.0 Integration }} & In Progress \\\hline
+\textbf{Test Cases} &  \textbf{Ver.} & \textbf{Status} & \textbf{Comment} & \textbf{Issues} \\\toprule
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1799}{LVV-T1799}
+&  1
+& Blocked &
+\begin{minipage}[]{9cm}
+\smallskip
+E-stop did cause loss of power. Test failed because the FAULT state was
 not implemented in software.
-    \medskip
-    \end{minipage}
-    &
-          \href{https://jira.lsstcorp.org/browse/DM-23790}{DM-23790}
-    \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1798}{LVV-T1798}
-    & Blocked &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    Most of the existing telemetry topics passed the test, with one
+\medskip
+\end{minipage}
+&
+\href{https://jira.lsstcorp.org/browse/DM-23790}{DM-23790}
+\\\hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1798}{LVV-T1798}
+&  1
+& Blocked &
+\begin{minipage}[]{9cm}
+\smallskip
+Most of the existing telemetry topics passed the test, with one
 exception, see LVV-18880. There are quite a few more telemetry topics
 that will need to be added prior to the formal testing.
-    \medskip
-    \end{minipage}
-    &
-          \href{https://jira.lsstcorp.org/browse/LVV-18880}{LVV-18880}
-          \href{https://jira.lsstcorp.org/browse/LVV-18879}{LVV-18879}
-          \href{https://jira.lsstcorp.org/browse/LVV-18880}{LVV-18880}
-    \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1827}{LVV-T1827}
-    & Pass &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    Inner control loop appears to be working as expected.
-    \medskip
-    \end{minipage}
-    &
-    \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1826}{LVV-T1826}
-    & Pass &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    Both the inner and outer control loops appear to be working properly.
-    \medskip
-    \end{minipage}
-    &
-    \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1791}{LVV-T1791}
-    & Pass &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    Re-positioninig the M2 mirror is shown to be repeatable and the mirror
+\medskip
+\end{minipage}
+&
+\href{https://jira.lsstcorp.org/browse/LVV-18880}{LVV-18880}
+\href{https://jira.lsstcorp.org/browse/LVV-18879}{LVV-18879}
+\href{https://jira.lsstcorp.org/browse/LVV-18880}{LVV-18880}
+\\\hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1827}{LVV-T1827}
+&  1
+& Pass &
+\begin{minipage}[]{9cm}
+\smallskip
+Inner control loop appears to be working as expected.
+\medskip
+\end{minipage}
+&
+\\\hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1826}{LVV-T1826}
+&  1
+& Pass &
+\begin{minipage}[]{9cm}
+\smallskip
+Both the inner and outer control loops appear to be working properly.
+\medskip
+\end{minipage}
+&
+\\\hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1791}{LVV-T1791}
+&  1
+& Pass &
+\begin{minipage}[]{9cm}
+\smallskip
+Re-positioninig the M2 mirror is shown to be repeatable and the mirror
 can stay in position with good stability.
-    \medskip
-    \end{minipage}
-    &
-    \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1829}{LVV-T1829}
-    & Not Executed &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    Not executed because IMS data was only given in the form of 12
+\medskip
+\end{minipage}
+&
+\\\hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1829}{LVV-T1829}
+&  1
+& Not Executed &
+\begin{minipage}[]{9cm}
+\smallskip
+Not executed because IMS data was only given in the form of 12
 displacement sensor readings.~
-    \medskip
-    \end{minipage}
-    &
-          \href{https://jira.lsstcorp.org/browse/LVV-18872}{LVV-18872}
-    \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1810}{LVV-T1810}
-    & Fail &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    Test failed because the M2 software did not support re-configuration of
+\medskip
+\end{minipage}
+&
+\href{https://jira.lsstcorp.org/browse/LVV-18872}{LVV-18872}
+\\\hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1810}{LVV-T1810}
+&  1
+& Fail &
+\begin{minipage}[]{9cm}
+\smallskip
+Test failed because the M2 software did not support re-configuration of
 the optimal mirror position.
-    \medskip
-    \end{minipage}
-    &
-          \href{https://jira.lsstcorp.org/browse/LVV-18878}{LVV-18878}
-          \href{https://jira.lsstcorp.org/browse/LVV-18872}{LVV-18872}
-    \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1784}{LVV-T1784}
-    & Pass &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    After disconnecting power to each actuator {[}B6, C4, D4, A1, A2{]}, we
+\medskip
+\end{minipage}
+&
+\href{https://jira.lsstcorp.org/browse/LVV-18878}{LVV-18878}
+\href{https://jira.lsstcorp.org/browse/LVV-18872}{LVV-18872}
+\\\hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1784}{LVV-T1784}
+&  1
+& Pass &
+\begin{minipage}[]{9cm}
+\smallskip
+After disconnecting power to each actuator {[}B6, C4, D4, A1, A2{]}, we
 confirmed that the forces and displacements were maintained.
-    \medskip
-    \end{minipage}
-    &
-    \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1790}{LVV-T1790}
-    & Pass &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    Bump test succeeded without problem.
-    \medskip
-    \end{minipage}
-    &
-    \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1788}{LVV-T1788}
-    & Pass &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    Applied each of the first 20 bending modes in turn. Force accuracy and
+\medskip
+\end{minipage}
+&
+\\\hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1790}{LVV-T1790}
+&  1
+& Pass &
+\begin{minipage}[]{9cm}
+\smallskip
+Bump test succeeded without problem.
+\medskip
+\end{minipage}
+&
+\\\hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1788}{LVV-T1788}
+&  1
+& Pass &
+\begin{minipage}[]{9cm}
+\smallskip
+Applied each of the first 20 bending modes in turn. Force accuracy and
 repeatability meet requirements.
-    \medskip
-    \end{minipage}
-    &
-    \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1787}{LVV-T1787}
-    & Pass &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    We rotated the M2 cart from 0 to 180 degrees, and verified that the M2
+\medskip
+\end{minipage}
+&
+\\\hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1787}{LVV-T1787}
+&  1
+& Pass &
+\begin{minipage}[]{9cm}
+\smallskip
+We rotated the M2 cart from 0 to 180 degrees, and verified that the M2
 control software applies LUT forces as expected. The M2 inclinometer
 works. The reading is used in the LUT. The EUI display of zenith angle
 is a mess and needs to be cleaned up.
-    \medskip
-    \end{minipage}
-    &
-    \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1782}{LVV-T1782}
-    & Not Executed &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    Positions of safety stops were not measured due to lack of hardware
+\medskip
+\end{minipage}
+&
+\\\hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1782}{LVV-T1782}
+&  1
+& Not Executed &
+\begin{minipage}[]{9cm}
+\smallskip
+Positions of safety stops were not measured due to lack of hardware
 support. Motion limits measured were due to actuator (software) limits.
-    \medskip
-    \end{minipage}
-    &
-          \href{https://jira.lsstcorp.org/browse/LVV-18874}{LVV-18874}
-    \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1792}{LVV-T1792}
-    & Pass &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    The M2 force balance system appear to work as designed.
-    \medskip
-    \end{minipage}
-    &
-    \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1785}{LVV-T1785}
-    & In Progress &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    We have tested the stiffness of the actuators while they are integrated
+\medskip
+\end{minipage}
+&
+\href{https://jira.lsstcorp.org/browse/LVV-18874}{LVV-18874}
+\\\hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1792}{LVV-T1792}
+&  1
+& Pass &
+\begin{minipage}[]{9cm}
+\smallskip
+The M2 force balance system appear to work as designed.
+\medskip
+\end{minipage}
+&
+\\\hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1785}{LVV-T1785}
+&  1
+& In Progress &
+\begin{minipage}[]{9cm}
+\smallskip
+We have tested the stiffness of the actuators while they are integrated
 with the M2 cell assembly. Standalone (spare) actuators will be needed
 to actually reverify this stiffness requirement.
-    \medskip
-    \end{minipage}
-    &
-    \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1783}{LVV-T1783}
-    & In Progress &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    Verified that B1 actuator force limit is between 444N and 666N. Did not
+\medskip
+\end{minipage}
+&
+\\\hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1783}{LVV-T1783}
+&  1
+& In Progress &
+\begin{minipage}[]{9cm}
+\smallskip
+Verified that B1 actuator force limit is between 444N and 666N. Did not
 have time to test tangent links.
-    \medskip
-    \end{minipage}
-    &
-    \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1786}{LVV-T1786}
-    & Blocked &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    We agreed not to re-verify the actuator full stroke using spare
+\medskip
+\end{minipage}
+&
+\\\hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1786}{LVV-T1786}
+&  1
+& Blocked &
+\begin{minipage}[]{9cm}
+\smallskip
+We agreed not to re-verify the actuator full stroke using spare
 actuators. We will need to locate the software limit switches in the
 software, and verify those work properly.
-    \medskip
-    \end{minipage}
-    &
-          \href{https://jira.lsstcorp.org/browse/LVV-18874}{LVV-18874}
-    \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1794}{LVV-T1794}
-    & Fail &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    Looking at the difference between exhaust and intake temperatures, the
+\medskip
+\end{minipage}
+&
+\href{https://jira.lsstcorp.org/browse/LVV-18874}{LVV-18874}
+\\\hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1794}{LVV-T1794}
+&  1
+& Fail &
+\begin{minipage}[]{9cm}
+\smallskip
+Looking at the difference between exhaust and intake temperatures, the
 system appear to perform OK in the lab environment.
-    \medskip
-    \end{minipage}
-    &
-          \href{https://jira.lsstcorp.org/browse/LVV-18863}{LVV-18863}
-          \href{https://jira.lsstcorp.org/browse/LVV-18875}{LVV-18875}
-    \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1796}{LVV-T1796}
-    & Fail &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    VMS is a separate software CSC, which was not ready at the time of this
+\medskip
+\end{minipage}
+&
+\href{https://jira.lsstcorp.org/browse/LVV-18863}{LVV-18863}
+\href{https://jira.lsstcorp.org/browse/LVV-18875}{LVV-18875}
+\\\hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1796}{LVV-T1796}
+&  1
+& Fail &
+\begin{minipage}[]{9cm}
+\smallskip
+VMS is a separate software CSC, which was not ready at the time of this
 testing.
-    \medskip
-    \end{minipage}
-    &
-    \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1795}{LVV-T1795}
-    & Pass &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    The M2 surrogate, together with the mounting pads, weigh about 1590 kg,
+\medskip
+\end{minipage}
+&
+\\\hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1795}{LVV-T1795}
+&  1
+& Pass &
+\begin{minipage}[]{9cm}
+\smallskip
+The M2 surrogate, together with the mounting pads, weigh about 1590 kg,
 which is within the M2 mass budget. Note that this test was not done
 with the real M2 glass mirror.
-    \medskip
-    \end{minipage}
-    &
-    \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1789}{LVV-T1789}
-    & Pass &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    The M2 system was shown to work consistently during 4 hours of AOS
+\medskip
+\end{minipage}
+&
+\\\hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1789}{LVV-T1789}
+&  1
+& Pass &
+\begin{minipage}[]{9cm}
+\smallskip
+The M2 system was shown to work consistently during 4 hours of AOS
 operations. The force accuracy and repeatability also appear to meet
 requirements. Checked that the M2 control software publishes telemetry
 at 20Hz. Also checked that EFD event loss rate and latency are
 acceptable.
-    \medskip
-    \end{minipage}
-    &
-    \\\hline
+\medskip
+\end{minipage}
+&
+\\\hline
+\multicolumn{2}{r}{ T. Cycle \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCycle/LVV-C148}{LVV-C148}:} &
+\multicolumn{2}{p{10.9cm}}{\textbf{ M2 Formal Functional Re-Verification and SAL v4.0 Integration }} & Not Executed \\\hline
+\textbf{Test Cases} &  \textbf{Ver.} & \textbf{Status} & \textbf{Comment} & \textbf{Issues} \\\toprule
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1803}{LVV-T1803}
+&  1
+& Not Executed &
+\begin{minipage}[]{9cm}
+\smallskip
 
-  \multicolumn{3}{p{13.5cm}}{ Test Cycle {\bf LVV-C148: M2 Formal Functional Re-Verification and SAL v4.0 Integration }} & Not Executed \\\hline
+\medskip
+\end{minipage}
+&
+\\\hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1614}{LVV-T1614}
+&  1
+& Not Executed &
+\begin{minipage}[]{9cm}
+\smallskip
 
-  {\bf \footnotesize test case} & {\bf \footnotesize status} & {\bf \footnotesize comment} & {\bf \footnotesize issues} \\\toprule
+\medskip
+\end{minipage}
+&
+\\\hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1613}{LVV-T1613}
+&  1
+& Not Executed &
+\begin{minipage}[]{9cm}
+\smallskip
 
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1803}{LVV-T1803}
-    & Not Executed &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    
-    \medskip
-    \end{minipage}
-    &
-    \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1614}{LVV-T1614}
-    & Not Executed &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    
-    \medskip
-    \end{minipage}
-    &
-    \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1613}{LVV-T1613}
-    & Not Executed &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    
-    \medskip
-    \end{minipage}
-    &
-    \\\hline
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1615}{LVV-T1615}
-    & Not Executed &
-    \begin{minipage}[]{9cm}
-    \smallskip
-    
-    \medskip
-    \end{minipage}
-    &
-    \\\hline
+\medskip
+\end{minipage}
+&
+\\\hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1615}{LVV-T1615}
+&  1
+& Not Executed &
+\begin{minipage}[]{9cm}
+\smallskip
+
+\medskip
+\end{minipage}
+&
+\\\hline
 \caption{Test Campaign Summary}
 \label{table:summary}
 \end{longtable}
+}
 
 \subsection{Overall Assessment}
 \label{sect:overallassessment}
@@ -797,7 +861,7 @@ See bug tickets in Jira: https://jira.lsstcorp.org/issues/?filter=20317
 
 Open test cycle {\it \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testrun/LVV-C118}{M2 Preliminary Functional Testing and SAL v4.0 Integration}} in Jira.
 
-M2 Preliminary Functional Testing and SAL v4.0 Integration\\
+Test Cycle name: M2 Preliminary Functional Testing and SAL v4.0 Integration\\
 Status: In Progress
 
 The purpose of this preliminary test cycle is to run some basic
@@ -820,8 +884,9 @@ not require the M2 to be commanded via SAL. }
 
 \subsubsection{Test Cases in LVV-C118 Test Cycle}
 
-\paragraph{Test Case LVV-T1799 - M2 E-stop }\mbox{}\\
+\paragraph{ LVV-T1799 - M2 E-stop }\mbox{}\\
 
+Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1799}{\textit{ LVV-T1799 } }
 test case in Jira.
 
@@ -973,8 +1038,9 @@ To shut down, open loop, stand by, remote, quit~
 
 \end{longtable}
 
-\paragraph{Test Case LVV-T1798 - verify M2 SAL4.0 telemetry against EUI display and output binary files }\mbox{}\\
+\paragraph{ LVV-T1798 - verify M2 SAL4.0 telemetry against EUI display and output binary files }\mbox{}\\
 
+Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1798}{\textit{ LVV-T1798 } }
 test case in Jira.
 
@@ -1592,8 +1658,9 @@ forces), and balance forces}
 
 \end{longtable}
 
-\paragraph{Test Case LVV-T1827 - M2 inner loop control - open loop mode }\mbox{}\\
+\paragraph{ LVV-T1827 - M2 inner loop control - open loop mode }\mbox{}\\
 
+Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1827}{\textit{ LVV-T1827 } }
 test case in Jira.
 
@@ -1804,8 +1871,9 @@ And verify that the inner control loop applies motor steps as commanded.
 
 \end{longtable}
 
-\paragraph{Test Case LVV-T1826 - M2 outer and inner control loops - closed loop mode }\mbox{}\\
+\paragraph{ LVV-T1826 - M2 outer and inner control loops - closed loop mode }\mbox{}\\
 
+Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1826}{\textit{ LVV-T1826 } }
 test case in Jira.
 
@@ -1993,8 +2061,9 @@ into motor steps in order to command the inner loop controllers.
 
 \end{longtable}
 
-\paragraph{Test Case LVV-T1791 - M2 position stability and repeatability }\mbox{}\\
+\paragraph{ LVV-T1791 - M2 position stability and repeatability }\mbox{}\\
 
+Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1791}{\textit{ LVV-T1791 } }
 test case in Jira.
 
@@ -2255,8 +2324,9 @@ position repeatability between ~the 3 cycles
 
 \end{longtable}
 
-\paragraph{Test Case LVV-T1829 - M2 position sensors }\mbox{}\\
+\paragraph{ LVV-T1829 - M2 position sensors }\mbox{}\\
 
+Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1829}{\textit{ LVV-T1829 } }
 test case in Jira.
 
@@ -2358,8 +2428,9 @@ Note: Laser trackers does not have accuracy to validate position sensors
 
 \end{longtable}
 
-\paragraph{Test Case LVV-T1810 - calibrate M2 optimal position and position sensor offset }\mbox{}\\
+\paragraph{ LVV-T1810 - calibrate M2 optimal position and position sensor offset }\mbox{}\\
 
+Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1810}{\textit{ LVV-T1810 } }
 test case in Jira.
 
@@ -2577,8 +2648,9 @@ make sure the position sensor readings are all close to zero now.
 
 \end{longtable}
 
-\paragraph{Test Case LVV-T1784 - M2 actuator No back driving }\mbox{}\\
+\paragraph{ LVV-T1784 - M2 actuator No back driving }\mbox{}\\
 
+Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1784}{\textit{ LVV-T1784 } }
 test case in Jira.
 
@@ -2730,8 +2802,9 @@ the actuator forces did not change after de-energizing the actuators
 
 \end{longtable}
 
-\paragraph{Test Case LVV-T1790 - M2 actuator bump test }\mbox{}\\
+\paragraph{ LVV-T1790 - M2 actuator bump test }\mbox{}\\
 
+Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1790}{\textit{ LVV-T1790 } }
 test case in Jira.
 
@@ -2906,8 +2979,9 @@ AOS duration test.
 
 \end{longtable}
 
-\paragraph{Test Case LVV-T1788 - M2 bending modes }\mbox{}\\
+\paragraph{ LVV-T1788 - M2 bending modes }\mbox{}\\
 
+Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1788}{\textit{ LVV-T1788 } }
 test case in Jira.
 
@@ -3043,8 +3117,9 @@ https://github.com/bxin/M2\_summit\_2003/blob/master/a16\_bending\_modes.ipynb
 
 \end{longtable}
 
-\paragraph{Test Case LVV-T1787 - M2 LUT (cart rotation) }\mbox{}\\
+\paragraph{ LVV-T1787 - M2 LUT (cart rotation) }\mbox{}\\
 
+Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1787}{\textit{ LVV-T1787 } }
 test case in Jira.
 
@@ -3201,8 +3276,9 @@ zenith angle as displayed on the EUI}
 
 \end{longtable}
 
-\paragraph{Test Case LVV-T1782 - M2 Motion limits/ safety stops }\mbox{}\\
+\paragraph{ LVV-T1782 - M2 Motion limits/ safety stops }\mbox{}\\
 
+Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1782}{\textit{ LVV-T1782 } }
 test case in Jira.
 
@@ -3364,8 +3440,9 @@ that would trigger the limit switches that we know of from this test.\\
 
 \end{longtable}
 
-\paragraph{Test Case LVV-T1792 - M2 force balance system }\mbox{}\\
+\paragraph{ LVV-T1792 - M2 force balance system }\mbox{}\\
 
+Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1792}{\textit{ LVV-T1792 } }
 test case in Jira.
 
@@ -3454,8 +3531,9 @@ and closed loop
 
 \end{longtable}
 
-\paragraph{Test Case LVV-T1785 - M2 actuator stiffness }\mbox{}\\
+\paragraph{ LVV-T1785 - M2 actuator stiffness }\mbox{}\\
 
+Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1785}{\textit{ LVV-T1785 } }
 test case in Jira.
 
@@ -3558,8 +3636,9 @@ the change in length, calculate its stiffness
 
 \end{longtable}
 
-\paragraph{Test Case LVV-T1783 - M2 actuator force limits }\mbox{}\\
+\paragraph{ LVV-T1783 - M2 actuator force limits }\mbox{}\\
 
+Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1783}{\textit{ LVV-T1783 } }
 test case in Jira.
 
@@ -3709,8 +3788,9 @@ see above. this cannot be done in open loop
 
 \end{longtable}
 
-\paragraph{Test Case LVV-T1786 - M2 actuator stroke/limit switch }\mbox{}\\
+\paragraph{ LVV-T1786 - M2 actuator stroke/limit switch }\mbox{}\\
 
+Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1786}{\textit{ LVV-T1786 } }
 test case in Jira.
 
@@ -3867,8 +3947,9 @@ Note that actuator length is required by LTS-146 3.4.10
 
 \end{longtable}
 
-\paragraph{Test Case LVV-T1794 - M2 temperature }\mbox{}\\
+\paragraph{ LVV-T1794 - M2 temperature }\mbox{}\\
 
+Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1794}{\textit{ LVV-T1794 } }
 test case in Jira.
 
@@ -4134,8 +4215,9 @@ Heat from tangent links: need thermal camera image\\
 
 \end{longtable}
 
-\paragraph{Test Case LVV-T1796 - M2 VMS }\mbox{}\\
+\paragraph{ LVV-T1796 - M2 VMS }\mbox{}\\
 
+Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1796}{\textit{ LVV-T1796 } }
 test case in Jira.
 
@@ -4229,8 +4311,9 @@ with the M2 assembly will be higher than that.~
 
 \end{longtable}
 
-\paragraph{Test Case LVV-T1795 - M2 mirror weight }\mbox{}\\
+\paragraph{ LVV-T1795 - M2 mirror weight }\mbox{}\\
 
+Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1795}{\textit{ LVV-T1795 } }
 test case in Jira.
 
@@ -4346,8 +4429,9 @@ with the real glass mirror will suffice.
 
 \end{longtable}
 
-\paragraph{Test Case LVV-T1789 - M2 Active Optics duration test }\mbox{}\\
+\paragraph{ LVV-T1789 - M2 Active Optics duration test }\mbox{}\\
 
+Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1789}{\textit{ LVV-T1789 } }
 test case in Jira.
 
@@ -4444,7 +4528,9 @@ to quit the GUI. Tried again, choose ''continue" would be OK.)\\
 16:35 utc, restart the next 62 minutes \textasciitilde{}1 minute after
 the 2nd one.\\
 17:38 utc, restartthe next 62 minutes \textasciitilde{}1 minute after
-the 3rd one.
+the 3rd one.\\[2\baselineskip]See duration\_6min.csv and
+duration\_62min.csv
+at~\url{https://docushare.lsst.org/docushare/dsweb/View/Collection-9710}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -4600,7 +4686,7 @@ telemetry updates are 20Hz}
 
 Open test cycle {\it \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testrun/LVV-C148}{M2 Formal Functional Re-Verification and SAL v4.0 Integration}} in Jira.
 
-M2 Formal Functional Re-Verification and SAL v4.0 Integration\\
+Test Cycle name: M2 Formal Functional Re-Verification and SAL v4.0 Integration\\
 Status: Not Executed
 
 The purpose of this test cycle is to perform the formal functional
@@ -4621,8 +4707,9 @@ Not provided.
 
 \subsubsection{Test Cases in LVV-C148 Test Cycle}
 
-\paragraph{Test Case LVV-T1803 - M2 Hazard Mitigation Verification }\mbox{}\\
+\paragraph{ LVV-T1803 - M2 Hazard Mitigation Verification }\mbox{}\\
 
+Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1803}{\textit{ LVV-T1803 } }
 test case in Jira.
 
@@ -4774,8 +4861,9 @@ about 18-24 in the inner aperture ring.
 
 \end{longtable}
 
-\paragraph{Test Case LVV-T1614 - M2 Software Functional Re-verification }\mbox{}\\
+\paragraph{ LVV-T1614 - M2 Software Functional Re-verification }\mbox{}\\
 
+Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1614}{\textit{ LVV-T1614 } }
 test case in Jira.
 
@@ -4819,8 +4907,9 @@ Detailed steps results:
 
 \end{longtable}
 
-\paragraph{Test Case LVV-T1613 - M2 Hardware Functional Re-verification }\mbox{}\\
+\paragraph{ LVV-T1613 - M2 Hardware Functional Re-verification }\mbox{}\\
 
+Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1613}{\textit{ LVV-T1613 } }
 test case in Jira.
 
@@ -4943,8 +5032,9 @@ repeat the process for +/-y and +/-z directions.
 
 \end{longtable}
 
-\paragraph{Test Case LVV-T1615 - Integration of M2 with SAL v4.0 }\mbox{}\\
+\paragraph{ LVV-T1615 - Integration of M2 with SAL v4.0 }\mbox{}\\
 
+Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1615}{\textit{ LVV-T1615 } }
 test case in Jira.
 

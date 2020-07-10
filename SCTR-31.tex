@@ -183,17 +183,6 @@ The documentation related to this test campaign should be provided in the follow
 \item DocuShare Collection Not Specified
 \end{itemize}
 
-\begin{longtable}{rp{10cm}l}
-\multicolumn{3}{c}{Jira Attachments} \\ \hline
-          To LVV-C118 results &
-  bm\_scaled\_6000x78.csv & \attachfile{attachments/bm_scaled_6000x78.csv}\\ \hline
-To LVV-C118 results &
-  bmHold\_6000x78.csv & \attachfile{attachments/bmHold_6000x78.csv}\\ \hline
-                   \end{longtable}
-
-All documents provided as attachments in Jira are downloaded to Github and linked here for convenience.
-However, since they are not properly versioned, they should be considered informal and therefore
-not be part of the verification baseline.
 
 
 \subsection{PMCS Activity}
@@ -223,11 +212,11 @@ Austin Roberts }
 & {\small Bo Xin } & {\small Bo Xin } &
 \begin{minipage}[]{6cm}
 \smallskip
-{\small {M2 product owner}\\
-{M2 software engineer}\\
-{T\&S Scientist~}\\
-{Electrical support}\\
-{GIS Expert} }
+{\small {M2 product owner\\
+M2 software engineer\\
+T\&S Scientist~\\
+Electrical support\\
+GIS Expert} }
 \medskip
 \end{minipage}
 \\ \hline
@@ -472,7 +461,9 @@ Austin Roberts }
 & {\small Austin Roberts } & {\small  } &
 \begin{minipage}[]{6cm}
 \smallskip
-{\small  }
+{\small (1) Mechanical Engineer\\
+(1) Electrical Engineer\\
+(1) Software Engineer }
 \medskip
 \end{minipage}
 \\ \hline
@@ -1040,16 +1031,14 @@ Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1798}{\textit{ LVV-T1798 } }
 test case in Jira.
 
-verify M2 SAL4.0 telemetry against EUI display and output binary
-files\\[2\baselineskip]{The purpose of this test case is to re-verify
-the interface between the M2 controller and TCS via SAL 4.0, as
-specified in \citeds{LTS-146} and \citeds{LTS-162}, after shipment from the vendor's
-facility to the Summit facility. The telemetry being published to the
-EFD will be checked through the use of a python notebook to be
-consistent with the information being displayed on the EUI and on the
-output binary file. After the telemetry is seen to be consistent, we
-will verify the telemetry topics listed in the test steps have all been
-accurately published.}\\[2\baselineskip]{\\
+{The purpose of this test case is to re-verify the interface between the
+M2 controller and TCS via SAL 4.0, as specified in \citeds{LTS-146} and \citeds{LTS-162},
+after shipment from the vendor's facility to the Summit facility. The
+telemetry being published to the EFD will be checked through the use of
+a python notebook to be consistent with the information being displayed
+on the EUI and on the output binary file. After the telemetry is seen to
+be consistent, we will verify the telemetry topics listed in the test
+steps have all been accurately published.}{\\
 }
 
 \textbf{ Preconditions}:\\
@@ -1660,12 +1649,11 @@ Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1827}{\textit{ LVV-T1827 } }
 test case in Jira.
 
-verify that the inner control loop applies motor steps as
-commanded.\\[2\baselineskip]{The purpose of this test case is to
-re-verify the inner loop control loop requirement, as specified in
-\citeds{LTS-146}, after shipment from the vendor's facility to the Summit
-facility. The test steps are meant to verify that inner control loop
-applies motor steps as commanded in open loop mode.~\\
+{The purpose of this test case is to re-verify the inner loop control
+loop requirement, as specified in \citeds{LTS-146}, after shipment from the
+vendor's facility to the Summit facility. The test steps are meant to
+verify that inner control loop applies motor steps as commanded in open
+loop mode.~}{\\
 }
 
 \textbf{ Preconditions}:\\
@@ -2063,13 +2051,11 @@ Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1791}{\textit{ LVV-T1791 } }
 test case in Jira.
 
-To verify that the M2 mirror control system can position the mirror with
-good repeatability and stability.\\[2\baselineskip]{The objective of
-this test case is to re-verify the force measurement, accuracy and
-repeatability requirements specified in \citeds{LTS-146}, after shipment from the
-vendor's facility to the Summit facility. This test will confirm by
-repeating the same set of steps for all six direction that the
-requirements have been met.}
+{The objective of this test case is to re-verify the force measurement,
+accuracy, repeatability and stiffness requirements specified in \citeds{LTS-146},
+after shipment from the vendor's facility to the Summit facility. Within
+closed loop mode, the M2 mirror control system will be verified to be
+able to position the mirror with good repeatability and stability.}
 
 \textbf{ Preconditions}:\\
 
@@ -2430,23 +2416,16 @@ Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1810}{\textit{ LVV-T1810 } }
 test case in Jira.
 
-The objective is to verify that we are able to (1) optimize the mirror
-position relative to the cell and redefine the optimal position as
-mirror reference position and (2) reset the offsets of the (independent)
-position sensors so that they show zeros at the mirror reference
-position.\\
-The position should be provided by the 6 passive support. The position
-from the displacement sensors should be provided for
-verification.\\[2\baselineskip]{The objective of this test case is to
-partially re-verify the force measurement accuracy and repeatability
-requirements defined in \citeds{LTS-146}, after shipment from the vendor's
-facility to the Summit facility. This test case will involve optimizing
-the mirror position relative to the cell and redefine the optimal
-position as a mirror reference position. Once the optimal position has
-been determined, the offsets of the independent position sensor will
-need to be reset so that they show zero when at this reference position.
-The position from the displacement sensors will be provided to show
-partial verification of the accuracy and repeatability requirements.}
+{The objective of this test case is to partially re-verify the force
+measurement accuracy and repeatability requirements defined in \citeds{LTS-146},
+after shipment from the vendor's facility to the Summit facility. This
+test case will involve optimizing the mirror position relative to the
+cell and redefine the optimal position as a mirror reference position.
+Once the optimal position has been determined, the offsets of the
+independent position sensor will need to be reset so that they show zero
+when at this reference position. The position from the displacement
+sensors will be provided to show partial verification of the accuracy
+and repeatability requirements.}
 
 \textbf{ Preconditions}:\\
 
@@ -2650,8 +2629,6 @@ Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1784}{\textit{ LVV-T1784 } }
 test case in Jira.
 
-To verify that the actuators do not require power to maintain their set
-positions and forces\\
 {The objective of this test case is to re-verify the No Back-driving
 requirement specified in \citeds{LTS-146}, after shipment from the vendor's
 facility to the Summit facility. While in closed loop mode, the
@@ -2804,17 +2781,14 @@ Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1790}{\textit{ LVV-T1790 } }
 test case in Jira.
 
-This test is to make sure all actuators are alive and responding to
-commands properly.\\
-For force accuracy/repeatability/stability - see bending mode test and
-AOS duration test.\\[2\baselineskip]{The objective of this test case is
-to partially re-verify the active-optics forces requirement, as
-specified in \citeds{LTS-146}, after shipment from the vendor's facility to the
-Summit facility. The active-optics forces requirement will be verified
-by the M2 actuator bump test in conjunction with the bending mode test
-and AOS duration test.~}{This test case will specifically verify that
-the M2 actuators are alive and responding to commands properly while in
-closed loop mode and should be executed first.}
+{The objective of this test case is to partially re-verify the
+active-optics forces requirement, as specified in \citeds{LTS-146}, after
+shipment from the vendor's facility to the Summit facility. The
+active-optics forces requirement will be verified by the M2 actuator
+bump test in conjunction with the bending mode test and AOS duration
+test. This test case will specifically verify that the M2 actuators are
+alive and responding to commands properly while in closed loop mode and
+should be executed first.}
 
 \textbf{ Preconditions}:\\
 
@@ -2983,13 +2957,12 @@ Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1788}{\textit{ LVV-T1788 } }
 test case in Jira.
 
-To verify that the bending mode forces can be applied, and the forces
-meet the accuracy and repeatability requirements\\[2\baselineskip]{The
-objective of this test case is to re-verify the accuracy and
-repeatability requirements as specified in \citeds{LTS-146} after shipment from
-the vendor's facility to the Summit facility. The test steps were
-written to test that the bending mode forces can be applied and the
-forces meet the accuracy~}
+{The objective of this test case is to confirm that bending mode forces
+can be applied, meeting the accuracy and repeatability requirements
+specified in \citeds{LTS-146}. As mentioned in the M2 Actuator Bump Test, this
+test will also verify the Active-Optics Forces requirement. This test
+will involve applying bending mode forces for about 5s and should show
+that the measured forces are consistent to the commanded forces.}
 
 \textbf{ Preconditions}:\\
 
@@ -3075,7 +3048,9 @@ confirmed with testF2rows.csv\\
 Redoing the test on 3/6/20.\\[2\baselineskip]13:21utc, starting first
 try. using bmHold\_6000x78.csv\\
 13:29utc repeating, 2nd time.\\
-13:35utc, repeating, 3rd time.
+13:35utc, repeating, 3rd time.\\[2\baselineskip]See bmHold\_6000x78.csv
+in the following docushare
+collection:~\url{https://docushare.lsst.org/docushare/dsweb/View/Collection-9710}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -3121,20 +3096,15 @@ Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1787}{\textit{ LVV-T1787 } }
 test case in Jira.
 
-The main objective is to verify that the Look-Up Tables, both
-gravitational and thermal, are being used correctly and forces applied
-correctly.\\
-This test case also verifies the proper operation of the M2 cart, and
-that the M2 inclinometer works properly and the read out is used
-properly in the Look-Up Table.\\[3\baselineskip]{The objective of this
-test case it to re-verify the requirements specified in \citeds{LTS-146}
-regarding the forces of the M2 support system. This test case will first
-test that the actuators are applying the correct forces according to the
-Look-Up Table through the M2 cart's entire range of motion. This test
-case should show that the LUT forces are being updated at 20Hz and
-safely support the mirror. In addition, the M2 inclinometer data should
-show consistency to that of the M2 cart control and zenith angles
-displayed on the GUI.~}\\[2\baselineskip]{Version 1 - No elevation}\\
+{The objective of this test case it to re-verify the requirements
+specified in \citeds{LTS-146} regarding the forces of the M2 support system. This
+test case will first test that the actuators are applying the correct
+forces according to the Look-Up Table through the M2 cart's entire range
+of motion. This test case should show that the LUT forces are being
+updated at 20Hz and safely support the mirror. In addition, the M2
+inclinometer data should show consistency to that of the M2 cart control
+and zenith angles displayed on the GUI. }\\[2\baselineskip]{Version 1 -
+No elevation}\\
 {Version 2 - Elevated}
 
 \textbf{ Preconditions}:\\
@@ -3282,15 +3252,13 @@ Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1782}{\textit{ LVV-T1782 } }
 test case in Jira.
 
-To verify that the M2 safety stops are in place and the allowable travel
-distances of the M2 meet requirements.\\[2\baselineskip]{The objective
-of this test case is to re-verify the safety stops are in place as
-specified in \citeds{LTS-146} after shipment from the vendor's facility to the
-Summit facility. This test will involve inspecting that the safety stops
-are in place first and then moving the system until the motion limits
-are reached. The results of this test should show that the system enters
-the fault state when the motion limits are reached and prevent the M2
-mirror from contacting the safety stops.}
+{The objective of this test case is to re-verify the safety stops are in
+place as specified in \citeds{LTS-146} after shipment from the vendor's facility
+to the Summit facility. This test will involve first inspecting that the
+safety stops are in place and then moving the system until the motion
+limits are reached. The results of this test should show that the system
+enters the fault state when the motion limits are reached and prevent
+the M2 mirror from contacting the safety stops.}
 
 \textbf{ Preconditions}:\\
 
@@ -3446,13 +3414,13 @@ Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1792}{\textit{ LVV-T1792 } }
 test case in Jira.
 
-To verify that the M2 force balance system works as
-designed\\[2\baselineskip]{The objective of this test case is to verify
-the force balancing requirements of the actuators specified in \citeds{LTS-142},
-after shipment from the vendor's facility to the base facility. This
-test case will be using the inner loop control during open loop mode as
-well as the outer and inner control loops in closed loop
-mode.~}\\[2\baselineskip]
+{The objective of this test case is to verify the force balancing
+requirements of the actuators specified in \citeds{LTS-142}, after shipment from
+the vendor's facility to the base facility. This test case will be using
+the data from the testing of the inner loop control during open loop
+mode, as well as the outer and inner control loops in closed loop mode.
+The data should show that the Force Balance system responds
+appropriately during both open loop and closed loop modes.}
 
 \textbf{ Preconditions}:\\
 
@@ -3537,12 +3505,15 @@ Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1785}{\textit{ LVV-T1785 } }
 test case in Jira.
 
-verify axial actuator stiffness \textgreater{} 2.6N/um, tangent
-stiffness\textgreater{}30N/um\\[3\baselineskip]{The objective of this
-test case is to verify the actuator stiffness requirements specified in
-\citeds{LTS-146}, after being shipped from the vendor's facility to the Summit
-facility. The test will involve using a stand alone spare actuator in
-order to produce a more accurate spring constant.~~}
+{The objective of this test case is to verify the actuator stiffness
+requirements specified in \citeds{LTS-146}, after being shipped from the vendor's
+facility to the Summit facility. This test consists of two ways of
+verifying the actuator stiffness. The first is to use the data from the
+M2 open loop mode and M2 closed loop mode test cases which will yield a
+reduced spring constant. The second is to use a stand alone spare
+actuator to produce a more accurate spring constant. This test should
+show that the axial actuator stiffness is greater than 2.6N/um and the
+tangent stiffness is greater than 30N/um.}
 
 \textbf{ Preconditions}:\\
 
@@ -3642,19 +3613,16 @@ Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1783}{\textit{ LVV-T1783 } }
 test case in Jira.
 
-Verify that the actuators can output forces that satisfies the force
-range requirements (444N for axial and 6000N for tangents), but still
-within the specified force limits (666N for axial and 9000N for
-tangents).\\[2\baselineskip]{The objective of this test case is to
-re-verify the force limits of the M2 actuators as specified in \citeds{LTS-146},
-after shipment from the vendor's facility to the Summit facility. This
-will be done by testing the force limits of one axial actuator and one
-tangent actuator. The axial actuator will be shown to be able to output
-at least 444N of force and trigger an alarm before reaching 666N.
-Similarly, the tangent actuator will be shown to be able to output at
-least 6000 N of force and trigger an alarm before reaching 9000N. The
-telemetry will be monitored to ensure that the force requirements are
-met without going past the force limits.}
+{The objective of this test case is to re-verify the force limits of the
+M2 actuators as specified in \citeds{LTS-146}, after shipment from the vendor's
+facility to the Summit facility. This will be done by testing the force
+limits of one axial actuator and one tangent actuator. The axial
+actuator will be shown to be able to output at least 444N of force and
+trigger an alarm before reaching 666N. Similarly, the tangent actuator
+will be shown to be able to output at least 6000 N of force and trigger
+an alarm before reaching 9000N. The telemetry will be monitored to
+ensure that the force requirements are met without going past the force
+limits.}
 
 \textbf{ Preconditions}:\\
 
@@ -3794,18 +3762,12 @@ Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1786}{\textit{ LVV-T1786 } }
 test case in Jira.
 
-To verify that the actuators meet the stroke requirements, and the limit
-switches are in place and work properly.\\[2\baselineskip]{The objective
-of this test case is to re-verify the tangent link stroke requirement
-defined in \citeds{LTS-146}, after shipment from the vendor's facility to the
-Summit facility. In addition to verifying the stroke requirement, this
-test will be used to determine the location of the software limit
-without commanding the actuators to the hard
-stops.}\\[2\baselineskip]{\textbf{Note: I noticed that only the tangent
-link stroke has a re-verification element traced to this. When we went
-through the requirements we would be re-verifying, we only specified the
-tangent link stroke requirement saying that we would follow the Harris
-test report. Should we create a VE for this?}}
+{The objective of this test case is to re-verify the tangent link stroke
+requirement defined in \citeds{LTS-146}, after shipment from the vendor's
+facility to the Summit facility. In addition to verifying the stroke
+requirement, this test will be used to confirm the limit switches are in
+place and working properly. However, as to not damage the hard stops,
+only the software limits will be tested.~}
 
 \textbf{ Preconditions}:\\
 
@@ -3834,14 +3796,6 @@ test document, without verifying it again.
 \end{minipage}
 \\ \cdashline{2-2}
 
- & Test Data \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-{Per discussion with Doug, we shouldn't actually test the hard stop
-limit as to not damage it. as long as we have software limit, we will be
-fine.}
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
@@ -3953,20 +3907,18 @@ Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1794}{\textit{ LVV-T1794 } }
 test case in Jira.
 
-To verify that the M2 temperature sensors work properly, and the M2
-temperatures are with specifications under operational
-conditions.\\[2\baselineskip]{The objective of this test case is to
-re-verify the Mirror Cell Temperature requirement specified in \citeds{LTS-146},
-after shipment from the vendor facility to the Summit facility. To
-verify that the mirror cell temperature meets its requirement during
-operation, this test will be executed once at the beginning of the day
-before any use and once at the end of a day of use. Instead of using all
-sixteen temperature sensors, the average difference between the exhaust
-temperature and intake temperature will be determined by using only four
-sensors (2 exhaust temperature sensors and 2 intake temperature
-sensors). This average will show that the cell temperature requirement
-has been met.}\\[2\baselineskip]{Version \#1 - initial testing that Bo
-did}\\
+{The objective of this test case is to re-verify the Mirror Cell
+Temperature requirement specified in \citeds{LTS-146}, after shipment from the
+vendor facility to the Summit facility. To verify that the mirror cell
+temperature meets its requirement during operation, this test will be
+executed once at the beginning of the day before any use and once at the
+end of a day of use. Instead of using all sixteen temperature sensors,
+the average difference between the exhaust temperature and intake
+temperature will be determined by using only four sensors (2 exhaust
+temperature sensors and 2 intake temperature sensors). This average will
+show that the cell temperature requirement has been met.\\
+}\\
+{Version \#1 - initial testing that Bo did}\\
 {Version \#2 - updated testing with operational conditions in mind}
 
 \textbf{ Preconditions}:\\
@@ -4221,23 +4173,17 @@ Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1796}{\textit{ LVV-T1796 } }
 test case in Jira.
 
-Verify that the M2 Vibration Monitoring System works properly, and the
-vibrations created by the M2 cell is of high enough frequency so that
-its impact on system image quality is within its allocation.\\
-{\\
-The objective of this test case is re-verify the minimum vibration
+{The objective of this test case is re-verify the minimum vibration
 frequency requirement specified in \citeds{LTS-146}, after shipment from the
-vendor's facility to the Summit facility.}\\[2\baselineskip]{\textbf{I
-think we should leave this as a separate test case since we need to
-verify when the baffle is installed but should this be part of this test
-cycle still?}}
+vendor's facility to the Summit facility. In order to confirm that the
+M2 Vibration Monitoring System works properly, the VMS system needs to
+be functional during the M2 Active Optics duration test with the EFD
+collecting the VMS data. The data should show that the impact of the
+vibrations created by the M2 cell on the system image quality is within
+its allocation.~}
 
 \textbf{ Preconditions}:\\
-test case\\
-\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1789}{~LVV-T1789
-(1.0)~}\\
-has been executed successfully, with the VMS system functioning and VMS
-data going into the EFD.
+
 
 Execution status: {\bf Fail }
 
@@ -4317,15 +4263,14 @@ Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1795}{\textit{ LVV-T1795 } }
 test case in Jira.
 
-To verify that the M2 mirror itself together with the bonded attachment
-pads weigh less than 1600 kg\\[3\baselineskip]{The objective of this
-test case is to partially re-verify the mirror definition requirement
-specified in \citeds{LTS-146}, after shipment from the vendor's facility to the
-Summit facility. This test will only involve the use of the surrogate
-mirror. The purpose of this test case is to verify the ability of the M2
-cell assembly to support an object of similar shape and weight. After
-this functionality is confirmed, the requirement will be fully verified
-through a test involving the real mirror.~}
+{The objective of this test case is to partially re-verify the mirror
+definition requirement specified in \citeds{LTS-146}, after shipment from the
+vendor's facility to the Summit facility. Initially, this test will only
+involve the use of the surrogate mirror. This initial test should show
+that the M2 cell assembly is able to support an object of similar shape
+and weight to the actual mirror. After this functionality is confirmed,
+this test will be repeated with the real mirror and fully verify the
+mirror definition requirement.}
 
 \textbf{ Preconditions}:\\
 
@@ -4435,17 +4380,14 @@ Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1789}{\textit{ LVV-T1789 } }
 test case in Jira.
 
-This test is to verify that the mirror control system can operate
-robustly with active optics forces over extended period of
-time.\\[2\baselineskip]{The objective of this test case is to verify the
-active optics requirements specified in \citeds{LTS-146} after the shipment from
-the vendor's facility to the Summit facility. This includes testing the
-M2 control system operates at a bandwidth of at least 20Hz.~}\\
-{The test will incorporate testing of the additional offset forces
-applied to the mirror support control system during visits of 37s. The
-steps of this test will also determine how long the maximum length of a
-single csv file can be run.~}\\[3\baselineskip]{\emph{Should the scope
-of this test cover control bandwidth and VMS test cases?}}
+{The objective of this test case is to finish verifying the active
+optics, force repeatability and force accuracy requirements specified in
+\citeds{LTS-146}. This test should also confirm that the M2 control system
+operates at a bandwidth of at least 20Hz. In order to verify the active
+optics requirements, this test will incorporate applying additional
+offset forces to the mirror support control system during visits of 37s.
+The steps of this test should also determine how long the maximum length
+of a single csv file can be run. }
 
 \textbf{ Preconditions}:\\
 {Prior to the execution of this test case to re-verify the M2 control
@@ -5032,13 +4974,26 @@ repeat the process for +/-y and +/-z directions.
 
 \end{longtable}
 
-\paragraph{ LVV-T1615 - Integration of M2 with SAL v4.0 }\mbox{}\\
+\paragraph{ LVV-T1615 - Integration of M2 with SAL v4.x (TBD) }\mbox{}\\
 
 Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1615}{\textit{ LVV-T1615 } }
 test case in Jira.
 
+The objective of this test case is to verify the software requirements
+of the M2 cell, as defined in \citeds{LTS-146} and \citeds{LTS-162}, utilizing the updated
+M2 CSC (SAL 4.{xx}). The software requirements were previously verified
+during the test campaign by the vendor, but have since been updated per
+CR-0202. This test case will exercise the functionality of the M2 CSC
+and meets the following criteria:
 
+\begin{itemize}
+\tightlist
+\item
+  Only requires the M2 surrogate to be loaded on the cell
+\item
+  Requires the use of both the EUI and DDS
+\end{itemize}
 
 \textbf{ Preconditions}:\\
 

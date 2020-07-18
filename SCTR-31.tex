@@ -887,8 +887,8 @@ requirement, as defined in \citeds{LTS-146}, after shipment from the vendor's
 facility to the Summit facility. This test case will be executed with an
 E-stop in place of the interlock system. The results of this test should
 show that the M2 support control system behaves as expected, sending the
-system into a FAULT state when the E-stop is pressed and cutting all
-power from the M2 actuators.~}
+system into a FAULT state when the E-stop is pressed and cuts all power
+from the M2 actuators.~}
 
 \textbf{ Preconditions}:\\
 {Prior to the execution of this test case to re-verify the M2 E-stop
@@ -983,11 +983,19 @@ this after initial round of testing.
 3 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-recover the system:\\
-switch e-stop off then back on\\
-observe system behaviors:alarms, warnings\\
-clear the errors\\
-reenter local mode, then diagnostic mode, then enable closed loop
+recover the system:
+
+\begin{itemize}
+\tightlist
+\item
+  switch e-stop off then back on
+\item
+  observe system behaviors:alarms, warnings
+\item
+  clear the errors
+\item
+  reenter local mode, then diagnostic mode, then enable closed loop
+\end{itemize}
 
 \medskip }
 \end{minipage}
@@ -996,6 +1004,7 @@ reenter local mode, then diagnostic mode, then enable closed loop
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+The system is able to be transitioned out of the Fault state
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -1039,16 +1048,24 @@ test case in Jira.
 {The purpose of this test case is to re-verify the interface between the
 M2 controller and TCS via SAL 4.0, as specified in \citeds{LTS-146} and \citeds{LTS-162},
 after shipment from the vendor's facility to the Summit facility. The
-telemetry being published to the EFD will be checked through the use of
-a python notebook to be consistent with the information being displayed
-on the EUI and on the output binary file. After the telemetry is seen to
-be consistent, we will verify the telemetry topics listed in the test
-steps have all been accurately published.}{\\
-}
+initial telemetry published to the EFD will first be compared to the
+information that is displayed on the EUI and on an output binary file
+from Matlab. Once the initial telemetry data is seen to be consistent
+across the EFD, the EUI and the output binary file, a force will be
+added to one of the actuators. }\\[2\baselineskip]The objective of this
+test case is to verify the M2's ability to accurately publish telemetry
+as specified in \citeds{LTS-162}. In order to do so, the telemetry data being
+published to the EFD must first be compared to the information that is
+displayed on the EUI and on an output binary file from Matlab. Once the
+initial telemetry data is seen to be consistent across the EFD, the EUI
+and the output binary file, 20N of force will be loaded onto one of the
+actuators. The purpose of this will be to verify that the telemetry data
+accurately reports the 20N of added force. If the telemetry is confirmed
+to be accurate, we will verify that the telemetry topics specified in
+\citeds{LTS-162} are all consistently reported through the EFD, EUI and output
+binary files.~
 
 \textbf{ Preconditions}:\\
-M2 control software works properly and SAL has been upgraded to version
-4.0\\
 {Prior to the execution of this test case to re-verify the M2 SAL 4.0
 telemetry and events, the following Summit tasks must be completed:}
 

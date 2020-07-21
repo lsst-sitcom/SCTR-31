@@ -884,11 +884,21 @@ test case in Jira.
 
 {The purpose of this test case is to re-verify the M2 interlocks
 requirement, as defined in \citeds{LTS-146}, after shipment from the vendor's
-facility to the Summit facility. This test case will be executed with an
-E-stop in place of the interlock system. The results of this test should
-show that the M2 support control system behaves as expected, sending the
-system into a FAULT state when the E-stop is pressed and cuts all power
-from the M2 actuators.~}
+facility to the Summit facility. The results of this test should show
+that the M2 support control system behaves as expected, sending the
+system into a FAULT state when the E-stop is pressed and cutting all
+power from the M2 actuators. This test case will only exercise this
+functionality and meets the following criteria:}\\
+
+\begin{itemize}
+\tightlist
+\item
+  Only requires the use of an E-stop in place of the interlock system
+\item
+  Only requires the current version of SAL
+\item
+  Only requires the surrogate mirror to be installed
+\end{itemize}
 
 \textbf{ Preconditions}:\\
 {Prior to the execution of this test case to re-verify the M2 E-stop
@@ -1045,25 +1055,31 @@ Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1798}{\textit{ LVV-T1798 } }
 test case in Jira.
 
-{The purpose of this test case is to re-verify the interface between the
-M2 controller and TCS via SAL 4.0, as specified in \citeds{LTS-146} and \citeds{LTS-162},
-after shipment from the vendor's facility to the Summit facility. The
-initial telemetry published to the EFD will first be compared to the
-information that is displayed on the EUI and on an output binary file
-from Matlab. Once the initial telemetry data is seen to be consistent
-across the EFD, the EUI and the output binary file, a force will be
-added to one of the actuators. }\\[2\baselineskip]The objective of this
-test case is to verify the M2's ability to accurately publish telemetry
-as specified in \citeds{LTS-162}. In order to do so, the telemetry data being
-published to the EFD must first be compared to the information that is
-displayed on the EUI and on an output binary file from Matlab. Once the
-initial telemetry data is seen to be consistent across the EFD, the EUI
-and the output binary file, 20N of force will be loaded onto one of the
-actuators. The purpose of this will be to verify that the telemetry data
-accurately reports the 20N of added force. If the telemetry is confirmed
-to be accurate, we will verify that the telemetry topics specified in
-\citeds{LTS-162} are all consistently reported through the EFD, EUI and output
-binary files.~
+The objective of this test case is to verify the M2's ability to
+accurately publish telemetry as specified in \citeds{LTS-146} and \citeds{LTS-162}. In
+order to do so, the telemetry data being published to the EFD must first
+be compared to the information that is displayed on the EUI and on an
+output binary file from Matlab. Once the initial telemetry data is seen
+to be consistent across the EFD, the EUI and the output binary file, 20N
+of force will be loaded onto one of the actuators. The purpose of this
+will be to verify that the telemetry data accurately reports the 20N of
+added force. If the telemetry is confirmed to be accurate, we will
+verify that the telemetry topics specified in \citeds{LTS-162} are all
+consistently reported through the EFD, EUI and output binary files. This
+test case will exercise this functionality and meets the following
+criteria:
+
+\begin{itemize}
+\tightlist
+\item
+  Only requires the most current version of SAL
+\item
+  Only requires the surrogate mirror to be installed
+\item
+  Only requires commands to be sent through the CSC
+\item
+  Only requires a python notebook to read output binary file
+\end{itemize}
 
 \textbf{ Preconditions}:\\
 {Prior to the execution of this test case to re-verify the M2 SAL 4.0
@@ -1671,12 +1687,25 @@ Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1827}{\textit{ LVV-T1827 } }
 test case in Jira.
 
-{The purpose of this test case is to re-verify the inner loop control
-loop requirement, as specified in \citeds{LTS-146}, after shipment from the
-vendor's facility to the Summit facility. The test steps are meant to
-verify that inner control loop applies motor steps as commanded in open
-loop mode.~}{\\
-}
+{The purpose of this test case is to re-verify the inner control loop
+requirement, as specified in \citeds{LTS-146}, after shipment from the vendor's
+facility to the Summit facility. This test is meant to show that the
+inner control loop applies motor steps as commanded in open loop mode.
+This test case will exercise this functionality and meets the following
+criteria:}
+
+\begin{itemize}
+\tightlist
+\item
+  Only requires the most current version of SAL
+\item
+  Only requires the surrogate mirror to be installed
+\item
+  Only requires the M2 to be operated in open loop mode
+\item
+  Does require telemetry data to be recorded from the EUI, EFD and an
+  output binary file
+\end{itemize}
 
 \textbf{ Preconditions}:\\
 
@@ -1883,16 +1912,32 @@ Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1826}{\textit{ LVV-T1826 } }
 test case in Jira.
 
-The objective of this test case is to re-verify both the inner and outer
-control loop requirements as defined in \citeds{LTS-146} after shipment from the
-vendor's facility to the Summit facility. The test steps are meant to
-verify the {operation} of the ~the outer control loop while in closed
-loop mode. The outer control loop of the M2 control system takes the
-force commands and convert them into displacements, then apply them on
-the individual actuators. This test case also verifies the working
-mechanism of the force balance system. When the commanded forces give
-nonzero total net forces or moments, the force balance system
-compensates those by applying pre-determined force distributions.
+The objective of this test case is to re-verify the outer loop control
+requirement as defined in \citeds{LTS-146} after shipment from the vendor's
+facility to the Summit facility. This test is meant to show that the
+force commands given to the M2 mirror support will be converted into
+motor steps in order to apply them to the individual actuators. This
+test case will exercise this functionality and meets the following
+criteria:
+
+\begin{itemize}
+\tightlist
+\item
+  Only requires the most current version of SAL
+\item
+  Only requires the surrogate mirror to be installed
+\item
+  Only requires the M2 to be operated in closed loop mode
+\item
+  Does require telemetry data to be recorded from the EUI, EFD and an
+  output binary file
+\end{itemize}
+
+This test case should also inadvertently show that the working mechanism
+of the force balance system is working correctly. This is because when a
+commanded force is given such that the total net force is not zero, the
+force balance system should compensate by applying a pre-determined
+force distribution.
 
 \textbf{ Preconditions}:\\
 
@@ -2075,9 +2120,21 @@ test case in Jira.
 
 {The objective of this test case is to re-verify the force measurement,
 accuracy, repeatability and stiffness requirements specified in \citeds{LTS-146},
-after shipment from the vendor's facility to the Summit facility. Within
-closed loop mode, the M2 mirror control system will be verified to be
-able to position the mirror with good repeatability and stability.}
+after shipment from the vendor's facility to the Summit facility. The M2
+mirror control system will be tested to be able to position the mirror
+with good stability multiple times. This test case will execute this
+functionality and meets the following criteria:}
+
+\begin{itemize}
+\tightlist
+\item
+  {Only requires the M2 surrogate to be installed}
+\item
+  {Only requires the control system to be in closed loop mode}
+\item
+  Does \textbf{NOT~}only require the use of the EUI and can be commanded
+  through SAL if available
+\end{itemize}
 
 \textbf{ Preconditions}:\\
 

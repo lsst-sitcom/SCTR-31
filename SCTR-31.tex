@@ -540,7 +540,7 @@ Both the inner and outer control loops appear to be working properly.
 \\\hline
 \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1791}{LVV-T1791}
 &  1
-& Pass &
+& In Progress &
 \begin{minipage}[]{9cm}
 \smallskip
 Re-positioninig the M2 mirror is shown to be repeatable and the mirror
@@ -550,7 +550,7 @@ can stay in position with good stability.
 &
 \\\hline
 \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1829}{LVV-T1829}
-&  1
+&  2
 & Not Executed &
 \begin{minipage}[]{9cm}
 \smallskip
@@ -1079,6 +1079,9 @@ criteria:
   Only requires commands to be sent through the CSC
 \item
   Only requires a python notebook to read output binary file
+\item
+  Does require telemetry data to be recorded from the EUI, EFD and an
+  output binary file
 \end{itemize}
 
 \textbf{ Preconditions}:\\
@@ -2132,6 +2135,9 @@ functionality and meets the following criteria:}
 \item
   {Only requires the control system to be in closed loop mode}
 \item
+  Does require telemetry data to be recorded from the EUI, EFD and an
+  output binary file
+\item
   Does \textbf{NOT~}only require the use of the EUI and can be commanded
   through SAL if available
 \end{itemize}
@@ -2139,7 +2145,7 @@ functionality and meets the following criteria:}
 \textbf{ Preconditions}:\\
 
 
-Execution status: {\bf Pass }
+Execution status: {\bf In Progress }
 
 Final comment:\\Re-positioninig the M2 mirror is shown to be repeatable and the mirror
 can stay in position with good stability.
@@ -2353,7 +2359,7 @@ We will skip these repetitions for now.
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
- & Status: \textbf{ Pass } \\ \hline
+ & Status: \textbf{ Not Executed } \\ \hline
 
 6 & Description \\
  & \begin{minipage}[t]{15cm}
@@ -2385,35 +2391,48 @@ position repeatability between ~the 3 cycles
 
 \end{longtable}
 
-\paragraph{ LVV-T1829 - M2 position sensors }\mbox{}\\
+\paragraph{ LVV-T1829 - M2 position sensors (v2) }\mbox{}\\
 
-Version \textbf{1}.
+Version \textbf{2}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1829}{\textit{ LVV-T1829 } }
 test case in Jira.
 
-Verify the M2 positions sensors work properly - all sensors can be read
-out, and the mirror position determined using these sensors match the
-mirror position as determined by the hard points.\\[2\baselineskip]{The
-objective of this test case is to re-verify the mirror position sensors
-requirement as specified in \citeds{LTS-146}, after shipment from the vendor's
-facility to the Summit facility. This test case will be executed before
-the M2 reference position and position sensor offset test case because
-we will need to first verify that the 12 sensors work according to the
-hardpoint encoders.~}\\[2\baselineskip]\textbf{{Version \#1 - verify
-position sensors work properly according to the hardpoint encoders. Take
-the data to verify the code we came up with to check that the M2
-position works properly.~}}\\
-\textbf{{Version \#2 - After we have code implemented in the software,
-verify it actually works and displays on the GUI as expected with both
-sets of positions consistent. (\emph{Once we feel like version 1 is
-done, I will create the second version and update it with this
-information)}}}
+{The objective of this test case is to re-verify the mirror position
+sensors requirement as specified in \citeds{LTS-146}, after shipment from the
+vendor's facility to the Summit facility.~}\\
+A previous version of this test case was created to initially verify the
+position sensors are accurate. The purpose of this version will be to
+verify that the software has been correctly implemented with IMS
+position measurements. {This test case will exercise this functionality
+and meets the following criteria:}
+
+\begin{itemize}
+\tightlist
+\item
+  {Only requires the surrogate mirror to be installed}
+\item
+  {Only requires the SAL 4.}{xx}
+\item
+  Does require telemetry data to be recorded from the EUI, EFD and an
+  output binary file ({Does this still require an output binary file?})
+\item
+  Does \textbf{NOT} require the use of a laser tracker
+\end{itemize}
 
 \textbf{ Preconditions}:\\
-test case
-\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T1791}{M2
-position stability and repeatability} has been carried out successfully
-with telemetry data in the EFD.
+Before this test case can be executed, the following tasks must be done:
+
+\begin{itemize}
+\tightlist
+\item
+  Add IMS position measurements to M2 SAL and GUI
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \url{https://jira.lsstcorp.org/browse/LVV-18872}
+  \end{itemize}
+\end{itemize}
 
 Execution status: {\bf Not Executed }
 
@@ -2489,22 +2508,32 @@ Note: Laser trackers does not have accuracy to validate position sensors
 
 \end{longtable}
 
-\paragraph{ LVV-T1810 - calibrate M2 optimal position and position sensor offset }\mbox{}\\
+\paragraph{ LVV-T1810 - Calibrate M2 optimal position and position sensor offset }\mbox{}\\
 
 Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1810}{\textit{ LVV-T1810 } }
 test case in Jira.
 
-{The objective of this test case is to partially re-verify the force
+{The objective of this test case is to help re-verify the force
 measurement accuracy and repeatability requirements defined in \citeds{LTS-146},
 after shipment from the vendor's facility to the Summit facility. This
 test case will involve optimizing the mirror position relative to the
-cell and redefine the optimal position as a mirror reference position.
+cell and redefining the optimal position as a mirror reference position.
 Once the optimal position has been determined, the offsets of the
 independent position sensor will need to be reset so that they show zero
-when at this reference position. The position from the displacement
-sensors will be provided to show partial verification of the accuracy
-and repeatability requirements.}
+when at this reference position. This test case will exercise this
+functionality and meets the following criteria:}
+
+\begin{itemize}
+\tightlist
+\item
+  {Only requires the surrogate mirror to be installed}
+\item
+  {Only requires the current version of SAL}
+\item
+  Does require telemetry data to be recorded from the EUI, EFD and a
+  configuration file
+\end{itemize}
 
 \textbf{ Preconditions}:\\
 
@@ -2712,7 +2741,16 @@ test case in Jira.
 requirement specified in \citeds{LTS-146}, after shipment from the vendor's
 facility to the Summit facility. While in closed loop mode, the
 actuators will be powered off to verify that they do not require power
-to maintain their set positions and forces.}
+to maintain their set positions and forces. This test case will exercise
+this functionality and meets the following criteria:}
+
+\begin{itemize}
+\tightlist
+\item
+  {Only requires the surrogate mirror to be installed}
+\item
+  {Only requires the telemetry data to be published to the EFD}
+\end{itemize}
 
 \textbf{ Preconditions}:\\
 
@@ -6359,6 +6397,9 @@ and meets the following criteria:
   Only requires the M2 surrogate to be loaded on the cell
 \item
   Requires the use of both the EUI and DDS
+\item
+  Does \textbf{NOT~}require the M2 to be integrated with the Interlock
+  system
 \end{itemize}
 
 \textbf{ Preconditions}:\\

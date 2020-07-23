@@ -2901,11 +2901,22 @@ test case in Jira.
 {The objective of this test case is to partially re-verify the
 active-optics forces requirement, as specified in \citeds{LTS-146}, after
 shipment from the vendor's facility to the Summit facility. The
-active-optics forces requirement will be verified by the M2 actuator
-bump test in conjunction with the bending mode test and AOS duration
-test. This test case will specifically verify that the M2 actuators are
-alive and responding to commands properly while in closed loop mode and
-should be executed first.}
+active-optics forces requirement will be fully verified by the M2
+actuator bump test in conjunction with the bending mode test and AOS
+duration test.~}The purpose of this test will be to verify the M2
+actuators are actually alive and able to respond to commands properly
+while in closed loop mode. This test case will exercise this
+functionality and meets the following criteria:
+
+\begin{itemize}
+\tightlist
+\item
+  Only requires the surrogate mirror to be installed
+\item
+  Only requires the current version of SAL
+\item
+  {Only requires a .csv file to send force commands to the actuators}
+\end{itemize}
 
 \textbf{ Preconditions}:\\
 
@@ -3075,11 +3086,23 @@ Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1788}{\te
 test case in Jira.
 
 {The objective of this test case is to confirm that bending mode forces
-can be applied, meeting the accuracy and repeatability requirements
-specified in \citeds{LTS-146}. As mentioned in the M2 Actuator Bump Test, this
-test will also verify the Active-Optics Forces requirement. This test
-will involve applying bending mode forces for about 5s and should show
-that the measured forces are consistent to the commanded forces.}
+can be applied to the M2, meeting the accuracy and repeatability
+requirements specified in \citeds{LTS-146}. As mentioned in the M2 Actuator Bump
+Test, this test will also partially verify the Active-Optics Forces
+requirement. This test will involve applying bending mode forces for
+about 5s and should show that the measured forces are consistent to the
+commanded forces. This test case will exercise this functionality and
+meets the following criteria:}
+
+\begin{itemize}
+\tightlist
+\item
+  {Only requires the surrogate mirror to be installed}
+\item
+  Only requires the current version of SAL
+\item
+  Only requires the control system to be in closed loop mode
+\end{itemize}
 
 \textbf{ Preconditions}:\\
 
@@ -3213,16 +3236,27 @@ Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1787}{\textit{ LVV-T1787 } }
 test case in Jira.
 
-{The objective of this test case it to re-verify the requirements
-specified in \citeds{LTS-146} regarding the forces of the M2 support system. This
-test case will first test that the actuators are applying the correct
-forces according to the Look-Up Table through the M2 cart's entire range
-of motion. This test case should show that the LUT forces are being
-updated at 20Hz and safely support the mirror. In addition, the M2
-inclinometer data should show consistency to that of the M2 cart control
-and zenith angles displayed on the GUI. }\\[2\baselineskip]{Version 1 -
-No elevation}\\
-{Version 2 - Elevated}
+{The objective of this test case it to re-verify the LUT and M2 cart
+requirements specified in \citeds{LTS-146} after shipment from the vendor's
+facility to the Summit facility. This will include testing that the
+correct forces are applied to the M2 according to the Look-Up Table
+through the M2 cart's entire range of motion. This should also show that
+the LUT forces are being updated at 20Hz and the M2 inclinometer data is
+consistent to the M2 cart control and zenith angles displayed on the
+GUI.~}This test case will exercise this functionality and meets the
+following criteria:
+
+\begin{itemize}
+\tightlist
+\item
+  Only requires the surrogate mirror to be installed
+\item
+  Only requires the current version of SAL
+\item
+  Only requires the M2 cell assembly to be installed on the M2 cart
+\item
+  Does \textbf{NOT~}require the M2 cart to be elevated
+\end{itemize}
 
 \textbf{ Preconditions}:\\
 

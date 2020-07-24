@@ -433,6 +433,14 @@ Electrical support }
 \medskip
 \end{minipage}
 \\ \hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1828}{LVV-T1828}
+& {\small Bo Xin } & {\small  } &
+\begin{minipage}[]{6cm}
+\smallskip
+{\small  }
+\medskip
+\end{minipage}
+\\ \hline
 \multicolumn{2}{r}{T. Cycle \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCycle/LVV-C148}{LVV-C148} owner:} &
 \multicolumn{2}{l}{\textbf{
 Austin Roberts }
@@ -723,6 +731,16 @@ operations. The force accuracy and repeatability also appear to meet
 requirements. Checked that the M2 control software publishes telemetry
 at 20Hz. Also checked that EFD event loss rate and latency are
 acceptable.
+\medskip
+\end{minipage}
+&
+\\\hline
+\href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1828}{LVV-T1828}
+&  1
+& Not Executed &
+\begin{minipage}[]{9cm}
+\smallskip
+
 \medskip
 \end{minipage}
 &
@@ -3404,12 +3422,23 @@ Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1782}{\te
 test case in Jira.
 
 {The objective of this test case is to re-verify the safety stops are in
-place as specified in \citeds{LTS-146} after shipment from the vendor's facility
-to the Summit facility. This test will involve first inspecting that the
-safety stops are in place and then moving the system until the motion
-limits are reached. The results of this test should show that the system
-enters the fault state when the motion limits are reached and prevent
-the M2 mirror from contacting the safety stops.}
+place as specified in \citeds{LTS-146}, after shipment from the vendor's facility
+to the Summit facility.~}\\
+This test will involve inspecting that the safety stops are in place and
+testing that the system enters the fault state when the motion limits
+are reached. Furthermore, this test will be used to determine the
+position of the software limits. This test case will exercise this
+functionality and meets the following criteria:
+
+\begin{itemize}
+\tightlist
+\item
+  Only requires the surrogate mirror to be installed
+\item
+  Only requires the latest version of SAL
+\item
+  Only requires that the software limits are tested
+\end{itemize}
 
 \textbf{ Preconditions}:\\
 
@@ -3571,7 +3600,22 @@ the vendor's facility to the base facility. This test case will be using
 the data from the testing of the inner loop control during open loop
 mode, as well as the outer and inner control loops in closed loop mode.
 The data should show that the Force Balance system responds
-appropriately during both open loop and closed loop modes.}
+appropriately during both open loop and closed loop modes. This test
+case will analyze this functionality and meets the following criteria:}
+
+\begin{itemize}
+\tightlist
+\item
+  {Only requires the surrogate mirror to be installed}
+\item
+  Only requires the current version of SAL
+\item
+  Does require the system to be operated in both open loop and closed
+  loop mode
+\item
+  Does require telemetry data to be recorded from the EUI, EFD and an
+  output binary file
+\end{itemize}
 
 \textbf{ Preconditions}:\\
 
@@ -3664,7 +3708,22 @@ M2 open loop mode and M2 closed loop mode test cases which will yield a
 reduced spring constant. The second is to use a stand alone spare
 actuator to produce a more accurate spring constant. This test should
 show that the axial actuator stiffness is greater than 2.6N/um and the
-tangent stiffness is greater than 30N/um.}
+tangent stiffness is greater than 30N/um. This test case will exercise
+this functionality and meets the following criteria:}
+
+\begin{itemize}
+\tightlist
+\item
+  {Only requires the surrogate mirror to be installed}
+\item
+  {Only requires the current version of SAL}
+\item
+  Does require telemetry data to be recorded from the EUI, EFD and an
+  output binary file
+\item
+  Does \textbf{NOT} require the spare actuator to be connected to the M2
+  cell
+\end{itemize}
 
 \textbf{ Preconditions}:\\
 
@@ -3766,14 +3825,29 @@ test case in Jira.
 
 {The objective of this test case is to re-verify the force limits of the
 M2 actuators as specified in \citeds{LTS-146}, after shipment from the vendor's
-facility to the Summit facility. This will be done by testing the force
-limits of one axial actuator and one tangent actuator. The axial
-actuator will be shown to be able to output at least 444N of force and
-trigger an alarm before reaching 666N. Similarly, the tangent actuator
-will be shown to be able to output at least 6000 N of force and trigger
-an alarm before reaching 9000N. The telemetry will be monitored to
-ensure that the force requirements are met without going past the force
-limits.}
+facility to the Summit facility. This will be done by individually
+testing the force limits of one axial actuator and one tangent actuator.
+The axial actuator will be shown to be able to output at least 444N of
+force and trigger an alarm before reaching 666N. Similarly, the tangent
+actuator will be shown to be able to output at least 6000 N of force and
+trigger an alarm before reaching 9000N. The telemetry will be monitored
+to ensure that the force requirements are met without going past the
+force limits. The test case will exercise this functionality and meets
+the criteria:}
+
+\begin{itemize}
+\tightlist
+\item
+  {Only requires the surrogate mirror to be installed}
+\item
+  Only requires the current version of SAL
+\item
+  Does require telemetry data to be recorded from the EUI, EFD and an
+  output binary file
+\item
+  Does \textbf{NOT} require the spare actuator to be connected to the M2
+  cell
+\end{itemize}
 
 \textbf{ Preconditions}:\\
 
@@ -4772,6 +4846,73 @@ telemetry updates are 20Hz}
 \end{minipage} \\ \cdashline{2-2}
 
  & Status: \textbf{ Pass } \\ \hline
+
+\end{longtable}
+
+\paragraph{ LVV-T1828 - M2 Tangential Loading }\mbox{}\\
+
+Version \textbf{1}.
+Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1828}{\textit{ LVV-T1828 } }
+test case in Jira.
+
+The objective of this test case it to re-verify the M2 Support system
+requirements specified in \citeds{LTS-146} after shipment from the vendor's
+facility to the Summit facility. This will include following the same
+test procedure of the M2 LUT (cart rotation) test case, but while the M2
+cart is elevated. Specifically, the side perpendicular to the tangential
+links A1 and A4 of the M2 cart will be lifted by a \textbf{TBD~}amount
+in order to simulate the tangential loads that will be on the telescope.
+This test case will exercise this functionality and meets the following
+criteria:
+
+\begin{itemize}
+\tightlist
+\item
+  Only requires the surrogate mirror to be installed
+\item
+  Only requires the current version of SAL
+\item
+  Only requires the M2 cell assembly to be installed on the M2 cart
+\item
+  Only\textbf{~}requires that one side of the M2 cart to be elevated by
+  \textbf{TBD ft}
+\end{itemize}
+
+\textbf{ Preconditions}:\\
+
+
+Execution status: {\bf Not Executed }
+
+Final comment:\\
+
+
+Detailed steps results:
+
+\begin{longtable}{p{1cm}p{15cm}}
+\hline
+{Step} & Step Details\\ \hline
+1 & Description \\
+ & \begin{minipage}[t]{15cm}
+{\footnotesize
+
+\medskip }
+\end{minipage}
+\\ \cdashline{2-2}
+
+
+ & Expected Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Actual Result \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
+
+ & Status: \textbf{ Not Executed } \\ \hline
 
 \end{longtable}
 

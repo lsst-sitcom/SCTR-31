@@ -710,7 +710,7 @@ testing.
 &
 \\\hline
 \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1795}{LVV-T1795}
-&  1
+&  2
 & Pass &
 \begin{minipage}[]{9cm}
 \smallskip
@@ -3842,8 +3842,9 @@ the criteria:}
 \item
   Only requires the current version of SAL
 \item
-  Does require telemetry data to be recorded from the EUI, EFD and an
-  output binary file
+  Only requires the system to be in closed loop mode
+\item
+  Does require telemetry data to be recorded from the EUI and the EFD
 \item
   Does \textbf{NOT} require the spare actuator to be connected to the M2
   cell
@@ -3987,12 +3988,25 @@ Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1786}{\textit{ LVV-T1786 } }
 test case in Jira.
 
-{The objective of this test case is to re-verify the tangent link stroke
+{The objective of this test case is to re-verify the actuator stroke
 requirement defined in \citeds{LTS-146}, after shipment from the vendor's
 facility to the Summit facility. In addition to verifying the stroke
 requirement, this test will be used to confirm the limit switches are in
 place and working properly. However, as to not damage the hard stops,
-only the software limits will be tested.~}
+only the software limits will be tested. This test case will exercise
+this functionality and meets the criteria:}
+
+\begin{itemize}
+\tightlist
+\item
+  {Only requires the surrogate mirror to be installed}
+\item
+  Only requires the current version of SAL
+\item
+  Does require commands be sent through the EUI and DDS
+\item
+  Only requires the testing of the software limits
+\end{itemize}
 
 \textbf{ Preconditions}:\\
 
@@ -4141,15 +4155,30 @@ end of a day of use. Instead of using all sixteen temperature sensors,
 the average difference between the exhaust temperature and intake
 temperature will be determined by using only four sensors (2 exhaust
 temperature sensors and 2 intake temperature sensors). This average will
-show that the cell temperature requirement has been met.\\
-}\\
-{Version \#1 - initial testing that Bo did}\\
-{Version \#2 - updated testing with operational conditions in mind}
+show that the cell temperature requirement has been met. This test case
+will exercise this functionality and meets the following criteria:}\\
+
+\begin{itemize}
+\tightlist
+\item
+  {Only requires the use of four temperature sensors}
+\item
+  Only requires the surrogate mirror to be installed
+\item
+  Only requires the current version of SAL
+\end{itemize}
 
 \textbf{ Preconditions}:\\
-M2 mirror control system have been on for multiple days of testing\\
-This is so that we have enough thermal data to analyze the thermal state
-of M2.
+The following tasks must be completed before this test can be executed:
+
+\begin{itemize}
+\tightlist
+\item
+  M2 mirror control system have been on for multiple days of testing
+\end{itemize}
+
+{This is so that we have enough thermal data to analyze the thermal
+state of M2.}
 
 Execution status: {\bf Fail }
 
@@ -4405,7 +4434,18 @@ M2 Vibration Monitoring System works properly, the VMS system needs to
 be functional during the M2 Active Optics duration test with the EFD
 collecting the VMS data. The data should show that the impact of the
 vibrations created by the M2 cell on the system image quality is within
-its allocation.~}
+its allocation. This test case will analyze this functionality and meets
+the follow criteria:}
+
+\begin{itemize}
+\tightlist
+\item
+  {Only requires the surrogate mirror to be installed}
+\item
+  {Only requires VMS data published to the EFD}
+\item
+  Only requires the current version of SAL
+\end{itemize}
 
 \textbf{ Preconditions}:\\
 
@@ -4484,18 +4524,27 @@ with the M2 assembly will be higher than that.~
 
 \paragraph{ LVV-T1795 - M2 mirror weight }\mbox{}\\
 
-Version \textbf{1}.
+Version \textbf{2}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1795}{\textit{ LVV-T1795 } }
 test case in Jira.
 
-{The objective of this test case is to partially re-verify the mirror
-definition requirement specified in \citeds{LTS-146}, after shipment from the
-vendor's facility to the Summit facility. Initially, this test will only
-involve the use of the surrogate mirror. This initial test should show
-that the M2 cell assembly is able to support an object of similar shape
-and weight to the actual mirror. After this functionality is confirmed,
-this test will be repeated with the real mirror and fully verify the
-mirror definition requirement.}
+{The objective of this test case is to re-verify the mirror definition
+requirement specified in \citeds{LTS-146}, after shipment from the vendor's
+facility to the Summit facility. Initially, this test only showed that
+the M2 cell assembly was able to support the surrogate mirror. Now, this
+will involve testing the forces of the M2 cell being applied to the
+actual mirror. This test will case will exercise this functionality and
+meets the following criteria:}
+
+\begin{itemize}
+\tightlist
+\item
+  {Only requires the actual mirror to be installed}
+\item
+  {Only requires the telemetry data to be published to the EFD}
+\item
+  {Does \textbf{NOT~}require the M2 LUT test to be fully repeated}
+\end{itemize}
 
 \textbf{ Preconditions}:\\
 
@@ -4607,12 +4656,20 @@ test case in Jira.
 
 {The objective of this test case is to finish verifying the active
 optics, force repeatability and force accuracy requirements specified in
-\citeds{LTS-146}. This test should also confirm that the M2 control system
-operates at a bandwidth of at least 20Hz. In order to verify the active
-optics requirements, this test will incorporate applying additional
-offset forces to the mirror support control system during visits of 37s.
-The steps of this test should also determine how long the maximum length
-of a single csv file can be run. }
+\citeds{LTS-146}. While applying additional offset forces to the mirror support
+control system, this test should also confirm that the M2 control system
+operates at a bandwidth of at least 20Hz. This test case will exercise
+this functionality and meets the following criteria:}
+
+\begin{itemize}
+\tightlist
+\item
+  {Only requires the surrogate mirror to be installed}
+\item
+  Only requires the system to be commanded via DDS
+\item
+  Only requires the latest version of SAL
+\end{itemize}
 
 \textbf{ Preconditions}:\\
 {Prior to the execution of this test case to re-verify the M2 control

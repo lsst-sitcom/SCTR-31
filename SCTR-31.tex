@@ -615,7 +615,7 @@ repeatability meet requirements.
 &
 \\\hline
 \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1787}{LVV-T1787}
-&  1
+&  2
 & Pass &
 \begin{minipage}[]{9cm}
 \smallskip
@@ -736,7 +736,7 @@ acceptable.
 &
 \\\hline
 \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1828}{LVV-T1828}
-&  1
+&  
 & Not Executed &
 \begin{minipage}[]{9cm}
 \smallskip
@@ -2931,7 +2931,7 @@ functionality and meets the following criteria:
 \item
   Only requires the surrogate mirror to be installed
 \item
-  Only requires the current version of SAL
+  Does \textbf{NOT} require for the commands to be sent via SAL
 \item
   {Only requires a .csv file to send force commands to the actuators}
 \end{itemize}
@@ -3250,30 +3250,33 @@ https://github.com/bxin/M2\_summit\_2003/blob/master/a16\_bending\_modes.ipynb
 
 \paragraph{ LVV-T1787 - M2 LUT (cart rotation) }\mbox{}\\
 
-Version \textbf{1}.
+Version \textbf{2}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1787}{\textit{ LVV-T1787 } }
 test case in Jira.
 
-{The objective of this test case it to re-verify the LUT and M2 cart
+The objective of this test case it to re-verify the M2 Support system
 requirements specified in \citeds{LTS-146} after shipment from the vendor's
-facility to the Summit facility. This will include testing that the
-correct forces are applied to the M2 according to the Look-Up Table
-through the M2 cart's entire range of motion. This should also show that
-the LUT forces are being updated at 20Hz and the M2 inclinometer data is
-consistent to the M2 cart control and zenith angles displayed on the
-GUI.~}This test case will exercise this functionality and meets the
-following criteria:
+facility to the Summit facility. This will include following the same
+test procedure as the previous version, but while the M2 cart is
+elevated. Specifically, the side perpendicular to the tangential links
+A1 and A4 of the M2 cart will be lifted by a \textbf{TBD ft} in order to
+simulate the tangential loads that will be on the telescope. The updated
+version should also show that the LUT forces are being updated at 20Hz
+and the M2 inclinometer data is consistent to the M2 cart control and
+zenith angles displayed on the GUI. This test case will exercise this
+functionality and meets the following criteria:\\
 
 \begin{itemize}
 \tightlist
 \item
   Only requires the surrogate mirror to be installed
 \item
-  Only requires the current version of SAL
+  Does \textbf{NOT} require any commands to be sent through SAL
 \item
   Only requires the M2 cell assembly to be installed on the M2 cart
 \item
-  Does \textbf{NOT~}require the M2 cart to be elevated
+  Only\textbf{~}requires that one side of the M2 cart to be elevated by
+  \textbf{TBD ft}
 \end{itemize}
 
 \textbf{ Preconditions}:\\
@@ -3989,7 +3992,7 @@ Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1786}{\te
 test case in Jira.
 
 {The objective of this test case is to re-verify the actuator stroke
-requirement defined in \citeds{LTS-146}, after shipment from the vendor's
+requirements defined in \citeds{LTS-146}, after shipment from the vendor's
 facility to the Summit facility. In addition to verifying the stroke
 requirement, this test will be used to confirm the limit switches are in
 place and working properly. However, as to not damage the hard stops,
@@ -4906,34 +4909,13 @@ telemetry updates are 20Hz}
 
 \end{longtable}
 
-\paragraph{ LVV-T1828 - M2 Tangential Loading }\mbox{}\\
+\paragraph{ LVV-T1828 -  }\mbox{}\\
 
-Version \textbf{1}.
+Version \textbf{}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1828}{\textit{ LVV-T1828 } }
 test case in Jira.
 
-The objective of this test case it to re-verify the M2 Support system
-requirements specified in \citeds{LTS-146} after shipment from the vendor's
-facility to the Summit facility. This will include following the same
-test procedure of the M2 LUT (cart rotation) test case, but while the M2
-cart is elevated. Specifically, the side perpendicular to the tangential
-links A1 and A4 of the M2 cart will be lifted by a \textbf{TBD~}amount
-in order to simulate the tangential loads that will be on the telescope.
-This test case will exercise this functionality and meets the following
-criteria:
-
-\begin{itemize}
-\tightlist
-\item
-  Only requires the surrogate mirror to be installed
-\item
-  Only requires the current version of SAL
-\item
-  Only requires the M2 cell assembly to be installed on the M2 cart
-\item
-  Only\textbf{~}requires that one side of the M2 cart to be elevated by
-  \textbf{TBD ft}
-\end{itemize}
+This Test Case has been archived. Information here may not completed.
 
 \textbf{ Preconditions}:\\
 

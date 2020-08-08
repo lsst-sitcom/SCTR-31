@@ -2177,7 +2177,7 @@ Detailed steps results:
 1 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-power up M2 control system; enter closed-loop
+Power up M2 control system and enter closed-loop
 
 \medskip }
 \end{minipage}
@@ -2186,6 +2186,7 @@ power up M2 control system; enter closed-loop
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+The M2 control system enters closed-loop mode.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -2201,16 +2202,28 @@ power up M2 control system; enter closed-loop
 2 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-start from (x,y,z,rx,ry,rz) = (0,0,0,0,0,0)\\
-use EUI to move M2\\
-to x = +0.1mm, hold 37s,\\
-to x=+0.3mm, hold 37s,\\
-to x=+0.5mm, hold 37s,\\
-back to origin, hold 37s,\\
-to x = -0.1mm, hold 37s,\\
-to x=-0.3mm, hold 37s,\\
-to x=-0.5mm, hold 37s,\\
-back to origin, hold 37s.
+Starting from (x,y,z,rx,ry,rz) = (0,0,0,0,0,0),\\
+Use EUI to move M2
+
+\begin{itemize}
+\tightlist
+\item
+  to x = +0.1mm, hold 37s
+\item
+  to x=+0.3mm, hold 37s
+\item
+  to x=+0.5mm, hold 37s
+\item
+  back to origin, hold 37s
+\item
+  to x = -0.1mm, hold 37s
+\item
+  to x=-0.3mm, hold 37s
+\item
+  to x=-0.5mm, hold 37s
+\item
+  back to origin, hold 37s.
+\end{itemize}
 
 \medskip }
 \end{minipage}
@@ -2219,6 +2232,8 @@ back to origin, hold 37s.
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+No limit switch is tripped during the move and the M2 is seen to be able
+to hold each position for at least 37s.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -2270,7 +2285,7 @@ to x=0mm, hold 37s, 15:11 local\\[2\baselineskip]
 3 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-repeat above for y,z\\[2\baselineskip]
+Repeat the above step for y and z\\[2\baselineskip]
 
 \medskip }
 \end{minipage}
@@ -2279,6 +2294,8 @@ repeat above for y,z\\[2\baselineskip]
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+No limit switch is tripped during the move and the M2 is seen to be able
+to hold each position for at least 37s.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -2316,6 +2333,8 @@ repeat above for rx, ry, rz
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+No limit switch is tripped during the move and the M2 is seen to be able
+to hold each position for at least 37s.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -2361,9 +2380,17 @@ repeat everything 2 more times
 \end{minipage}
 \\ \cdashline{2-2}
 
+ & Test Data \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+Note: Commands can be sent through the DDS to save time.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+The results of the second and third tests are both consistent to the
+results of the first test.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -2382,10 +2409,16 @@ We will skip these repetitions for now.
 6 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-analysis output binary to check:\\
-position stability during each 15s periods (5:00 - 20:00, 22:00 -
-37:00)\\
-position repeatability between ~the 3 cycles
+Analysis of the output binary file to check:
+
+\begin{itemize}
+\tightlist
+\item
+  position stability during each 15s periods (5:00 - 20:00, 22:00 -
+  37:00)
+\item
+  position repeatability between the 3 cycles
+\end{itemize}
 
 \medskip }
 \end{minipage}
@@ -2394,6 +2427,9 @@ position repeatability between ~the 3 cycles
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+The output binary file shows that the stiffness of the actuators and
+tangent links provide adequate stability and the position between all
+three cycles are consistent.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -6592,7 +6628,7 @@ state.
 
 \end{longtable}
 
-\paragraph{ LVV-T1615 - Integration of M2 with SAL v4.x (TBD) }\mbox{}\\
+\paragraph{ LVV-T1615 - Integration of M2 with SAL }\mbox{}\\
 
 Version \textbf{1}.
 Open  \href{https://jira.lsstcorp.org/secure/Tests.jspa#/testCase/LVV-T1615}{\textit{ LVV-T1615 } }
@@ -6607,6 +6643,8 @@ and meets the following criteria:
 
 \begin{itemize}
 \tightlist
+\item
+  Only requires the most current version of SAL
 \item
   Only requires the M2 surrogate to be loaded on the cell
 \item

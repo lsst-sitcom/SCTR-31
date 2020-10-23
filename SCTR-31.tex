@@ -3000,7 +3000,7 @@ Detailed steps results:
 1 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-power up the M2 control system; enter closed loop mode
+Power up the M2 control system and enter closed loop mode
 
 \medskip }
 \end{minipage}
@@ -3009,6 +3009,7 @@ power up the M2 control system; enter closed loop mode
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+The system is in closed loop mode and is able to accept force commands.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -3024,12 +3025,19 @@ power up the M2 control system; enter closed loop mode
 2 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-for each actuator,\\
-apply 20N, hold one second\\
-clear forces,\\
-apply -20N, hold one second,\\
-clear forces,\\
-then go to the next actuator
+For each actuator (including the tangent links):
+
+\begin{itemize}
+\tightlist
+\item
+  apply 20N and hold one second
+\item
+  clear forces
+\item
+  apply -20N and hold one second
+\item
+  clear forces
+\end{itemize}
 
 \medskip }
 \end{minipage}
@@ -3038,17 +3046,14 @@ then go to the next actuator
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+Each commanded force is applied and holds until the force is cleared.~
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
 
  & Actual Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-We started at 23:35 utc on 3/3/20.\\
-We applied each force for 1s. So 3s for each actuator. We did this for
-all the actuators. That took 78*3s, which is about 4min.\\
-We did this with closed loop. Open loop does not accept
-forces.\\[2\baselineskip]3/6/20.\\
+3/6/20.\\
 earlier we only applied one-row csv file for force and confirmed that
 the forces hold.\\
 Based on experiments from yesterday, Bo realized that the force values
@@ -3056,10 +3061,12 @@ in the csv are not accumulative, they are absolute values. So,\\
 the force csv files shouldn't be padded with zero, we need to repeat
 same values for the time period we want to hold the forces. Tested and
 confirmed with testF2rows.csv\\
-Redoing the test on 3/6/20. using bumpHold1.csv\\
-13:41 utc first try.\\
-13:46 utc 2nd try.\\[2\baselineskip]See bumpHold1.csv and
-bmHold6000x78.csv in the following docushare collection:
+Redoing the test on 3/6/20. using bumpHold1.csv\\[2\baselineskip]We
+repeated this 3 times (since this is the first time we execute this)\\
+13:41 utc first time.\\
+13:46 utc 2nd time.\\
+13:51 utc 3rd time.\\[2\baselineskip]See bumpHold1.csv in the following
+docushare collection:
 \url{https://docushare.lsst.org/docushare/dsweb/View/Collection-9710}
 
 \medskip }
@@ -3070,58 +3077,31 @@ bmHold6000x78.csv in the following docushare collection:
 3 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-repeat the above 3 times
+\textbf{Data Analysis}
+
+\begin{itemize}
+\tightlist
+\item
+  Verify that each actuator responded to the force commands.
+\item
+  The forces applied are roughly what had been commanded.
+\end{itemize}
 
 \medskip }
 \end{minipage}
 \\ \cdashline{2-2}
 
-
- & Expected Result \\
+ & Test Data \\
  & \begin{minipage}[t]{15cm}{\footnotesize
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Actual Result \\
- & \begin{minipage}[t]{15cm}{\footnotesize
-first repeat: 00:10 utc 3/4/20.\\
-2nd repeat: 00:15 utc 3/4/20. Bo was shaking the meta ring at the bottom
-of the M2 after this run.\\
-3rd repeat: 00:21 utc 3/4/20.\\[2\baselineskip]3/6/20.\\
-earlier we only applied one-row csv file for force and confirmed that
-the forces hold.\\
-Based on experiments from yesterday, Bo realized that the force values
-in the csv are not accumulative, they are absolute values. So,\\
-the force csv files shouldn't be padded with zero, we need to repeat
-same values for the time period we want to hold the forces. Tested and
-confirmed with testF2rows.csv\\
-Redoing the test on 3/6/20. using bumpHold1.csv\\
-13:41 utc first time.\\
-13:46 utc 2nd time.\\
-13:51 utc 3rd time.
-
-\medskip }
-\end{minipage} \\ \cdashline{2-2}
-
- & Status: \textbf{ Pass } \\ \hline
-
-4 & Description \\
- & \begin{minipage}[t]{15cm}
-{\footnotesize
-data analysis:\\
-verify that each actuator responded to the force commands.\\
-The forces applied are roughly what had been commanded.\\
-Note that this test is about actuator aliveness. The force accuracy is
+Note: This test is about actuator aliveness. The force accuracy is
 checked in the bending mode test and the AOS duration test.
 
 \medskip }
-\end{minipage}
-\\ \cdashline{2-2}
-
+\end{minipage} \\ \cdashline{2-2}
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+All the actuators respond to the force commands.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -3187,19 +3167,24 @@ Detailed steps results:
 1 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-In Matlab script, take bending modes 1-20, apply the following scale
+In Matlab script, take bending modes 1-20 and apply the following scale
 factors:\\
 mode 1-10: 1/2\\
 11-15: 1/3\\
-16-20: 1/4\\
-Note: we want to scale them to roughly produce surface RMS of 500nm.but
-also do not want large forces.\\
-\% The AOS force budget is 44N (10\% of total)
+16-20: 1/4\\[2\baselineskip]\% The AOS force budget is 44N (10\% of
+total)
 
 \medskip }
 \end{minipage}
 \\ \cdashline{2-2}
 
+ & Test Data \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+Note: We want to scale them to roughly produce surface RMS of 500nm, but
+also do not want large forces.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
@@ -3220,10 +3205,17 @@ also do not want large forces.\\
 {\footnotesize
 Loop over all the 20 bending modes, apply them in turn, use
 genScriptFile.m to convert them into a scp file.\\
-for each bending mode\\
-apply bending mode forces, hold 5s\\
-apply reversed bending mode forces, hold 5s\\
-clear
+For each bending mode,
+
+\begin{itemize}
+\tightlist
+\item
+  apply bending mode forces and hold 5s
+\item
+  apply reversed bending mode forces and hold 5s
+\item
+  clear
+\end{itemize}
 
 \medskip }
 \end{minipage}
@@ -3266,18 +3258,30 @@ collection:~\url{https://docushare.lsst.org/docushare/dsweb/View/Collection-9710
 3 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-data analysis:\\
-look at telemetry to make sure all bending modes were applied without
-problem.\\
-compare commanded forces to measured forces.\\
-Note that force error here doesn't include absolute (load cell)
-calibration error. We can only check the difference between applied
-force and load-cell measured force.
+\textbf{Data Analysis\\
+}
+
+\begin{itemize}
+\tightlist
+\item
+  Look at telemetry to make sure all bending modes were applied without
+  problem.
+\item
+  Compare commanded forces to measured forces.
+\end{itemize}
 
 \medskip }
 \end{minipage}
 \\ \cdashline{2-2}
 
+ & Test Data \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+Note: The force error here doesn't include absolute (load cell)
+calibration error. We can only check the difference between applied
+force and load-cell measured force.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize

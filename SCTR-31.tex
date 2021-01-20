@@ -4100,18 +4100,26 @@ Detailed steps results:
 1 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-With a spare actuator, command it to move by 4mm\\
-confirm the actuator stroke is between 3.424mm and 4mm (LTS-146,
-3.3.2.9)\\[2\baselineskip]Alternative is simply point this to the Harris
-test document, without verifying it again.
+Command a spare actuator to move by 4mm to\\
+confirm the actuator stroke range is between 3.424mm and 4mm
 
 \medskip }
 \end{minipage}
 \\ \cdashline{2-2}
 
+ & Test Data \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+Note: An alternative option is to simply point to the Harris test
+document, without verifying it again.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+The actuator stroke is confirmed to be between 3.424mm and 4mm per
+LTS-146, 3.3.2.9~{Need to create VE for this and trace to this test
+case}
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -4127,19 +4135,25 @@ test document, without verifying it again.
 2 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-in open loop, command actuators by mm, approach the
-strokes\\[2\baselineskip]Note: ideally we want to first reconfigure the
-control system to lower these limits (to 0.1mm in each direction) before
-we set it back to default. But Te-Wei noted that these are hardcoded
-somewhere and hard to find.
+In open loop mode, command the actuators by an increment of 1mm until
+the limit of the strokes are found.~
 
 \medskip }
 \end{minipage}
 \\ \cdashline{2-2}
 
+ & Test Data \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+Note: Ideally, we want to first reconfigure the control system to lower
+the limits (to 0.1mm in each direction) before we set it back to default
+but Te-Wei noted that these are hardcoded somewhere and hard to find.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+The software limits of the actuators are found.
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}
@@ -4185,21 +4199,35 @@ GUI.\\[2\baselineskip]
 3 & Description \\
  & \begin{minipage}[t]{15cm}
 {\footnotesize
-data analysis:\\
-check actuator length over the full force range, and compare to the
-actuator stroke requirement (LTS-146, 3.3.2.9,
-3.424mm\textless{}stroke\textless{}4mm)\\
-Do the same for tangent links (3.3.3.9,
-0.89mm\textless{}stroke\textless{}1.0mm)\\
-Note that actuator length is required by LTS-146 3.4.10
+\textbf{Data Analysis}
+
+\begin{itemize}
+\tightlist
+\item
+  {Check actuator length over the full force range, and compare to the
+  actuator stroke requirement~}
+\item
+  Do the same for tangent links
+\end{itemize}
 
 \medskip }
 \end{minipage}
 \\ \cdashline{2-2}
 
+ & Test Data \\
+ & \begin{minipage}[t]{15cm}{\footnotesize
+Note: The axial actuator length range is required to be between 3.424mm
+and 4mm.\\
+The range for the tangent links is required to be between 0.89mm and
+1.0mm.
+
+\medskip }
+\end{minipage} \\ \cdashline{2-2}
 
  & Expected Result \\
  & \begin{minipage}[t]{15cm}{\footnotesize
+The actuator lengths for the axial actuators and tangent links are
+within the expected range.~
 
 \medskip }
 \end{minipage} \\ \cdashline{2-2}

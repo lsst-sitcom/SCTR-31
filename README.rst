@@ -10,3 +10,5 @@ SCTR-31
 M2 Functional Re-verification and SAL Interface Verification
 
 To regenerate from Jira use the github action "docgen from Jira" on your branch. 
+
+See sctr-31.lsst.io.
